@@ -20,6 +20,9 @@ Plataforma de comercio electrónico para el rubro Cervecero.
 <br>- Promociones
 <br>- Alquileres
 <br>- Merchandesing
+<br>- Insumos para Fabricacion
+<br>- Cursos 
+<br>- Podcast?? http://tomandoaltura.com/6-podcasts-cerveza/beers/
 
 ### Audiencia:
 #### Vendedores: 
@@ -34,7 +37,7 @@ Quienes buscan elegir/comprar por gusto, afinidad o precio dentro de la más gra
 Comerciantes, que compran cantidad/Promociones para obtener ganancia. Bares, Hoteles, Cervetecas, Vinotecas y Supermercados.
 
 ### Oferta:
-La plataforma cobra comisiones por transacciones realizadas y obtiene ganancias por la logistica de envíos.
+La plataforma cobra comisiones por transacciones realizadas y obtiene ganancias por la logistica de envíos. Tambien por publicidad
 <br>Dando lugar a que el Vendedor obtenga renombre por sus ventas y reputacion por su compromiso y calidad.
 <br>Y consiguiendo el Consumidor el producto que estaba buscando tanto por precio, por cercania, calidad, variedad, gusto, etc.
 

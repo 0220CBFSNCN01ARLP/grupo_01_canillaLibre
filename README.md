@@ -31,7 +31,7 @@ Minoristas y Pequeños Fabricantes: que quieran hacer conocer sus productos.
 Quienes buscan elegir/comprar por gusto, afinidad o precio dentro de la más grande plataforma del Rubro Cervecero.
 
 #### Revendedores: 
-Comerciantes, que compran cantidad/Promociones para obtener ganacia. Bares, Hoteles, Cervetecas, Vinotecas y Supermercados.
+Comerciantes, que compran cantidad/Promociones para obtener ganancia. Bares, Hoteles, Cervetecas, Vinotecas y Supermercados.
 
 ### Oferta:
 La plataforma cobra comisiones por transacciones realizadas y obtiene ganancias por la logistica de envíos.

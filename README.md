@@ -22,7 +22,7 @@ Plataforma de comercio electrónico para el rubro Cervecero.
 <br>- Merchandesing
 <br>- Insumos para Fabricacion
 <br>- Cursos 
-<br>- Podcast?? http://tomandoaltura.com/6-podcasts-cerveza/beers/
+<br>- Podcast
 
 ### Audiencia:
 #### Vendedores: 
@@ -41,3 +41,10 @@ La plataforma cobra comisiones por transacciones realizadas y obtiene ganancias 
 <br>Dando lugar a que el Vendedor obtenga renombre por sus ventas y reputacion por su compromiso y calidad.
 <br>Y consiguiendo el Consumidor el producto que estaba buscando tanto por precio, por cercania, calidad, variedad, gusto, etc.
 
+### Links de referencia
+
+https://reverb.com/  (intrumentos musicales-usa). Se eligio por funcionamiento. Es un sitio de compras y ventas online entre particulare y tambien participan empresas dirigido al rubro de los instrumentos musicales. Es muy completo y tiene, ademas del e-shop, notas de interes, podcast, tutoriales, comparativas de articulos.
+https://www.mercadolibre.com.ar/ (varios - argentina) El sitio de subastas por excelencia en Argentina y Latinoamerica. Excelente interfaz grafica, y proceso de compra-venta-ditribucion online. Seguridad en transacciones
+https://www.globomatik.com/  (informatica-espana) Sitio de compra venta especializada en articulos de informatica. Se eligio por funcionamiento
+https://www.amazon.com/-/es/Equipo-Suministros-Servicio-Alimentos/b?ie=UTF8&node=6054382011 (amazon suminsitro alimentos -usa). E-commerce global, con variedad de secciones. En este caso se enfoco en articulos de alimentacion (para ver sobre todo catalogos, disposicion de imagenes, seguridad de compra)
+https://craftcentral.ie/ (eshop cerveza -irlanda). Eshop especifico de erveza en Irlanda. Se eligio por estetica del site y variedad de productos para venta.

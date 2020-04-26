@@ -48,3 +48,8 @@ https://www.mercadolibre.com.ar/ (varios - argentina) El sitio de subastas por e
 https://www.globomatik.com/  (informatica-espana) Sitio de compra venta especializada en articulos de informatica. Se eligio por funcionamiento
 https://www.amazon.com/-/es/Equipo-Suministros-Servicio-Alimentos/b?ie=UTF8&node=6054382011 (amazon suminsitro alimentos -usa). E-commerce global, con variedad de secciones. En este caso se enfoco en articulos de alimentacion (para ver sobre todo catalogos, disposicion de imagenes, seguridad de compra)
 https://craftcentral.ie/ (eshop cerveza -irlanda). Eshop especifico de erveza en Irlanda. Se eligio por estetica del site y variedad de productos para venta.
+
+Sprint 2 
+Entregable N 2
+
+https://trello.com/b/MmC3LzMI/grupo01canillalibre

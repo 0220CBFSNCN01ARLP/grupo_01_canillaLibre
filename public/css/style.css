@@ -215,7 +215,6 @@
   }
   
   .product-box_image {
-    border-left: 2px solid #197582;
 
   }
   
@@ -223,7 +222,7 @@
     color: black;
     display: flex;
     justify-content: center;
-    border-left: 2px solid #197582;
+    border-left: 1px solid #197582;
     padding: 10px;
   }
   
@@ -232,7 +231,10 @@
     font-size: 1.3em;
     font-weight: 500;
     padding-right: 8px;
+  }
 
+  .star {
+    border-left: 1px solid #197582;
   }
   
   .product-box_data span {
@@ -240,12 +242,15 @@
     font-size: 1em;
     font-weight: 300;
     margin-top: 2px;
+    
 }
 
 .btn {
     font-size: 1em;
     content:"\f005";
     color: #FDBE01;
+    
+    
 }
 .btn p {
     color: black;

@@ -1,0 +1,61 @@
+body {
+  background: linear-gradient(to bottom, #fabe2e 50%, white 50%); /* W3C */
+}
+.container {
+  margin-top: 80px;
+}
+
+h4,
+form {
+  background-color: white;
+  width: 50%;
+  margin: auto;
+  padding: 20px;
+}
+h4 {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  text-align: center;
+}
+
+.hightlited a {
+  color: rgba(0, 81, 255, 0.774);
+  text-decoration: underline;
+}
+
+.name {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+ 
+
+  
+}
+.name .form-group {
+  flex-grow: 1;
+}
+.checkers {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  text-align: justify;
+}
+.checkers .form-check {
+  align-items: center;
+}
+
+.btn {
+  background-color: #fabe2e;
+  border-color: grey;
+  width: 100%;
+}
+.facebook {
+  color: #3b5998;
+  font-weight: bold;
+  text-align: center;
+  padding-top: 10px;
+}
+.withcount {
+  text-align: center;
+  padding-top: 10px;
+}

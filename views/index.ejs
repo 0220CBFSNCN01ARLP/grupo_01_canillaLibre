@@ -1,11 +1,547 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-  </body>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Canilla Libre</title>
+
+    <!--favicon-->
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="manifest" href="img/favicon/site.webmanifest">
+    <link rel="mask-icon" href="img/favicon/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+
+    <!--Googlefont LATO 300-400-700-->
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
+
+    <!--boostrap-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <!-- Font Awesome Stylesheet -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+
+    <!--css Style-->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="style-franco.css">
+    <link rel="stylesheet" href="ofertas_style.css">
+    <link rel="stylesheet" href="register_style.css">
+
+    <!--boostrap script-->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+
+</head>
+<body>
+    <!--header/javi -->
+    <header class="nav-header">
+        <div class="navborder">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light d-flex">
+                <a class="navbar-brand" href="#">
+                    <img src="img/header/logo_header.svg" width="120" class="d-inline-block align-top" alt="Canilla Libre">
+                </a>
+
+                <!--search / xl-->
+                <div class="d-flex justify-content-end align-items-center ml-auto ">
+                    <div class="input-group mb-3 col box-1">
+                        <input type="text" class="form-control" placeholder="que queres tomar?" aria-label="buscador"
+                            aria-describedby="search_header">
+                        <div class="input-group-append">
+                        <button class="btn btn-outline-warning" type="button" id="buscar_nav_header">
+                            <i class="fas fa-beer"></i></button>
+                        </div>
+                    </div>
+
+                    <button class="btn btn-outline-warning ml-auto" type="button">Vende</button>
+                    <a class="nav-link text-black-50" href="#"><i class="fas fa-shopping-basket"></i></a>
+                    <a class="nav-link text-black-50 d-none d-md-block" href="#"><i class="far fa-heart"></i></a>
+                    <a class="nav-link text-black-50 d-none d-md-block" href="register.ejs">Registro</i></a>
+                    <a class="nav-link text-black-50 d-none d-md-block active" href="#">Inicio de Sesión</i></a>
+                </div>
+                <!--nav mobile-->
+                <button class="navbar-toggler d-sm-block d-md-none" type="button" data-toggle="collapse" data-target="#menu_desplegable">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="dropdown-divider"></div>
+                <div class="collapse navbar-collapse" id="menu_desplegable">
+                    <ul class="navbar-nav mr-auto d-sm-block d-md-none">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="#"><i class="fas fa-home"></i> Inicio<span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="register.ejs"><i class="far fa-user-circle"></i> Registrate</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#"><i class="far fa-heart"></i> Favoritos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#"><i class="fas fa-dollar-sign"></i> Ofertas</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#"><i class="far fa-bell"></i> Mas Vendidos<span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-list-ul"></i> Categorias
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="#">Variedad de Cervezas</a>
+                                <a class="dropdown-item" href="#">Presentaciones</a>
+                                <a class="dropdown-item" href="#">Promociones</a>
+                                <a class="dropdown-item" href="#">Alquileres</a>
+                                <a class="dropdown-item" href="#">Merchandesing</a>
+                                <a class="dropdown-item" href="#">Insumos</a>
+                                <a class="dropdown-item" href="#">Cursos</a>
+                                <a class="dropdown-item" href="#">Podcast</a>
+                            </div>
+                        </li>
+                        <div class="dropdown-divider"></div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#"><i class="fas fa-bath"></i> Tiendas Oficiales</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#"><i class="fas fa-kiwi-bird"></i> Nosotros</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#"><i class="fas fa-headset"></i> Contacto</a>
+                        </li>               
+                        
+                    </ul>
+                </div>
+            </nav>
+        </div>
+        <!--search header mobile-->
+        <div class="input-group mb-3 col box-2 bg-light">
+            <input type="text" class="form-control" placeholder="que queres tomar?" aria-label="buscador"
+                aria-describedby="search_header">
+            <div class="input-group-append">
+                <button class="btn btn-outline-warning" type="button" id="buscar_nav_header">
+                    <i class="fas fa-beer"></i></button>
+            </div>
+        </div>
+
+        <!--nav md-xl-->
+        <div class="prueba d.flex justify-content-end">
+            <nav class="navbar navbar-expand-md navbar-light bg-light d-none d-md-block">
+                <ul class="navbar-nav ml-auto d-flex justify-content-end align-items-center">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                            <i class="fas fa-list-ul"></i> Categorias
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="#">Variedad de Cervezas</a>
+                                    <a class="dropdown-item" href="#">Presentaciones</a>
+                                    <a class="dropdown-item" href="#">Promociones</a>
+                                    <a class="dropdown-item" href="#">Alquileres</a>
+                                    <a class="dropdown-item" href="#">Merchandesing</a>
+                                    <a class="dropdown-item" href="#">Insumos</a>
+                                    <a class="dropdown-item" href="#">Cursos</a>
+                                    <a class="dropdown-item" href="#">Podcast</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Ofertas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Mas Vendidos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Tiendas Oficiales</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Nosotros </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contacto</a>
+                    </li>               
+                            
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!--categorias/javi -->
+        <section class="categorias">
+                <div class="categorias-title">
+                    <h2 class="title_categoria border-bottom">Categorías</h2>
+                </div>
+                
+                <!--carousel-->
+                <div class="col-12 justify-content-center align-items-center mb-4">
+                    <img class="d-flex w-100" src="img/categorias/img.png" alt="">
+                </div>
+                
+                <!--fin de carousel-->
+        </section> 
+
+        <!--ventas/javi -->
+        <section class="ventas_box ">
+            <div class="pepito d-flex justify-content-between align-items-center ml-auto"> 
+                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-5 col-xl-3 d-flex flex-wrap border">  
+                    <a class="venta_box d-flex flex-wrap " href="#">
+                        <h4>crea un anuncio </br>gratis</h4>
+                        <p>Publica en solo minutos para que tu producto esté
+                            en frente a millones de consumidores.</p>
+                        <h2>vende ahora</h2>    
+                    </a>
+                </div>    
+                <div class="col-xs-6 col-sm-5 col-md-4 col-lg-3 col-xl-3 d-flex position-relative">
+                    <img class="beer_ventas position-absolute" src="img/banner/beer_shadow.png" alt="">
+                </div>
+            </div>    
+                <div class="slogan_ventas col-xs-12 col-sm-12 col-md-6 col-lg-5 col-xl-4  d.flex">
+                            <p class="mb-0">Siempre es buen momento</p>
+                            <p class="mb-2 ml-4">para darse un gusto...</p>
+                </div>
+                
+            
+        </section>
+
+        <!--ofertas/diego -->
+        <section>
+            <div class="categorias-title">
+                <h2 class="title_categoria border-bottom">Ofertas</h2>
+            </div>
+            <div class="container">
+                <div class="d-none d-md-block">
+                    <div class="imagenes_ofertas_1">
+                        <div class="seccion_ind">
+                            <div class="column">
+                                <a href=""><img src="./img/ofertas/img_01.png" alt="" /></a>
+                                <a href=""><img id="foto_4" src="./img/ofertas/img_04.png" alt="" /></a>
+                            </div>
+                        </div>
+                        <div class="seccion_ind">
+                            <div class="column">
+                                <a href=""><img src="./img/ofertas/img_02.png" alt="" /></a>
+                                <div class="insumos">
+                                    <a href=""><img src="./img/ofertas/img_05.png" alt="" /></a>
+                                    <a href=""><img src="./img/ofertas/img_06.png" alt="" /></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="seccion_ind3">
+                            <div class="column">
+                                <a href=""><img src="./img/ofertas/img_03.png" alt="" /></a>
+                                <a href=""><img id="foto_7" src="./img/ofertas/img_07.png" alt="" /></a>
+                            </div>
+                        </div>
+                    </div>
+            
+                </div>
+            
+                <div class="d-sm-block d-md-none">
+                    <div class="ofertas_mobile">
+                        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <a href=""><img src="img/ofertas_carru/1.png" class="d-block w-100" alt="..."></a>
+                                </div>
+                                <div class="carousel-item">
+                                    <a href=""><img src="img/ofertas_carru/2.png" class="d-block w-100" alt="..."></a>
+                                </div>
+                                <div class="carousel-item">
+                                    <a href=""><img src="img/ofertas_carru/3.png" class="d-block w-100" alt="..."></a>
+                                </div>
+                                <div class="carousel-item">
+                                    <a href=""><img src="img/ofertas_carru/4.png" class="d-block w-100" alt="..."></a>
+                                </div>
+                                <div class="carousel-item">
+                                    <a href=""><img src="img/ofertas_carru/5.png" class="d-block w-100" alt="..."></a>
+                                </div>
+                                <div class="carousel-item">
+                                    <a href=""><img src="img/ofertas_carru/6.png" class="d-block w-100" alt="..."></a>
+                                </div>
+                                <div class="carousel-item">
+                                    <a href=""><img src="img/ofertas_carru/7.png" class="d-block w-100" alt="..."></a>
+                                </div>
+                            </div>
+                            <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Next</span>
+                            </a>
+                        </div>
+                    </div>
+            
+            
+                </div>
+        </section>
+
+        <!--Lo mas vendido/franco -->
+        <section>
+            
+            <div class="categorias-title">
+                <h2 class="title_categoria border-bottom">Lo más vendido</h2>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 col-sm-6 col-lg-3">
+                        <section class="product-box">
+                            <a href="">
+                                <figure class="product-box_image">
+                                    <img src="img/mas_vendidos/cer_01.png" alt="imagen de producto">
+                                </figure>
+                                <article class="product-box_data">
+                                    <h2>Stella Artois</h2>
+                                    <span>- x12 $1200.00</span>
+                                </article>
+                                <div class="star">
+                                    <button type="button" class="btn btn-default btn-lg">
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <p>24 comments</p>
+                                    </button>
+                                </div>
+                            </a>
+                        </section>
+                    </div>
+            
+                    <div class="col-12 col-sm-6 col-lg-3">
+                        <section class="product-box">
+                            <a href="">
+                                <figure class="product-box_image">
+                                    <img src="img/mas_vendidos/cer_02.png" alt="imagen de producto">
+                                </figure>
+                                <article class="product-box_data">
+                                    <h2> Corona</h2>
+                                    <span>- x24 $2500.00</span>
+                                </article>
+                                <div class="star">
+                                    <button type="button" class="btn btn-default btn-lg">
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <p>50 comments</p>
+                                    </button>
+                                </div>
+                            </a>
+                        </section>
+                    </div>
+            
+                    <div class="col-12 col-sm-6 col-lg-3">
+                        <section class="product-box">
+                            <a href="">
+                                <figure class="product-box_image">
+                                    <img src="img/mas_vendidos/cer_03.png" alt="imagen de producto">
+                                </figure>
+                                <article class="product-box_data">
+                                    <h2>Guinness</h2>
+                                    <span>- x24 $3200.00</span>
+                                </article>
+                                <div class="star">
+                                    <button type="button" class="btn btn-default btn-lg">
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <p>24 comments</p>
+                                    </button>
+                                </div>
+                            </a>
+                        </section>
+                    </div>
+            
+                    <div class="col-12 col-sm-6 col-lg-3">
+                        <section class="product-box">
+                            <a href="">
+                                <figure class="product-box_image">
+                                    <img src="img/mas_vendidos/cer_04.png" alt="imagen de producto">
+                                </figure>
+                                <article class="product-box_data">
+                                    <h2>Modelo</h2>
+                                    <span>- x6 $850.00</span>
+                                </article>
+                                <div class="star">
+                                    <button type="button" class="btn btn-default btn-lg">
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <p>16 comments</p>
+                                    </button>
+                                </div>
+                            </a>
+                        </section>
+                    </div>
+            
+                    <div class="col-12 col-sm-6 col-lg-3">
+                        <section class="product-box">
+                            <a href="">
+                                <figure class="product-box_image">
+                                    <img src="img/mas_vendidos/cer_05.png" alt="imagen de producto">
+                                </figure>
+                                <article class="product-box_data">
+                                    <h2>Guinness Extra Stout</h2>
+                                    <span>- x12 $3800.00</span>
+                                </article>
+                                <div class="star">
+                                    <button type="button" class="btn btn-default btn-lg">
+                                        <i class="fa fa-star"></i>
+                                        <p>4 comments</p>
+                                    </button>
+                                </div>
+                            </a>
+                        </section>
+                    </div>
+            
+                    <div class="col-12 col-sm-6 col-lg-3">
+                        <section class="product-box">
+                            <a href="">
+                                <figure class="product-box_image">
+                                    <img src="img/mas_vendidos/cer_06.png" alt="imagen de producto">
+                                </figure>
+                                <article class="product-box_data">
+                                    <h2>IPA Sierra Nevada</h2>
+                                    <span>- x12 $850.00</span>
+                                </article>
+                                <div class="star">
+                                    <button type="button" class="btn btn-default btn-lg">
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <p>8 comments</p>
+                                    </button>
+                                </div>
+                            </a>
+                        </section>
+                    </div>
+            
+                    <div class="col-12 col-sm-6 col-lg-3">
+                        <section class="product-box">
+                            <a href="">
+                                <figure class="product-box_image">
+                                    <img src="img/mas_vendidos/cer_07.png" alt="imagen de producto">
+                                </figure>
+                                <article class="product-box_data">
+                                    <h2>Pack White Claw</h2>
+                                    <span>- x24 $4800.00</span>
+                                </article>
+                                <div class="star">
+                                    <button type="button" class="btn btn-default btn-lg">
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <p>12 comments</p>
+                                    </button>
+                                </div>
+                            </a>
+                        </section>
+                    </div>
+            
+                    <div class="col-12 col-sm-6 col-lg-3">
+                        <section class="product-box">
+                            <a href="">
+                                <figure class="product-box_image">
+                                    <img src="img/mas_vendidos/cer_08.png" alt="imagen de producto">
+                                </figure>
+                                <article class="product-box_data">
+                                    <h2>Pilsner Urquell</h2>
+                                    <span>- x8 $1500.00</span>
+                                </article>
+                                <div class="star">
+                                    <button type="button" class="btn btn-default btn-lg">
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <p>3 comments</p>
+                                    </button>
+                                </div>
+                            </a>
+                        </section>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <!--newsletter/franco -->
+        <section>
+            <div class="container-fluid">
+                <div class="row">
+            
+                    <div class="col-md-2 d-none d-md-inline-block text-center align-self-end">
+                        <img class="img-1" src="img/botella2.png" alt="">
+                    </div>
+            
+                    <div class="col-12 col-md-8 text-center align-self-center pb-3">
+                        <h2 class="title">ESTAR SIEMPRE A LA VANGUARDIA</h2>
+            
+                        <h5 class="subtitle">RECIBE NOTICIAS DE PRODUCTOS Y PROMOCIONES <br> AL INSCRIBIRTE A NUESTRO NEWSLETTER.
+                        </h5>
+            
+                        <input type="email" class="email-register" name="" id="" placeholder="e-mail">
+                        <button type="submit" class="buttom">Enviar</button>
+                    </div>
+            
+                    <div class="col-md-2 d-none d-md-inline-block text-center align-self-end">
+                        <img class="img-2" src="img/botella1.png" alt="">
+                    </div>
+            
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!--footer/franco -->
+    <footer>
+        <div class="container-fluid">
+            <div class="row">
+        
+                <div class="col-md-2 d-none d-md-inline-block text-center align-self-center">
+                    <img class="img-footer-cajon" src="img/cajon.png" alt="">
+                </div>
+        
+                <div class="col-12 col-md-8 text-center align-items-center pt-3 textinfo">
+        
+                    <div class="nav flex-column">
+                        <a class="web-nav" href="">Terminos y Condiciones</a>
+                        <a class="web-nav" href="">Politicas de privacidad</a>
+                        <a class="web-nav" href="">Franquicias</a>
+                    </div>
+        
+        
+        
+                    <p class="text1 pt-3">
+                        BEBER CON MODERACIÓN. PROHIBIDA SU VENTA A MENORES DE 18 AÑOS. <br> NO COMPARTA EL CONTENIDO CON
+                        MENORES. </br>
+                    </p>
+        
+                    <p class="text2 pt-2">
+                        Copyright © 2020 | canillalibre.com.ar | Todos los derechos reservados.
+                    </p>
+        
+                </div>
+        
+        
+                <div class="col-md-2 d-none d-md-inline-block  align-self-end">
+                    <img class="img-footer-logo" src="img/logoinvertido.png" alt="">
+                </div>
+        
+            </div>
+        </div>    
+    
+    </footer>
+    
+</body>
 </html>

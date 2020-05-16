@@ -11,5 +11,8 @@ router.get('/', function(req, res, next) {
 router.get('/register.ejs', function(req, res, next) {
   res.render('register', { title: 'Express' });
 });
+router.get("/form_prod.ejs", function (req, res, next) {
+  res.render("form_prod", { title: "Express" });
+});
 
 module.exports = router;

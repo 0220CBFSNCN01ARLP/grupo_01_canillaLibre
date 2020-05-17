@@ -1,21 +1,26 @@
+:root {
+    --amarillo: #FDBE01;
+    --azul_oscuro:#2f4858;
+    --gris: #dfdfdf;
+    --azul_verde: #006674;
+    --verde: #87B235;
+    --facebook: #465996;
+    --gris_oscuro: rgb(33,37,41);
+}
+
+
 body {
-  background: linear-gradient(to bottom, #fabe2e 50%, white 50%); /* W3C */
+  background: linear-gradient(to bottom, #FDBE01 50%, #f1f1f1 50%); /* W3C */
 }
 .container {
   margin-top: 80px;
 }
 
-h4,
-form {
+.box_reg{
   background-color: white;
-  width: 50%;
-  margin: auto;
+  border-radius: 1%;
   padding: 20px;
-}
-h4 {
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-  text-align: center;
+  margin: 5%;
 }
 
 .hightlited a {
@@ -27,9 +32,6 @@ h4 {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
- 
-
-  
 }
 .name .form-group {
   flex-grow: 1;
@@ -44,11 +46,6 @@ h4 {
   align-items: center;
 }
 
-.btn {
-  background-color: #fabe2e;
-  border-color: grey;
-  width: 100%;
-}
 .facebook {
   color: #3b5998;
   font-weight: bold;
@@ -58,4 +55,127 @@ h4 {
 .withcount {
   text-align: center;
   padding-top: 10px;
+}
+
+/*-------------HEADER-------------*/
+.navborder {
+    
+    border-bottom: 2px solid var(--azul_oscuro);
+}
+
+.navbar {
+    padding-bottom: 0px !important;
+    padding:0.5rem 0.5rem;
+}
+
+.navbar-brand {
+    padding-bottom: 0px !important;
+    
+}
+
+.nav-link{
+    padding: 1rem 0.5rem;
+}
+
+.box-1 {
+    display: none;
+    margin-top:1em;
+}
+
+.box-2 {
+   padding:1em;
+}
+
+
+@media (min-width: 320px){
+    
+    .categorias-title {
+    padding: 1em;
+}
+    .venta_box h2{
+    font-size: 1.5em;
+    }
+    .venta_box h4{
+        
+        font-weight: 700;
+        text-transform: uppercase;
+    }
+    .venta_box p{
+        
+        font-weight: 400;
+        text-transform: uppercase;
+    }
+    .beer_ventas{
+        display: none;
+        
+    }
+    .slogan_ventas{
+        font-size: 1.8em;
+        margin:auto;
+    }
+    
+}
+
+@media (min-width: 375px){
+       
+
+    .beer_ventas{
+        display: none;
+        
+    }
+    .slogan_ventas{
+        font-size: 2em;
+        margin:auto;
+    }
+    
+}
+
+
+@media (min-width: 768px){
+    
+    .box-1 {
+        display: flex;
+    }
+
+    .box-2 {
+        display: none;
+    }
+     
+    .beer_ventas{
+        width: 140% !important;
+        top:-15em;
+        display: flex;
+        right: 0px;
+    }
+    .slogan_ventas{
+        font-size: 2em;
+        margin-left: 10%;
+    }
+    
+}
+
+
+@media (min-width: 1024px){
+    
+    .beer_ventas{
+        top:-15em;
+        display: flex;
+    }
+    .slogan_ventas{
+        font-size: 2.1em;
+    }
+ 
+}
+
+@media (min-width: 1440px){
+    
+    .beer_ventas{
+        top:-18em;
+        display: flex;
+        
+    }
+    .slogan_ventas{
+        font-size: 3em;
+    }
+ 
 }

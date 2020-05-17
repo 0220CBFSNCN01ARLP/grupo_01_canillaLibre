@@ -1,0 +1,39 @@
+.descripcion{
+    
+    width: 100%;
+}
+
+
+
+.valor{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-self: flex-start;
+
+    width: 100%;
+}
+
+.adj_fotos{
+
+    display: flex;
+    margin-top: 30px;
+    margin-bottom: 50px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    flex-wrap: wrap;
+    
+   
+}
+.fotos{
+    width: 100%;
+}
+.send_button{
+    margin-top: 20px;
+    text-align: center;
+}
+.send_form{
+    font-size: x-large;
+    font-weight: bold;
+    
+}

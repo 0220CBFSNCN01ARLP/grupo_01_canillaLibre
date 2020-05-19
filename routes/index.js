@@ -6,13 +6,19 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
-/* REgister*/
-
+/* Register*/
 router.get('/register.ejs', function(req, res, next) {
   res.render('register', { title: 'Express' });
 });
+
+/* Form_product*/
 router.get("/form_prod.ejs", function (req, res, next) {
   res.render("form_prod", { title: "Express" });
+});
+
+/* Product_cart*/
+router.get("/product_cart.ejs", function (req, res, next) {
+  res.render("product_cart", { title: "Express" });
 });
 
 module.exports = router;

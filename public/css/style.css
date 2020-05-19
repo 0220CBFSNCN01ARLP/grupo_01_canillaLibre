@@ -1,343 +1,229 @@
 :root {
-    --amarillo: #FDBE01;
-    --azul_oscuro:#2f4858;
-    --gris: #dfdfdf;
-    --azul_verde: #006674;
-    --verde: #87B235;
-    --facebook: #465996;
-    --gris_oscuro: rgb(33,37,41);
+  --amarillo: #fdbe01;
+  --azul_oscuro: #2f4858;
+  --gris: #dfdfdf;
+  --azul_verde: #006674;
+  --verde: #87b235;
+  --facebook: #465996;
+  --gris_oscuro: rgb(33, 37, 41);
 }
 
 /*-------------HEADER-------------*/
 .navborder {
-    
-    border-bottom: 2px solid var(--azul_oscuro);
+  border-bottom: 2px solid var(--azul_oscuro);
 }
 
 .navbar {
-    padding-bottom: 0px !important;
-    padding:0.5rem 0.5rem;
+  padding-bottom: 0px !important;
+  padding: 0.5rem 0.5rem;
 }
 
 .navbar-brand {
-    padding-bottom: 0px !important;
-    
+  padding-bottom: 0px !important;
 }
 
-.nav-link{
-    padding: 1rem 0.5rem;
+.nav-link {
+  padding: 1rem 0.5rem;
 }
 
 .box-1 {
-    display: none;
-    margin-top:1em;
+  display: none;
+  margin-top: 1em;
 }
 
 .box-2 {
-   padding:1em;
+  padding: 1em;
 }
 
 /*--------------MAIN--------------*/
-.categorias-title{
-    text-align: center;
-    padding:2em;
+.categorias-title {
+  text-align: center;
+  padding: 2em;
 }
-.title_categoria{
-    font-weight: 300;
-    padding-bottom: 0.5em;
-    border-bottom: var(--gris);
+.title_categoria {
+  font-weight: 300;
+  padding-bottom: 0.5em;
+  border-bottom: var(--gris);
 }
 
 /*-----------CATEGORIAS-----------*/
 
 /*Carousel*/
 
-
 /*--------------VENDE--------------*/
 
-.border{
-    border: solid 5px black !important;
+.border {
+  border: solid 5px black !important;
 }
 
-.pepito{
-    background-color: var(--amarillo);
-    padding:5%;
+.pepito {
+  background-color: var(--amarillo);
+  padding: 5%;
 }
 
-.venta_box{
-    width: 18em;
-    height: 18em;
-    color:black;
-    padding:1em;
-    margin:0px;
-    text-decoration: none;
+.venta_box {
+  width: 18em;
+  height: 18em;
+  color: black;
+  padding: 1em;
+  margin: 0px;
+  text-decoration: none;
 }
 .venta_box:hover {
-    color: var(--azul_oscuro);
-    text-decoration: none;
+  color: var(--azul_oscuro);
+  text-decoration: none;
 }
-.venta_box h2{
-    
-    padding:10px;
-    font-weight: 700;
-    text-transform: uppercase;
-    border: 2px solid black;
+.venta_box h2 {
+  padding: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  border: 2px solid black;
 }
-.venta_box h4{
-    
-    font-weight: 700;
-    text-transform: uppercase;
+.venta_box h4 {
+  font-weight: 700;
+  text-transform: uppercase;
 }
-.venta_box p{
-    
-    font-weight: 400;
-    text-transform: uppercase;
+.venta_box p {
+  font-weight: 400;
+  text-transform: uppercase;
 }
-.slogan_ventas{
-    margin-top: -0.5em;
-    margin-left: 12%;
-    font-family: 'Dancing Script', cursive;
-    font-size: 3em;
+.slogan_ventas {
+  margin-top: -0.5em;
+  margin-left: 12%;
+  font-family: "Dancing Script", cursive;
+  font-size: 3em;
 }
 
-.beer_ventas{
-    top:-17em;
-    right: 5%;
+.beer_ventas {
+  top: -17em;
+  right: 5%;
 }
-
-@media (min-width: 320px){
-    
-    .categorias-title {
-    padding: 1em;
-}
-    .venta_box h2{
-    font-size: 1.5em;
-    }
-    .venta_box h4{
-        
-        font-weight: 700;
-        text-transform: uppercase;
-    }
-    .venta_box p{
-        
-        font-weight: 400;
-        text-transform: uppercase;
-    }
-    .beer_ventas{
-        display: none;
-        
-    }
-    .slogan_ventas{
-        font-size: 1.8em;
-        margin:auto;
-    }
-    
-}
-
-@media (min-width: 375px){
-       
-
-    .beer_ventas{
-        display: none;
-        
-    }
-    .slogan_ventas{
-        font-size: 2em;
-        margin:auto;
-    }
-    
-}
-
-
-@media (min-width: 768px){
-    
-    .box-1 {
-        display: flex;
-    }
-
-    .box-2 {
-        display: none;
-    }
-     
-    .beer_ventas{
-        width: 140% !important;
-        top:-15em;
-        display: flex;
-        right: 0px;
-    }
-    .slogan_ventas{
-        font-size: 2em;
-        margin-left: 10%;
-    }
-    
-}
-
-
-@media (min-width: 1024px){
-    
-    .beer_ventas{
-        top:-15em;
-        display: flex;
-    }
-    .slogan_ventas{
-        font-size: 2.1em;
-    }
- 
-}
-
-@media (min-width: 1440px){
-    
-    .beer_ventas{
-        top:-18em;
-        display: flex;
-        
-    }
-    .slogan_ventas{
-        font-size: 3em;
-    }
- 
-}
-
-
-
-
 
 /* Mas vendidos */
 .product-box {
-    background-color: #ffffff;
-    text-align: center;
-  }
-  
-  .product-box a {
-    display: block;
-    margin: 20px 0;
+  background-color: #ffffff;
+  text-align: center;
+}
 
-  }
-  
-  .product-box_image {
+.product-box a {
+  display: block;
+  margin: 20px 0;
+}
 
-  }
-  
-  .product-box_data {
-    color: black;
-    display: flex;
-    justify-content: center;
-    border-left: 1px solid #197582;
-    padding: 10px;
-  }
-  
-  .product-box_data h2 {
-    color: black;
-    font-size: 1.3em;
-    font-weight: 500;
-    padding-right: 8px;
-  }
+.product-box_data {
+  color: black;
+  display: flex;
+  justify-content: center;
+  border-left: 1px solid #197582;
+  padding: 10px;
+}
 
-  .star {
-    border-left: 1px solid #197582;
-  }
-  
-  .product-box_data span {
-    color: black;
-    font-size: 1em;
-    font-weight: 300;
-    margin-top: 2px;
-    
+.product-box_data h2 {
+  color: black;
+  font-size: 1.3em;
+  font-weight: 500;
+  padding-right: 8px;
+}
+
+.star {
+  border-left: 1px solid #197582;
+}
+
+.product-box_data span {
+  color: black;
+  font-size: 1em;
+  font-weight: 300;
+  margin-top: 2px;
 }
 
 .btn {
-    font-size: 1em;
-    content:"\f005";
-    color: #FDBE01;
-    
-    
+  font-size: 1em;
+  content: "\f005";
+  color: #fdbe01;
 }
 .btn p {
-    color: black;
-    font-size: 0.8em;
+  color: black;
+  font-size: 0.8em;
 }
-
 
 /* Newsltetter */
 
 .container-fluid {
-    background-color: #fdbe01;
+  background-color: #fdbe01;
 }
 
 .title {
-    color: white;
-    font-family: 'Lato', sans-serif;
-    font-weight: bold;
-    font-size: 1.3em;
-    margin-top: 10px;
+  color: white;
+  font-family: "Lato", sans-serif;
+  font-weight: bold;
+  font-size: 1.3em;
+  margin-top: 10px;
 }
 
 .subtitle {
-    font-weight: 450;
-    color: black;
-    font-family: 'Lato', sans-serif;
-    font-size: 0.9em;
+  font-weight: 450;
+  color: black;
+  font-family: "Lato", sans-serif;
+  font-size: 0.9em;
 }
 
-.email-register{
-    border: 1px solid black;
-    color: black;
-    font-family: 'Slabo 27px', serif;
-    margin-top: 10px;
+.email-register {
+  border: 1px solid black;
+  color: black;
+  font-family: "Slabo 27px", serif;
+  margin-top: 10px;
 }
 
 .buttom {
-    background-color: black;
-    color: white;
-    border: 1px solid black;
-    margin-left: -5px;
-    padding-left: 25px; 
-    padding-right: 25px;
-    font-family: 'Slabo 27px', serif;
-    font-style: italic;
-    font-weight: bold; 
+  background-color: black;
+  color: white;
+  border: 1px solid black;
+  margin-left: -5px;
+  padding-left: 25px;
+  padding-right: 25px;
+  font-family: "Slabo 27px", serif;
+  font-style: italic;
+  font-weight: bold;
 }
 
 .img-1 {
-    width: 60%;
+  width: 60%;
 }
 .img-2 {
-    width: 60%;
+  width: 60%;
 }
 
 /* Footer */
-
-footer .container-fluid{
-    background-color: black;
+footer .container-fluid {
+  background-color: black;
 }
 
 .textinfo {
-    font-family: 'Lato', sans-serif;
-    color: white;
+  font-family: "Lato", sans-serif;
+  color: white;
 }
-.web-nav  {
-    color: white;
-    border: 2px;
-    border-style: outset;
-    border-color: #fdbe01
+.web-nav {
+  color: white;
+  border: 2px;
+  border-style: outset;
+  border-color: #fdbe01;
 }
 
 .text1 {
-    font-size: 0.9em;
+  font-size: 0.9em;
 }
 
 .text2 {
-    font-size: 0.7em;
+  font-size: 0.7em;
 }
 
 .img-footer-cajon {
-    width: 80%;
+  width: 80%;
 }
 
 .img-footer-logo {
-    width: 70%;
+  width: 70%;
 }
-
 
 /*-------ofertas-------*/
 
@@ -346,7 +232,6 @@ footer .container-fluid{
 }
 
 .oferta {
-  
   width: 100%;
 }
 
@@ -399,7 +284,83 @@ footer .container-fluid{
   flex-direction: column;
 }
 
-.carrusel-item img{
-
+.carrusel-item img {
   align-items: center;
+}
+
+/*---------- MediaQuery ----------*/
+
+@media (min-width: 320px) {
+  .categorias-title {
+    padding: 1em;
+  }
+  .venta_box h2 {
+    font-size: 1.5em;
+  }
+  .venta_box h4 {
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+  .venta_box p {
+    font-weight: 400;
+    text-transform: uppercase;
+  }
+  .beer_ventas {
+    display: none;
+  }
+  .slogan_ventas {
+    font-size: 1.8em;
+    margin: auto;
+  }
+}
+
+@media (min-width: 375px) {
+  .beer_ventas {
+    display: none;
+  }
+  .slogan_ventas {
+    font-size: 2em;
+    margin: auto;
+  }
+}
+
+@media (min-width: 768px) {
+  .box-1 {
+    display: flex;
+  }
+
+  .box-2 {
+    display: none;
+  }
+
+  .beer_ventas {
+    width: 140% !important;
+    top: -15em;
+    display: flex;
+    right: 0px;
+  }
+  .slogan_ventas {
+    font-size: 2em;
+    margin-left: 10%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .beer_ventas {
+    top: -15em;
+    display: flex;
+  }
+  .slogan_ventas {
+    font-size: 2.1em;
+  }
+}
+
+@media (min-width: 1440px) {
+  .beer_ventas {
+    top: -18em;
+    display: flex;
+  }
+  .slogan_ventas {
+    font-size: 3em;
+  }
 }

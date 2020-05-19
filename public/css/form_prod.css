@@ -1,10 +1,47 @@
+:root {
+    --amarillo: #FDBE01;
+    --azul_oscuro:#2f4858;
+    --gris: #dfdfdf;
+    --azul_verde: #006674;
+    --verde: #87B235;
+    --facebook: #465996;
+    --gris_oscuro: rgb(33,37,41);
+}
+
+/*-------------HEADER-------------*/
+.navborder {
+    
+    border-bottom: 2px solid var(--azul_oscuro);
+}
+
+.navbar {
+    padding-bottom: 0px !important;
+    padding:0.5rem 0.5rem;
+}
+
+.navbar-brand {
+    padding-bottom: 0px !important;
+    
+}
+
+.nav-link{
+    padding: 1rem 0.5rem;
+}
+
+.box-1 {
+    display: none;
+    margin-top:1em;
+}
+
+.box-2 {
+   padding:1em;
+}
+
+
 .descripcion{
     
     width: 100%;
 }
-
-
-
 .valor{
     display: flex;
     flex-wrap: wrap;
@@ -28,12 +65,114 @@
 .fotos{
     width: 100%;
 }
-.send_button{
-    margin-top: 20px;
-    text-align: center;
-}
-.send_form{
-    font-size: x-large;
-    font-weight: bold;
+
+@media (min-width: 768px){
     
+    .box-1 {
+        display: flex;
+    }
+
+    .box-2 {
+        display: none;
+    }
+    
+}
+
+/* Footer */
+
+footer .container-fluid{
+    background-color: black;
+}
+
+.textinfo {
+    font-family: 'Lato', sans-serif;
+    color: white;
+}
+.web-nav  {
+    color: white;
+    border: 2px;
+    border-style: outset;
+    border-color: #fdbe01
+}
+
+.text1 {
+    font-size: 0.9em;
+}
+
+.text2 {
+    font-size: 0.7em;
+}
+
+.img-footer-cajon {
+    width: 80%;
+}
+
+.img-footer-logo {
+    width: 70%;
+}
+
+
+/*-------ofertas-------*/
+
+.container {
+  margin-top: 20px;
+}
+
+.oferta {
+  
+  width: 100%;
+}
+
+.oferta h2 {
+  font-family: "Lato", sans-serif;
+  text-align: center;
+  margin: auto;
+  border-bottom: 1px black solid;
+  width: 30%;
+}
+
+.imagenes_ofertas_1 {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-top: 10%;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.seccion_ind {
+  width: 25%;
+  display: flex;
+  flex-grow: 1;
+}
+
+.seccion_ind3 {
+  width: 50%;
+  flex-grow: 1;
+}
+
+.imagenes_ofertas_1 img {
+  width: 100%;
+  padding: 2px;
+}
+.column {
+  display: flex;
+  flex-direction: column;
+}
+
+#foto_4 {
+  height: 113%;
+}
+
+#foto_7 {
+  height: 110%;
+}
+.insumos {
+  flex-direction: column;
+}
+
+.carrusel-item img{
+
+  align-items: center;
 }

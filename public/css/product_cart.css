@@ -1,0 +1,12 @@
+:root {
+    --amarillo: #FDBE01;
+    --azul_oscuro:#2f4858;
+    --gris: #dfdfdf;
+    --azul_verde: #006674;
+    --verde: #87B235;
+    --facebook: #465996;
+    --gris_oscuro: rgb(33,37,41);
+}
+body {
+  background: linear-gradient(to bottom, #FDBE01 50%, #f1f1f1 50%); /* W3C */
+}

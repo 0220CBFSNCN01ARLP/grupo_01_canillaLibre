@@ -21,4 +21,9 @@ router.get("/product_cart.ejs", function (req, res, next) {
   res.render("product_cart", { title: "Express" });
 });
 
+/* productDetail*/
+router.get("/productDetail.ejs", function (req, res, next) {
+  res.render("productDetail", { title: "Express" });
+});
+
 module.exports = router;

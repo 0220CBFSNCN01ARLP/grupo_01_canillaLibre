@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Detail</title>
+
+     <!--Bootstrap-->
+     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+     <!--Font-Awesome-->
+     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+     <!--Googlefont LATO 300-400-700-->
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
+
+
+    <!--CSS-->
+      <link rel="stylesheet" href="../public/css/product-detail.css">
+
+    <!--boostrap script-->
+      <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+
+    <!--boostrap animation-->
+
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"/>
+    
+
+
+
+</head>
+<body>
+
+    <div class="container-fluid text-center">
+
+        <div class="row">
+
+            <div class="col-12 col-md-8">
+
+                <div class="zoom animate__animated animate__zoomIn">
+                    <img class="img1-detail pt-4" src="img/mas_vendidos/cer_01.png" alt="">
+                </div>
+
+                <article class="text-left">
+                    <h3 class="title-principal p-2">Stella Artois</h3>
+                    <span class="title-principal2 p-2">x12 $ 1200.00</span>
+                    <span class="title-principal3 p-1">- 25% <i class="fa fa-tag"></i></span>
+                </article>
+                
+                <div class="star text-left p-2">
+                        <i class="fa fa-star"></i>
+                        <i classs="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <a class="link-comments" href="">24 Comments</a>
+                </div>
+
+                <div class="row">
+                    <div class="col-12 col-md-8">
+                        <button type="button" class="btn-carrito pl-5 pr-5 m-4 btn btn-outline-primary">Añadir al carrito <i class="fa fa-shopping-cart"></i></button>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-12 col-md-8">
+
+                        <button type="button" class="btn-edit btn btn-outline-primary">Editar producto <i class="fa fa-pencil"></i></button>
+
+
+                        <!--Buttom Alert-->
+                       <button type="button" class="btn-eliminar btn btn-danger"data-toggle="modal" data-target="#exampleModal" >Eliminar <i class="fa fa-trash"></i></button>
+
+                       <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"       aria-hidden="true">
+                       <div class="modal-dialog">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                          <h5 class="modal-title" id="exampleModalLabel">¿Está seguro que desea eliminar el producto?</h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                         </div>
+
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">NO</button>
+                            <button type="button" class="btn btn-warning">SI</button>
+                          </div>
+                        </div>
+                      </div>
+                      </div>
+
+                       <!--Buttom Alert-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 col-md-8">
+                <table class="table table-bordered table-detail">
+
+                    <h3 class="title-product text-left pt-4">Detalle del producto</h3>
+        
+                    <tr>
+                        <td class="title-table">Origen</td>
+                        <td class="subtitle-table">Belgica</td>
+                    </tr>
+        
+                    <tr>
+                        <td class="title-table">Tipo Cerveza</td>
+                        <td class="subtitle-table">Lager</td>
+                    </tr>
+        
+                    <tr>
+                        <td class="title-table">Marca</td>
+                        <td class="subtitle-table">Stella Artois</td>
+                    </tr>
+        
+                    <tr>
+                        <td class="title-table">Envase</td>
+                        <td class="subtitle-table">Porron</td>
+                    </tr>
+        
+                    <tr>
+                        <td class="title-table">Contenido</td>
+                        <td class="subtitle-table">330 Ml</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12 col-md-8">
+                <h5 class="title-product text-left pt-3">Descripcion del producto</h5>
+                <p class="subtitle-table p-1">Disfruta del estilo europeo con la cerveza belga más vendida en el mundo. Con su maravilloso aroma floral, dulzura de malta bien equilibrada, amargo crujiente de lúpulo y final seco y suave, Stella Artois es la cerveza perfecta para maridar con comida y amigos. Sirva en su característico cáliz de vidrio para mejorar el sabor y el aroma. Elaborado en Bélgica. Combina bien con filetes, mejillones y postres de chocolate. 5% de alcohol por volumen.</p>
+            </div>
+        </div>
+        
+        
+    </div>
+
+
+
+
+</body>
+</html>

@@ -1,117 +1,149 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <%- include("partials/head", {title: "Registro"}) %>
-    </head>
+  </head>
   <body>
     <!--header/javi -->
-    <%- include("partials/header") %> 
+    <%- include("partials/header") %>
 
     <!--registro/diego-->
     <!-- Section es todo el contenedor -->
-    <section class="container">
-      <div  class="row justify-content-center mb-5">
-        
-        <!-- formulario nuevo usuario -->
-        <div class="col-xs-12 col-sm-12 col-md-7 box_reg">
-          <form action="post m-auto">
-            <h4 class="text-center mb-4">Completa tus datos</h4>
-            <div class="dropdown-divider mb-4"></div>
-            <div class="name"><!-- nombre y apellido en la misma linea -->
-            <div class="form-group">
+    <div class="container mt-5 mb-5">
+      <div class="row">
+        <form
+          class="col-xl-7 col-lg-7 col-md-9 col-sm-12 m-auto bg-white text-dark p-4 rounded"
+          action="/auth/register"
+          method="POST"
+          enctype="multipart/form-data"
+        >
+          <div class="categorias-title col-12">
+            <h2 class="title_categoria">
+              <i class="far fa-user-circle text-black-50"></i> Crea tu cuenta
+            </h2>
+          </div>
+          <div class="dropdown-divider"></div>
+          <!-- Nombre y Apellido -->
+
+          <div class="form-group row">
+            <div class="form-group col">
               <label for="firstname">Nombre</label>
-              <input type="text" class="form-control" id="firstname" aria-describedby="emailHelp" required>
+              <input
+                type="email"
+                class="form-control"
+                id="firstname"
+                aria-describedby="firstname"
+                required
+              />
             </div>
-            <div class="form-group">
+
+            <div class="form-group col">
               <label for="lastname">Apellido</label>
-              <input type="text" class="form-control" id="lastname" aria-describedby="emailHelp" required>
+              <input
+                type="lastname"
+                class="form-control"
+                id="lastname"
+                aria-describedby="lastname"
+                required
+              />
             </div>
-            </div>
-            <!-- email -->
-            <div class="form-group">
-              <label for="exampleInputEmail1">Correo Electronico</label>
-              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required>
-            </div>
-            <!-- password -->
-            <div class="form-group">
-              <label for="exampleInputPassword1">Contraseña (al menos 8 caracteres)</label>
-              <input type="password" pattern=".{8,}" class="form-control" id="exampleInputPassword1" required>
-            <div class="checkers">
-            <!-- check obetn informacion -->
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="" id="newsletter">
-              <label class="form-check-label" for="newsletter">
-                Obten las ultimas ofertas, promociones y noticias via email
+          </div>
+
+          <!-- email -->
+          <div class="form-group">
+            <label for="email">Direccion Email</label>
+            <input
+              type="email"
+              class="form-control"
+              id="email"
+              aria-describedby="email"
+              required
+            />
+            <small id="email" class="form-text text-muted"
+              >Ingrese su correo: nombre@dominio.com</small
+            >
+          </div>
+
+          <!-- password -->
+
+          <div class="form-group">
+            <label for="pass">Contraseña</label>
+            <input
+              type="password"
+              class="form-control"
+              id="pass"
+              aria-describedby="pass"
+              required
+            />
+          </div>
+
+          <!-- password2 -->
+          <div class="form-group">
+            <label for="pass2">Repita su contraseña</label>
+            <input
+              type="password"
+              class="form-control"
+              id="pass2"
+              aria-describedby="pass2"
+              required
+            />
+          </div>
+
+          <!-- avatar -->
+          <p class="mb-1">Seleccione una imagen</p>
+          <div class="custom-file">
+            <input
+              type="file"
+              class="custom-file-input"
+              id="file"
+              lang="es"
+              required
+            />
+            <label class="custom-file-label" for="file"
+              >Seleccionar Archivo</label
+            >
+          </div>
+
+          <!-- políticas -->
+          <div class="col-12 d-flex justify-content-center mt-3">
+            <div class="form-check mt-2">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                value=""
+                id="politic"
+              />
+              <label class="form-check-label" for="politic">
+                Acepto Terminos y Condiciones
               </label>
             </div>
-            <!-- check terminos y condiciones -->
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="" id="newsletter">
-              <label class="form-check-label" for="newsletter">
-                Al hacer click sobre Registrate, acepto los <a href="http://">terminos de uso</a> y la <a href="http://">Politica de privacidad</a> de Canilla Libre 
-              </label>
-            </div>
-            </div>
-            <div class="w-100 d-flex justify-content-center mb-4">
-            <!-- boton registrarse -->
-              <button type="submit" class="btn btn-outline-warning d-flex">Registrate</button>
-            </div>
-            <div class="dropdown-divider"></div>
+          </div>
+          <!-- boton enviar -->
+          <div class="col-12 d-flex justify-content-center mt-2">
+            <button type="button" class="btn btn-outline-warning mt-3 mb-3">
+              Registrate
+            </button>
+          </div>
+          <div class="dropdown-divider"></div>
+          <div class="col-12 text-center mt-2">
             <div class="facebook">
               <!-- registrate via facebook -->
-              <a class="facebook" hre="https://www.facebook.com/"><i class="fab fa-facebook"></i> Registrate vía Facebook</a>
+              <a class="facebook" hre="https://www.facebook.com/"
+                ><i class="fab fa-facebook"></i> Registrate vía Facebook</a
+              >
             </div>
             <!-- ya tenes una cuenta -->
             <div class="withcount">
-              <p>Ya tienes una cuenta?<a href="">Ingresa a tu cuenta</a></p>
+              <p>Ya tienes una cuenta?<a href=""> Ingresa a tu cuenta</a></p>
             </div>
-            </div>
-            
-          </form>
-        
-      
-       
-    </section>
-    <footer>
-        <div class="container-fluid">
-          <div class="row">
-        
-            <div class="col-md-2 d-none d-md-inline-block text-center align-self-center">
-              <img class="img-footer-cajon" src="img/cajon.png" alt="">
-            </div>
-        
-            <div class="col-12 col-md-8 text-center align-items-center pt-3 textinfo">
-        
-              <div class="nav flex-column">
-                <a class="web-nav" href="">Terminos y Condiciones</a>
-                <a class="web-nav" href="">Politicas de privacidad</a>
-                <a class="web-nav" href="">Franquicias</a>
-              </div>
-        
-        
-        
-              <p class="text1 pt-3">
-                BEBER CON MODERACIÓN. PROHIBIDA SU VENTA A MENORES DE 18 AÑOS. <br> NO COMPARTA EL CONTENIDO CON
-                MENORES. </br>
-              </p>
-        
-              <p class="text2 pt-2">
-                Copyright © 2020 | canillalibre.com.ar | Todos los derechos reservados.
-              </p>
-        
-            </div>
-        
-        
-            <div class="col-md-2 d-none d-md-inline-block  align-self-end">
-              <img class="img-footer-logo" src="img/logoinvertido.png" alt="">
-            </div>
-        
           </div>
-        </div>
-    
-    </footer>
-    
+        </form>
+      </div>
+    </div>
+
+    <!--footer/fran -->
+    <%- include("partials/footer") %>
   </body>
 </html>

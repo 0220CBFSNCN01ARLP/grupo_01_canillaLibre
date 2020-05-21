@@ -8,6 +8,10 @@
   --gris_oscuro: rgb(33, 37, 41);
 }
 
+.bg_color {
+  background: linear-gradient(to bottom, #fdbe01 50%, #f1f1f1 50%); /* W3C */
+}
+
 /*-------------HEADER-------------*/
 .navborder {
   border-bottom: 2px solid var(--azul_oscuro);

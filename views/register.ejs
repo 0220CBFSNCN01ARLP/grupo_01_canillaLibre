@@ -5,13 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <%- include("partials/head", {title: "Registro"}) %>
   </head>
-  <body>
+
+  <body class="bg_color">
     <!--header/javi -->
     <%- include("partials/header") %>
 
     <!--registro/diego-->
     <!-- Section es todo el contenedor -->
-    <div class="container mt-5 mb-5">
+    <section class="container mt-5 mb-5">
       <div class="row">
         <form
           class="col-xl-7 col-lg-7 col-md-9 col-sm-12 m-auto bg-white text-dark p-4 rounded"
@@ -19,7 +20,7 @@
           method="POST"
           enctype="multipart/form-data"
         >
-          <div class="categorias-title col-12">
+          <div class="register-title col-12">
             <h2 class="title_categoria">
               <i class="far fa-user-circle text-black-50"></i> Crea tu cuenta
             </h2>
@@ -31,7 +32,7 @@
             <div class="form-group col">
               <label for="firstname">Nombre</label>
               <input
-                type="email"
+                type="text"
                 class="form-control"
                 id="firstname"
                 aria-describedby="firstname"
@@ -42,7 +43,7 @@
             <div class="form-group col">
               <label for="lastname">Apellido</label>
               <input
-                type="lastname"
+                type="text"
                 class="form-control"
                 id="lastname"
                 aria-describedby="lastname"
@@ -77,6 +78,9 @@
               aria-describedby="pass"
               required
             />
+            <small id="passwordHelpBlock" class="form-text text-muted">
+              Debe tener entre 8-20 caracteres.
+            </small>
           </div>
 
           <!-- password2 -->
@@ -141,7 +145,7 @@
           </div>
         </form>
       </div>
-    </div>
+    </section>
 
     <!--footer/fran -->
     <%- include("partials/footer") %>

@@ -8,11 +8,8 @@
   --gris_oscuro: rgb(33, 37, 41);
 }
 
-body {
+.registerbody {
   background: linear-gradient(to bottom, #fdbe01 50%, #f1f1f1 50%); /* W3C */
-}
-.container {
-  margin-top: 80px;
 }
 
 /*---form_register---*/

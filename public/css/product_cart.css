@@ -7,9 +7,6 @@
   --facebook: #465996;
   --gris_oscuro: rgb(33, 37, 41);
 }
-body {
-  background: linear-gradient(to bottom, #fdbe01 50%, #f1f1f1 50%); /* W3C */
-}
 
 /*boton quantity*/
 .number-input input[type="number"] {

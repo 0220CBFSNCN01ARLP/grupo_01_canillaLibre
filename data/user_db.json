@@ -1,32 +1,5 @@
 [
   {
-    "id": 100,
-    "first_name": "Javier",
-    "last_name": "Solari Paz",
-    "email": "zapiralos@gmail.com",
-    "seleccione imagen": "https://robohash.org/voluptatumconsequaturut.jpg?size=50x50&set=set1",
-    "password1": "12345",
-    "password2": "12345"
-  },
-  {
-    "id": 99,
-    "first_name": "Franco",
-    "last_name": "Martin",
-    "email": "franco@martin.com",
-    "seleccione imagen": "https://robohash.org/voluptatumconsequaturut.jpg?size=50x50&set=set1",
-    "password1": "12345678",
-    "password2": "12345678"
-  },
-  {
-    "id": 98,
-    "first_name": "Diego",
-    "last_name": "Ratti",
-    "email": "diego@ratti.com",
-    "seleccione imagen": "https://robohash.org/voluptatumconsequaturut.jpg?size=50x50&set=set1",
-    "password1": "12345678",
-    "password2": "12345678"
-  },
-  {
     "id": 1,
     "first_name": "Orsola",
     "last_name": "Winfindine",

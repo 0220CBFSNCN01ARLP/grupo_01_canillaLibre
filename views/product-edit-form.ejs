@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <%- include("partials/head", {title: "Registro"}) %>
+  </head>
+
+  <body class="bg_color">
+    <!--header/javi -->
+    <%- include("partials/header") %>
+
+    <!--ventas/diego -->
+    <section class="container mt-5 mb-5">
+      <div class="row">
+        <form
+          class="col-xl-9 col-lg-9 col-md-9 col-sm-12 m-auto bg-white text-dark p-4 rounded"
+          action="/product-edit-form/<%= cerveza.id%>?_method=put"
+          method="POST"
+          enctype="multipart/form-data"
+        >
+          <div class="register-title col-12">
+                    <h2 class="title_categoria">
+                        <i class="fas fa-hand-holding-usd text-black-50"></i></i> Vende por Canilla<strong>Libre</strong>.com
+                    </h2>
+                </div>
+                
+                <div class="dropdown-divider"></div>
+                titulo de venta
+                <h4 class="mb-4 mt-4">Edita tu producto: <%= cerveza.id %> </h4>
+                <div class="row align-items-center">
+                    <div class="form-group col-9">
+                        <label for="sell_title"> Titulo del Anuncio</label>
+                        <input type="text" class="form-control" id="title_sell" required /><%= cerveza.titulo %>
+                    </div>
+                    envios
+                    <div class="col-3">
+                        <div class="custom-control custom-checkbox mr-sm-2">
+                            <input type="checkbox" class="custom-control-input" id="sell_envios">
+                            <label class="custom-control-label" for="sell_envios">Puedo hacer envios!</label>
+                        </div>
+                    </div>
+                </div>
+                descripcion
+                <div class="form-group">
+                    <label for="sell_description">Hace una breve despricion de lo que vas a vender</label>
+                    <textarea class="form-control" id="sell_description" rows="3" placeholder="No te olvides datos importantes" required><% = cerveza.descripcion %> </textarea>
+                </div>
+                <div class="row">
+                    origen
+                    <div class="form-group col-3">
+                        <label for="sell_origin">Origen</label>
+                        <select id="sell_origin" class="form-control" required>
+                            
+                            <input><%= cerveza.origen %> </input>
+                            
+                        </select>
+                    </div>
+                    tipo
+                    <div class="form-group col-3">
+                        <label for="sell_type">Tipo</label>
+                        <select id="sell_type" class="form-control" required>
+                            <option selected>Seleccione...</option>
+                            <option><%= cerveza.tipo %> </option>
+                            
+                        </select>
+                    </div>
+                    categoria
+                    <div class="form-group col-3">
+                        <label for="sell_category">Categoría</label>
+                        <select id="sell_category" class="form-control">
+                            <option selected>Seleccione...</option>
+                            <option><%= cerveza.categoria %> </option>
+                            
+                        </select>
+                    </div>
+                    presentacion
+                    <div class="form-group col-3">
+                        <label for="sell_container">Presentación</label>
+                        <select id="sell_container" class="form-control">
+                            <option selected>Seleccione...</option>
+                            <option><%= cerveza.envase %> </option>
+                            
+                        </select>
+                    </div>
+                </div>
+                imagen1
+                <div class="row mt-2 mb-4 justify-content-between">
+                    <div class="form-group col-4">
+                        <p class="mb-1">Primera imagen</p>
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input" id="sell_image_1" lang="es" required />
+                            <label class="custom-file-label" for="sell_image_1">Seleccionar Archivo</label>
+                        </div>
+                    </div>
+                    
+                    
+                    </div>
+                </div>
+                
+                <div class="dropdown-divider"></div>
+
+                <div class="row align-items-center justify-content-between bg-light m-1">
+                    precio
+                    <div class="form-group col-3">
+                        <label for="sell_price"><i class="fas fa-hand-holding-usd"></i> Precio</label>
+                        <input type="number" class="form-control" id="precio" placeholder="precio"
+                             required /><%= cerveza.precio %> 
+                    </div>
+                    cantidad
+                    <div class="form-group col-3">
+                        <label for="sell_quantity">Cantidad</label>
+                        <input type="number" class="form-control" id="cantidad" placeholder="cantidad" 
+                            required /><%= cerveza.cantidad %> 
+                    </div>
+                    descuento
+                    <div class="form-group col-3 p-2">
+                        <label for="sell_discount"><i class="fas fa-percentage"></i> Descuento </label>
+                        <input type="number" class="form-control" id="descuento" placeholder="porcentaje"
+                             required /> <%= cerveza.descuento %> 
+                    </div>
+                </div>
+                <div class="dropdown-divider"></div>
+                
+                
+                boton enviar
+                <div class="col-12 d-flex justify-content-center mt-2">
+                    <button type="button" class="btn btn-outline-warning mt-3 mb-3">
+                        Guardar
+                    </button>
+                </div>
+                <div class="dropdown-divider"></div>
+        </form>
+      </div>
+    </section>
+
+    <!--footer/fran -->
+    <%- include("partials/footer") %>
+  </body>
+</html>

@@ -63,6 +63,7 @@ const controller = {
       ...product,
       ...req.body,
     };
+    console.log(product);
     //guardar el producto en la db
     const index = products.findIndex((product, index) => {
       return product.id == req.params.id;
@@ -74,7 +75,7 @@ const controller = {
       "utf-8"
     );
 
-    res.render("detail");
+    res.redirect("detail" + product.id);
   },
   // Create - Form to create
   create: (req, res) => {

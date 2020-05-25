@@ -7,9 +7,9 @@
         "tipo": null,
         "categoria": null,
         "presentacion": null,
-        "precio": null,
+        "precio": "$6.59",
         "cantidad": 85,
-        "descuento": null,
+        "descuento": 82,
         "descripcion": "",
         "comentarios": 24,
         "image1": "/img/mas_vendidos/cer_01.png"
@@ -60,18 +60,18 @@
         "image1": "/img/mas_vendidos/cer_04.png"
     },
     {
-        "id": 5,
+        "id": 1,
         "titulo": "",
-        "marca": "Cadillac",
-        "origen": "China",
+        "marca": "Toyota",
+        "origen": "Brazil",
         "tipo": null,
         "categoria": null,
         "presentacion": null,
-        "precio": "$8.52",
-        "cantidad": 43,
-        "descuento": 94,
+        "precio": null,
+        "cantidad": 85,
+        "descuento": null,
         "descripcion": "",
         "comentarios": 24,
-        "image1": "/img/mas_vendidos/cer_05.png"
+        "image1": "/img/mas_vendidos/cer_01.png"
     }
 ]

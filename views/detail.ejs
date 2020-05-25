@@ -16,18 +16,18 @@
           <div class="zoom animate__animated animate__zoomIn">
             <img
               class="img1-detail pt-4"
-              src="<%= cerveza.image1  %> "
+              src=" "
               alt=""
             />
           </div>
 
           <article class="text-left">
-            <h3 class="title-principal p-2"><%= cerveza.titulo %></h3>
+            <h3 class="title-principal p-2"><%= product.titulo %></h3>
             <span class="title-principal2 p-2"
-              ><%= cerveza.cantidad %> x <%= cerveza.precio %>
+              ><%= product.cantidad %> x <%= product.precio %>
             </span>
             <span class="title-principal3 p-1"
-              ><%= cerveza.descuento %> <i class="fa fa-tag"></i
+              ><%= product.descuento %> <i class="fa fa-tag"></i
             ></span>
           </article>
 
@@ -37,7 +37,7 @@
             <i class="fa fa-star"></i>
             <i class="fa fa-star"></i>
             <i class="fa fa-star"></i>
-            <a class="link-comments" href=""><%= cerveza.commentarios %> </a>
+            <a class="link-comments" href=""><%= product.commentarios %> </a>
           </div>
 
           <div class="row">
@@ -52,12 +52,11 @@
           </div>
 
           <div class="row">
-              <a href="/product-edit-form/<%=cerveza.id%>">
-            <div class="col-12 col-md-8">
-              
-                ><button type="button" class="btn-edit btn btn-outline-primary">
-                  Editar producto <i class="fa fa-pencil"></i></button
-              ></a>
+              <a href="/products/edit/<%=product.id%>">
+                <div class="col-12 col-md-8">              
+                <button type="button" class="btn-edit btn btn-outline-primary">
+                  Editar producto <i class="fa fa-pencil"></i></button>
+              </a>
 
               <!--Buttom Alert-->
               <button
@@ -101,7 +100,9 @@
                       >
                         NO
                       </button>
+                      <a href="/product/delete/<%=product.id%>" action="product/delete/<%= product.id %>?_method=delete" method="POST">
                       <button type="button" class="btn btn-warning">SI</button>
+                      </a>
                     </div>
                   </div>
                 </div>
@@ -121,22 +122,22 @@
 
             <tr>
               <td class="title-table">Origen</td>
-              <td class="subtitle-table"><%= cerveza.origen %></td>
+              <td class="subtitle-table"><%= product.origen %></td>
             </tr>
 
             <tr>
               <td class="title-table">Tipo</td>
-              <td class="subtitle-table"><%= cerveza.categoria %></td>
+              <td class="subtitle-table"><%= product.categoria %></td>
             </tr>
 
             <tr>
               <td class="title-table">Marca</td>
-              <td class="subtitle-table"><%= cerveza.marca %></td>
+              <td class="subtitle-table"><%= product.marca %></td>
             </tr>
 
             <tr>
               <td class="title-table">Envase</td>
-              <td class="subtitle-table"><%= cerveza.presentacion %></td>
+              <td class="subtitle-table"><%= product.presentacion %></td>
             </tr>
 
             <tr>
@@ -151,7 +152,7 @@
         <div class="col-12 col-md-8">
           <h5 class="title-product text-left pt-3">Descripcion del producto</h5>
           <p class="subtitle-table p-1">
-            <%= cerveza.descripcion %>
+            <%= product.descripcion %>
           </p>
         </div>
       </div>

@@ -31,12 +31,5 @@ router.get("/productDetail.ejs", function (req, res, next) {
 
 /* productDetail*/
 /*cambie la vista por detail para hacer pruebas, despues volver a product Detail*/
-router.get("/product", controller.allproducts);
-router.get("/productDetail2/:id?", controller.detailproduct);
-router.get("/product-edit-form/:id", controller.edit); /* GET - Product edit */
-router.put(
-  "/product-edit-form/:id",
-  controller.update
-); /* PUT - Product update */
 
 module.exports = router;

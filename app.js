@@ -24,7 +24,7 @@ app.use(methodOverride("_method")); // Pasar poder pisar el method="POST" en el 
 app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/", indexRouter);
-app.use("/product", productsRouter);
+app.use("/products", productsRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

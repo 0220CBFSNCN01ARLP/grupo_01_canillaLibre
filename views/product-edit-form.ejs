@@ -9,31 +9,21 @@
   <body class="bg_color">
     <!--header/javi -->
     <%- include("partials/header") %>
-
-    <!--ventas/diego -->
-    <section class="container mt-5 mb-5">
-      <div class="row">
-        <form
-          class="col-xl-9 col-lg-9 col-md-9 col-sm-12 m-auto bg-white text-dark p-4 rounded"
-          action="/product-edit-form/<%= cerveza.id%>?_method=put"
-          method="POST"
-          enctype="multipart/form-data"
-        >
-          <div class="register-title col-12">
+     <form class="col-xl-9 col-lg-9 col-md-9 col-sm-12 m-auto bg-white text-dark p-4 rounded"  action="/products/edit/<%= product.id %>?_method=put" method="POST" enctype="multipart/form-data">
+                <div class="register-title col-12">
                     <h2 class="title_categoria">
                         <i class="fas fa-hand-holding-usd text-black-50"></i></i> Vende por Canilla<strong>Libre</strong>.com
                     </h2>
                 </div>
-                
                 <div class="dropdown-divider"></div>
-                titulo de venta
-                <h4 class="mb-4 mt-4">Edita tu producto: <%= cerveza.id %> </h4>
+                <!-- titulo de venta -->
+                    <h4 class="mb-4 mt-4">Estas editando el producto <%= product.titulo %> </h4>
                 <div class="row align-items-center">
                     <div class="form-group col-9">
-                        <label for="sell_title"> Titulo del Anuncio</label>
-                        <input type="text" class="form-control" id="title_sell" required /><%= cerveza.titulo %>
+                        <label for="sell_title">Título del Anuncio</label>
+                        <input type="text" class="form-control" id="title_sell" value="<%= product.titulo  %>" aria-describedby="sell_title" required /> 
                     </div>
-                    envios
+                     <!-- envios -->
                     <div class="col-3">
                         <div class="custom-control custom-checkbox mr-sm-2">
                             <input type="checkbox" class="custom-control-input" id="sell_envios">
@@ -41,50 +31,35 @@
                         </div>
                     </div>
                 </div>
-                descripcion
+                <!-- descripcion -->
                 <div class="form-group">
                     <label for="sell_description">Hace una breve despricion de lo que vas a vender</label>
-                    <textarea class="form-control" id="sell_description" rows="3" placeholder="No te olvides datos importantes" required><% = cerveza.descripcion %> </textarea>
+                    <textarea class="form-control" id="sell_description" rows="3" placeholder="No te olvides datos importantes" required><%= product.descripcion %> </textarea>
                 </div>
                 <div class="row">
-                    origen
+                     <!-- origen -->
                     <div class="form-group col-3">
                         <label for="sell_origin">Origen</label>
-                        <select id="sell_origin" class="form-control" required>
-                            
-                            <input><%= cerveza.origen %> </input>
-                            
-                        </select>
+                        <input type="text" class="form-control" id="title_sell" aria-describedby="sell_title" value="<%= product.origen  %>" /> 
                     </div>
-                    tipo
+                    <!-- tipo -->
                     <div class="form-group col-3">
                         <label for="sell_type">Tipo</label>
-                        <select id="sell_type" class="form-control" required>
-                            <option selected>Seleccione...</option>
-                            <option><%= cerveza.tipo %> </option>
-                            
-                        </select>
+                        <input type="text" class="form-control" id="title_sell" aria-describedby="sell_title" value="<%= product.tipo  %>" />   
                     </div>
-                    categoria
+                   <!-- categoria -->
                     <div class="form-group col-3">
                         <label for="sell_category">Categoría</label>
-                        <select id="sell_category" class="form-control">
-                            <option selected>Seleccione...</option>
-                            <option><%= cerveza.categoria %> </option>
-                            
-                        </select>
+                        <input type="text" class="form-control" id="title_sell" aria-describedby="sell_title" value="<%= product.categoria  %>" /> 
                     </div>
-                    presentacion
+                    <!-- presentacion -->
                     <div class="form-group col-3">
                         <label for="sell_container">Presentación</label>
-                        <select id="sell_container" class="form-control">
-                            <option selected>Seleccione...</option>
-                            <option><%= cerveza.envase %> </option>
-                            
-                        </select>
+                        <input type="text" class="form-control" id="title_sell" aria-describedby="sell_title" value="<%= product.envase  %>" /> 
+                     
                     </div>
-                </div>
-                imagen1
+                </div>    
+                    <!-- imagen1 -->
                 <div class="row mt-2 mb-4 justify-content-between">
                     <div class="form-group col-4">
                         <p class="mb-1">Primera imagen</p>
@@ -93,46 +68,47 @@
                             <label class="custom-file-label" for="sell_image_1">Seleccionar Archivo</label>
                         </div>
                     </div>
-                    
-                    
+                </div>
+                <div class="row mt-2 mb-4 justify-content-between">
+                    <div class="form-group col-4">
+                        <p class="mb-1">Comentarios</p>
+                        <div class="custom-file">
+                            <input type="text" class="form-control" id="title_sell" aria-describedby="sell_title" value="<%= product.comentarios  %>" /> 
+                            
+                        </div>
                     </div>
                 </div>
-                
+
                 <div class="dropdown-divider"></div>
 
                 <div class="row align-items-center justify-content-between bg-light m-1">
-                    precio
+                    <!-- precio -->
                     <div class="form-group col-3">
                         <label for="sell_price"><i class="fas fa-hand-holding-usd"></i> Precio</label>
-                        <input type="number" class="form-control" id="precio" placeholder="precio"
-                             required /><%= cerveza.precio %> 
+                        <input type="number" class="form-control" id=precio name=precio placeholder="precio"
+                            aria-describedby="sell_price" value="<%= product.precio %>"/> 
                     </div>
-                    cantidad
+                    <!-- cantidad -->
                     <div class="form-group col-3">
                         <label for="sell_quantity">Cantidad</label>
-                        <input type="number" class="form-control" id="cantidad" placeholder="cantidad" 
-                            required /><%= cerveza.cantidad %> 
+                        <input type="number" class="form-control" id=cantidad placeholder="cantidad" aria-describedby="sell_quantity"
+                             value="<%= product.cantidad  %>"/> 
                     </div>
-                    descuento
+                    <!-- descuento -->
                     <div class="form-group col-3 p-2">
                         <label for="sell_discount"><i class="fas fa-percentage"></i> Descuento </label>
-                        <input type="number" class="form-control" id="descuento" placeholder="porcentaje"
-                             required /> <%= cerveza.descuento %> 
+                        <input type="number" class="form-control" id=descuento name=descuento placeholder="porcentaje"
+                            aria-describedby="sell_discount"  value="<%= product.descuento %>"/> 
                     </div>
                 </div>
-                <div class="dropdown-divider"></div>
-                
-                
-                boton enviar
+                 <!-- boton guardar -->
                 <div class="col-12 d-flex justify-content-center mt-2">
-                    <button type="button" class="btn btn-outline-warning mt-3 mb-3">
+                    <button type="submit" class="btn btn-outline-warning mt-3 mb-3">
                         Guardar
                     </button>
                 </div>
-                <div class="dropdown-divider"></div>
-        </form>
-      </div>
-    </section>
+    </form>
+                    
 
     <!--footer/fran -->
     <%- include("partials/footer") %>

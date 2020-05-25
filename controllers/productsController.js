@@ -17,40 +17,39 @@ const controller = {
   allproducts: (req, res) => {
     const products = getProducts();
 
-    res.render("product", { listado: products });
+    res.render("products", { listado: products });
   },
 
   // Detail - Detail from one product
   detailproduct: (req, res) => {
     const products = getProducts();
 
-    const cerveza = products.find((e) => {
+    const product = products.find((e) => {
       return e.id == req.params.id;
     });
-    if (!cerveza) return res.redirect("/");
+    if (!product) return res.redirect("/");
 
-    res.render("productDetail2", { cerveza });
+    res.render("detail", { product });
   },
   // Update - Form to edit
   edit: (req, res) => {
     const products = getProducts();
-    const cerveza = products.find((e) => {
+    const product = products.find((e) => {
       return e.id == req.params.id;
     });
-    if (cerveza == null) {
+    if (product == null) {
       res.redirect("/");
     }
-    res.render("product-edit-form", { cerveza });
+    res.render("product-edit-form", { product });
   },
 
   update: (req, res) => {
     const products = getProducts();
-    let cerveza = products.find((e) => {
+
+    let product = products.find((e) => {
       return e.id == req.params.id;
     });
-    if (cerveza == null) {
-      res.redirect("/");
-    }
+    if (product == null) return res.redirect("/");
 
     //modificar datos que vienen del form
     // verificar si los datos son validos
@@ -60,17 +59,22 @@ const controller = {
 
     //actualizar los datos del producto
 
-    updateData = {
+    product = {
+      ...product,
       ...req.body,
     };
     //guardar el producto en la db
-    const index = products.findIndex((e) => {
-      return e.id == req.params.id;
+    const index = products.findIndex((product, index) => {
+      return product.id == req.params.id;
     });
-    products.splice(index, 1, updateData);
-    fs.writeFileSync(productsFilePath, JSON.stringify(products), "utf-8");
+    products.splice(index, 1, product);
+    fs.writeFileSync(
+      productsFilePath,
+      JSON.stringify(products, null, 4),
+      "utf-8"
+    );
 
-    res.redirect("/product/productDetail2/" + cerveza.id);
+    res.render("detail");
   },
   // Create - Form to create
   create: (req, res) => {
@@ -117,6 +121,7 @@ const controller = {
 
     products.splice(index, 1);
     fs.writeFileSync(productsFilePath, JSON.stringify(products), "utf-8");
+
     res.redirect("/");
   },
 };

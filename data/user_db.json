@@ -1,9 +1,18 @@
 [
-  {
-    "firstname": "Javier",
-    "lastname": "Solari Paz",
-    "email": "zapiralos@gmail.com",
-    "pass": "1234",
-    "avatar": "avatar-1590504974507.jpg"
-  }
+   {
+      "firstname": "javier",
+      "lastname": "Solari Paz",
+      "email": "zapiralos@gmail.com",
+      "pass": "1234",
+      "avatar": "avatar-1590527055251.jpg",
+      "id": 1
+   },
+   {
+      "firstname": "javier",
+      "lastname": "Solari Paz",
+      "email": "zapiralos@gmail.com",
+      "pass": "1234",
+      "avatar": "avatar-1590527073898.jpg",
+      "id": 2
+   }
 ]

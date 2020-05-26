@@ -20,14 +20,19 @@ const controller = {
 
     delete req.body.pass2;
 
-    const user = {
-      ...req.body,
-      avatar: req.file.filename,
-    };
-
     const users = JSON.parse(
       fs.readFileSync(path.resolve(__dirname, "../data/user_db.json"))
     );
+
+    const user = {
+      ...req.body,
+      avatar: req.file.filename,
+      // funcion para integrar el id en cada usr registrado:
+      id:
+        users.reduce((ac, u) => {
+          return Math.max(ac, u.id);
+        }, 0) + 1,
+    };
 
     users.push(user);
 
@@ -36,7 +41,7 @@ const controller = {
       JSON.stringify(users, null, 3)
     );
 
-    res.send(req.body);
+    res.send("Registro Completo");
   },
 };
 

@@ -1,21 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <%- include("partials/head", {title: "Registro"}) %>
-    </head>
-
-    <body class="bg_color">
-
+    <%- include("partials/head", {title: "Vende por CanillaLibre"}) %>
+    
     <!--header/javi -->
     <%- include("partials/header") %>
 
     <!--ventas/diego -->
     <section class="container mt-5 mb-5">
         <div class="row">
-            <form class="col-xl-9 col-lg-9 col-md-9 col-sm-12 m-auto bg-white text-dark p-4 rounded" action="/auth/register"
+            <form class="col-xl-9 col-lg-9 col-md-9 col-sm-12 m-auto bg-white text-dark p-4 rounded" action="/register"
                 method="POST" enctype="multipart/form-data">
                 <div class="register-title col-12">
                     <h2 class="title_categoria">

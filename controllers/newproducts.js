@@ -17,7 +17,7 @@ const controllerProduct = {
           return Math.max(ac, u.id);
         }, 0) + 1,
       ...req.body,
-      image1: "/public/upload/" + req.file.filename,
+      image1: "/upload/" + req.file.filename,
       // funcion para integrar el id en cada usr registrado:
     };
     newproducts.push(newproduct);

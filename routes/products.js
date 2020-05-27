@@ -25,7 +25,7 @@ router.get("/:id?", controller.detailproduct); /* GET - Product detail */
 router.get("/:id/edit", controller.edit); /* GET - Product edit */
 router.put(
   "/:id?",
-  upload.any("image1"),
+  upload.single("image1"),
   controller.update
 ); /* PUT - Product update */
 

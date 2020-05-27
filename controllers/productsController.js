@@ -63,6 +63,7 @@ const controller = {
     product = {
       ...product,
       ...req.body,
+      image1: "/upload/" + req.file.filename,
     };
 
     //guardar el producto en la db
@@ -78,41 +79,9 @@ const controller = {
 
     res.redirect("/products/" + product.id);
   },
-  // Create - Form to create
-  create: (req, res) => {
-    // Do the magic
-    const products = getProducts();
-
-    const product = products.find((e) => {
-      return e.id == req.params.id;
-    });
-    if (!product) return res.redirect("/");
-
-    res.render("detail", { product });
-
-    let newProductJson = {
-      name: req.params.name,
-      price: req.params.price,
-      discount: req.params.discount,
-      category: req.params.category,
-      description: req.params.description,
-    };
-    let newProduct = JSON.stringify(newProductJson);
-
-    fs.writeFileSync("products-db.json", newProductJson);
-
-    // res.render("product-create-form", { product });
-  },
-
-  // Create -  Method to store
-  store: (req, res) => {
-    // Do the magic
-  },
-
-  // Update - Method to update
 
   // Delete - Delete one product from DB
-  //delete
+
   destroy: (req, res) => {
     const products = getProducts();
     const index = products.findIndex((e) => {

@@ -1,5 +1,6 @@
 var express = require("express");
 var router = express.Router();
+var fs = require('fs');
 
 // ************ Controller Require ************
 const controller = require("../controllers/productsController");
@@ -12,11 +13,6 @@ router.get("/", function (req, res, next) {
 /* Register*/
 router.get("/register.ejs", function (req, res, next) {
   res.render("register", { title: "Express" });
-});
-
-/* Form_product*/
-router.get("/form_prod.ejs", function (req, res, next) {
-  res.render("form_prod", { title: "Express" });
 });
 
 /* Product_cart*/

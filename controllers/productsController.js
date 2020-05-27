@@ -51,7 +51,8 @@ const controller = {
     });
     if (product == null) return res.redirect("/");
 
-    //modificar datos que vienen del form
+    // modificar datos que vienen del form
+
     // verificar si los datos son validos
 
     req.body.precio = Number.parseFloat(req.body.precio);
@@ -63,7 +64,7 @@ const controller = {
       ...product,
       ...req.body,
     };
-    console.log(product);
+
     //guardar el producto en la db
     const index = products.findIndex((product, index) => {
       return product.id == req.params.id;
@@ -75,7 +76,7 @@ const controller = {
       "utf-8"
     );
 
-    res.redirect("detail" + product.id);
+    res.redirect("/products/" + product.id);
   },
   // Create - Form to create
   create: (req, res) => {
@@ -123,7 +124,7 @@ const controller = {
     products.splice(index, 1);
     fs.writeFileSync(productsFilePath, JSON.stringify(products), "utf-8");
 
-    res.redirect("/");
+    res.redirect("/products/");
   },
 };
 

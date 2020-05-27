@@ -2,14 +2,14 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta value="viewport" content="width=device-width, initial-scale=1.0" />
     <%- include("partials/head", {title: "Registro"}) %>
   </head>
 
   <body class="bg_color">
     <!--header/javi -->
     <%- include("partials/header") %>
-     <form class="col-xl-9 col-lg-9 col-md-9 col-sm-12 m-auto bg-white text-dark p-4 rounded"  action="/products/edit/<%= product.id %>?_method=put" method="POST" enctype="multipart/form-data">
+     <form class="col-xl-9 col-lg-9 col-md-9 col-sm-12 m-auto bg-white text-dark p-4 rounded"  action="/products/<%= product.id %>?_method=PUT" method="POST">
                 <div class="register-title col-12">
                     <h2 class="title_categoria">
                         <i class="fas fa-hand-holding-usd text-black-50"></i></i> Vende por Canilla<strong>Libre</strong>.com
@@ -17,11 +17,11 @@
                 </div>
                 <div class="dropdown-divider"></div>
                 <!-- titulo de venta -->
-                    <h4 class="mb-4 mt-4">Estas editando el producto <%= product.titulo %> <% product.id %>  </h4>
+                    <h4 class="mb-4 mt-4">Estas editando el producto <%= product.titulo %> <%= product.id %>  </h4>
                 <div class="row align-items-center">
                     <div class="form-group col-9">
                         <label for="sell_title">Título del Anuncio</label>
-                        <input type="text" class="form-control" id="title_sell" value="<%= product.titulo  %>" aria-describedby="sell_title" required /> 
+                        <input type="text" class="form-control" id="title_sell" id="titulo" name="titulo" value="<%= product.titulo  %>" aria-describedby="sell_title" required /> 
                     </div>
                      <!-- envios -->
                     <div class="col-3">
@@ -34,28 +34,72 @@
                 <!-- descripcion -->
                 <div class="form-group">
                     <label for="sell_description">Hace una breve despricion de lo que vas a vender</label>
-                    <textarea class="form-control" id="sell_description" rows="3" placeholder="No te olvides datos importantes" required><%= product.descripcion %> </textarea>
+                    <textarea class="form-control" id="sell_description" rows="3" placeholder="No te olvides datos importantes" id="descripcion" name="descripcion" required><%= product.descripcion %> </textarea>
+                </div>
+                <div class="row mt-2 mb-4 justify-content-between">
+                    <div class="form-group col-4">
+                        <p class="mb-1">Marca</p>
+                        <div class="custom-file">
+                            <input type="text" class="form-control" id="title_sell" aria-describedby="sell_title" id="marca" name="marca" value="<%= product.marca  %>" /> 
+                            
+                        </div>
+                    </div>
                 </div>
                 <div class="row">
                      <!-- origen -->
                     <div class="form-group col-3">
                         <label for="sell_origin">Origen</label>
-                        <input type="text" class="form-control" id="title_sell" aria-describedby="sell_title" value="<%= product.origen  %>" /> 
+                        
+                        <select id="sell_origin" class="form-control" id="origen" name="origen" value="<%= product.origen  %>" required>
+                            <option selected>Seleccione...</option>
+                            <option>Nacional</option>
+                            <option>Internacional</option>
+                        </select>
                     </div>
                     <!-- tipo -->
                     <div class="form-group col-3">
                         <label for="sell_type">Tipo</label>
-                        <input type="text" class="form-control" id="title_sell" aria-describedby="sell_title" value="<%= product.tipo  %>" />   
+                           
+                        <select id="sell_type" class="form-control" id="tipo" name="tipo" value="<%= product.tipo  %>" required>
+                            <option selected>Seleccione...</option>
+                            <option>Cerveza</option>
+                            <option>Insumos</option>
+                            <option>Alquiler</option>
+                            <option>Cursos</option>
+                            <option>Merchandesing</option>
+                            <option>Cursos</option>
+                        </select>
                     </div>
                    <!-- categoria -->
                     <div class="form-group col-3">
                         <label for="sell_category">Categoría</label>
-                        <input type="text" class="form-control" id="title_sell" aria-describedby="sell_title" value="<%= product.categoria  %>" /> 
+                        
+                        <select id="sell_category" class="form-control" id="categoria"name="categoria" value="<%= product.categoria  %>">
+                            <option selected>Seleccione...</option>
+                            <option>Ale</option>
+                            <option>Ipa</option>
+                            <option>Lager</option>
+                            <option>Lambic</option>
+                            <option>Pilsen</option>
+                            <option>Porter</option>
+                            <option>Stout</option>
+                            <option>Trigo</option>
+                            <option>Sin Alcohol</option>
+                            <option>Especiales</option>
+                        </select>
+                        
                     </div>
                     <!-- presentacion -->
                     <div class="form-group col-3">
                         <label for="sell_container">Presentación</label>
-                        <input type="text" class="form-control" id="title_sell" aria-describedby="sell_title" value="<%= product.envase  %>" /> 
+                        <select id="sell_container" class="form-control" id="presentacion" name="presentacion" value="<%= product.envase  %>">
+                            <option selected>Seleccione...</option>
+                            <option>Lata</option>
+                            <option>Porron</option>
+                            <option>Botella</option>
+                            <option>Barril</option>
+                            <option>Chopera</option>
+                        </select>
                      
                     </div>
                 </div>    
@@ -91,14 +135,14 @@
                     <!-- cantidad -->
                     <div class="form-group col-3">
                         <label for="sell_quantity">Cantidad</label>
-                        <input type="number" class="form-control" id=cantidad placeholder="cantidad" aria-describedby="sell_quantity"
-                             value="<%= product.cantidad  %>"/> 
+                        <input type="number" class="form-control" id=cantidad name= "cantidad"placeholder="cantidad" aria-describedby="sell_quantity"
+                             name="<%= product.cantidad  %>"/> 
                     </div>
                     <!-- descuento -->
                     <div class="form-group col-3 p-2">
                         <label for="sell_discount"><i class="fas fa-percentage"></i> Descuento </label>
                         <input type="number" class="form-control" id=descuento name=descuento placeholder="porcentaje"
-                            aria-describedby="sell_discount"  value="<%= product.descuento %>"/> 
+                            aria-describedby="sell_discount"  name="<%= product.descuento %>"/> 
                     </div>
                 </div>
                  <!-- boton guardar -->

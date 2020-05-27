@@ -22,7 +22,8 @@
           </div>
 
           <article class="text-left">
-            <h2><%= product.id %></h2>
+            
+            <img src="<%= product.image1 %>" alt="product image" class="product-detail-img">
             <h3 class="title-principal p-2"><%= product.titulo %></h3>
             <span class="title-principal2 p-2"
               ><%= product.cantidad %> x <%= product.precio %>
@@ -53,13 +54,14 @@
           </div>
 
           <div class="row">
-              <a href="/products/edit/<%=product.id%>">
+              <a href="/products/<%= product.id%>/edit">
                 <div class="col-12 col-md-8">              
                 <button type="button" class="btn-edit btn btn-outline-primary">
                   Editar producto <i class="fa fa-pencil"></i></button>
               </a>
 
               <!--Buttom Alert-->
+
               <button
                 type="button"
                 class="btn-eliminar btn btn-danger"
@@ -101,9 +103,9 @@
                       >
                         NO
                       </button>
-                      <a href="/product/delete/<%=product.id%>" action="product/delete/<%= product.id %>?_method=delete" method="POST">
-                      <button type="button" class="btn btn-warning">SI</button>
-                      </a>
+                      <form action="<%= product.id %>/delete?_method=delete" method="POST">
+                      <button type="submit" class="btn btn-warning">SI</button>
+                      </form>
                     </div>
                   </div>
                 </div>

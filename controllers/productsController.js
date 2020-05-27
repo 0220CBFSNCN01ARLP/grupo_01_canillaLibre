@@ -43,7 +43,7 @@ const controller = {
     res.render("product-edit-form", { product });
   },
 
-  update: (req, res) => {
+  update: (req, res, next) => {
     const products = getProducts();
 
     let product = products.find((e) => {

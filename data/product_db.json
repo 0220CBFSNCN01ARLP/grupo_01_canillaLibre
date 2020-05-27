@@ -1,1 +1,44 @@
-[{"id":2,"titulo":"Corona","marca":"Corona","origen":"Internacional","tipo":"Cerveza","categoria":"Ale","presentacion":"Botella","precio":200,"cantidad":"6","descuento":5,"descripcion":"  ","comentarios":24,"image1":"/img/mas_vendidos/cer_02.png"},{"id":3,"titulo":"Guinnes ","marca":"Guinnes","origen":"Internacional","tipo":"Cerveza","categoria":"Especiales","presentacion":"Lata","precio":500,"cantidad":"6","descuento":10,"descripcion":" ","comentarios":24,"image1":"/img/mas_vendidos/cer_03.png"},{"id":4,"titulo":"","marca":"Volkswagen","origen":"Indonesia","tipo":null,"categoria":null,"presentacion":null,"precio":"$0.57","cantidad":90,"descuento":50,"descripcion":"","comentarios":24,"image1":"/img/mas_vendidos/cer_04.png"},{"id":1,"titulo":"","marca":"Toyota","origen":"Brazil","tipo":null,"categoria":null,"presentacion":null,"precio":null,"cantidad":85,"descuento":null,"descripcion":"","comentarios":24,"image1":"/img/mas_vendidos/cer_01.png"}]
+[
+   {
+      "titulo": "birra",
+      "descripcion": "rica",
+      "marca": "Toyota2",
+      "origen": "Nacional",
+      "tipo": "Insumos",
+      "categoria": "Lambic",
+      "presentacion": "Botella",
+      "precio": "100",
+      "cantidad": "10",
+      "descuento": "20",
+      "image1": "image1-1590609509350.png",
+      "id": 1
+   },
+   {
+      "id": 2,
+      "titulo": "Caja Loca 3",
+      "descripcion": "sDhdH",
+      "marca": "Toyota3",
+      "origen": "Nacional",
+      "tipo": "Cerveza",
+      "categoria": "Ale",
+      "presentacion": "Lata",
+      "precio": "1222",
+      "cantidad": "1",
+      "descuento": "7",
+      "image1": "/public/upload/image1-1590610054337.png"
+   },
+   {
+      "id": 3,
+      "titulo": "Caja Loca 4",
+      "descripcion": "skdjKJ",
+      "marca": "Toyota5",
+      "origen": "Nacional",
+      "tipo": "Cerveza",
+      "categoria": "Ipa",
+      "presentacion": "Porron",
+      "precio": "100",
+      "cantidad": "1",
+      "descuento": "10",
+      "image1": "/public/upload/image1-1590610643737.png"
+   }
+]

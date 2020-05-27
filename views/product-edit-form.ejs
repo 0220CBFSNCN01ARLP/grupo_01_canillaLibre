@@ -9,7 +9,7 @@
   <body class="bg_color">
     <!--header/javi -->
     <%- include("partials/header") %>
-     <form class="col-xl-9 col-lg-9 col-md-9 col-sm-12 m-auto bg-white text-dark p-4 rounded"  action="/products/<%= product.id %>?_method=PUT" method="POST">
+     <form class="col-xl-9 col-lg-9 col-md-9 col-sm-12 m-auto bg-white text-dark p-4 rounded"  action="/products/<%= product.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
                 <div class="register-title col-12">
                     <h2 class="title_categoria">
                         <i class="fas fa-hand-holding-usd text-black-50"></i></i> Vende por Canilla<strong>Libre</strong>.com
@@ -108,8 +108,9 @@
                     <div class="form-group col-4">
                         <p class="mb-1">Primera imagen</p>
                         <div class="custom-file">
-                            <input type="file" class="custom-file-input" id="sell_image_1" lang="es" required />
+                            <input type="file" class="custom-file-input" id="sell_image_1" name= "image1" lang="es" value="<%= product.image1  %>"/>
                             <label class="custom-file-label" for="sell_image_1">Seleccionar Archivo</label>
+                           
                         </div>
                     </div>
                 </div>

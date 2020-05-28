@@ -26,7 +26,7 @@ const controller = {
 
     const user = {
       ...req.body,
-      avatar: req.file.filename,
+      avatar: "/avatar/" + req.file.filename,
       // funcion para integrar el id en cada usr registrado:
       id:
         users.reduce((ac, u) => {

@@ -5,7 +5,7 @@ const path = require("path");
 
 //Funcion Multer para guardar avatar
 var storage = multer.diskStorage({
-  destination: path.resolve(__dirname, "../public/uploads/"),
+  destination: path.resolve(__dirname, "../public/avatar/"),
 
   filename: function (req, file, cb) {
     cb(

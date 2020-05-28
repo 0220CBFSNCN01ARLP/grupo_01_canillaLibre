@@ -8,12 +8,6 @@ const controller = require("../controllers/productsController");
 router.get("/", function (req, res, next) {
   res.render("index", { title: "Express" });
 });
-
-/* Register*/
-router.get("/register.ejs", function (req, res, next) {
-  res.render("register", { title: "Express" });
-});
-
 /* Form_product*/
 router.get("/form_prod.ejs", function (req, res, next) {
   res.render("form_prod", { title: "Express" });

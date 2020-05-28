@@ -1,10 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <%- include("partials/head", {title: "Registro"}) %>
-  </head>
+  <%- include("partials/head", {title: "Registro"}) %>
 
   <body class="bg_color">
     <!--header/javi -->
@@ -34,6 +30,7 @@
               <input
                 type="text"
                 class="form-control"
+                name="firstname"
                 id="firstname"
                 aria-describedby="firstname"
                 required
@@ -45,6 +42,7 @@
               <input
                 type="text"
                 class="form-control"
+                name="lastname"
                 id="lastname"
                 aria-describedby="lastname"
                 required
@@ -58,6 +56,7 @@
             <input
               type="email"
               class="form-control"
+              name="email"
               id="email"
               aria-describedby="email"
               required
@@ -74,6 +73,7 @@
             <input
               type="password"
               class="form-control"
+              name="pass"
               id="pass"
               aria-describedby="pass"
               required
@@ -89,6 +89,7 @@
             <input
               type="password"
               class="form-control"
+              name="pass2"
               id="pass2"
               aria-describedby="pass2"
               required
@@ -101,11 +102,12 @@
             <input
               type="file"
               class="custom-file-input"
-              id="file"
+              name="avatar"
+              id="avatar"
               lang="es"
               required
             />
-            <label class="custom-file-label" for="file"
+            <label class="custom-file-label" for="avatar"
               >Seleccionar Archivo</label
             >
           </div>
@@ -116,6 +118,7 @@
               <input
                 class="form-check-input"
                 type="checkbox"
+                name="politic"
                 value=""
                 id="politic"
               />
@@ -126,7 +129,7 @@
           </div>
           <!-- boton enviar -->
           <div class="col-12 d-flex justify-content-center mt-2">
-            <button type="button" class="btn btn-outline-warning mt-3 mb-3">
+            <button type="submit" class="btn btn-outline-warning mt-3 mb-3">
               Registrate
             </button>
           </div>

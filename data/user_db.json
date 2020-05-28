@@ -7,5 +7,13 @@
       "politic": "",
       "avatar": "/avatar/avatar-1590635415927.jpg",
       "id": 1
+   },
+   {
+      "firstname": "Diego",
+      "lastname": "Ratti",
+      "email": "diegoratti45@hotmail.ocm",
+      "pass": "12345678",
+      "avatar": "/avatar/avatar-1590675396884.png",
+      "id": 2
    }
 ]

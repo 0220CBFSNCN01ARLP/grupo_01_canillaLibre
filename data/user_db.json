@@ -1,1 +1,11 @@
-[]
+[
+   {
+      "firstname": "javier",
+      "lastname": "Solari Paz",
+      "email": "zapiralos@gmail.com",
+      "pass": "1234",
+      "politic": "",
+      "avatar": "/avatar/avatar-1590635415927.jpg",
+      "id": 1
+   }
+]

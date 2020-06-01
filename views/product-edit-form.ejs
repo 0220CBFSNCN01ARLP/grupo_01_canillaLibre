@@ -108,8 +108,8 @@
                     <div class="form-group col-4">
                         <p class="mb-1">Primera imagen</p>
                         <div class="custom-file">
-                            <input type="file" class="custom-file-input" id="sell_image_1" name="image1" lang="es" value="<%= product.image1  %>"/>
-                            <label class="custom-file-label" for="sell_image_1">Seleccionar Archivo</label>
+                            <input type="file" class="custom-file-input" id="image1" name="image1" lang="es" value="<%= product.image1  %>"/>
+                            <label class="custom-file-label" for="image1">Seleccionar Archivo</label>
                            
                         </div>
                     </div>
@@ -152,9 +152,17 @@
                         Guardar
                     </button>
                 </div>
-    </form>
-                    
 
+                <!--script para filename-->
+                <script>
+                    $("#image1").on("change", function () {
+                        //get the file name
+                        var fileName = $(this).val();
+                        //replace the "Choose a file" label
+                        $(this).next(".custom-file-label").html(fileName);
+                    });
+                </script>
+    </form>
     <!--footer/fran -->
     <%- include("partials/footer") %>
   </body>

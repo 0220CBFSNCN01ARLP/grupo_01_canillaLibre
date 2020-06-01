@@ -6,162 +6,125 @@
     <%- include("partials/head", {title: "Detalle de Producto"}) %>
   </head>
 
-  <body>
-    <!--header/javi -->
+  <body class="bg_color">
+    <!--header-->
     <%- include("partials/header") %>
 
-    <section class="container-fluid text-center">
-      <div class="row">
-        <div class="col-12 col-md-8">
-          <div class="zoom animate__animated animate__zoomIn">
-            <img
-              class="img1-detail pt-4"
-              src=" "
-              alt=""
-            />
+    <section class="container mt-5 mb-5">
+      <div class="row d-flex justify-content-center">
+        <div class="col-xl-7 col-lg-7 col-md-9 col-sm-12 m-auto bg-white text-dark p-4 rounded animate__animated animate__zoomIn">
+          <!--titulo-->
+          <div class="register-title col-12">
+            <h2 class="title_categoria">
+              <%= product.titulo %>
+            </h2>
           </div>
-
-          <article class="text-left">
-            
-            <img src="<%= product.image1 %>" alt="product image" class="product-detail-img" value="Show Images">
-            <h3 class="title-principal p-2"><%= product.titulo %></h3>
-            <span class="title-principal2 p-2"
-              ><%= product.cantidad %> x <%= product.precio %>
-            </span>
-            <span class="title-principal3 p-1"
-              ><%= product.descuento %> <i class="fa fa-tag"></i
-            ></span>
-          </article>
-
-          <div class="star text-left p-2">
-            <i class="fa fa-star"></i>
-            <i classs="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-            <a class="link-comments" href=""><%= product.commentarios %> </a>
-          </div>
-
-          <div class="row">
-            <div class="col-12 col-md-8">
-              <button
-                type="button"
-                class="btn-carrito pl-5 pr-5 m-4 btn btn-outline-primary"
-              >
-                Añadir al carrito <i class="fa fa-shopping-cart"></i>
-              </button>
+          <div class="dropdown-divider"></div>
+          <div class="media row d-flex align-items-center">
+            <div class="col-6 align-items-center d-flex justify-content-center ">
+              <!--imagen-->
+              <img src="<%= product.image1 %>" alt="product image" class="product-detail-img" value="Show Images">
             </div>
-          </div>
-
-          <div class="row">
-              <a href="/products/<%= product.id%>/edit">
-                <div class="col-12 col-md-8">              
-                <button type="button" class="btn-edit btn btn-outline-primary">
-                  Editar producto <i class="fa fa-pencil"></i></button>
-              </a>
-
-              <!--Buttom Alert-->
-
-              <button
-                type="button"
-                class="btn-eliminar btn btn-danger"
-                data-toggle="modal"
-                data-target="#exampleModal"
-              >
-                Eliminar <i class="fa fa-trash"></i>
-              </button>
-
-              <div
-                class="modal fade"
-                id="exampleModal"
-                tabindex="-1"
-                role="dialog"
-                aria-labelledby="exampleModalLabel"
-                aria-hidden="true"
-              >
-                <div class="modal-dialog">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h5 class="modal-title" id="exampleModalLabel">
-                        ¿Está seguro que desea eliminar el producto?
-                      </h5>
-                      <button
-                        type="button"
-                        class="close"
-                        data-dismiss="modal"
-                        aria-label="Close"
-                      >
-                        <span aria-hidden="true">&times;</span>
-                      </button>
-                    </div>
-
-                    <div class="modal-footer">
-                      <button
-                        type="button"
-                        class="btn btn-secondary"
-                        data-dismiss="modal"
-                      >
-                        NO
-                      </button>
-                      <form action="<%= product.id %>/delete?_method=delete" method="POST">
-                      <button type="submit" class="btn btn-warning">SI</button>
-                      </form>
-                    </div>
-                  </div>
-                </div>
+            <div class="media-body col-6 border-left">
+              <!--cantidad-->
+              <h5 class="font-weight-light">Cantidad : <strong><%= product.cantidad %></strong></h4> 
+              <!--precio-->
+              <h5 class="font-weight-light"> Precio : <strong>$ <%= product.precio %></strong></h5>
+              <!--descuento-->
+              <span class=" bg-success text-white rounded-pill p-1"><%= product.descuento %> <i class="fa fa-tag"></i></span>
+              <!--rating-->
+              <div class="star text-left p-2">
+                <i class="fa fa-star"></i>
+                <i classs="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <a class="link-comments" href=""><%= product.commentarios %> </a>
               </div>
-              <!--Buttom Alert-->
             </div>
+
+            <!-- comprar / agregar al carrito -->
+            <div class="col-12 d-flex justify-content-center mb-5">
+              <button type="submit" class="btn btn-outline-warning mr-2">
+                <i class="fa fa-shopping-cart"></i> Agregar al Carrito
+              </button>
+              <button type="submit" class="btn btn-outline-warning ml-2">
+                Comprar
+              </button>
+            </div>
+           
+            <!--detalle de producto-->
+            <div class="row p-0 m-auto border-secondary p-4">
+                <h3 class="col-12 font-weight-light">Detalle del Producto</h3>
+                <ul class="list-group col-4 list-group-flush">
+                  <li class="list-group-item">Origen</li>
+                  <li class="list-group-item">Tipo</li>
+                  <li class="list-group-item">Marca</li>
+                  <li class="list-group-item">Presentacion</li>
+                  <li class="list-group-item border-bottom-0">Contenido</li>
+                </ul>
+                <ul class="list-group col-8 list-group-flush">
+                  <li class="list-group-item"><%= product.origen %></li>
+                  <li class="list-group-item"><%= product.categoria %></li>
+                  <li class="list-group-item"><%= product.marca %></li>
+                  <li class="list-group-item"><%= product.presentacion %></li>
+                  <li class="list-group-item">330 ml</li>
+                </ul>
+            </div>
+
+            <!--descripción de producto-->
+            <div class="list-group p-0 m-auto border-secondary">
+              <div class="list-group-item">
+                <div class="d-flex w-100 justify-content-between">
+                  <h5 class="mb-1">Descripción del Producto</h5>
+                </div>
+                <p class="mb-1"><%= product.descripcion %></p>
+                <div class="dropdown-divider"></div>
+                <small><i class="fas fa-info-circle"></i> Puede consultar al vendedor por más información</small>
+              </div>
+            </div>
+          
+          <!-- editar / borrar -->
+          <div class="box-edit col-12 d-flex justify-content-center mt-5 mb-2 border rounded p-2">
+            <a href="/products/<%= product.id%>/edit">
+              <button type="submit" class="btn btn-outline-secondary mr-2 text-secondary">
+                <i class="far fa-edit"></i> Editar
+              </button>
+            </a>
+            <button type="submit" class="btn btn-outline-danger ml-2 text-danger" data-toggle="modal" data-target="#Eliminar_Modal">
+              <i class="far fa-trash-alt"></i> Eliminar
+            </button>
+                          <!--Buttom Alert-->
+                          <div class="modal fade" id="Eliminar_Modal" tabindex="-1" role="dialog" aria-labelledby="Eliminar_Modal_label"
+                            aria-hidden="true">
+                            <div class="modal-dialog">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <h5 class="modal-title" id="Eliminar_Modal_label">
+                                    ¿Está seguro que desea eliminar el producto?
+                                  </h5>
+                                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                  </button>
+                                </div>
+                          
+                                <div class="modal-footer">
+                                  <button type="button" class="btn btn-outline-secondary text-secondary" data-dismiss="modal">
+                                    NO
+                                  </button>
+                                  <form action="<%= product.id %>/delete?_method=delete" method="POST">
+                                    <button type="submit" class="btn btn-outline-warning ml-2 text-warning">SI</button>
+                                  </form>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <!--Buttom Alert-->
           </div>
         </div>
       </div>
     </section>
-
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-12 col-md-8">
-          <table class="table table-bordered table-detail">
-            <h3 class="title-product text-left pt-4">Detalle del producto</h3>
-
-            <tr>
-              <td class="title-table">Origen</td>
-              <td class="subtitle-table"><%= product.origen %></td>
-            </tr>
-
-            <tr>
-              <td class="title-table">Tipo</td>
-              <td class="subtitle-table"><%= product.categoria %></td>
-            </tr>
-
-            <tr>
-              <td class="title-table">Marca</td>
-              <td class="subtitle-table"><%= product.marca %></td>
-            </tr>
-
-            <tr>
-              <td class="title-table">Envase</td>
-              <td class="subtitle-table"><%= product.presentacion %></td>
-            </tr>
-
-            <tr>
-              <td class="title-table">Contenido</td>
-              <td class="subtitle-table">330 Ml</td>
-            </tr>
-          </table>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-12 col-md-8">
-          <h5 class="title-product text-left pt-3">Descripcion del producto</h5>
-          <p class="subtitle-table p-1">
-            <%= product.descripcion %>
-          </p>
-        </div>
-      </div>
-    </div>
-
-    <!--footer/franco -->
+    <!--footer-->
     <%- include("partials/footer") %>
   </body>
 </html>

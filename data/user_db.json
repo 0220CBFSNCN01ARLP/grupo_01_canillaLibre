@@ -1,19 +1,11 @@
 [
    {
-      "firstname": "javier",
+      "firstname": "Javier",
       "lastname": "Solari Paz",
       "email": "zapiralos@gmail.com",
-      "pass": "1234",
-      "politic": "",
-      "avatar": "/avatar/avatar-1590635415927.jpg",
+      "age": "37",
+      "pass": "$2b$10$jpWfzvS1kEmKRCfS.yN0/epuieupRZn6FtDLvJsSuJ0xywBHMJHsG",
+      "avatar": "/avatar/avatar-1591019983409.JPG",
       "id": 1
-   },
-   {
-      "firstname": "Diego",
-      "lastname": "Ratti",
-      "email": "diegoratti45@hotmail.ocm",
-      "pass": "12345678",
-      "avatar": "/avatar/avatar-1590675396884.png",
-      "id": 2
    }
 ]

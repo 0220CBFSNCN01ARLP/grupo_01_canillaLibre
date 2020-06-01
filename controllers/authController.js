@@ -16,7 +16,7 @@ const controller = {
       return res.redender("register");
     }
 
-    //req.body.pass = bcrypt.hashsync(req.body.pass, 10);
+    req.body.pass = bcrypt.hashSync(req.body.pass, 10);
 
     delete req.body.pass2;
 

@@ -3,13 +3,14 @@
 
     <%- include("partials/head", {title: "Vende por CanillaLibre"}) %>
     
+<body class="bg_color">
     <!--header/javi -->
     <%- include("partials/header") %>
 
     <!--ventas/diego -->
     <section class="container mt-5 mb-5">
         <div class="row">
-            <form class="col-xl-9 col-lg-9 col-md-9 col-sm-12 m-auto bg-white text-dark p-4 rounded" action="/products"
+            <form class="col-xl-9 col-lg-9 col-md-9 col-sm-12 m-auto bg-white text-dark p-4 rounded animate__animated animate__zoomIn" action="/products"
                 method="POST" enctype="multipart/form-data">
                 <div class="register-title col-12">
                     <h2 class="title_categoria">
@@ -111,7 +112,7 @@
                     </div>
                     <!-- imagen2 -->
                     <div class="form-group col-4">
-                        <p class="mb-1">Segunda Imagen</p>
+                        <p class="mb-1">Segunda Imagen<em> - Opcional -</em></p>
                  <div class="custom-file">
                             <input type="file" class="custom-file-input" id="sell_image_2" lang="es"/>
                             <label class="custom-file-label" for="sell_image_2">Seleccionar Archivo</label>
@@ -119,7 +120,7 @@
                     </div>
                     <!-- imagen3 -->
                     <div class="form-group col-4">
-                        <p class="mb-1">Tercera imagen</p>
+                        <p class="mb-1">Tercera imagen<em> - Opcional -</em></p>
                         <div class="custom-file">
                             <input type="file" class="custom-file-input" id="sell_image_3" lang="es"/>
                             <label class="custom-file-label" for="sell_image_3">Seleccionar Archivo</label>
@@ -153,7 +154,7 @@
                 
                 <!-- datos de contacto -->
                 <div class="col-12">
-                    <h5 class="mb-4 mt-4">Necesitamos datos para contactarte</h5>
+                    <h5 class="mb-4 mt-4">Necesitamos datos para contactarte <em>- Opcional -</em></h5>
                 </div>
                 <div class="form-row  mb-2">
                     <div class="col-4">
@@ -197,6 +198,7 @@
             </form>
         </div>
     </section>
+</body>
       
     <!--footer/fran -->
     <%- include("partials/footer") %>

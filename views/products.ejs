@@ -8,34 +8,37 @@
 
    
 
-  <body>
-    <!--header/javi -->
-    <%- include("partials/header") %>
+    <body>
+      <!--header/javi -->
+      <%- include("partials/header") %>
 
 
-  <div class="categorias-title">
-    <h2 class="title_categoria border-bottom">Todos los productos</h2>
-  </div>
-  <div class="container">
-    <div class="row">
-      <% for( let products of listado ) { %>
-        <div class="col-12 col-sm-6 col-lg-3">
-          <section class="product-box">
-            <a href="/products/<%=products.id%>">
-              <figure class="product-box_image">
-                <img src="<%=products.image1%>" alt="imagen de producto" />
-                <article class="product-box_data">
-                  <h2><%=products.marca%></h2>
-                  <span><%=products.cantidad +" x " + products.precio%></span>
-                  <p>Comentarios  <%=products.comentarios%></p>
-                </article>
-              </figure>
-            </a>
-            </section>
-          </div>
-      <% } %> 
-          
-    </div>
-  </div>
- </div>
-  
+        <div class="categorias-title">
+            <h2 class="title_categoria border-bottom">Todos los productos</h2>
+              </div>
+              <div class="container">
+                <div class="row">
+                    <% for( let products of listado ) { %>
+                      <div class="col-12 col-sm-6 col-lg-3">
+                        <section class="product-box">
+                          <a href="/products/<%=products.id%>">
+                            <figure class="product-box_image">
+                              <img src="<%=products.image1%>" alt="imagen de producto" />
+                              <article class="product-box_data">
+                                <h2><%=products.marca%></h2>
+                                <span><%=products.cantidad +" x " + products.precio%></span>
+                                <p>Comentarios  <%=products.comentarios%></p>
+                              </article>
+                            </figure>
+                          </a>
+                          </section>
+                        </div>
+                      <% } %> 
+                      
+                </div>
+              </div>
+        </div>
+        <!--footer/fran -->
+        <%- include("partials/footer") %>
+    </body>
+</html>  

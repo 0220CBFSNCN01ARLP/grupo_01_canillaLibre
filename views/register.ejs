@@ -11,7 +11,7 @@
     <section class="container mt-5 mb-5">
       <div class="row">
         <form
-          class="col-xl-7 col-lg-7 col-md-9 col-sm-12 m-auto bg-white text-dark p-4 rounded"
+          class="col-xl-7 col-lg-7 col-md-9 col-sm-12 m-auto bg-white text-dark p-4 rounded animate__animated animate__zoomIn"
           action="/auth/register"
           method="POST"
           enctype="multipart/form-data"
@@ -51,19 +51,32 @@
           </div>
 
           <!-- email -->
-          <div class="form-group">
-            <label for="email">Direccion Email</label>
-            <input
-              type="email"
-              class="form-control"
-              name="email"
-              id="email"
-              aria-describedby="email"
-              required
-            />
-            <small id="email" class="form-text text-muted"
-              >Ingrese su correo: nombre@dominio.com</small
-            >
+          <div class="form-group row">
+            <div class="form-group col-8">
+              <label for="email">Direccion Email</label>
+              <input
+                type="email"
+                class="form-control"
+                name="email"
+                id="email"
+                aria-describedby="email"
+                required
+              />
+              <small id="email" class="form-text text-muted"
+                >Ingrese su correo: nombre@dominio.com</small
+              >
+            </div>
+            <div class="form-group col-4">
+              <label for="edad">Ingrese su Edad</label>
+              <input
+                type="number"
+                class="form-control"
+                name="age"
+                id="age"
+                aria-describedby="age"
+                required
+              />
+            </div>
           </div>
 
           <!-- password -->
@@ -148,6 +161,16 @@
           </div>
         </form>
       </div>
+
+      <!--script para filename del avatar-->
+      <script>
+        $("#avatar").on("change", function () {
+          //get the file name
+          var fileName = $(this).val();
+          //replace the "Choose a file" label
+          $(this).next(".custom-file-label").html(fileName);
+        });
+      </script>
     </section>
 
     <!--footer/fran -->

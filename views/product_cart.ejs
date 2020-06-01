@@ -1,157 +1,169 @@
 <!DOCTYPE html>
 <html lang="en">
+  <%- include("partials/head", {title: "Registro"}) %>
 
-    <%- include("partials/head", {title: "Registro"}) %>
-
-<body class="bg_color">
+  <body class="bg_color">
     <!--header/javi -->
     <%- include("partials/header") %>
-    
+
     <!-- carrito/javi-->
     <section class="container bg-white mb-5 rounded-top">
-        <div class="row">
-            <!--Titulo-->
-            <article class="col-12 text-center mt-3">
-                <h2 class="title_categoria border-bottom"><i class="fas fa-shopping-cart text-secondary"></i> - Carrito</h2>
-            </article>
-            <div class="dropdown-divider"></div>
-            
-            <!--Primer Producto en el carro-->
-            <article class="Product_cart col-12">
-                <div class="item-cart ">
-                    <!--imagen link a producto-->
-                    <div class="media align-items-center p-3 d-flex justify-content-between">
-                        <a class="col-1 col-md-2 ml-2" href="#prduct_detail">
-                            <img src="/img/mas_vendidos/cer_02.png" class="mr-3 w-100" alt="...">
-                        </a>
-                        <div class="col-5 media-body border-left pl-4">
-                            <h5 class="mt-0">Corona Extra</h5>
-                            <p> Lager Estilo Americano | 4.6 ° | Origen: Mexico </p>
-                            <h6 class="mt-0 text-info">Pack X 12 unidedades</h6>
-                        </div>
-                        <div class="col-3 media-body d-flex justify-content-center align-items-stretch">
-                            <!--cantidad // ver que significa todo ese choclo-->
-                            <form class="cantidad_item rounded " action="cantidad_item" method="POST">
-                                <div class="def-number-input number-input safari_only ">
-                                    <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" class="minus"></button>
-                                    <input class="quantity" min="0" name="quantity" value="1" type="number">
-                                    <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button>
-                                </div>
-                            </form>
-                        </div>
-                        <!--precio-->
-                        <div class="col-1 media-body justify-content-end">
-                            <div class="price_item">
-                                <span class="price_uni_item">
-                                    <span class="price_symbol">$</span><span class="price_tag_total">1.068</span>
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="dropdown-divider"></div>
-                </div>
-            </article>
-            <!--Segundo Producto en el carro-->
-            <article class="Product_cart col-12">
-                <div class="item-cart ">
-                    <!--imagen link a producto-->
-                    <div class="media align-items-center p-3 d-flex justify-content-between">
-                        <a class="col-1 col-md-2 ml-2" href="#prduct_detail">
-                            <img src="/img/mas_vendidos/cer_01.png" class="mr-3 w-100" alt="...">
-                        </a>
-                        <div class="col-5 media-body border-left pl-4">
-                            <h5 class="mt-0">Stella Atois</h5>
-                            <p> Lager Estilo Americano | 5 ° | Origen: Belgica</p>
-                            <h6 class="mt-0 text-info">Pack X 24 unidedades</h6>
-                        </div>
-                        <div class="col-3 media-body d-flex justify-content-center align-items-stretch">
-                            <!--cantidad // ver que significa todo ese choclo-->
-                            <form class="cantidad_item rounded " action="cantidad_item" method="POST">
-                                <div class="def-number-input number-input safari_only ">
-                                    <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()"
-                                        class="minus"></button>
-                                    <input class="quantity" min="0" name="quantity" value="1" type="number">
-                                    <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()"
-                                        class="plus"></button>
-                                </div>
-                            </form>
-                        </div>
-                        <!--precio-->
-                        <div class="col-1 media-body justify-content-end">
-                            <div class="price_item">
-                                <span class="price_uni_item">
-                                    <span class="price_symbol">$</span><span class="price_tag_total">2.048</span>
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="dropdown-divider"></div>
-                </div>
-            </article>
-            
-            <article class="price_total media col-12 col-sm-12 p-3 justify-content-center border-bottom">
-                <div class="col-11 col-lg-10 col-sm-4 text-right">
-                    <p class="text-secondary">Total</p>
-                    <h6 class="text-info"> Descuento <strong>20%</strong></h6>
-                    <h4 class="mt-0 text-warning">Total</h4>
-                </div>
-                <div class="col-1 col-lg-2 col-sm-4 text-left border-left">
-                    <p class="text-secondary">$ 3116.00</p>
-                    <h6 class="text-info"><strong>$ 623.20</strong></h6>
-                    <h4 class="mt-0 text-warning">$ 2492.80</h4>
-                </div>
-                
-            </article>
-            <article class="comprar media bg-warning col-12 col-sm-12 p-3 ml-auto align-items-center rounded-bottom">
-                <div class="w-100 d-flex justify-content-center">
-                    <!-- boton registrarse -->
-                    <button type="submit" class="btn btn-light d-flex">Comprar</button>
-                </div>
-            </article>
-            
-            
-        </div>
-        
-    </section>
-    <footer>
-        <div class="container-fluid">
-            <div class="row">
-                
-                <div class="col-md-2 d-none d-md-inline-block text-center align-self-center">
-                    <img class="img-footer-cajon" src="img/cajon.png" alt="">
-                </div>
-                
-                <div class="col-12 col-md-8 text-center align-items-center pt-3 textinfo">
-                    
-                    <div class="nav flex-column">
-                        <a class="web-nav" href="">Terminos y Condiciones</a>
-                        <a class="web-nav" href="">Politicas de privacidad</a>
-                        <a class="web-nav" href="">Franquicias</a>
-                    </div>
-                    
-                    
-                    
-                    <p class="text1 pt-3">
-                        BEBER CON MODERACIÓN. PROHIBIDA SU VENTA A MENORES DE 18 AÑOS. <br> NO COMPARTA EL CONTENIDO CON
-                        MENORES. </br>
-                    </p>
-                    
-                    <p class="text2 pt-2">
-                        Copyright © 2020 | canillalibre.com.ar | Todos los derechos reservados.
-                    </p>
-                    
-                </div>
-                
-                
-                <div class="col-md-2 d-none d-md-inline-block  align-self-end">
-                    <img class="img-footer-logo" src="img/logoinvertido.png" alt="">
-                </div>
-                
-            </div>
-        </div>
-        
-    </footer>
-    
-</body>
+      <div class="row">
+        <!--Titulo-->
+        <article class="col-12 text-center mt-3">
+          <h2 class="title_categoria border-bottom">
+            <i class="fas fa-shopping-cart text-secondary"></i> - Carrito
+          </h2>
+        </article>
+        <div class="dropdown-divider"></div>
 
+        <!--Primer Producto en el carro-->
+        <article class="Product_cart col-12">
+          <div class="item-cart">
+            <!--imagen link a producto-->
+            <div
+              class="media align-items-center p-3 d-flex justify-content-between"
+            >
+              <a class="col-1 col-md-2 ml-2" href="#prduct_detail">
+                <img
+                  src="/img/mas_vendidos/cer_02.png"
+                  class="mr-3 w-100"
+                  alt="..."
+                />
+              </a>
+              <div class="col-5 media-body border-left pl-4">
+                <h5 class="mt-0">Corona Extra</h5>
+                <p>Lager Estilo Americano | 4.6 ° | Origen: Mexico</p>
+                <h6 class="mt-0 text-info">Pack X 12 unidedades</h6>
+              </div>
+              <div
+                class="col-3 media-body d-flex justify-content-center align-items-stretch"
+              >
+                <!--cantidad // ver que significa todo ese choclo-->
+                <form
+                  class="cantidad_item rounded"
+                  action="cantidad_item"
+                  method="POST"
+                >
+                  <div class="def-number-input number-input safari_only">
+                    <button
+                      onclick="this.parentNode.querySelector('input[type=number]').stepDown()"
+                      class="minus"
+                    ></button>
+                    <input
+                      class="quantity"
+                      min="0"
+                      name="quantity"
+                      value="1"
+                      type="number"
+                    />
+                    <button
+                      onclick="this.parentNode.querySelector('input[type=number]').stepUp()"
+                      class="plus"
+                    ></button>
+                  </div>
+                </form>
+              </div>
+              <!--precio-->
+              <div class="col-1 media-body justify-content-end">
+                <div class="price_item">
+                  <span class="price_uni_item">
+                    <span class="price_symbol">$</span
+                    ><span class="price_tag_total">1.068</span>
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div class="dropdown-divider"></div>
+          </div>
+        </article>
+        <!--Segundo Producto en el carro-->
+        <article class="Product_cart col-12">
+          <div class="item-cart">
+            <!--imagen link a producto-->
+            <div
+              class="media align-items-center p-3 d-flex justify-content-between"
+            >
+              <a class="col-1 col-md-2 ml-2" href="#prduct_detail">
+                <img
+                  src="/img/mas_vendidos/cer_01.png"
+                  class="mr-3 w-100"
+                  alt="..."
+                />
+              </a>
+              <div class="col-5 media-body border-left pl-4">
+                <h5 class="mt-0">Stella Atois</h5>
+                <p>Lager Estilo Americano | 5 ° | Origen: Belgica</p>
+                <h6 class="mt-0 text-info">Pack X 24 unidedades</h6>
+              </div>
+              <div
+                class="col-3 media-body d-flex justify-content-center align-items-stretch"
+              >
+                <!--cantidad // ver que significa todo ese choclo-->
+                <form
+                  class="cantidad_item rounded"
+                  action="cantidad_item"
+                  method="POST"
+                >
+                  <div class="def-number-input number-input safari_only">
+                    <button
+                      onclick="this.parentNode.querySelector('input[type=number]').stepDown()"
+                      class="minus"
+                    ></button>
+                    <input
+                      class="quantity"
+                      min="0"
+                      name="quantity"
+                      value="1"
+                      type="number"
+                    />
+                    <button
+                      onclick="this.parentNode.querySelector('input[type=number]').stepUp()"
+                      class="plus"
+                    ></button>
+                  </div>
+                </form>
+              </div>
+              <!--precio-->
+              <div class="col-1 media-body justify-content-end">
+                <div class="price_item">
+                  <span class="price_uni_item">
+                    <span class="price_symbol">$</span
+                    ><span class="price_tag_total">2.048</span>
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div class="dropdown-divider"></div>
+          </div>
+        </article>
+
+        <article
+          class="price_total media col-12 col-sm-12 p-3 justify-content-center border-bottom"
+        >
+          <div class="col-11 col-lg-10 col-sm-4 text-right">
+            <p class="text-secondary">Total</p>
+            <h6 class="text-info">Descuento <strong>20%</strong></h6>
+            <h4 class="mt-0 text-warning">Total</h4>
+          </div>
+          <div class="col-1 col-lg-2 col-sm-4 text-left border-left">
+            <p class="text-secondary">$ 3116.00</p>
+            <h6 class="text-info"><strong>$ 623.20</strong></h6>
+            <h4 class="mt-0 text-warning">$ 2492.80</h4>
+          </div>
+        </article>
+        <article
+          class="comprar media bg-warning col-12 col-sm-12 p-3 ml-auto align-items-center rounded-bottom"
+        >
+          <div class="w-100 d-flex justify-content-center">
+            <!-- boton registrarse -->
+            <button type="submit" class="btn btn-light d-flex">Comprar</button>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!--footer/fran -->
+    <%- include("partials/footer") %>
+  </body>
 </html>

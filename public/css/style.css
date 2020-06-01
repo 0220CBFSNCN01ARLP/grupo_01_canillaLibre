@@ -56,10 +56,6 @@
 
 /*--------------VENDE--------------*/
 
-.border {
-  border: solid 5px black !important;
-}
-
 .pepito {
   background-color: var(--amarillo);
   padding: 5%;
@@ -127,10 +123,6 @@
   font-size: 1.3em;
   font-weight: 500;
   padding-right: 8px;
-}
-
-.star {
-  border-left: 1px solid #197582;
 }
 
 .product-box_data span {

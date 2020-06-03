@@ -1,20 +1,29 @@
 [
-  {
-    "firstname": "Javier",
-    "lastname": "Solari Paz",
-    "email": "zapiralos@gmail.com",
-    "age": "37",
-    "pass": "$2b$10$kqOubHpgC98isyMjWF94F.hql62KkTMXhx.bpn9mDa1/k9dCexgHe",
-    "avatar": "/avatar/avatar-1591191696582.jpg",
-    "id": 1
-  },
-  {
-    "firstname": "Cosme",
-    "lastname": "Fulanito",
-    "email": "cosme@fulanito.com",
-    "age": "20",
-    "pass": "$2b$10$5rYQyFUQrSg73RKcDT4NMOJmMXP7dhBQzhzg8PG8fTC9SpZp22Vy2",
-    "avatar": "/avatar/avatar-1591191933987.jpg",
-    "id": 2
-  }
+   {
+      "firstname": "Javier",
+      "lastname": "Solari Paz",
+      "email": "zapiralos@gmail.com",
+      "age": "37",
+      "pass": "$2b$10$kqOubHpgC98isyMjWF94F.hql62KkTMXhx.bpn9mDa1/k9dCexgHe",
+      "avatar": "/avatar/avatar-1591191696582.jpg",
+      "id": 1
+   },
+   {
+      "firstname": "Cosme",
+      "lastname": "Fulanito",
+      "email": "cosme@fulanito.com",
+      "age": "20",
+      "pass": "$2b$10$5rYQyFUQrSg73RKcDT4NMOJmMXP7dhBQzhzg8PG8fTC9SpZp22Vy2",
+      "avatar": "/avatar/avatar-1591191933987.jpg",
+      "id": 2
+   },
+   {
+      "firstname": "Diego",
+      "lastname": "Ratti",
+      "email": "diegoratti45@hotmail.com",
+      "age": "43",
+      "pass": "$2b$10$kDgWLyjzhU3yvSieLixMneWLvs0PCX7g/ggVt2N6kxtCKraPg0.NK",
+      "avatar": "/avatar/avatar-1591217608091.jpg",
+      "id": 3
+   }
 ]

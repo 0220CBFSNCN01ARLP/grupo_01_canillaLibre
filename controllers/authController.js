@@ -19,7 +19,7 @@ const controller = {
       //registro de nuevo usuario
 
       if (req.body.pass != req.body.pass2) {
-        return res.redender("register");
+        return res.render("register");
       }
 
       req.body.pass = bcrypt.hashSync(req.body.pass, 10);
@@ -64,8 +64,31 @@ const controller = {
     let errors = validationResult(req);
 
     if (errors.isEmpty()) {
+      //Diego logica del logueo de usr
+      let users = JSON.parse(
+        fs.readFileSync(path.resolve(__dirname, "../data/user_db.json"))
+      );
+      console.log(users);
+
+      for (let i=0; i< users.length; i++){
+        if (users[i].email == req.body.email){
+          if(bcrypt.compareSync (req.body.pass, users[i].pass)== true){
+            
+            let usuarioaLoguearse =users.email [i];
+           
+            break;
+          }
+        }
+      }
+      if(usuarioaLoguearse== undefined){
+        return res.render("login", { errors: [
+          {msg: "Credenciales Invalidas"}
+        ] });
+      }
+      req.session.usuarioLogueado = usuarioaLoguearse;
+      res.send ("Vamos!!");
       //logeo de usuario
-      res.send("redideccionar al home del usuario logueado");
+      //res.send("redideccionar al home del usuario logueado");
     } else {
       return res.render("login", { errors: errors.errors });
     }

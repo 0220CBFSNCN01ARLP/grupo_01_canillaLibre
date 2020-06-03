@@ -59,8 +59,7 @@ router.post(
 );
 
 router.get("/login", authController.showLogin);
-router.post(
-  "/login",
+router.post("/login", [
   check("email")
     .custom(function (value) {
       let usersJSON = fs.readFileSync(
@@ -80,6 +79,7 @@ router.post(
       return false;
     })
     .withMessage("Email no registrado"),
+
   /* check("pass")
     .isLength({ min: 8 })
     .custom(function (value) {
@@ -100,10 +100,7 @@ router.post(
       return true;
     })
     .withMessage("La contraseña debe tener más de 8 caracteres"), */
-  authController.login
-);
-
-//profile
-//router.get("/profile", function (req, res, next) {});
+  authController.login,
+]);
 
 module.exports = router;

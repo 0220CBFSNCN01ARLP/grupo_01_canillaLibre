@@ -70,25 +70,24 @@ const controller = {
       );
       console.log(users);
 
-      for (let i=0; i< users.length; i++){
-        if (users[i].email == req.body.email){
-          if(bcrypt.compareSync (req.body.pass, users[i].pass)== true){
-            
-            let usuarioaLoguearse =users.email [i];
-           
+      for (let i = 0; i < users.length; i++) {
+        if (users[i].email == req.body.email) {
+          if (bcrypt.compareSync(req.body.pass, users[i].pass) == true) {
+            let usuarioaLoguearse = users.email[i];
+
             break;
           }
         }
       }
-      if(usuarioaLoguearse== undefined){
-        return res.render("login", { errors: [
-          {msg: "Credenciales Invalidas"}
-        ] });
+      if (usuarioaLoguearse == undefined) {
+        return res.render("login", {
+          errors: [{ msg: "Credenciales Invalidas" }],
+        });
       }
       req.session.usuarioLogueado = usuarioaLoguearse;
-      res.send ("Vamos!!");
+      res.send("Vamos!!");
       //logeo de usuario
-      //res.send("redideccionar al home del usuario logueado");
+      //res.render("/");
     } else {
       return res.render("login", { errors: errors.errors });
     }

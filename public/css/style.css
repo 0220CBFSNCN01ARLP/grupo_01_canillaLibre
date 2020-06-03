@@ -55,6 +55,9 @@
 /*Carousel*/
 
 /*--------------VENDE--------------*/
+.border-3 {
+  border-width: 5px !important;
+}
 
 .pepito {
   background-color: var(--amarillo);

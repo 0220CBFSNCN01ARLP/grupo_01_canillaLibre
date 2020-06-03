@@ -6,6 +6,18 @@
     <!--header/javi -->
     <%- include("partials/header") %>
 
+    <!--VALIDATION-->
+    <% if (typeof errors != "undefined") { %>
+    <p>ERROR</p>
+      <ul>
+        <% for (let i=0; i<errors.lenght;i++) { %> 
+          <li>
+            <%= errors[i].msg %> 
+          </li>
+        <% } %> 
+      </ul>
+    <% } %>
+
     <!--registro/diego-->
     <!-- Section es todo el contenedor -->
     <section class="container mt-5 mb-5">
@@ -33,7 +45,6 @@
                 name="firstname"
                 id="firstname"
                 aria-describedby="firstname"
-                required
               />
             </div>
 
@@ -45,7 +56,6 @@
                 name="lastname"
                 id="lastname"
                 aria-describedby="lastname"
-                required
               />
             </div>
           </div>
@@ -60,7 +70,6 @@
                 name="email"
                 id="email"
                 aria-describedby="email"
-                required
               />
               <small id="email" class="form-text text-muted"
                 >Ingrese su correo: nombre@dominio.com</small
@@ -74,7 +83,6 @@
                 name="age"
                 id="age"
                 aria-describedby="age"
-                required
               />
             </div>
           </div>
@@ -89,7 +97,6 @@
               name="pass"
               id="pass"
               aria-describedby="pass"
-              required
             />
             <small id="passwordHelpBlock" class="form-text text-muted">
               Debe tener entre 8-20 caracteres.
@@ -105,7 +112,6 @@
               name="pass2"
               id="pass2"
               aria-describedby="pass2"
-              required
             />
           </div>
 
@@ -132,7 +138,7 @@
                 class="form-check-input"
                 type="checkbox"
                 name="politic"
-                value=""
+                value="true"
                 id="politic"
               />
               <label class="form-check-label" for="politic">

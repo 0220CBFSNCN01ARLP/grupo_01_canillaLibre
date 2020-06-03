@@ -4,8 +4,17 @@
       "lastname": "Solari Paz",
       "email": "zapiralos@gmail.com",
       "age": "37",
-      "pass": "$2b$10$jpWfzvS1kEmKRCfS.yN0/epuieupRZn6FtDLvJsSuJ0xywBHMJHsG",
-      "avatar": "/avatar/avatar-1591019983409.JPG",
+      "pass": "$2b$10$kqOubHpgC98isyMjWF94F.hql62KkTMXhx.bpn9mDa1/k9dCexgHe",
+      "avatar": "/avatar/avatar-1591191696582.jpg",
       "id": 1
+   },
+   {
+      "firstname": "Cosme",
+      "lastname": "Fulanito",
+      "email": "cosme@fulanito.com",
+      "age": "20",
+      "pass": "$2b$10$5rYQyFUQrSg73RKcDT4NMOJmMXP7dhBQzhzg8PG8fTC9SpZp22Vy2",
+      "avatar": "/avatar/avatar-1591191933987.jpg",
+      "id": 2
    }
 ]

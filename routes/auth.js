@@ -41,15 +41,14 @@ router.post(
         } else {
           users = JSON.parse(usersJSON);
         }
-        for (let i = 0; i < users.lenght; i++) {
+        for (let i = 0; i < users.length; i++) {
           if (users[i].email == value) {
             return false;
           }
         }
         return true;
       })
-      .withMessage("email ya registrado")
-      .withMessage("Debe ingresar un email valido"),
+      .withMessage("Email ya registrado"),
     check("age").isInt({ min: 18 }).withMessage("Debe ser mayor de 18 años"),
     check("pass")
       .isLength({ min: 8 })
@@ -60,7 +59,49 @@ router.post(
 );
 
 router.get("/login", authController.showLogin);
-router.post("/login", function (req, res) {});
+router.post(
+  "/login",
+  check("email")
+    .custom(function (value) {
+      let usersJSON = fs.readFileSync(
+        path.resolve(__dirname, "../data/user_db.json")
+      );
+      let users;
+      if (usersJSON == "") {
+        users = [];
+      } else {
+        users = JSON.parse(usersJSON);
+      }
+      for (let i = 0; i < users.length; i++) {
+        if (users[i].email == value) {
+          return true;
+        }
+      }
+      return false;
+    })
+    .withMessage("Email no registrado"),
+  /* check("pass")
+    .isLength({ min: 8 })
+    .custom(function (value) {
+      let usersJSON = fs.readFileSync(
+        path.resolve(__dirname, "../data/user_db.json")
+      );
+      let users;
+      if (usersJSON == "") {
+        users = [];
+      } else {
+        users = JSON.parse(usersJSON);
+      }
+      for (let i = 0; i < users.length; i++) {
+        if (users[i].pass != value) {
+          return false;
+        }
+      }
+      return true;
+    })
+    .withMessage("La contraseña debe tener más de 8 caracteres"), */
+  authController.login
+);
 
 //profile
 //router.get("/profile", function (req, res, next) {});

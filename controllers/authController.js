@@ -59,7 +59,17 @@ const controller = {
   },
 
   //POST LOGIN
-  login: (req, res) => {},
+  login: (req, res) => {
+    console.log(validationResult(req));
+    let errors = validationResult(req);
+
+    if (errors.isEmpty()) {
+      //logeo de usuario
+      res.send("redideccionar al home del usuario logueado");
+    } else {
+      return res.render("login", { errors: errors.errors });
+    }
+  },
 };
 
 module.exports = controller;

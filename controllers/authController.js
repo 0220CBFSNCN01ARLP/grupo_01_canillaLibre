@@ -68,20 +68,11 @@ const controller = {
       let users = JSON.parse(
         fs.readFileSync(path.resolve(__dirname, "../data/user_db.json"))
       );
-<<<<<<< HEAD
 
       for (let i = 0; i < users.length; i++) {
         if (users[i].email == req.body.email) {
           if (bcrypt.compareSync(req.body.pass, users[i].pass)) {
             usuarioaLoguearse = users[i].email;
-=======
-      console.log(users);
-
-      for (let i = 0; i < users.length; i++) {
-        if (users[i].email == req.body.email) {
-          if (bcrypt.compareSync(req.body.pass, users[i].pass) == true) {
-            let usuarioaLoguearse = users.email[i];
->>>>>>> 5badb5d06b441ff3667f3776c6e5ad9f6e033784
 
             break;
           }
@@ -93,11 +84,7 @@ const controller = {
         });
       }
       req.session.usuarioLogueado = usuarioaLoguearse;
-<<<<<<< HEAD
       res.send("A partir de aca ver las vista  del home personalizado");
-=======
-      res.send("Vamos!!");
->>>>>>> 5badb5d06b441ff3667f3776c6e5ad9f6e033784
       //logeo de usuario
       //res.render("/");
     } else {

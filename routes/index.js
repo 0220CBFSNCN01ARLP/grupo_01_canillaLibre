@@ -23,6 +23,12 @@ router.get("/productDetail.ejs", function (req, res, next) {
   res.render("/productDetail", { title: "Express" });
 });
 
+
+router.get("/profile.ejs", function (req, res, next) {
+  res.render("profile", { title: "Express" });
+});
+
+
 /* productDetail*/
 /*cambie la vista por detail para hacer pruebas, despues volver a product Detail*/
 

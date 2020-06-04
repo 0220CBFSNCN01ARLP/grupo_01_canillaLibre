@@ -8,21 +8,13 @@ const controller = require("../controllers/productsController");
 router.get("/", function (req, res, next) {
   res.render("index", { title: "Express" });
 });
-/* Form_product*/
-router.get("/form_prod.ejs", function (req, res, next) {
-  res.render("form_prod", { title: "Express" });
-});
 
 /* Product_cart*/
-router.get("/product_cart.ejs", function (req, res, next) {
-  res.render("product_cart", { title: "Express" });
+router.get("/product_cart.ejs", function (req, res) {
+  res.render("product_cart");
 });
 
-/* ver dejando el index como estaba*/
-router.get("/productDetail.ejs", function (req, res, next) {
-  res.render("/productDetail", { title: "Express" });
-});
-
+<<<<<<< HEAD
 
 router.get("/profile.ejs", function (req, res, next) {
   res.render("profile", { title: "Express" });
@@ -32,4 +24,6 @@ router.get("/profile.ejs", function (req, res, next) {
 /* productDetail*/
 /*cambie la vista por detail para hacer pruebas, despues volver a product Detail*/
 
+=======
+>>>>>>> c2d9e12b44f5e1449a46a31bcd7214e8e88c051f
 module.exports = router;

@@ -28,6 +28,12 @@ router.put(
   upload.single("image1"),
   controller.update
 ); /* PUT - Product update */
+router.get("/pruebaSession", function(req,res){
+
+  if (req.session.numero== undefined){
+    req.session.numero=0
+  }
+})
 
 /*Crear Productos*/
 

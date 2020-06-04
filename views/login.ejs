@@ -7,6 +7,17 @@
     <!--header/javi -->
     <%- include("partials/header") %>
 
+      <% if (typeof errors != "undefined") { %>
+      <p>ERROR</p>
+      <ul>
+        <% for (let i=0; i<errors.length;i++) { %>
+        <li>
+          <%= errors[i].msg %>
+        </li>
+        <% } %>
+      </ul>
+      <% } %>
+
     <!--login-->
     <!-- Section es todo el contenedor -->
     <section class="container mt-5 mb-5">
@@ -15,7 +26,7 @@
           class="col-xl-5 col-lg-5 col-md-6 col-sm-6 m-auto bg-white text-dark p-4 rounded animate__animated animate__zoomIn"
           action="/auth/login"
           method="POST"
-          enctype="multipart/form-data"
+          
         >
           <div class="register-title col-12">
             <h2 class="title_categoria">

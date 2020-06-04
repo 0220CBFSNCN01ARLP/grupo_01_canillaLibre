@@ -41,28 +41,47 @@ router.post(
         } else {
           users = JSON.parse(usersJSON);
         }
-        for (let i = 0; i < users.lenght; i++) {
+        for (let i = 0; i < users.length; i++) {
           if (users[i].email == value) {
             return false;
           }
         }
         return true;
       })
-      .withMessage("email ya registrado")
-      .withMessage("Debe ingresar un email valido"),
+      .withMessage("Email ya registrado"),
     check("age").isInt({ min: 18 }).withMessage("Debe ser mayor de 18 años"),
     check("pass")
       .isLength({ min: 8 })
       .withMessage("La contraseña debe tener más de 8 caracteres"),
-    //check("pass2").equals(body.pass).withMessage("Debe repetir la contraseña"),
   ],
   authController.register
 );
 
 router.get("/login", authController.showLogin);
-router.post("/login", function (req, res) {});
-
-//profile
-//router.get("/profile", function (req, res, next) {});
+router.post(
+  "/login",
+  [
+    check("email")
+      .custom(function (value) {
+        let usersJSON = fs.readFileSync(
+          path.resolve(__dirname, "../data/user_db.json")
+        );
+        let users;
+        if (usersJSON == "") {
+          users = [];
+        } else {
+          users = JSON.parse(usersJSON);
+        }
+        for (let i = 0; i < users.length; i++) {
+          if (users[i].email == value) {
+            return true;
+          }
+        }
+        return false;
+      })
+      .withMessage("Email no registrado"),
+  ],
+  authController.login
+);
 
 module.exports = router;

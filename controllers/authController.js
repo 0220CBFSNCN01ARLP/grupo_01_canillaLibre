@@ -47,7 +47,7 @@ const controller = {
         JSON.stringify(users, null, 3)
       );
 
-      res.send("Registro Completo");
+      res.redirect("Registro Completo");
     } else {
       return res.render("register", { errors: errors.errors });
     }
@@ -84,7 +84,7 @@ const controller = {
         });
       }
       req.session.usuarioLogueado = usuarioaLoguearse;
-      res.send("A partir de aca ver las vista  del home personalizado");
+      res.redirect("/auth/headerLogin");
       //logeo de usuario
       //res.render("/");
     } else {

@@ -9,6 +9,7 @@ var session = require ("express-session");
 var indexRouter = require("./routes/index");
 const authRouter = require("./routes/auth"); //rutas /auth /Registro
 const productsRouter = require("./routes/products"); // Rutas /products
+const userLogin = require("./routes/userLogin"); // Rutas /products
 const methodOverride = require("method-override"); // Para poder usar los métodos PUT y DELETE
 
 var app = express();
@@ -31,6 +32,7 @@ app.use(methodOverride("_method"));
 app.use("/", indexRouter);
 app.use("/auth", authRouter);
 app.use("/products", productsRouter);
+app.use("/userLogin", userLogin);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

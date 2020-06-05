@@ -1,35 +1,11 @@
-const fs = require ("fs");
-const usersFilePath = path.join(__dirname, "../data/user_db.json");
-function getUsers() {
-  return JSON.parse(fs.readFileSync(usersFilePath, "utf-8"));
-};
+function userMiddleware (req, res, next){
 
-const userMiddleware = {
+  if (req.session.usuarioLogueado != undefined){
+      next ();
 
-    everybody : (req,res,next) => {
-        
-        next
-    },
-    withLogin : (req,res,next) => {
-
-      let users = getUsers();
-
-      if (users.email == ""){
-        res.render("products", { listado: products });
-      }
-
-
-      next
-
-    },
-
-    withoutLogin : (req,res,next) => {
-
-      
-      next
-
-    },
-    
-    }
+  }else {
+      res.send ("Esta pagina es solo para usuarios Logueados");
+  }
+}
 
 module.exports = userMiddleware;

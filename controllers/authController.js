@@ -78,13 +78,13 @@ const controller = {
           }
         }
       }
-      if (usuarioaLoguearse === undefined) {
+      if (usuarioaLoguearse == undefined) {
         return res.render("login", {
           errors: [{ msg: "Credenciales Invalidas" }],
         });
       }
       req.session.usuarioLogueado = usuarioaLoguearse;
-      res.send("A partir de aca ver las vista  del home personalizado");
+      res.send("A partir de aca ver las vista  del home de " + req.session.usuarioLogueado);
       //logeo de usuario
       //res.render("/");
     } else {

@@ -18,7 +18,6 @@
       "id": 2
    },
    {
-<<<<<<< HEAD
       "firstname": "Franco",
       "lastname": "Martin",
       "email": "fmfrancomartin@gmail.com",
@@ -47,14 +46,14 @@
       "politic": "true",
       "avatar": "/avatar/avatar-1591214179276.png",
       "id": 5
-=======
+   },
+   {
       "firstname": "Diego",
       "lastname": "Ratti",
       "email": "diegoratti45@hotmail.com",
       "age": "43",
-      "pass": "$2b$10$kDgWLyjzhU3yvSieLixMneWLvs0PCX7g/ggVt2N6kxtCKraPg0.NK",
-      "avatar": "/avatar/avatar-1591217608091.jpg",
-      "id": 3
->>>>>>> c2d9e12b44f5e1449a46a31bcd7214e8e88c051f
+      "pass": "$2b$10$4bsA40pNBwis9x/RsTC33.EfGvMwM6YT3IdXhz9iQz4RFDYYxsGNS",
+      "avatar": "/avatar/avatar-1591382320209.jpg",
+      "id": 6
    }
 ]

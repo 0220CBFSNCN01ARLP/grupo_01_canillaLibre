@@ -1,9 +1,10 @@
 const fs = require("fs");
 const path = require("path");
+
 const controllerProduct = {
   //GET
   showRegister: (req, res) => {
-    res.render("form_prod");
+    res.render ("form_prod");
   },
   //POST
   register: (req, res) => {

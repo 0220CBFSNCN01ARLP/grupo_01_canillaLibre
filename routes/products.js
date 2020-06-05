@@ -1,7 +1,9 @@
-var express = require("express");
-var router = express.Router();
+const express = require("express");
+const router = express.Router();
 const multer = require("multer");
 const path = require("path");
+
+const userMiddleware = require ("../middlewares/userMiddlware")
 
 var storage = multer.diskStorage({
   destination: path.join(__dirname, "../public/upload/"),
@@ -22,9 +24,9 @@ const controllerProducts = require("../controllers/newproducts");
 /*cambie la vista por detail para hacer pruebas, despues volver a product Detail*/
 router.get("/", controller.allproducts);
 router.get("/:id?", controller.detailproduct); /* GET - Product detail */
-router.get("/:id/edit", controller.edit); /* GET - Product edit */
+router.get("/:id/edit", userMiddleware, controller.edit); /* GET - Product edit */
 router.put(
-  "/:id?",
+  "/:id?", userMiddleware,
   upload.single("image1"),
   controller.update
 ); /* PUT - Product update */
@@ -37,11 +39,11 @@ router.get("/pruebaSession", function(req,res){
 
 /*Crear Productos*/
 
-router.get("/", controllerProducts.showRegister);
-router.post("/", upload.single("image1"), controllerProducts.register);
+router.get("/vender", controllerProducts.showRegister);
+router.post("/vender", upload.single("image1"), controllerProducts.register);
 
 /*** DELETE ONE PRODUCT***/
 // /produdcts/delete/:id
-router.delete("/:id/delete", controller.destroy); /* DELETE - Delete from DB */
+router.delete("/:id/delete", userMiddleware, controller.destroy); /* DELETE - Delete from DB */
 
 module.exports = router;

@@ -17,19 +17,11 @@ const userMiddleware = {
       if (users.email == ""){
         res.render("products", { listado: products });
       }
-
-
       next
-
     },
-
     withoutLogin : (req,res,next) => {
-
-      
       next
-
     },
-    
     }
 
 module.exports = userMiddleware;

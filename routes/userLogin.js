@@ -5,7 +5,11 @@ const router = express.Router();
 
 // ruta franco //
 router.get("/headerLogin", (req, res, next) => {
-    res.render("headerlogin");
+    //const user = req.session.usuarioLogueado;
+    //delete req.session.usuarioLogueado; 
+    res.render("headerlogin", {
+        //user
+    });
 
 });
 

@@ -58,6 +58,7 @@ router.post(
 );
 
 router.get("/login", authController.showLogin);
+
 router.post(
   "/login",
   [
@@ -88,12 +89,8 @@ router.post(
 
 // ruta franco //
 router.get("/headerLogin", (req, res, next) => {
-    res.render("headerlogin", {
-      users: req.body.users
-    })
+    res.render("headerlogin")
 });
 
 module.exports = router;
 
-
-module.exports = router;

@@ -84,9 +84,11 @@ const controller = {
         });
       }
       req.session.usuarioLogueado = usuarioaLoguearse;
+
       res.redirect("/auth/headerLogin");
+
       //logeo de usuario
-      //res.render("/");
+
     } else {
       return res.render("login", { errors: errors.errors });
     }

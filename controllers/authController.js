@@ -78,7 +78,7 @@ const controller = {
           }
         }
       }
-      if (usuarioaLoguearse == undefined) {
+      if (usuarioaLoguearse === undefined) {
         return res.render("login", {
           errors: [{ msg: "Credenciales Invalidas" }],
         });

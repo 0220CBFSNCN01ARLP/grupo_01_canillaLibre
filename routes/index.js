@@ -9,6 +9,17 @@ router.get("/", function (req, res, next) {
   res.render("index", { title: "Express" });
 });
 
+
+
+// Franco
+/* GET home page. */
+router.get("/index2", function (req, res, next) {
+  res.render("index2", { title: "Express" });
+});
+
+
+
+
 /* Product_cart*/
 router.get("/product_cart.ejs", function (req, res) {
   res.render("product_cart");

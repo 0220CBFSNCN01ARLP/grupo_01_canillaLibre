@@ -84,7 +84,11 @@ const controller = {
         });
       }
       req.session.usuarioLogueado = usuarioaLoguearse;
-      res.send("A partir de aca ver las vista  del home de " + req.session.usuarioLogueado);
+
+      res.redirect("/auth/headerLogin"); //Franco
+
+      // res.send("A partir de aca ver las vista  del home de " + req.session.usuarioLogueado); //diego
+      
       //logeo de usuario
       //res.render("/");
     } else {

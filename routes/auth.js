@@ -116,4 +116,9 @@ router.get ("/check", function(req,res){
   };
 })
 
+// ruta franco //
+router.get("/headerLogin", (req, res, next) => {
+  res.render("headerlogin")
+});
+
 module.exports = router;

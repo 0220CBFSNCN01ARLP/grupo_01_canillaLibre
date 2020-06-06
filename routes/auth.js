@@ -6,8 +6,7 @@ const { check, validationResult, body } = require("express-validator");
 const fs = require("fs");
 
 //Este middleware sirve para cortar proceso Ej. Register si req.session.usuarioLogeado tiene valor
-const guestMiddleware = require ("../middlewares/guestMiddleware");
-
+const guestMiddleware = require("../middlewares/guestMiddleware");
 
 //Funcion Multer para guardar avatar
 var storage = multer.diskStorage({
@@ -84,41 +83,21 @@ router.post("/login", [
     })
     .withMessage("Email no registrado"),
 
-  /* check("pass")
-    .isLength({ min: 8 })
-    .custom(function (value) {
-      let usersJSON = fs.readFileSync(
-        path.resolve(__dirname, "../data/user_db.json")
-      );
-      let users;
-      if (usersJSON == "") {
-        users = [];
-      } else {
-        users = JSON.parse(usersJSON);
-      }
-      for (let i = 0; i < users.length; i++) {
-        if (users[i].pass != value) {
-          return false;
-        }
-      }
-      return true;
-    })
-    .withMessage("La contraseña debe tener más de 8 caracteres"), */
   authController.login,
 ]);
 //Prueb para ver si estas lugeado en la Session
 
-router.get ("/check", function(req,res){
-  if (req.session.usuarioLogueado == undefined){
-    res.send("No estas logueado")
-  }else {
-    res.send("Estas Logueado como " + req.session.usuarioLogueado)
-  };
-})
+router.get("/check", function (req, res) {
+  if (req.session.usuarioLogueado == undefined) {
+    res.send("No estas logueado");
+  } else {
+    res.send("Estas Logueado como " + req.session.usuarioLogueado);
+  }
+});
 
 // ruta franco //
 router.get("/headerLogin", (req, res, next) => {
-  res.render("headerlogin")
+  res.render("headerlogin");
 });
 
 module.exports = router;

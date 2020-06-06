@@ -4,9 +4,10 @@
   <%- include("partials/head", {title: "Canilla Libre - Login"}) %>
 
   <body class="bg_color">
-    <!--header/javi -->
+    <!--header-->
     <%- include("partials/header") %>
 
+      <!--VALIDATION-->
       <% if (typeof errors != "undefined") { %>
       <p>ERROR</p>
       <ul>
@@ -63,7 +64,7 @@
               name="pass"
               id="pass"
               aria-describedby="pass"
-              required
+              
             />
           </div>
 

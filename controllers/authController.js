@@ -72,23 +72,22 @@ const controller = {
       for (let i = 0; i < users.length; i++) {
         if (users[i].email == req.body.email) {
           if (bcrypt.compareSync(req.body.pass, users[i].pass)) {
-            usuarioaLoguearse = users[i].email;
-
-            break;
+            usuarioaLoguearse = users[i]; //modificacion de
+          } else {
+            return res.render("login", {
+              errors: [{ msg: "Credenciales Invalidas" }],
+            });
           }
         }
       }
-      if (usuarioaLoguearse == undefined) {
-        return res.render("login", {
-          errors: [{ msg: "Credenciales Invalidas" }],
-        });
-      }
+
       req.session.usuarioLogueado = usuarioaLoguearse;
 
-      res.redirect("/auth/headerLogin"); //Franco
+      res.send(
+        "A partir de aca ver las vista  del home de " +
+          req.session.usuarioLogueado.firstname
+      );
 
-      // res.send("A partir de aca ver las vista  del home de " + req.session.usuarioLogueado); //diego
-      
       //logeo de usuario
       //res.render("/");
     } else {

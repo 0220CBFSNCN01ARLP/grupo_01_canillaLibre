@@ -11,8 +11,7 @@ router.get("/", function (req, res, next) {
 
 
 
-// Franco
-/* GET home page. */
+// Franco - header para usuarios
 router.get("/index2", function (req, res, next) {
   res.render("index2", { title: "Express" });
 });

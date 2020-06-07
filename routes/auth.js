@@ -86,11 +86,10 @@ router.post(
 );
 
 
+router.get("/logout", authController.logout);
 
-// ruta franco //
-router.get("/headerLogin", (req, res, next) => {
-    res.render("headerlogin")
-});
+
+
 
 module.exports = router;
 

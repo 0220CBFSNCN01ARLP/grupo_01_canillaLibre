@@ -85,7 +85,7 @@ const controller = {
       }
       req.session.usuarioLogueado = usuarioaLoguearse;
 
-      res.redirect("/auth/headerLogin");
+      res.redirect("/index2");
 
       //logeo de usuario
 
@@ -93,6 +93,14 @@ const controller = {
       return res.render("login", { errors: errors.errors });
     }
   },
-};
+
+
+  logout: (req, res) => {
+    req.session.destroy((err) => {
+      res.redirect('/') // cierra la session y redirige a la home
+    })
+  }
+
+}
 
 module.exports = controller;

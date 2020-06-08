@@ -4,7 +4,7 @@
 
   <body class="bg_color">
     <!--header/javi -->
-    <%- include("partials/header") %>
+    <%- include("partials/headerGuest") %>
 
     <!--VALIDATION-->
     <% if (typeof errors != "undefined") { %>
@@ -99,7 +99,7 @@
               aria-describedby="pass"
             />
             <small id="passwordHelpBlock" class="form-text text-muted">
-              Debe tener entre 8-20 caracteres.
+              Debe tener entre 4 a 8 caracteres.
             </small>
           </div>
 

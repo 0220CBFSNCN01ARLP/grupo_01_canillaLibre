@@ -55,5 +55,23 @@
       "pass": "$2b$10$4bsA40pNBwis9x/RsTC33.EfGvMwM6YT3IdXhz9iQz4RFDYYxsGNS",
       "avatar": "/avatar/avatar-1591382320209.jpg",
       "id": 6
+   },
+   {
+      "firstname": "Tony",
+      "lastname": "Stark",
+      "email": "ironman@avenger.com.ar",
+      "age": "40",
+      "pass": "$2b$10$pJJrqTEWlZeb7LfMI3ScWuOQjOHpvYiOm/PYH/6yxVb7o/U8vzvKy",
+      "avatar": "/avatar/avatar-1591472652625.jpg",
+      "id": 7
+   },
+   {
+      "firstname": "Peter",
+      "lastname": "Parker",
+      "email": "spiderman@avenger.com",
+      "age": "25",
+      "pass": "$2b$10$sfcXF1Q9uu01DkXVUyzlSek9SbadvPM53ZqcAkJ.odt2YXs2V3m/W",
+      "avatar": "/avatar/avatar-1591472786153.jpg",
+      "id": 8
    }
 ]

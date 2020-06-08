@@ -12,7 +12,7 @@ const controller = {
   index: (req, res) => {
     // Do the magic
   },
-  
+
   // All Products - Listado de todos los productos
   allproducts: (req, res) => {
     const products = getProducts();
@@ -30,6 +30,16 @@ const controller = {
     if (!product) return res.redirect("/");
 
     res.render("detail", { product });
+  },
+  detailproduct2: (req, res) => {
+    const products = getProducts();
+
+    const product = products.find((e) => {
+      return e.id == req.params.id;
+    });
+    if (!product) return res.redirect("/");
+
+    res.render("detail2", { product });
   },
   // Update - Form to edit
   edit: (req, res) => {
@@ -95,7 +105,6 @@ const controller = {
 
     res.redirect("/products/");
   },
-  
 };
 
 module.exports = controller;

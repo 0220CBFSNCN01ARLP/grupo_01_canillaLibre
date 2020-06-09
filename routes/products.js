@@ -47,7 +47,7 @@ router.get("/pruebaSession", function (req, res) {
 
 /*Crear Productos*/
 
-router.get("/vender", controllerProducts.showRegister);
+router.get("vender", controllerProducts.showRegister);
 router.post("/vender", upload.single("image1"), controllerProducts.register);
 
 /*** DELETE ONE PRODUCT***/

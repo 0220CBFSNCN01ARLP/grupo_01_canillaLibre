@@ -6,13 +6,13 @@ Creemos que es una buena forma organizada de trabajar pero sin olvidar aportar i
 
 - En conclusion, podemos decir que siempre trabajamos en equipo e interecatuamos con las tareas que nos asignamos.
 
-# More of
+# More of //
 - Reforzamos las videollamadas para resolver problemas individuales y del proyecto en gral.
+Realizamos la creacion de otro canal de comunicacion como Whatsapp. Ambos integrantes del grupo solemos tener diferentes horarios y por cuestiones laboral no nos podemos encontrar por Slack. De esta manera, por whatsapp logramos una comunicacion aun mas fluida y rapida.
 
-- El dia 21/05 mantuvimos una videollamada con el Profesor titular (Pablo Balaztea), esto nos permitio despejar muchisimas dudas que teniamos y una de ellas muy importante, sobre GitHub. 
-Uno de los problemas a resolver es que se nos creo una rama Master al subir los cambios al repositorio, estas dudas las resolvimos en la misma video.
+- El dia 08/06 realizamos una videollamada con el profesor Pablo para que nos ayude a resolver algo que nos faltaba realizar y teniamos dudas. Esto era referidos a lo Middlewares a implementar. Nos supo ayudar y resolver el inconveniente. Aun asi, usamos esta metodologia y explicacion que nos dio para implementar otros y hacer diferentes tareas.
 
--Al dia de la fecha 28/05 (dia de entrega), realizamos una nueva reunion para corroborar que todas las tareas realizados funcionen, despejar dudas y dar formato para entregar. Nuestra idea principal fue que el proyecto quede funcionando segun lo pedido, continuaremos tocando los diseños de CSS para darle aun mas estilo.
+-Al dia 09/06 tenemos el proyecto encaminado y bastante completo, ultiman algunos detalles de diseño y funcionamiento, pero la base general y pedidos del Sprint los pudimos realizar.
 
 # Keep Doing 
 - Aportar ideas al proyecto original y escucharnos entre nosotros.

@@ -96,5 +96,33 @@
       "cantidad": "1",
       "descuento": "25",
       "image1": "/upload/image1-1591036688322.webp"
+   },
+   {
+      "id": 9,
+      "titulo": "Cerveza Palermo",
+      "descripcion": "La mas resacosa del mundo",
+      "marca": "Palermo",
+      "origen": "Nacional",
+      "tipo": "Cerveza",
+      "categoria": "Ale",
+      "presentacion": "Lata",
+      "precio": "120",
+      "cantidad": "1",
+      "descuento": "120",
+      "image1": "/upload/image1-1591724163966.jpg"
+   },
+   {
+      "id": 10,
+      "titulo": "sadsada",
+      "descripcion": "sdsadasdsa",
+      "marca": "dsadsad",
+      "origen": "Nacional",
+      "tipo": "Cerveza",
+      "categoria": "Ale",
+      "presentacion": "Lata",
+      "precio": "2121",
+      "cantidad": "323",
+      "descuento": "2132",
+      "image1": "/upload/image1-1591724504008.jpg"
    }
 ]

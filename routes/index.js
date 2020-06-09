@@ -1,6 +1,8 @@
 var express = require("express");
 var router = express.Router();
 
+
+
 // ************ Controller Require ************
 const controller = require("../controllers/productsController");
 
@@ -11,10 +13,25 @@ router.get("/", function (req, res, next) {
 
 
 
-// Franco - header para usuarios
-router.get("/index2", function (req, res, next) {
+
+//middleware Franco para usuarios
+function userMiddleware (req, res, next){
+
+  if (req.session.usuarioLogueado != undefined){
+      next ();
+
+  }else {
+      res.send ("Esta pagina es solo para usuarios Logueados");
+  }
+};
+
+// header para usuarios - Franco - Header para usuarios
+router.get("/index2", userMiddleware, function (req, res, next) {
   res.render("index2", { title: "Express" });
 });
+
+
+
 
 
 

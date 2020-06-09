@@ -4,6 +4,9 @@ const multer = require("multer");
 const path = require("path");
 const { check, validationResult, body } = require("express-validator");
 const fs = require("fs");
+const session = require('express-session');
+const cookieParser = require('cookie-parser');
+
 
 //Funcion Multer para guardar avatar
 var storage = multer.diskStorage({
@@ -85,10 +88,29 @@ router.post(
   authController.login
 );
 
+/*middleware, comprueba el inicio de session
+const auth = function (req,res,next){
+  console.log(req.session.email)
 
-router.get("/logout", authController.logout);
+if (req.session.email) {
+    res.send('No puedes acceder a esa pagina sin logearte')
 
+} else {
+    next();
+} 
+}*/
 
+function userMiddleware (req, res, next){
+
+  if (req.session.usuarioLogueado != undefined){
+      next ();
+
+  }else {
+      res.send ("Esta pagina es solo para usuarios Logueados");
+  }
+}
+//ruta logout para cerrar session
+router.get("/logout", userMiddleware, authController.logout);
 
 
 module.exports = router;

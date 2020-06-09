@@ -2,6 +2,9 @@ const fs = require("fs");
 const path = require("path");
 const bcrypt = require("bcrypt");
 const { check, validationResult, body } = require("express-validator");
+const session = require('express-session');
+const cookieParser = require('cookie-parser');
+
 
 const controller = {
   //GET
@@ -94,13 +97,18 @@ const controller = {
     }
   },
 
+  
 
-  logout: (req, res) => {
-    req.session.destroy((err) => {
-      res.redirect('/') // cierra la session y redirige a la home
-    })
+ //Controllers // logout, cerrar  session
+
+  logout: function (req, res) {
+    console.log(req.session.usuarioLogueado)
+
+    req.session.destroy();
+
+    res.redirect("/");
+    
   }
 
-}
-
+};
 module.exports = controller;

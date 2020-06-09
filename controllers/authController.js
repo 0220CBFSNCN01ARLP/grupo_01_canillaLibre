@@ -4,12 +4,12 @@ const bcrypt = require("bcrypt");
 const { check, validationResult, body } = require("express-validator");
 
 const controller = {
-    //GET
+    //GET REGISTER
     showRegister: (req, res) => {
         res.render("register");
     },
 
-    //POST
+    //POST REGISTER
     register: (req, res) => {
         //validation
         console.log(validationResult(req));
@@ -92,7 +92,14 @@ const controller = {
         }
     },
 
-    //Profile
+    //LOGOUT
+    logout: function (req, res) {
+        console.log(req.session.usuarioLogueado);
+        req.session.destroy();
+        res.redirect("/");
+    },
+
+    //PROFILE
     showProfile: (req, res) => {
         console.log(req.session.usuarioLogueado);
         const user = req.session.usuarioLogueado;

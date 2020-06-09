@@ -4,7 +4,6 @@ function viewUsrLog(req, res, next) {
     } else {
         res.locals.user = null;
     }
-
     next();
 }
 

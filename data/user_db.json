@@ -73,5 +73,14 @@
       "pass": "$2b$10$sfcXF1Q9uu01DkXVUyzlSek9SbadvPM53ZqcAkJ.odt2YXs2V3m/W",
       "avatar": "/avatar/avatar-1591472786153.jpg",
       "id": 8
+   },
+   {
+      "firstname": "Bruce",
+      "lastname": "Wayne",
+      "email": "batman@wayne.com",
+      "age": "40",
+      "pass": "$2b$10$SZ.5nx63ze05.TTyb6qIp.3A./XBLqV5f.wdK7f58jpA4Sa1cM6fi",
+      "avatar": "/avatar/avatar-1591660687720.jpg",
+      "id": 9
    }
 ]

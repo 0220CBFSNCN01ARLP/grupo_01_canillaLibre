@@ -92,6 +92,9 @@ router.post("/login", [
     authController.login,
 ]);
 
+//LOGOUT
+router.get("/logout", authController.logout);
+
 //Profile
 router.get("/profile", userMiddlware, authController.showProfile);
 
@@ -102,11 +105,6 @@ router.get("/check", function (req, res) {
     } else {
         res.send("Estas Logueado como " + req.session.usuarioLogueado);
     }
-});
-
-// ruta franco //
-router.get("/headerLogin", (req, res, next) => {
-    res.render("headerlogin");
 });
 
 module.exports = router;

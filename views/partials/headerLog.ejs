@@ -1,16 +1,12 @@
 <header class="nav-header">
-    <div class="navborder">
+    <div class="navborder pl-4 pr-4 bg-light">
         <nav class="navbar navbar-expand-lg navbar-light bg-light d-flex">
-
-
             <!--search / xl-->
             <div class="d-flex justify-content-end align-items-center w-100 ml-auto ">
                 <a class="navbar-brand mr-auto" href="/">
                     <img src="/img/header/logo_header.svg" width="120" class="d-inline-block align-top"
                         alt="Canilla Libre">
                 </a>
-
-
                 <div class="input-group mb-3 col box-1 ml-auto">
                     <input type="text" class="form-control" placeholder="que queres tomar?" aria-label="buscador"
                         aria-describedby="search_header">
@@ -19,13 +15,23 @@
                             <i class="fas fa-beer"></i></button>
                     </div>
                 </div>
-
-                <a href="/products/vender"><button class="btn btn-outline-warning ml-auto"
+                <a href="/form_prod.ejs"><button class="btn btn-outline-warning ml-auto"
                         type="button">Vende</button></a>
                 <a class="nav-link text-black-50" href="/product_cart.ejs"><i class="fas fa-shopping-basket"></i></a>
-                <a class="nav-link text-black-50 d-none d-md-block" href="#"><i class="far fa-heart"></i></a>
-                <a class="nav-link text-black-50 d-none d-md-block" href="/auth/register">chau</i></a>
-                <a class="nav-link text-black-50 d-none d-md-block active" href="/auth/login"><%=user.firstname %> </i></a>
+
+                <a class="nav-link text-black-50 d-none d-md-block" href="/auth/profile"><img src="<%= user.avatar %>" width="38" class="rounded-circle shadow-sm" alt=""></a>
+                <li class="nav-item dropdown text-black-50 d-none d-md-block">
+                    <a class="nav-link dropdown-toggle text-black-50" href="/auth/profile" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <%= user.firstname + " " + user.lastname %>
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="/auth/profile">Mi perfil</a>
+                        <a class="dropdown-item" href="#">Mis publicaciones</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="/auth/logout">Cerrar Sesion</a>
+                    </div>
+                </li>
 
                 <!--nav mobile-->
                 <button class="navbar-toggler d-sm-block d-md-none" type="button" data-toggle="collapse"
@@ -33,7 +39,6 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
             </div>
-
             <div class="dropdown-divider"></div>
             <div class="collapse navbar-collapse" id="menu_desplegable">
                 <ul class="navbar-nav mr-auto d-sm-block d-md-none">
@@ -41,11 +46,17 @@
                         <a class="nav-link" href="#"><i class="fas fa-home"></i> Inicio<span
                                 class="sr-only">(current)</span></a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/auth/register"><i class="far fa-user-circle"></i> Registrate</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="far fa-heart"></i> Favoritos</a>
+                    <li class="nav-item dropdown text-black-50 d-none d-md-block">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            User
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="/profile">Mi perfil</a>
+                            <a class="dropdown-item" href="#">Mis publicaciones</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="/auth/logout">Cerrar Sesión</a>
+                        </div>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/#ofertas"><i class="fas fa-dollar-sign"></i> Ofertas</a>
@@ -79,13 +90,12 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/#footer"><i class="fas fa-headset"></i> Contacto</a>
                     </li>
-
                 </ul>
             </div>
         </nav>
     </div>
     <!--search header mobile-->
-    <div class="input-group mb-3 col box-2 bg-light">
+    <div class="input-group mb-3 col box-2 bg-light pl-4 pr-4 bg-light">
         <input type="text" class="form-control" placeholder="que queres tomar?" aria-label="buscador"
             aria-describedby="search_header">
         <div class="input-group-append">
@@ -93,9 +103,8 @@
                 <i class="fas fa-beer"></i></button>
         </div>
     </div>
-
     <!--nav md-xl-->
-    <div class="prueba d.flex justify-content-end">
+    <div class="prueba d.flex justify-content-end pl-4 pr-4 bg-light">
         <nav class="navbar navbar-expand-md navbar-light bg-light d-none d-md-block">
             <ul class="navbar-nav ml-auto d-flex justify-content-end align-items-center">
                 <li class="nav-item dropdown">
@@ -127,7 +136,6 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/#footer">Contacto</a>
                 </li>
-
             </ul>
         </nav>
     </div>

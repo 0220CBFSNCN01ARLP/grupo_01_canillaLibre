@@ -124,5 +124,19 @@
       "cantidad": "323",
       "descuento": "2132",
       "image1": "/upload/image1-1591724504008.jpg"
+   },
+   {
+      "id": 11,
+      "titulo": "Corona",
+      "descripcion": "sdkkad;",
+      "marca": "Corona",
+      "origen": "Internacional",
+      "tipo": "Cerveza",
+      "categoria": "Lager",
+      "presentacion": "Lata",
+      "precio": "200",
+      "cantidad": "2500",
+      "descuento": "",
+      "image1": "/upload/image1-1591726834143.jpg"
    }
 ]

@@ -20,7 +20,7 @@ var upload = multer({ storage: storage });
 
 // ************ Controller Require ************
 const controller = require("../controllers/productsController");
-const controllerProducts = require("../controllers/newproducts");
+const controllerProduct = require("../controllers/newproducts");
 
 /* productDetail*/
 /*cambie la vista por detail para hacer pruebas, despues volver a product Detail*/
@@ -47,8 +47,8 @@ router.get("/pruebaSession", function (req, res) {
 
 /*Crear Productos*/
 
-router.get("/", controllerProducts.showRegister);
-router.post("/", upload.single("image1"), controllerProducts.register);
+router.get("/form_prod", controllerProduct.showRegister);
+router.post("/vende", upload.single("image1"), controllerProduct.register);
 
 /*** DELETE ONE PRODUCT***/
 // /produdcts/delete/:id

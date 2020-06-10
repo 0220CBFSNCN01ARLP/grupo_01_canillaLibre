@@ -110,5 +110,33 @@
       "cantidad": "6",
       "descuento": "12",
       "image1": "/upload/image1-1591814001382.jpg"
+   },
+   {
+      "id": 16,
+      "titulo": "Michelob ULTRA",
+      "descripcion": "Michelob ULTRA is the superior light beer with no artificial colors or flavors. With just 2.6 carbs and 95 calories, you can enjoy the crisp, clean taste of Michelob ULTRA without compromising your active lifestyle.",
+      "marca": "Michelob",
+      "origen": "Internacional",
+      "tipo": "Cerveza",
+      "categoria": "Lager",
+      "presentacion": "Porron",
+      "precio": "95",
+      "cantidad": "1",
+      "descuento": "10",
+      "image1": "/upload/image1-1591816574287.jpeg"
+   },
+   {
+      "id": 17,
+      "titulo": "Bell's Two Hearted Ale IPA",
+      "descripcion": "Two Hearted Ale is defined by its intense hop aroma and malt balance. Hopped exclusively with the Centennial hop varietal from the Pacific Northwest, massive additions in the kettle & again in the fermenter lend their characteristic grapefruit & pine resin aromas. A significant malt body balances this hop presence; together with the signature fruity aromas of Bell’s house yeast, this leads to a remarkably drinkable American-style India Pale Ale.",
+      "marca": "Bell's",
+      "origen": "Internacional",
+      "tipo": "Cerveza",
+      "categoria": "Lager",
+      "presentacion": "Porron",
+      "precio": "88",
+      "cantidad": "24",
+      "descuento": "10",
+      "image1": "/upload/image1-1591817086062.jpeg"
    }
 ]

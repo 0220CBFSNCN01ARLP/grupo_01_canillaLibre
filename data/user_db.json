@@ -82,5 +82,41 @@
       "pass": "$2b$10$SZ.5nx63ze05.TTyb6qIp.3A./XBLqV5f.wdK7f58jpA4Sa1cM6fi",
       "avatar": "/avatar/avatar-1591660687720.jpg",
       "id": 9
+   },
+   {
+      "firstname": "Rocky ",
+      "lastname": "Balboa",
+      "email": "rocky@adrian.com",
+      "age": "37",
+      "pass": "$2b$10$Q3/kfMn3eKNSW7PXL/YNxeUshtg5883FKL4sumTHaIlYO8nQ/qIfe",
+      "avatar": "/avatar/avatar-1591816471388.jpg",
+      "id": 10
+   },
+   {
+      "firstname": "Homer",
+      "lastname": "Simpson",
+      "email": "homer@simpson.com",
+      "age": "40",
+      "pass": "$2b$10$Wg4ZwKA0ccM2ykC71sAy/OxzPN4ABdig/9UnoFeswgAmLKlt2.C52",
+      "avatar": "/avatar/avatar-1591817604241.jpg",
+      "id": 11
+   },
+   {
+      "firstname": "Mongomery",
+      "lastname": "Burns",
+      "email": "mrburns@nuclear.com",
+      "age": "145",
+      "pass": "$2b$10$Fj0ugvGeTiN108myLhb3YuGlPgbEcHHKnX924nZwMp7qkewczN8F6",
+      "avatar": "/avatar/avatar-1591817821926.png",
+      "id": 12
+   },
+   {
+      "firstname": "Clark",
+      "lastname": "Kent",
+      "email": "superman@ligadelajusticia.com",
+      "age": "35",
+      "pass": "$2b$10$MYZ/Sf4vs6lNKkTuej0qB.BMmTnD7GC8uuvmy1BA9/aA/zzmG.unq",
+      "avatar": "/avatar/avatar-1591817983498.jpg",
+      "id": 13
    }
 ]

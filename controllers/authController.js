@@ -47,7 +47,7 @@ const controller = {
                 JSON.stringify(users, null, 3)
             );
 
-            res.render("profile");
+            res.render("profile", { user });
         } else {
             return res.render("register", { errors: errors.errors });
         }

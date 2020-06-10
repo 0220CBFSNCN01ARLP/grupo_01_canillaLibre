@@ -22,6 +22,8 @@ var upload = multer({ storage: storage });
 const controller = require("../controllers/productsController");
 const controllerProduct = require("../controllers/newproducts");
 
+router.get("/form_prod", controllerProduct.showRegister);
+router.post("/form_prod", upload.single("image1"), controllerProduct.register);
 /* productDetail*/
 /*cambie la vista por detail para hacer pruebas, despues volver a product Detail*/
 router.get("/", controller.allproducts);
@@ -46,9 +48,6 @@ router.get("/pruebaSession", function (req, res) {
 });
 
 /*Crear Productos*/
-
-router.get("/form_prod", controllerProduct.showRegister);
-router.post("/vende", upload.single("image1"), controllerProduct.register);
 
 /*** DELETE ONE PRODUCT***/
 // /produdcts/delete/:id

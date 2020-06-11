@@ -22,8 +22,6 @@ Realizamos la creacion de otro canal de comunicacion como Whatsapp. Ambos integr
 # Less of
 - En esta etapa intentamos pulir algunas cosas de diseño que habian quedado pendiente del sprint anterior.
 
-- A ultimo momento tuvimos un problema con uno de los Botones "VENDER", estamos trabajando en ellos para poder solucionarlo.
-
 - Perdimos mucho tiempo en ver que todo funcione correctamente (permisos de usuarios, vistas de usuarios logueados, carga de productos, ediciones de los mismos, etc). Concideramos centrarnos y ver como funciona cada cosa para poder continuar con mas facilidad y aplicar esto el resto del proyecto.
  
 
@@ -33,4 +31,5 @@ Realizamos la creacion de otro canal de comunicacion como Whatsapp. Ambos integr
 - En esta entrega, nos basamos en respetar las consignas que indica el Srpint 3. Esto nos permite organizarnos y trabajar puntualmente en un tema en particular. 
 
 - No realizamos tareas extras que no pide el sprint. Especulamos el funcionamiento del proyecto y agregar detalles para otras entregas posibles (siempre y cuando lo pida la consigna).
+
 

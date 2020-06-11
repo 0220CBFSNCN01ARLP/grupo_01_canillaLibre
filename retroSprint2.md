@@ -1,3 +1,4 @@
+
 # Start-Doing 
 - Seguimos manteniendo la misma postura, nuestra idea ademas de dividir las tareas es trabajar en conjunto con comunicacion constante.
 
@@ -34,3 +35,5 @@ Decidimos reforzar estas situaciones y realizar las tareas y los pedidos que nos
 - Nos centramos en que el proyecto este en condiciones y funcionando correctamente (routes, controllers, views, etc). Dejamos para lo ultimo el dieseño Responsive y CSS.
 
 - Investigamos sobre GitHub y supimos que podemos trabajar en diferentes ramas. De esta forma cada uno nos asignamos una (ademas de las tareas divididas) y trabajamos en ellas. Para finalizar el Sprint 3, hicimos un Merge a la rama master para fusionarla y actualizar los cambios realizados.
+
+

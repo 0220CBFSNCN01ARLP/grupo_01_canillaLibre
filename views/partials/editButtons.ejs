@@ -6,16 +6,16 @@
             <i class="far fa-edit"></i> Editar Publicación
         </button>
     </a>
-    <button
-        type="submit"
-        class="btn btn-outline-danger ml-2"
-        data-toggle="modal"
-        data-target="#Eliminar_Modal"
-    >
-        <i class="far fa-trash-alt"></i> Eliminar Publicación
-    </button>
-    <!--Buttom Alert-->
-    <div
+    
+        <form action="<%= product.id %>/delete?_method=delete" method="POST">
+            <button type="submit" class="btn btn-outline-danger mr-2">
+                <i class="far fa-edit"></i> Eliminar Publicación
+            </button>
+        </form>
+
+        <!-- ARREGLAR LA VENTANA MODAL QUE HAGA CONFIRMACION ANTES DE ELIMINAR -->
+        <!-- Buttom Alert -->
+        <!-- <div
         class="modal fade"
         id="Eliminar_Modal"
         tabindex="-1"
@@ -61,5 +61,6 @@
                 </div>
             </div>
         </div>
+    </div> -->
     </div>
 </div>

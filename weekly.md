@@ -37,5 +37,7 @@ Javier
 Franco
 Diego
 
-El boton vender sigue sin funcionar, llamando a la vista form_prod. Tambien tenemos que revisar el post de ese formulario porque no esta grabando en el JSON. Decidimos dejarlo para verlo mas adelante porque los tres nos estamos atrasando mucho con el material de Base de Datos y Sequeelize, que es necesario para las proximas clases.
+Se presento un problema con el modal de eliminar en el detalle de producto, por ahora lo sacamos y pudimos elimiar directo y estamos en busqueda de solucion del modal.
+En la edicion de producto el formulario arroja un error cuando en la edicion no se agrega una foto nueva proble filename.
+Decidimos dejarlo para verlo mas adelante porque los tres nos estamos atrasando mucho con el material de Base de Datos y Sequeelize, que es necesario para las proximas clases.
 Se deja como punto a resolver prioridad 1

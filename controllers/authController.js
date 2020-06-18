@@ -72,7 +72,7 @@ const controller = {
             for (let i = 0; i < users.length; i++) {
                 if (users[i].email == req.body.email) {
                     if (bcrypt.compareSync(req.body.pass, users[i].pass)) {
-                        usuarioaLoguearse = users[i]; //modificacion de
+                        usuarioaLoguearse = users[i]; 
                     } else {
                         return res.render("login", {
                             errors: [{ msg: "Credenciales Invalidas" }],
@@ -82,6 +82,11 @@ const controller = {
             }
 
             req.session.usuarioLogueado = usuarioaLoguearse;
+
+            if (req.body.recordarme != undefined){
+
+                res.cookie ("recordarme", usuarioaLoguearse.email, { maxAge: 60000})
+            }
 
             res.redirect("/");
 

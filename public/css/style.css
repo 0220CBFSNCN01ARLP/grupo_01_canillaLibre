@@ -51,8 +51,9 @@
 }
 
 /*-----------CATEGORIAS-----------*/
-
-/*Carousel*/
+.carosel-next {
+    font-size: 2em;
+}
 
 /*--------------VENDE--------------*/
 .border-3 {

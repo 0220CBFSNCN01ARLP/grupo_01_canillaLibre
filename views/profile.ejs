@@ -15,24 +15,24 @@
                     <div class="row no-gutters">
                         <div class="col-md-4">
                             <img
-                                src=" <%= user.avatar %> "
+                                src="/avatar/<%= user.avatar %>"
                                 class="card-img"
                                 alt="user"
                             /><br />
                             <small class="text-muted"
-                                ><i class="far fa-address-card"></i> id User:
+                                ><i class="far fa-address-card"></i> id user:
                                 <%= user.id %>
                             </small>
                         </div>
                         <div class="col-md-8">
                             <div class="card-body pt-0 pl-4">
                                 <h4 class="card-title">
-                                    <%= user.firstname +" "+ user.lastname %>
+ 
+                                    <%= user.nombre +" "+ user.apellido %>
                                 </h4>
                                 <div class="dropdown-divider"></div>
                                 <p class="card-email">
-                                    <i class="fas fa-mail-bulk"></i> <%=
-                                    user.email %>
+                                    <i class="fas fa-mail-bulk"></i> <%= user.email %>
                                 </p>
                                 <p class="card-text">
                                     <small class="text-muted"

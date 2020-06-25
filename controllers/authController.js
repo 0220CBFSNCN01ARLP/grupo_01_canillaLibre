@@ -3,19 +3,25 @@ const path = require("path");
 const bcrypt = require("bcrypt");
 const { check, validationResult, body } = require("express-validator");
 
+let { User } = require("../database/models");
+
+
 const controller = {
+
     //GET REGISTER
     showRegister: (req, res) => {
         res.render("register");
     },
 
     //POST REGISTER
-    register: (req, res) => {
+    register: async (req, res) => {
+
         //validation
         console.log(validationResult(req));
         let errors = validationResult(req);
 
         if (errors.isEmpty()) {
+
             //registro de nuevo usuario
 
             if (req.body.pass != req.body.pass2) {
@@ -26,30 +32,23 @@ const controller = {
 
             delete req.body.pass2;
 
-            const users = JSON.parse(
-                fs.readFileSync(path.resolve(__dirname, "../data/user_db.json"))
-            );
+            //inicio de sequelize
+            const user = await User.create(
+                {
+                    nombre: req.body.firstname,
+                    apellido: req.body.lastname,
+                    email: req.body.lastname,
+                    password: req.body.pass,
+                    avatar: req.file.filename,
+                    fecha_nacimiento: req.body.date
+                })
+                
+                        res.render("profile", { user })
 
-            const user = {
-                ...req.body,
-                avatar: "/avatar/" + req.file.filename,
-                // funcion para integrar el id en cada usr registrado:
-                id:
-                    users.reduce((ac, u) => {
-                        return Math.max(ac, u.id);
-                    }, 0) + 1,
-            };
-
-            users.push(user);
-
-            fs.writeFileSync(
-                path.resolve(__dirname, "../data/user_db.json"),
-                JSON.stringify(users, null, 3)
-            );
-
-            res.render("profile", { user });
         } else {
+
             return res.render("register", { errors: errors.errors });
+
         }
     },
 
@@ -68,11 +67,15 @@ const controller = {
             let users = JSON.parse(
                 fs.readFileSync(path.resolve(__dirname, "../data/user_db.json"))
             );
-
-            for (let i = 0; i < users.length; i++) {
-                if (users[i].email == req.body.email) {
-                    if (bcrypt.compareSync(req.body.pass, users[i].pass)) {
-                        usuarioaLoguearse = users[i]; 
+            // const user = await User.findOne({ where: { email: req.body.email } 
+                
+            // });
+            
+            
+            for (let i = 0; i < user.length; i++) {
+                if (user[i].email == req.body.email) {
+                    if (bcrypt.compareSync(req.body.pass, user[i].pass)) {
+                        usuarioaLoguearse = user[i];
                     } else {
                         return res.render("login", {
                             errors: [{ msg: "Credenciales Invalidas" }],
@@ -106,9 +109,12 @@ const controller = {
 
     //PROFILE
     showProfile: (req, res) => {
-        console.log(req.session.usuarioLogueado);
-        const user = req.session.usuarioLogueado;
+        
         res.render("profile", { user });
+
+        // console.log(req.session.usuarioLogueado);
+        // let User = req.session.usuarioLogueado;
+        
     },
 };
 

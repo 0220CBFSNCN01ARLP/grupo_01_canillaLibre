@@ -27,7 +27,7 @@ var upload = multer({ storage: storage });
 
 const authController = require("../controllers/authController");
 
-router.get("/register", guestMiddleware, authController.showRegister);
+router.get("/register", authController.showRegister);
 router.post(
     "/register",
     upload.single("avatar"),
@@ -40,27 +40,28 @@ router.post(
             .withMessage("Este campo debe estar completo"),
         check("email")
             .isEmail()
-            .custom(function (value) {
-                let usersJSON = fs.readFileSync(
-                    path.resolve(__dirname, "../data/user_db.json")
-                );
-                let users;
-                if (usersJSON == "") {
-                    users = [];
-                } else {
-                    users = JSON.parse(usersJSON);
-                }
-                for (let i = 0; i < users.length; i++) {
-                    if (users[i].email == value) {
-                        return false;
-                    }
-                }
-                return true;
-            })
+            // .custom(function (value) {
+            //     let usersJSON = fs.readFileSync(
+            //         path.resolve(__dirname, "../data/user_db.json")
+            //     );
+            //     let users;
+            //     if (usersJSON == "") {
+            //         users = [];
+            //     } else {
+            //         users = JSON.parse(usersJSON);
+            //     }
+            //     for (let i = 0; i < users.length; i++) {
+            //         if (users[i].email == value) {
+            //             return false;
+            //         }
+            //     }
+            //     return true;
+            // })
             .withMessage("Email ya registrado"),
-        check("age")
-            .isInt({ min: 18 })
-            .withMessage("Debe ser mayor de 18 años"),
+          //implementar middleware q calcule la edad minima requerida  
+        //check("age")
+        //    .isInt({ min: 18 })
+        //    .withMessage("Debe ser mayor de 18 años"),
         check("pass").isLength({ min: 4 }).withMessage("Password Incorrecta"),
         //check("pass2").equals(body.pass).withMessage("Debe repetir la contraseña"),
     ],

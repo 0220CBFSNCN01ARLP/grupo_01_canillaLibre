@@ -27,7 +27,7 @@ var upload = multer({ storage: storage });
 
 const authController = require("../controllers/authController");
 
-router.get("/register", guestMiddleware, authController.showRegister);
+router.get("/register", authController.showRegister);
 router.post(
     "/register",
     upload.single("avatar"),

@@ -1,5 +1,5 @@
 module.exports = (sequelize, DataTypes) => {
-    const User = sequelize.define("User", {
+    const Usuarios = sequelize.define("Usuarios", {
         nombre: {
             type: DataTypes.STRING(100),
         },
@@ -19,15 +19,20 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.DATE,
         },
     },{
-       tableName: "usuarios", 
+       tableName: "Usuarios", 
        timestamps: false
     });
 
     User.associate = (function(models){
         //un usuario - muchas compras
-        User.belongsTo(models.Compras), {
-            as: "comprasDeUser",
+        User.hasMany(models.Compras), {
+            as: "compras",
             foreignKey: "comprasId"
+        }
+        //un usuario - muchos productos
+        User.hasMany(models.Productos), {
+            as: "productos",
+            foreignKey: "usuarioID"
         }
     })
 

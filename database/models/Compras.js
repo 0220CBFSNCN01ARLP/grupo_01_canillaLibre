@@ -13,10 +13,16 @@ module.exports = (sequelize, DataTypes) => {
 
     Compras.associate = (function(models){
         //muchas compras - un usuario
-        Compras.hasMany(models.User), {
+        Compras.belongsTo(models.User), {
             as: "usuario",
             foreignKey: "comprasId"
         }
+        //muchas comprasProducto - un comprasProductos
+        Compras.belongsTo(models.ComprasProducto), {
+            as: "comprasProducto",
+            foreignKey: "comprasId"
+        }
+
     })
 
     return Compras;

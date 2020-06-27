@@ -19,18 +19,18 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.DATE,
         },
     },{
-       tableName: "Usuarios", 
+       tableName: "usuarios", 
        timestamps: false
     });
 
-    User.associate = (function(models){
+    Usuarios.associate = (function(models){
         //un usuario - muchas compras
-        User.hasMany(models.Compras), {
+        Usuarios.hasMany(models.Compras), {
             as: "compras",
             foreignKey: "comprasId"
         }
         //un usuario - muchos productos
-        User.hasMany(models.Productos), {
+        Usuarios.hasMany(models.Productos), {
             as: "productos",
             foreignKey: "usuarioID"
         }
@@ -38,5 +38,5 @@ module.exports = (sequelize, DataTypes) => {
 
 
 
-    return User;
+    return Usuarios;
 };

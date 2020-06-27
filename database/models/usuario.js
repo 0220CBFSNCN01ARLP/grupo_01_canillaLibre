@@ -22,5 +22,16 @@ module.exports = (sequelize, DataTypes) => {
        tableName: "usuarios", 
        timestamps: false
     });
+
+    User.associate = (function(models){
+        //un usuario - muchas compras
+        User.belongsTo(models.Compras), {
+            as: "comprasDeUser",
+            foreignKey: "comprasId"
+        }
+    })
+
+
+
     return User;
 };

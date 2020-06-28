@@ -61,6 +61,13 @@ module.exports = (sequelize, DataTypes) => {
         }
     });
 
+    Productos.associate = (function(models){
+        //muchos productos - un usuario 
+        Productos.belongsTo(models.Usuarios), {
+            as: "usuario",
+            foreignKey: "usuarioId"
+        }
+    });    
 
     return Productos;
   };

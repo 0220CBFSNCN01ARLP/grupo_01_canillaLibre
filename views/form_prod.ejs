@@ -25,7 +25,7 @@
                 <div class="row align-items-center">
                     <div class="form-group col-9">
                         <label for="sell_title">Título del Anuncio</label>
-                        <input type="text" class="form-control" id="title_sell" placeholder="Introduce el nombre de tu producto" aria-describedby="sell_title" name="titulo" required />
+                        <input type="text" class="form-control" id="title_sell" placeholder="Introduce el nombre de tu producto" aria-describedby="sell_title" name="nombre" />
                     </div>
                     <!-- envios -->
                     <div class="col-3">
@@ -38,7 +38,7 @@
                 <!-- descripcion -->
                 <div class="form-group">
                     <label for="sell_description">Hace una breve despricion de lo que vas a vender</label>
-                    <textarea class="form-control" id="sell_description" rows="3" placeholder="No te olvides datos importantes" name="descripcion" required></textarea>
+                    <textarea class="form-control" id="sell_description" rows="3" placeholder="No te olvides datos importantes" name="descripcion" ></textarea>
                 </div>
                 <div class="row mt-2 mb-4 justify-content-between">
                     <div class="form-group col-4">
@@ -53,7 +53,7 @@
                     <!-- origen -->
                     <div class="form-group col-3">
                         <label for="sell_origin">Origen</label>
-                        <select id="sell_origin" class="form-control" name="origen" required>
+                        <select id="sell_origin" class="form-control" name="origen" >
                             <option selected>Seleccione...</option>
                             <option>Nacional</option>
                             <option>Internacional</option>
@@ -107,7 +107,7 @@
                     <div class="form-group col-4">
                         <p class="mb-1">Primera imagen</p>
                         <div class="custom-file">
-                            <input type="file" class="custom-file-input" id="image1" lang="es" required name="image1"/>
+                            <input type="file" class="custom-file-input" id="image1" lang="es"  name="image1"/>
                             <label class="custom-file-label" for="image1">Seleccionar Archivo</label>
                         </div>
                     </div>
@@ -136,7 +136,7 @@
                     <div class="form-group col-3">
                         <label for="sell_price"><i class="fas fa-hand-holding-usd"></i> Precio Unidad</label>
                         <input type="number" class="form-control" id="sell_price" placeholder="precio"
-                            aria-describedby="sell_price" name="precio" />
+                            aria-describedby="sell_price" name="precioUnitario" />
                     </div>
                     <!-- cantidad -->
                     <div class="form-group col-3">
@@ -147,8 +147,7 @@
                     <!-- descuento -->
                     <div class="form-group col-3 p-2">
                         <label for="sell_discount"><i class="fas fa-percentage"></i> Descuento </label>
-                        <input type="number" class="form-control" id="sell_discount" placeholder="porcentaje"
-                            aria-describedby="sell_discount" name="descuento" />
+                        <input type="number" class="form-control" id="sell_discount" placeholder="porcentaje" aria-describedby="sell_discount" name="descuento" />
                     </div>
                 </div>
                 <div class="dropdown-divider"></div>

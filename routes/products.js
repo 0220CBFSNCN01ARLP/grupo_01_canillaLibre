@@ -22,40 +22,25 @@ var upload = multer({ storage: storage });
 const controller = require("../controllers/productsController");
 const controllerProduct = require("../controllers/newproducts");
 
-router.get("/form_prod", userMiddleware, controllerProduct.showRegister);
+
+//Creacion de producto
+router.get("/form_prod", /*userMiddleware,*/ controllerProduct.showRegister);
 router.post("/form_prod", upload.single("image1"), controllerProduct.register);
 
 /* productDetail*/
 /*cambie la vista por detail para hacer pruebas, despues volver a product Detail*/
 router.get("/", controller.allproducts);
-
 router.get("/:id?", controller.detailproduct);
 
-router.get(
-    "/:id/edit",
-    userMiddleware,
-    controller.edit
-); /* GET - Product edit */
-router.put(
-    "/:id?",
-    userMiddleware,
-    upload.single("image1"),
-    controller.update
-); /* PUT - Product update */
+
+//Editar producto
+router.get("/:id/edit",userMiddleware,controller.edit); /* GET - Product edit */
+router.put("/:id?",userMiddleware,upload.single("image1"),controller.update); /* PUT - Product update */
 router.get("/pruebaSession", function (req, res) {
-    if (req.session.numero == undefined) {
-        req.session.numero = 0;
-    }
-});
+    if (req.session.numero == undefined) {req.session.numero = 0;}});
 
-/*Crear Productos*/
 
-/*** DELETE ONE PRODUCT***/
-// /produdcts/delete/:id
-router.delete(
-    "/:id/delete",
-    userMiddleware,
-    controller.destroy
-); /* DELETE - Delete from DB */
+//Elimar producto
+router.delete("/:id/delete",userMiddleware,controller.destroy); /* DELETE - Delete from DB */
 
 module.exports = router;

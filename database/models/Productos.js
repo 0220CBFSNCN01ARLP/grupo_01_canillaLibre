@@ -4,7 +4,7 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.STRING(500),
         },
         precioUnitario: {
-            type: DataTypes.DECIMAL(10, 2),
+            type: DataTypes.DECIMAL(4, 2),
         },
         descuento: {
             type: DataTypes.DECIMAL(4, 2),
@@ -13,7 +13,7 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.STRING(500),
         },
         imagen: {
-            type: DataTypes.STRING,
+            type: DataTypes.BLOB,
         },
         rating: {
             type: DataTypes.DECIMAL(4, 2),

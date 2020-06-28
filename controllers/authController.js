@@ -3,7 +3,7 @@ const path = require("path");
 const bcrypt = require("bcrypt");
 const { check, validationResult, body } = require("express-validator");
 
-let { User } = require("../database/models");
+let { Usuarios } = require("../database/models");
 
 
 const controller = {
@@ -17,7 +17,7 @@ const controller = {
     register: async (req, res) => {
 
         //validation
-        console.log(validationResult(req));
+        // console.log(validationResult(req));
         let errors = validationResult(req);
 
         if (errors.isEmpty()) {
@@ -33,11 +33,11 @@ const controller = {
             delete req.body.pass2;
 
             //inicio de sequelize
-            const user = await User.create(
+            const user = await Usuarios.create(
                 {
                     nombre: req.body.firstname,
                     apellido: req.body.lastname,
-                    email: req.body.lastname,
+                    email: req.body.email,
                     password: req.body.pass,
                     avatar: req.file.filename,
                     fecha_nacimiento: req.body.date
@@ -58,44 +58,36 @@ const controller = {
     },
 
     //POST LOGIN
-    login: (req, res) => {
+    login: async (req, res) => {
         console.log(validationResult(req));
         let errors = validationResult(req);
-
+        const user = await Usuarios.findOne({
+            where: { email: req.body.email },
+        });
         if (errors.isEmpty()) {
-            //Diego logica del logueo de usr
-            let users = JSON.parse(
-                fs.readFileSync(path.resolve(__dirname, "../data/user_db.json"))
-            );
-            // const user = await User.findOne({ where: { email: req.body.email } 
-                
-            // });
-            
-            
-            for (let i = 0; i < user.length; i++) {
-                if (user[i].email == req.body.email) {
-                    if (bcrypt.compareSync(req.body.pass, user[i].pass)) {
-                        usuarioaLoguearse = user[i];
-                    } else {
-                        return res.render("login", {
-                            errors: [{ msg: "Credenciales Invalidas" }],
-                        });
-                    }
-                }
-            }
+        if ( user == undefined ){
+            res.send( "Usuario no econtrado")
 
-            req.session.usuarioLogueado = usuarioaLoguearse;
+        } else {
+                   if (bcrypt.compareSync(req.body.pass, user.password)) {
+                       usuarioaLoguearse = user;
+                   } else {
+                       return res.render("login", {
+                           errors: [{ msg: "Credenciales Invalidas" }],
+                       });
+                   }
 
+                   req.session.usuarioLogueado = usuarioaLoguearse;
+                   res.redirect("/");
+               }
+ 
             if (req.body.recordarme != undefined){
 
                 res.cookie ("recordarme", usuarioaLoguearse.email, { maxAge: 60000})
             }
 
-            res.redirect("/");
-
-            //logeo de usuario
-            //res.render("/");
         } else {
+            //  return res.send(user)
             return res.render("login", { errors: errors.errors });
         }
     },
@@ -108,7 +100,10 @@ const controller = {
     },
 
     //PROFILE
-    showProfile: (req, res) => {
+    showProfile: async (req, res) => {
+        const user = await Usuarios.findOne({
+            where: { email: req.body.email },
+        });
         
         res.render("profile", { user });
 

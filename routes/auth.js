@@ -4,6 +4,7 @@ const multer = require("multer");
 const path = require("path");
 const { check, validationResult, body } = require("express-validator");
 const fs = require("fs");
+const { Usuarios } = require("../database/models");
 
 //Este middleware sirve para cortar proceso Ej. Register si req.session.usuarioLogeado tiene valor
 const guestMiddleware = require("../middlewares/guestMiddleware");
@@ -70,25 +71,21 @@ router.post(
 
 router.get("/login", authController.showLogin);
 router.post("/login", [
-    check("email")
-        .custom(function (value) {
-            let usersJSON = fs.readFileSync(
-                path.resolve(__dirname, "../data/user_db.json")
-            );
-            let users;
-            if (usersJSON == "") {
-                users = [];
-            } else {
-                users = JSON.parse(usersJSON);
-            }
-            for (let i = 0; i < users.length; i++) {
-                if (users[i].email == value) {
-                    return true;
-                }
-            }
-            return false;
-        })
-        .withMessage("Email no registrado"),
+    body ("email")
+    .custom(value => async (req,res)=> {
+        const users = await Usuarios.findOne({ where: { email: req.body.email }                
+        
+        });
+        
+        if (users.email == value) {
+            return false
+            
+        } 
+            return true
+        
+        
+    })
+    .withMessage("Email no registrado"),
 
     authController.login,
 ]);

@@ -36,38 +36,37 @@ module.exports = (sequelize, DataTypes) => {
     });
 
 
-
-    Productos.associate = (function(models){
+    Productos.associate = function(models){
         //un usuario - muchas bebidas
-        Productos.hasMany(models.Bebidas), {
+        Productos.hasMany(models.Bebidas, {
             as: "bebidas",
             foreignKey: "productoId"
-        }
-    })
+        })
+    }
 
-    Productos.associate = (function(models){
-        //un usuario - muchas compras
-        Productos.hasMany(models.Insumos), {
+    Productos.associate = function(models){
+        //un usuario - muchos insumos
+        Productos.hasMany(models.Insumos, {
             as: "insumos",
             foreignKey: "productoId"
-        }
-    })
+        })
+    }
 
-    Productos.associate = (function(models){
-        //un usuario - muchas compras
-        Productos.hasMany(models.Cursos), {
+    Productos.associate = function(models){
+        //un usuario - muchos cursos
+        Productos.hasMany(models.Cursos, {
             as: "cursos",
             foreignKey: "productoId"
-        }
-    });
+        })
+    }
 
-    Productos.associate = (function(models){
+    Productos.associate = function(models){
         //muchos productos - un usuario 
-        Productos.belongsTo(models.Usuarios), {
+        Productos.belongsTo(models.Usuarios, {
             as: "usuario",
             foreignKey: "usuarioId"
-        }
-    });    
+        })
+    }    
 
     return Productos;
   };

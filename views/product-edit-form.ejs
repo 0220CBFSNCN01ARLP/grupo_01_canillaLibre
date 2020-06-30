@@ -21,7 +21,7 @@
                 <div class="row align-items-center">
                     <div class="form-group col-9">
                         <label for="sell_title">Título del Anuncio</label>
-                        <input type="text" class="form-control" id="title_sell" id="titulo" name="titulo" value="<%= product.titulo  %>" aria-describedby="sell_title" required /> 
+                        <input type="text" class="form-control" id="title_sell" id="titulo" name="nombre" value="<%= product.titulo  %>" aria-describedby="sell_title" required /> 
                     </div>
                      <!-- envios -->
                     <div class="col-3">
@@ -130,7 +130,7 @@
                     <!-- precio -->
                     <div class="form-group col-3">
                         <label for="sell_price"><i class="fas fa-hand-holding-usd"></i> Precio</label>
-                        <input type="number" class="form-control" id=precio name=precio placeholder="precio"
+                        <input type="number" class="form-control" id=precio name="precioUnitario" placeholder="precio"
                             aria-describedby="sell_price" value="<%= product.precio %>"/> 
                     </div>
                     <!-- cantidad -->
@@ -142,7 +142,7 @@
                     <!-- descuento -->
                     <div class="form-group col-3 p-2">
                         <label for="sell_discount"><i class="fas fa-percentage"></i> Descuento </label>
-                        <input type="number" class="form-control" id=descuento name=descuento placeholder="porcentaje"
+                        <input type="number" class="form-control" id=descuento name="descuento" placeholder="porcentaje"
                             aria-describedby="sell_discount"  name="<%= product.descuento %>"/> 
                     </div>
                 </div>

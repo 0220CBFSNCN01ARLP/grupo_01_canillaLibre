@@ -18,12 +18,12 @@ module.exports = (sequelize, DataTypes) => {
 
     Insumos.associate = function (models) {
         //un Inusmo - pertenece a muchos productos
-        Insumos.belongsTo(models.Productos),
+        Insumos.belongsTo(models.Productos,
             {
                 as: "productos",
                 foreignKey: "productoId"
-            };
-    };
+            })
+    }
 
     return Insumos;
 };

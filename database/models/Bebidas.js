@@ -2,6 +2,9 @@ module.exports = (sequelize, DataTypes) => {
     const Bebidas = sequelize.define(
         "Bebidas",
         {
+            productoId: {
+                type: DataTypes.INTEGER(11)
+            },    
             marca: {
                 type: DataTypes.STRING(100),
             },
@@ -28,7 +31,7 @@ module.exports = (sequelize, DataTypes) => {
         //una bebida - pertenece a muchos productos
         Bebidas.belongsTo(models.Productos,
             {
-                as: "productos",
+                as: "producto",
                 foreignKey: "productoId"
             })
     }

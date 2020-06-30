@@ -2,8 +2,8 @@ module.exports = (sequelize, DataTypes) => {
     const Cursos   = sequelize.define("Cursos", {
 
         productoId: {
-            type: DataTypes.INTEGER,
-        },
+            type: DataTypes.INTEGER(11)
+        }, 
         disertante: {
             type: DataTypes.STRING,
         },
@@ -25,16 +25,13 @@ module.exports = (sequelize, DataTypes) => {
     });
 
     Cursos.associate = function (models) {
-        Cursos.hasMany(models.Productos, {
+        Cursos.belongsTo(models.Productos, {
             
-            foreignKey: "productoId",
-            as: "Productos"
+            as: "producto",
+            foreignKey: "productoId"
+            
         })
     }
-
-
-
-
 
     return Cursos;
   };

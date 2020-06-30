@@ -103,6 +103,13 @@ const controller = {
     },
 
     editProfile: async (req, res) => {
+        const user = await Usuarios.findByPk(req.params.id);
+        res.render("profileEdit", { user });
+    },
+
+    
+
+    deleteProfile: async (req, res) => {
 
     }
 

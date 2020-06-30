@@ -59,21 +59,16 @@
                             <option>Internacional</option>
                         </select>
                     </div>
-                    <!-- tipo -->
-                    <div class="form-group col-3">
-                        <label for="sell_type">Tipo</label>
-                        <input type="number" name="productoId">
-                        
-                        <!-- <select id="sell_type" class="form-control" name="productoId">
-                            <option selected>Seleccione...</option>
-                            <option>Cerveza</option>
-                            <option>Insumos</option>
-                            <option>Alquiler</option>
-                            <option>Cursos</option>
-                            <option>Merchandesing</option>
-                            <option>Cursos</option>
-                        </select> -->
-
+                    <!-- tipo de Producto-->
+                    <div class="form-group">
+                        <label for="">Tipo de Producto</label> </br>
+                        <select name="productoId">
+                                <option value=" <%= Bebidas.productoId %> ">Bebidas</option>
+                                         
+                                <option value=" <%= Insumos.productoId %> ">Insumos</option>
+                                
+                                <option value=" <%= Cursos.productoId %>  ">Cursos</option>
+                        </select>
                     </div>
                     <!-- categoria -->
                     <div class="form-group col-3">

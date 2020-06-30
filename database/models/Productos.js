@@ -19,15 +19,12 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.DECIMAL(4, 2),
         },
         stock: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.INTEGER(11),
         },
-        create_at: {
-            type: DataTypes.DATE
-        },
-        update_at: {
-            type: DataTypes.DATE
-        },
-            
+        tipoproducto: {
+            type: DataTypes.INTEGER(11)
+        }
+                    
     },
     
     {
@@ -41,32 +38,24 @@ module.exports = (sequelize, DataTypes) => {
         Productos.hasMany(models.Bebidas, {
             as: "bebidas",
             foreignKey: "productoId"
-        })
-    }
-
-    Productos.associate = function(models){
+        }),
         //un usuario - muchos insumos
         Productos.hasMany(models.Insumos, {
             as: "insumos",
             foreignKey: "productoId"
-        })
-    }
-
-    Productos.associate = function(models){
+        }),
         //un usuario - muchos cursos
         Productos.hasMany(models.Cursos, {
             as: "cursos",
             foreignKey: "productoId"
-        })
-    }
-
-    Productos.associate = function(models){
+        }),
         //muchos productos - un usuario 
         Productos.belongsTo(models.Usuarios, {
             as: "usuario",
             foreignKey: "usuarioId"
         })
-    }    
+    }
+  
 
     return Productos;
   };

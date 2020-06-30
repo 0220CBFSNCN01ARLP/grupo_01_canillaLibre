@@ -34,34 +34,7 @@ router.get("/register", authController.showRegister);
 router.post(
     "/register",
     upload.single("avatar"),
-    [
-        check("firsname")
-            .isLength()
-            .withMessage("Este campo debe estar completo"),
-        check("lastname")
-            .isLength()
-            .withMessage("Este campo debe estar completo"),
-        check("email")
-            .isEmail()
-            .custom( async (value) => {
-                const user = await Usuarios.findOne({
-                    where: { email: req.body.email },
-                });
-                 for (let user of Usuarios) {
-                     if (user.email == value) {
-                         return false;
-                     }
-                 }
-                 return true;
-             })
-            .withMessage("Email ya registrado"),
-          //implementar middleware q calcule la edad minima requerida  
-        //check("age")
-        //    .isInt({ min: 18 })
-        //    .withMessage("Debe ser mayor de 18 años"),
-        check("pass").isLength({ min: 4 }).withMessage("Password Incorrecta"),
-        //check("pass2").equals(body.pass).withMessage("Debe repetir la contraseña"),
-    ],
+    
     authController.register
 );
 

@@ -41,11 +41,9 @@ const controller = {
 
     detailproduct: async (req, res) => {
             try {
-                const product = await Productos.findByPk(req.params.id, {
-                    include: [ "Productos" ],
-                });
+                const product = await Productos.findByPk(req.params.id);
 
-                res.render("productDetail", { product });
+                res.render("detail", { product });
             } catch (error) {
                 res.send(error);
             }

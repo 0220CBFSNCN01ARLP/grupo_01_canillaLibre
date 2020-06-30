@@ -17,11 +17,11 @@
                 </div>
                 <div class="dropdown-divider"></div>
                 <!-- titulo de venta -->
-                    <h4 class="mb-4 mt-4">Estas editando el producto <%= product.titulo %> <%= product.id %>  </h4>
+                    <h4 class="mb-4 mt-4">Estas editando el producto <%= product.nombre %> <%= product.id %>  </h4>
                 <div class="row align-items-center">
                     <div class="form-group col-9">
                         <label for="sell_title">Título del Anuncio</label>
-                        <input type="text" class="form-control" id="title_sell" id="titulo" name="nombre" value="<%= product.titulo  %>" aria-describedby="sell_title" required /> 
+                        <input type="text" class="form-control" id="title_sell" id="titulo" name="nombre" value="<%= product.nombre  %>" aria-describedby="sell_title" required /> 
                     </div>
                      <!-- envios -->
                     <div class="col-3">
@@ -131,7 +131,7 @@
                     <div class="form-group col-3">
                         <label for="sell_price"><i class="fas fa-hand-holding-usd"></i> Precio</label>
                         <input type="number" class="form-control" id=precio name="precioUnitario" placeholder="precio"
-                            aria-describedby="sell_price" value="<%= product.precio %>"/> 
+                            aria-describedby="sell_price" value="<%= product.precioUnitario %>"/> 
                     </div>
                     <!-- cantidad -->
                     <div class="form-group col-3">

@@ -7,7 +7,8 @@ const guestMiddleware = require("../middlewares/guestMiddleware");
 const userMiddleware = require("../middlewares/userMiddlware");
 
 var storage = multer.diskStorage({
-    destination: path.join(__dirname, "../public/upload/"),
+    destination: path.resolve(__dirname, "../public/upload/"),
+
     filename: function (req, file, cb) {
         cb(
             null,
@@ -18,6 +19,8 @@ var storage = multer.diskStorage({
 
 var upload = multer({ storage: storage });
 
+
+
 // ************ Controllers ************
 const controller = require("../controllers/productsController");
 
@@ -27,14 +30,14 @@ router.get("/", controller.allproducts);
 
 //Creacion de producto
 router.get("/form_prod", userMiddleware, controller.showRegister);
-router.post("/form_prod", upload.single("image1"), controller.register);
+router.post("/form_prod", upload.single("imagen"), controller.register);
 
 //Detalle del producto
 router.get("/:id?", controller.detailproduct);
 
 //Editar producto
 router.get("/:id/edit",userMiddleware,controller.edit); /* GET */
-router.put("/:id?", userMiddleware,upload.single("image1"),controller.update); /* PUT */
+router.put("/:id?", userMiddleware,upload.single("imagen"),controller.update); /* PUT */
 router.get("/pruebaSession", function (req, res) {
     if (req.session.numero == undefined) {req.session.numero = 0;}});
 

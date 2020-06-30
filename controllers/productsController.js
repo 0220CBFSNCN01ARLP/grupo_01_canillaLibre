@@ -18,13 +18,12 @@ const controller = {
             precioUnitario: req.body.precioUnitario,
             descuento: req.body.descuento,
             descripcion: req.body.descripcion,
-            imagen: req.body.image1,
+            imagen: req.file.filename,
             stock: req.body.stock,
             rating: req.body.rating,
             tipoproducto: req.body.productoId
         })            
             res.render('detail', {product});
-
         },     
 
     // Read - Muestra todos los Productos
@@ -71,7 +70,7 @@ const controller = {
                 precioUnitario: req.body.precioUnitario,
                 descuento: req.body.descuento,
                 descripcion: req.body.descripcion,
-                imagen: req.file.image1,
+                imagen: req.file.filename,
                 stock: req.body.stock,
                 rating: req.body.rating
                 },
@@ -81,13 +80,13 @@ const controller = {
                     },
                 }
             );
-            await req.files.forEach((image1) => {
+            await req.files.forEach((imagen) => {
             Productos.create({
-            path: image1.filename
+            path: imagen.filename
         });
     }); 
 
-            res.redirect("/products/productDetail/" + req.params.id);
+            res.redirect("/products/" + req.params.id);
         } catch (error) {
             res.send(error);
         }

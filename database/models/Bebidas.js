@@ -24,14 +24,14 @@ module.exports = (sequelize, DataTypes) => {
         }
     );
 
-    Bebidas.associate = function (models) {
+    Bebidas.associate = function(models) {
         //una bebida - pertenece a muchos productos
-        Bebidas.belongsTo(models.Productos),
+        Bebidas.belongsTo(models.Productos,
             {
                 as: "productos",
                 foreignKey: "productoId"
-            };
-    };
+            })
+    }
 
     return Bebidas;
 };

@@ -26,10 +26,11 @@ module.exports = (sequelize, DataTypes) => {
 
     Cursos.associate = function (models) {
         Cursos.hasMany(models.Productos, {
+            
             foreignKey: "productoId",
             as: "Productos"
-        });
-    };
+        })
+    }
 
 
 

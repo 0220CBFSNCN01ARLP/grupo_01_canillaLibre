@@ -4,6 +4,7 @@ const multer = require("multer");
 const path = require("path");
 const { check, validationResult, body } = require("express-validator");
 const fs = require("fs");
+const { Usuarios } = require("../database/models");
 
 //Este middleware sirve para cortar proceso Ej. Register si req.session.usuarioLogeado tiene valor
 const guestMiddleware = require("../middlewares/guestMiddleware");

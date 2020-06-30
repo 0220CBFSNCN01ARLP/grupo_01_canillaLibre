@@ -24,13 +24,13 @@
       <div class="row">
         <form
           class="col-xl-7 col-lg-7 col-md-9 col-sm-12 m-auto bg-white text-dark p-4 rounded animate__animated animate__zoomIn"
-          action="/auth/register"
+          action="/auth/profile/editProfile/<%= user.id %> "
           method="POST"
           enctype="multipart/form-data"
         >
           <div class="register-title col-12">
             <h2 class="title_categoria">
-              <i class="far fa-user-circle text-black-50"></i> Crea tu cuenta
+              <i class="far fa-user-circle text-black-50"></i> Edita tu cuenta
             </h2>
           </div>
           <div class="dropdown-divider"></div>
@@ -45,6 +45,7 @@
                 name="firstname"
                 id="firstname"
                 aria-describedby="firstname"
+                value="<%= user.nombre %>"
               />
             </div>
 
@@ -56,6 +57,7 @@
                 name="lastname"
                 id="lastname"
                 aria-describedby="lastname"
+                value="<%= user.apellido %>"
               />
             </div>
           </div>
@@ -70,6 +72,7 @@
                 name="email"
                 id="email"
                 aria-describedby="email"
+                value="<%= user.email %>"
               />
               <small id="email" class="form-text text-muted"
                 >Ingrese su correo: nombre@dominio.com</small
@@ -158,7 +161,7 @@
           <!-- boton enviar -->
           <div class="col-12 d-flex justify-content-center mt-2">
             <button type="submit" class="btn btn-outline-warning mt-3 mb-3">
-              Registrate
+              editar Perfil!
             </button>
           </div>
           <div class="dropdown-divider"></div>

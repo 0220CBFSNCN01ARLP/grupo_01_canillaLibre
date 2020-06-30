@@ -27,6 +27,8 @@ var upload = multer({ storage: storage });
 
 const authController = require("../controllers/authController");
 
+
+//Registro - //Create
 router.get("/register", authController.showRegister);
 router.post(
     "/register",
@@ -40,23 +42,17 @@ router.post(
             .withMessage("Este campo debe estar completo"),
         check("email")
             .isEmail()
-            // .custom(function (value) {
-            //     let usersJSON = fs.readFileSync(
-            //         path.resolve(__dirname, "../data/user_db.json")
-            //     );
-            //     let users;
-            //     if (usersJSON == "") {
-            //         users = [];
-            //     } else {
-            //         users = JSON.parse(usersJSON);
-            //     }
-            //     for (let i = 0; i < users.length; i++) {
-            //         if (users[i].email == value) {
-            //             return false;
-            //         }
-            //     }
-            //     return true;
-            // })
+            .custom( async (value) => {
+                const user = await Usuarios.findOne({
+                    where: { email: req.body.email },
+                });
+                 for (let user of Usuarios) {
+                     if (user.email == value) {
+                         return false;
+                     }
+                 }
+                 return true;
+             })
             .withMessage("Email ya registrado"),
           //implementar middleware q calcule la edad minima requerida  
         //check("age")
@@ -68,36 +64,21 @@ router.post(
     authController.register
 );
 
+//Login //Read
 router.get("/login", authController.showLogin);
-router.post("/login", [
-    check("email")
-        .custom(function (value) {
-            let usersJSON = fs.readFileSync(
-                path.resolve(__dirname, "../data/user_db.json")
-            );
-            let users;
-            if (usersJSON == "") {
-                users = [];
-            } else {
-                users = JSON.parse(usersJSON);
-            }
-            for (let i = 0; i < users.length; i++) {
-                if (users[i].email == value) {
-                    return true;
-                }
-            }
-            return false;
-        })
-        .withMessage("Email no registrado"),
+router.post("/login", authController.login);
 
-    authController.login,
-]);
-
-//LOGOUT
+//Logout
 router.get("/logout", authController.logout);
 
-//Profile
+//Profile //Read
 router.get("/profile", userMiddlware, authController.showProfile);
+
+
+//Profile //Update
+router.get("/editar/:id", authController.editProfile);
+
+
 
 //Prueb para ver si estas logueado en la Session
 router.get("/check", function (req, res) {

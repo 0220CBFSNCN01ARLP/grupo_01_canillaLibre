@@ -21,7 +21,7 @@
                 <div class="row align-items-center">
                     <div class="form-group col-9">
                         <label for="sell_title">Título del Anuncio</label>
-                        <input type="text" class="form-control" id="title_sell" id="titulo" name="nombre" value="<%= product.nombre  %>" aria-describedby="sell_title" required /> 
+                        <input type="text" class="form-control" id="title_sell" id="titulo" name="nombre" value="<%= product.nombre  %>" aria-describedby="sell_title"/> 
                     </div>
                      <!-- envios -->
                     <div class="col-3">
@@ -34,7 +34,7 @@
                 <!-- descripcion -->
                 <div class="form-group">
                     <label for="sell_description">Hace una breve despricion de lo que vas a vender</label>
-                    <textarea class="form-control" id="sell_description" rows="3" placeholder="No te olvides datos importantes" id="descripcion" name="descripcion" required><%= product.descripcion %> </textarea>
+                    <textarea class="form-control" id="sell_description" rows="3" placeholder="No te olvides datos importantes" id="descripcion" name="descripcion" ><%= product.descripcion %> </textarea>
                 </div>
                 <div class="row mt-2 mb-4 justify-content-between">
                     <div class="form-group col-4">
@@ -50,24 +50,19 @@
                     <div class="form-group col-3">
                         <label for="sell_origin">Origen</label>
                         
-                        <select id="sell_origin" class="form-control" id="origen" name="origen" value="<%= product.origen  %>" required>
+                        <select id="sell_origin" class="form-control" id="origen" name="origen" value="<%= product.origen  %>" >
                             <option selected>Seleccione...</option>
                             <option>Nacional</option>
                             <option>Internacional</option>
                         </select>
                     </div>
-                    <!-- tipo -->
-                    <div class="form-group col-3">
-                        <label for="sell_type">Tipo</label>
-                           
-                        <select id="sell_type" class="form-control" id="tipo" name="tipo" value="<%= product.tipo  %>" required>
-                            <option selected>Seleccione...</option>
-                            <option>Cerveza</option>
-                            <option>Insumos</option>
-                            <option>Alquiler</option>
-                            <option>Cursos</option>
-                            <option>Merchandesing</option>
-                            <option>Cursos</option>
+                    <!-- tipo de Producto-->
+                    <div class="form-group">
+                        <label for="">Tipo de Producto</label> </br>
+                        <select name="productoId">
+                            
+                                <option value=" <%= product.productoId %> ">Bebidas</option>
+                                         
                         </select>
                     </div>
                    <!-- categoria -->
@@ -135,8 +130,8 @@
                     <!-- cantidad -->
                     <div class="form-group col-3">
                         <label for="sell_quantity">Cantidad</label>
-                        <input type="number" class="form-control" id=cantidad name= "cantidad"placeholder="cantidad" aria-describedby="sell_quantity"
-                             name="<%= product.cantidad  %>"/> 
+                        <input type="number" class="form-control" id=cantidad name= "stock"placeholder="cantidad" aria-describedby="sell_quantity"
+                             name="<%= product.stock %>"/> 
                     </div>
                     <!-- descuento -->
                     <div class="form-group col-3 p-2">

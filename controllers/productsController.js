@@ -64,13 +64,15 @@ const controller = {
         try {
              let product = await Productos.update(
                 {
-                    nombre: req.body.nombre,
-                    precioUnitario: req.body.precioUnitario,
-                    descuento: req.body.descuento,
-                    descripcion: req.body.descripcion,
-                    imagen: req.file.filename,
-                    stock: req.body.stock,
-                    rating: req.body.rating,
+                    //nombre: req.body.nombre,
+                    //precioUnitario: req.body.precioUnitario,
+                    //descuento: req.body.descuento,
+                    //descripcion: req.body.descripcion,
+                    //imagen: req.file.filename,
+                    //stock: req.body.stock,
+                    //rating: req.body.rating,
+                    //tipoproducto: req.body.productoId
+                    ...req.body
                 },
                 {
                     where: {

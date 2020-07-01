@@ -37,9 +37,8 @@ router.get("/:id?", controller.detailproduct);
 
 //Editar producto
 router.get("/:id/edit",userMiddleware,controller.edit); /* GET */
-router.put("/:id?", userMiddleware,upload.single("imagen"),controller.update); /* PUT */
-router.get("/pruebaSession", function (req, res) {
-    if (req.session.numero == undefined) {req.session.numero = 0;}});
+router.post("/:id/edit", userMiddleware,upload.single("imagen"),controller.update); /* PUT */
+
 
 //Elimar producto
 router.delete("/:id/delete", userMiddleware, controller.destroy); /* DELETE */

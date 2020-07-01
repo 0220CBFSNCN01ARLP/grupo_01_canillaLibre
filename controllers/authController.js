@@ -82,7 +82,7 @@ const controller = {
  
             if (req.body.recordarme != undefined){
 
-                res.cookie ("recordarme", usuarioaLoguearse.email, { maxAge: 60000})
+                res.cookie ("recordarme", usuarioaLoguearse, { maxAge: 60000})
             }
         
     },

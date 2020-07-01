@@ -49,7 +49,6 @@ const controller = {
         },
 
     // Update - Formulario de Edición de Producto
-
     edit: async (req, res) => {
         try {
             const product = await Productos.findByPk(req.params.id);
@@ -61,32 +60,31 @@ const controller = {
     },
 
     // Update - Carga Formulario de Edición de Producto
-
     update: async (req, res) => {
         try {
-            await Productos.update(
+             let product = await Productos.update(
                 {
-                nombre: req.body.nombre,
-                precioUnitario: req.body.precioUnitario,
-                descuento: req.body.descuento,
-                descripcion: req.body.descripcion,
-                imagen: req.file.filename,
-                stock: req.body.stock,
-                rating: req.body.rating
+                    nombre: req.body.nombre,
+                    precioUnitario: req.body.precioUnitario,
+                    descuento: req.body.descuento,
+                    descripcion: req.body.descripcion,
+                    imagen: req.file.filename,
+                    stock: req.body.stock,
+                    rating: req.body.rating,
                 },
                 {
                     where: {
                         id: req.params.id,
                     },
-                }
-            );
-            await req.files.forEach((imagen) => {
+                });
+
+            /*await req.files.forEach((imagen) => {
             Productos.create({
             path: imagen.filename
         });
-    }); 
+    }); */
 
-            res.redirect("/products/" + req.params.id);
+        res.redirect("/products/");
         } catch (error) {
             res.send(error);
         }

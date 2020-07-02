@@ -60,11 +60,13 @@
                         </select>
                     </div>
                     <!-- tipo de Producto-->
-                    <div class="form-group">
+                    <div class="form-group col-3">
                         <label for="">Tipo de Producto</label> </br>
-                        <select name="productoId">
+                        <select class="custom-select my-1 mr-sm-2" name="productoId">
                             
                                 <option value=" <%= Bebidas.productoId %> ">Bebidas</option>
+                                <option value=" <%= Insumos.productoId %> " disabled>Insumos</option> <!-- se encuentran desabilitadas hasta incluir la asosiacion de tablas -->
+                                <option value=" <%= Cursos.productoId %> " disabled>Cursos</option> <!-- se encuentran desabilitadas hasta incluir la asosiacion de tablas -->
                                          
                         </select>
                     </div>

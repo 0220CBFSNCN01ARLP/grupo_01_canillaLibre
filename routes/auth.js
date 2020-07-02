@@ -45,8 +45,8 @@ router.get("/profile", userMiddlware, authController.showProfile);
 
 
 //Profile //Update
-router.get("/editar/:id", userMiddlware, authController.editProfile);
-router.post("/editar/:id", userMiddlware, upload.single("avatar"), authController.updateProfile);
+router.get("/editar/:id", authController.editProfile);
+router.post("/editar/:id", upload.single("avatar"), authController.updateProfile);
 
 
 //Profile //Delete

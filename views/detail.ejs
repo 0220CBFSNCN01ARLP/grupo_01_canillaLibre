@@ -54,7 +54,7 @@
             </div>
            
             <!--detalle de producto-->
-            <div class="row p-0 m-auto border-secondary p-4">
+            <div class="row p-0 ml-3 mr-auto border-secondary p-4">
                 <h3 class="col-12 font-weight-light">Detalle del Producto</h3>
                 <ul class="list-group col-4 list-group-flush">
                   <li class="list-group-item">Origen</li>
@@ -63,7 +63,7 @@
                   <li class="list-group-item">Presentacion</li>
                   <li class="list-group-item border-bottom-0">Contenido</li>
                 </ul>
-                <ul class="list-group col-8 list-group-flush">
+                <ul class="list-group col-8 list-group-flush  d-none"> <!-- se encuentra desabilitado hasta la implementacion de campos en tabla -->
                   <li class="list-group-item"><%= product.origen %></li>
                   <li class="list-group-item"><%= product.categoria %></li>
                   <li class="list-group-item"><%= product.marca %></li>

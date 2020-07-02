@@ -30,8 +30,8 @@
                     <!-- envios -->
                     <div class="col-3">
                         <div class="custom-control custom-checkbox mr-sm-2">
-                            <input type="checkbox" class="custom-control-input" id="sell_envios">
-                            <label class="custom-control-label" for="sell_envios">Puedo hacer envios!</label>
+                            <input type="checkbox" class="custom-control-input" id="sell_envios" disabled> <!-- se encuentra desabilitado hasta la implementacion de campos en tabla -->
+                            <label class="custom-control-label" for="sell_envios">Puedo hacer envios!</label> 
                         </div>
                     </div>
                 </div>
@@ -44,16 +44,16 @@
                     <div class="form-group col-4">
                         <p class="mb-1">Marca</p>
                         <div class="custom-file">
-                            <input type="text" class="form-control" id="title_sell" aria-describedby="sell_title" id="marca" name="marca" /> 
+                            <input type="text" class="form-control" id="title_sell" aria-describedby="sell_title" id="marca" name="marca" disabled/>  <!-- se encuentra desabilitado hasta la implementacion de campos en tabla -->
                             
                         </div>
                     </div>
                 </div>
                 <div class="row">
                     <!-- origen -->
-                    <div class="form-group col-3">
+                    <div class="form-group col-3" >
                         <label for="sell_origin">Origen</label>
-                        <select id="sell_origin" class="form-control" name="origen" >
+                        <select id="sell_origin" class="form-control" name="origen" disabled> <!-- se encuentra desabilitado hasta la implementacion de campos en tabla -->
                             <option selected>Seleccione...</option>
                             <option>Nacional</option>
                             <option>Internacional</option>
@@ -73,7 +73,7 @@
                     <!-- categoria -->
                     <div class="form-group col-3">
                         <label for="sell_category">Categoría</label>
-                        <select id="sell_category" class="form-control" name="categoria">
+                        <select id="sell_category" class="form-control" name="categoria" disabled> <!-- se encuentra desabilitado hasta la implementacion de campos en tabla -->
                             <option selected>Seleccione...</option>
                             <option>Ale</option>
                             <option>Ipa</option>
@@ -90,7 +90,7 @@
                     <!-- presentacion -->
                     <div class="form-group col-3">
                         <label for="sell_container">Presentación</label>
-                        <select id="sell_container" class="form-control" name="presentacion">
+                        <select id="sell_container" class="form-control" name="presentacion" disabled> <!-- se encuentra desabilitado hasta la implementacion de campos en tabla -->
                             <option selected>Seleccione...</option>
                             <option>Lata</option>
                             <option>Porron</option>
@@ -109,6 +109,23 @@
                             <label class="custom-file-label" for="">Seleccionar Archivo</label>
                         </div>
                     </div>
+                    <!-- imagen2 -->
+                    <div class="form-group col-4">
+                        <p class="mb-1">Segunda Imagen<em></em></p>
+                 <div class="custom-file">
+                            <input type="file" class="custom-file-input" id="sell_image_2" lang="es" disabled/> <!-- se encuentra desabilitado hasta la implementacion de campos en tabla -->
+                            <label class="custom-file-label" for="sell_image_2">Seleccionar Archivo</label>
+                        </div>
+                    </div>
+                    <!-- imagen3 -->
+                    <div class="form-group col-4">
+                        <p class="mb-1">Tercera imagen<em></em></p>
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input" id="sell_image_3" lang="es" disabled/> <!-- se encuentra desabilitado hasta la implementacion de campos en tabla -->
+                            <label class="custom-file-label" for="sell_image_3">Seleccionar Archivo</label>
+                        </div>
+                    </div>
+                </div>
                 
                 <div class="dropdown-divider"></div>
 
@@ -134,40 +151,43 @@
                 <div class="dropdown-divider"></div>
                 
                 <!-- datos de contacto -->
-                <div class="col-12">
-                    <h5 class="mb-4 mt-4">Necesitamos datos para contactarte <em>- Opcional -</em></h5>
-                </div>
-                <div class="form-row  mb-2">
-                    <div class="col-4">
-                        <input type="text" class="form-control" placeholder="Nombre de Comercio">
+                <fieldset disabled> <!-- se encuentra desabilitado hasta la implementacion de campos en tabla -->
+                    <div class="col-12">
+                        <h5 class="mb-4 mt-4">Necesitamos datos para contactarte <em>- Opcional -</em></h5>
                     </div>
-                    <div class="col-4">
-                        <input type="number" class="form-control" placeholder="Telefono de Contacto">
+                    <div class="form-row  mb-2">
+                        <div class="col-4">
+                            <input type="text" class="form-control" placeholder="Nombre de Comercio">
+                        </div>
+                        <div class="col-4">
+                            <input type="number" class="form-control" placeholder="Telefono de Contacto">
+                        </div>
+                        <div class="col-4">
+                            <input type="text" class="form-control" placeholder="Código Postal">
+                        </div>
+                        
                     </div>
-                    <div class="col-4">
-                        <input type="text" class="form-control" placeholder="Código Postal">
+                    <div class="form-row justify-content-between mb-3">
+                        <div class="col-7">
+                            <input type="text" class="form-control" placeholder="Dirección">
+                        </div>
+                        <div class="col">
+                            <input type="text" class="form-control" placeholder="Ciudad">
+                        </div>
+                        <div class="col">
+                            <input type="text" class="form-control" placeholder="Provincia">
+                        </div>
                     </div>
-                    
-                </div>
-                <div class="form-row justify-content-between mb-3">
-                    <div class="col-7">
-                        <input type="text" class="form-control" placeholder="Dirección">
+                    <div class="dropdown-divider"></div>
+                    <!-- políticas -->
+                    <div class="col-12 d-flex justify-content-center mt-3">
+                        <div class="custom-control custom-checkbox mr-sm-2">
+                            <input type="checkbox" class="custom-control-input" id="sell_politic">
+                            <label class="custom-control-label" for="sell_politic">Acepto terminos y condiciones</label>
+                        </div>
                     </div>
-                    <div class="col">
-                        <input type="text" class="form-control" placeholder="Ciudad">
-                    </div>
-                    <div class="col">
-                        <input type="text" class="form-control" placeholder="Provincia">
-                    </div>
-                </div>
-                <div class="dropdown-divider"></div>
-                <!-- políticas -->
-                <div class="col-12 d-flex justify-content-center mt-3">
-                    <div class="custom-control custom-checkbox mr-sm-2">
-                        <input type="checkbox" class="custom-control-input" id="sell_politic">
-                        <label class="custom-control-label" for="sell_politic">Acepto terminos y condiciones</label>
-                    </div>
-                </div>
+                </fieldset>
+
                 <!-- boton enviar -->
                 <div class="col-12 d-flex justify-content-center mt-2">
                     <button type="submit" class="btn btn-outline-warning mt-3 mb-3">

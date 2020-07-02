@@ -26,7 +26,7 @@
                      <!-- envios -->
                     <div class="col-3">
                         <div class="custom-control custom-checkbox mr-sm-2">
-                            <input type="checkbox" class="custom-control-input" id="sell_envios">
+                            <input type="checkbox" class="custom-control-input" id="sell_envios" disabled> <!-- se encuentra desabilitado hasta la implementacion de campos en tabla -->
                             <label class="custom-control-label" for="sell_envios">Puedo hacer envios!</label>
                         </div>
                     </div>
@@ -40,7 +40,7 @@
                     <div class="form-group col-4">
                         <p class="mb-1">Marca</p>
                         <div class="custom-file">
-                            <input type="text" class="form-control" id="title_sell" aria-describedby="sell_title" id="marca" name="marca" value="<%= product.marca  %>" /> 
+                            <input type="text" class="form-control" id="title_sell" aria-describedby="sell_title" id="marca" name="marca" value="<%= product.marca  %>" disabled/> <!-- se encuentra desabilitado hasta la implementacion de campos en tabla -->
                             
                         </div>
                     </div>
@@ -50,7 +50,7 @@
                     <div class="form-group col-3">
                         <label for="sell_origin">Origen</label>
                         
-                        <select id="sell_origin" class="form-control" id="origen" name="origen" value="<%= product.origen  %>" >
+                        <select id="sell_origin" class="form-control" id="origen" name="origen" value="<%= product.origen  %>" disabled> <!-- se encuentra desabilitado hasta la implementacion de campos en tabla -->
                             <option selected>Seleccione...</option>
                             <option>Nacional</option>
                             <option>Internacional</option>
@@ -62,6 +62,7 @@
                         <select class="custom-select my-1 mr-sm-2" name="productoId">
                             
                                 <option value=" <%= product.productoId %> ">Bebidas</option>
+                                
                                                                          
                         </select>
                     </div>
@@ -69,7 +70,7 @@
                     <div class="form-group col-3">
                         <label for="sell_category">Categoría</label>
                         
-                        <select id="sell_category" class="form-control" id="categoria"name="categoria" value="<%= product.categoria  %>">
+                        <select id="sell_category" class="form-control" id="categoria"name="categoria" value="<%= product.categoria  %>" disabled> <!-- se encuentra desabilitado hasta la implementacion de campos en tabla -->
                             <option selected>Seleccione...</option>
                             <option>Ale</option>
                             <option>Ipa</option>
@@ -87,7 +88,7 @@
                     <!-- presentacion -->
                     <div class="form-group col-3">
                         <label for="sell_container">Presentación</label>
-                        <select id="sell_container" class="form-control" id="presentacion" name="presentacion" value="<%= product.envase  %>">
+                        <select id="sell_container" class="form-control" id="presentacion" name="presentacion" value="<%= product.envase  %>" disabled> <!-- se encuentra desabilitado hasta la implementacion de campos en tabla -->
                             <option selected>Seleccione...</option>
                             <option>Lata</option>
                             <option>Porron</option>

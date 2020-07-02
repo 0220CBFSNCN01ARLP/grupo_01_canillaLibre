@@ -89,6 +89,11 @@
     font-weight: 400;
     text-transform: uppercase;
 }
+.border-5 {
+    border-style: solid black !important;
+
+    border-width:10px !important; 
+}
 .slogan_ventas {
     margin-top: -0.5em;
     margin-left: 12%;

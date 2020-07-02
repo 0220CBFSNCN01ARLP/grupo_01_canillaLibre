@@ -91,8 +91,16 @@ const controller = {
                    
                     }
  
+<<<<<<< HEAD
             
             
+=======
+            if (req.body.recordarme != undefined){
+
+                res.cookie ("recordarme", usuarioaLoguearse, { maxAge: 60000})
+            }
+        
+>>>>>>> 1288cd29fabadaaeb1f355c54625df52c2c8337c
     },
 
     //LOGOUT

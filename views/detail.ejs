@@ -16,20 +16,24 @@
           <!--titulo-->
           <div class="register-title col-12">
             <h2 class="title_categoria">
-              <%= product.titulo %>
+              <%= product.nombre %>
             </h2>
           </div>
           <div class="dropdown-divider"></div>
           <div class="media row d-flex align-items-center">
             <div class="col-6 align-items-center d-flex justify-content-center mb-4">
               <!--imagen-->
+<<<<<<< HEAD
               <img src="/public/upload/<%= product.image1 %>" alt="product image" width="150" class="product-detail-img" value="Show Images">
+=======
+              <img src="/upload/<%= product.imagen %>" alt="product image" width="150" class="product-detail-img" value="Show Images">
+>>>>>>> 1288cd29fabadaaeb1f355c54625df52c2c8337c
             </div>
             <div class="media-body col-6 border-left">
               <!--cantidad-->
-              <h5 class="font-weight-light">Cantidad : <strong><%= product.cantidad %></strong></h4> 
+              <h5 class="font-weight-light">Cantidad : <strong><%= product.stock %></strong></h4> 
               <!--precio-->
-              <h5 class="font-weight-light"> Precio : <strong>$ <%= product.precio %></strong></h5>
+              <h5 class="font-weight-light"> Precio : <strong>$ <%= product.precioUnitario %></strong></h5>
               <!--descuento-->
               <span class=" bg-success text-white rounded-pill p-1"><%= product.descuento %> <i class="fa fa-tag"></i></span>
               <!--rating-->
@@ -39,7 +43,7 @@
                 <i class="fa fa-star"></i>
                 <i class="fa fa-star"></i>
                 <i class="fa fa-star"></i>
-                <a class="link-comments" href=""><%= product.commentarios %> </a>
+                <a class="link-comments" href=""><%= product.comentarios %> </a>
               </div>
             </div>
 

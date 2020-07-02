@@ -18,13 +18,12 @@ const controller = {
             precioUnitario: req.body.precioUnitario,
             descuento: req.body.descuento,
             descripcion: req.body.descripcion,
-            imagen: req.body.image1,
+            imagen: req.file.filename,
             stock: req.body.stock,
             rating: req.body.rating,
             tipoproducto: req.body.productoId
         })            
             res.render('detail', {product});
-
         },     
 
     // Read - Muestra todos los Productos
@@ -41,18 +40,15 @@ const controller = {
 
     detailproduct: async (req, res) => {
             try {
-                const product = await Productos.findByPk(req.params.id, {
-                    include: [ "Productos" ],
-                });
+                const product = await Productos.findByPk(req.params.id);
 
-                res.render("productDetail", { product });
+                res.render("detail", { product });
             } catch (error) {
                 res.send(error);
             }
         },
 
     // Update - Formulario de Edición de Producto
-
     edit: async (req, res) => {
         try {
             const product = await Productos.findByPk(req.params.id);
@@ -64,32 +60,33 @@ const controller = {
     },
 
     // Update - Carga Formulario de Edición de Producto
-
     update: async (req, res) => {
         try {
-            await Productos.update(
+             let product = await Productos.update(
                 {
-                nombre: req.body.nombre,
-                precioUnitario: req.body.precioUnitario,
-                descuento: req.body.descuento,
-                descripcion: req.body.descripcion,
-                imagen: req.file.image1,
-                stock: req.body.stock,
-                rating: req.body.rating
+                    //nombre: req.body.nombre,
+                    //precioUnitario: req.body.precioUnitario,
+                    //descuento: req.body.descuento,
+                    //descripcion: req.body.descripcion,
+                    //imagen: req.file.filename,
+                    //stock: req.body.stock,
+                    //rating: req.body.rating,
+                    //tipoproducto: req.body.productoId
+                    ...req.body
                 },
                 {
                     where: {
                         id: req.params.id,
                     },
-                }
-            );
-            await req.files.forEach((image1) => {
-            Productos.create({
-            path: image1.filename
-        });
-    }); 
+                });
 
-            res.redirect("/products/productDetail/" + req.params.id);
+            /*await req.files.forEach((imagen) => {
+            Productos.create({
+            path: imagen.filename
+        });
+    }); */
+
+        res.redirect("/products/");
         } catch (error) {
             res.send(error);
         }

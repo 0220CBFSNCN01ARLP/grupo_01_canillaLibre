@@ -23,11 +23,11 @@
                         <section class="product-box">
                           <a href="/products/<%=products.id%>">
                             <figure class="product-box_image ">
-                              <img src="<%=products.image1%>" width="150" alt="imagen de producto" />
+                              <img src="/upload/<%=products.imagen%>" width="150" alt="imagen de producto" />
                               <article class="product-box_data">
-                                <h2><%=products.marca%></h2>
-                                <span><%=products.cantidad +" x " + products.precio%></span>
-                                <p>Comentarios  <%=products.comentarios%></p>
+                                <h2><%=products.nombre%></h2>
+                                <span><%=products.stock +" x " + products.precioUnitario%></span>
+                                <p>Comentarios  <%=products.rating%></p>
                               </article>
                             </figure>
                           </a>

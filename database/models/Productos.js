@@ -13,7 +13,7 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.STRING(500),
         },
         imagen: {
-            type: DataTypes.BLOB,
+            type: DataTypes.STRING,
         },
         rating: {
             type: DataTypes.DECIMAL(4, 2),

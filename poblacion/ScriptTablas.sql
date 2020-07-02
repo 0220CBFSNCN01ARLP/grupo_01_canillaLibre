@@ -47,6 +47,7 @@ CREATE TABLE `producto` (
   `imagen` varchar(255) DEFAULT NULL,
   `rating` decimal(10,2) DEFAULT NULL,
   `stock` int(11) NOT NULL,
+  `tipoproducto` int(11) NOT NULL,
   `create_at` timestamp NULL DEFAULT NULL,
   `update_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),

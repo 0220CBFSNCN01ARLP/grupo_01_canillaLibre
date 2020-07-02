@@ -31,12 +31,7 @@ const authController = require("../controllers/authController");
 
 //Registro - //Create
 router.get("/register", authController.showRegister);
-router.post(
-    "/register",
-    upload.single("avatar"),
-    
-    authController.register
-);
+router.post("/register", upload.single("avatar"), authController.register);
 
 //Login //Read
 router.get("/login", authController.showLogin);
@@ -50,7 +45,12 @@ router.get("/profile", userMiddlware, authController.showProfile);
 
 
 //Profile //Update
-router.get("/editar/:id", authController.editProfile);
+router.get("/editar/:id", userMiddlware, authController.editProfile);
+router.post("/editar/:id", userMiddlware, upload.single("avatar"), authController.updateProfile);
+
+
+//Profile //Delete
+router.post("/delete/:id", authController.deleteProfile);
 
 
 

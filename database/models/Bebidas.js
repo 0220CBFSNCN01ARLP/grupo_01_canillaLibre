@@ -8,9 +8,6 @@ module.exports = (sequelize, DataTypes) => {
             marca: {
                 type: DataTypes.STRING(100),
             },
-            descuento: {
-                type: DataTypes.INTEGER,
-            },
             envio: {
                 type: DataTypes.TINYINT(1),
             },

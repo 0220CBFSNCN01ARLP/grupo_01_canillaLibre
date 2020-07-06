@@ -11,7 +11,7 @@ const controller = {
     //GET REGISTER
     showRegister: (req, res) => {
         res.render("register");
-    },
+                                                                                                                                                                                                                                                                                                                                            },
 
     //POST REGISTER
     register: async (req, res) => {
@@ -43,7 +43,7 @@ const controller = {
                     fecha_nacimiento: req.body.date
                 })
                 
-                    res.render("profile", { user })
+                    return res.render("profile", { user })
 
         } else {
 
@@ -64,7 +64,7 @@ const controller = {
             where: { email: req.body.email },
         });
 
-        console.log("el usuario que trae el findOne es: " + user.email);
+        console.log("el usuario que trae el findOne es: " + user) ;
 
         if ( user == undefined ){
             res.send( "Usuario no registrado")
@@ -82,7 +82,6 @@ const controller = {
                    console.log(req.body.recordarme)
                    if (req.body.recordarme){
                         res.cookie ("recordarme", usuarioaLoguearse.email, { maxAge: 60000});
-                        console.log("te cree la cookie");
                     }
 
                         req.session.usuarioLogueado = usuarioaLoguearse;

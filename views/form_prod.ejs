@@ -27,31 +27,64 @@
                         <label for="sell_title">Título del Anuncio</label>
                         <input type="text" class="form-control" id="title_sell" placeholder="Introduce el nombre de tu producto" aria-describedby="sell_title" name="nombre" />
                     </div>
-                    <!-- envios -->
-                    <div class="col-3">
-                        <div class="custom-control custom-checkbox mr-sm-2">
-                            <input type="checkbox" class="custom-control-input" id="sell_envios" disabled> <!-- se encuentra desabilitado hasta la implementacion de campos en tabla -->
-                            <label class="custom-control-label" for="sell_envios">Puedo hacer envios!</label> 
-                        </div>
-                    </div>
+                    
                 </div>
                 <!-- descripcion -->
                 <div class="form-group">
                     <label for="sell_description">Hace una breve despricion de lo que vas a vender</label>
                     <textarea class="form-control" id="sell_description" rows="3" placeholder="No te olvides datos importantes" name="descripcion" ></textarea>
                 </div>
-                <div class="row mt-2 mb-4 justify-content-between">
+
+                
+                <div class="row align-items-center">
+                    <!-- tipo de Producto-->
+                    <div class="form-group col-4 mb-4">
+                        <label for="">Tipo de Producto</label> </br>
+                        <select class="custom-select" name="productoId">
+                            
+                                <option value=" <%= Bebidas.productoId %> ">Bebidas</option>
+                                <option value=" <%= Insumos.productoId %> ">Insumos</option> <!-- se encuentran desabilitadas hasta incluir la asosiacion de tablas -->
+                                <option value=" <%= Cursos.productoId %> ">Cursos</option> <!-- se encuentran desabilitadas hasta incluir la asosiacion de tablas -->
+                                        
+                        </select>
+                    </div>
+                    <!-- envios -->
+                    <div class="col-3">
+                        <div class="custom-control custom-checkbox mr-sm-2">
+                            <input type="checkbox" class="custom-control-input" id="sell_envios" name="envio"> <!-- se encuentra desabilitado hasta la implementacion de campos en tabla -->
+                            <label class="custom-control-label" for="sell_envios">Puedo hacer envios!</label> 
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dropdown-divider"></div>
+
+                <div class="row mt-2 justify-content-between">
                     <div class="form-group col-4">
                         <p class="mb-1">Marca</p>
                         <div class="custom-file">
-                            <input type="text" class="form-control" id="title_sell" aria-describedby="sell_title" id="marca" name="marca" disabled/>  <!-- se encuentra desabilitado hasta la implementacion de campos en tabla -->
+                            <input type="text" class="form-control" id="title_sell" aria-describedby="sell_title" id="marca" name="marca" />  <!-- se encuentra desabilitado hasta la implementacion de campos en tabla -->
+                            
+                        </div>
+                    </div>
+                    <div class="form-group col-4">
+                        <p class="mb-1">Ibu</p>
+                        <div class="custom-file">
+                            <input type="number" class="form-control" id="title_sell" aria-describedby="sell_title" id="" name="ibu" />  <!-- se encuentra desabilitado hasta la implementacion de campos en tabla -->
+                            
+                        </div>
+                    </div>
+                    <div class="form-group col-4">
+                        <p class="mb-1">Alcohol %</p>
+                        <div class="custom-file">
+                            <input type="number" class="form-control" id="title_sell" aria-describedby="sell_title" id="" name="alcohol"/>  <!-- se encuentra desabilitado hasta la implementacion de campos en tabla -->
                             
                         </div>
                     </div>
                 </div>
                 <div class="row">
                     <!-- origen -->
-                    <div class="form-group col-3" >
+                    <div class="form-group col-4" >
                         <label for="sell_origin">Origen</label>
                         <select id="sell_origin" class="form-control" name="origen" disabled> <!-- se encuentra desabilitado hasta la implementacion de campos en tabla -->
                             <option selected>Seleccione...</option>
@@ -59,19 +92,10 @@
                             <option>Internacional</option>
                         </select>
                     </div>
-                    <!-- tipo de Producto-->
-                    <div class="form-group col-3">
-                        <label for="">Tipo de Producto</label> </br>
-                        <select class="custom-select my-1 mr-sm-2" name="productoId">
-                            
-                                <option value=" <%= Bebidas.productoId %> ">Bebidas</option>
-                                <option value=" <%= Insumos.productoId %> " disabled>Insumos</option> <!-- se encuentran desabilitadas hasta incluir la asosiacion de tablas -->
-                                <option value=" <%= Cursos.productoId %> " disabled>Cursos</option> <!-- se encuentran desabilitadas hasta incluir la asosiacion de tablas -->
-                                         
-                        </select>
-                    </div>
+                    
+                    
                     <!-- categoria -->
-                    <div class="form-group col-3">
+                    <div class="form-group col-4">
                         <label for="sell_category">Categoría</label>
                         <select id="sell_category" class="form-control" name="categoria" disabled> <!-- se encuentra desabilitado hasta la implementacion de campos en tabla -->
                             <option selected>Seleccione...</option>
@@ -88,7 +112,7 @@
                         </select>
                     </div>
                     <!-- presentacion -->
-                    <div class="form-group col-3">
+                    <div class="form-group col-4">
                         <label for="sell_container">Presentación</label>
                         <select id="sell_container" class="form-control" name="presentacion" disabled> <!-- se encuentra desabilitado hasta la implementacion de campos en tabla -->
                             <option selected>Seleccione...</option>
@@ -100,12 +124,34 @@
                         </select>
                     </div>
                 </div>
+
+                <div id="cursos" class="row">
+                    <!-- Disertante -->
+                    <div class="form-group col-8" >
+                        <label for="disertante">Disertante</label>
+                        <input type="text" class="form-control" id="disertante" placeholder="Introduce el nombre del disertante" aria-describedby="disertante" name="disertante" />
+                    </div>
+                    
+                    
+                    <!-- medio -->
+                    <div class="form-group col-4">
+                        <label for="sell_category">Medio</label>
+                        <select id="sell_category" class="form-control" name="medio"> <!-- se encuentra desabilitado hasta la implementacion de campos en tabla -->
+                            <option selected>Seleccione...</option>
+                            <option>Streaming</option>
+                            <option>Presencial</option>
+                            <option>Grabado</option>
+                            <option>Manuales</option>
+                        </select>
+                    </div>
+                    
+                </div>
                 <!-- imagen1 -->
                 <div class="row mt-2 mb-4 justify-content-between">
                     <div class="form-group col-4">
                         <p class="mb-1">Primera imagen</p>
                         <div class="custom-file">
-                            <input type="file" class="custom-file-input" id="" lang="es"  name="imagen"/>
+                            <input type="file" class="custom-file-input" id="" lang="es"  name="imagen" required/>
                             <label class="custom-file-label" for="">Seleccionar Archivo</label>
                         </div>
                     </div>

@@ -24,6 +24,11 @@
             <div class="col-6 align-items-center d-flex justify-content-center mb-4">
               <!--imagen-->
               <img src="/upload/<%= product.imagen %>" alt="product image" width="150" class="product-detail-img" value="Show Images">
+              <br />
+                            <!-- <small class="text-muted"
+                                ><i class="far fa-address-card"></i> id user:
+                                 usuario.Usuarios.id
+                            </small> -->
             </div>
             <div class="media-body col-6 border-left">
               <!--cantidad-->
@@ -57,17 +62,17 @@
             <div class="row p-0 ml-3 mr-auto border-secondary p-4">
                 <h3 class="col-12 font-weight-light">Detalle del Producto</h3>
                 <ul class="list-group col-4 list-group-flush">
-                  <li class="list-group-item">Origen</li>
-                  <li class="list-group-item">Tipo</li>
                   <li class="list-group-item">Marca</li>
+                  <li class="list-group-item">Alcohol</li>
+                  <li class="list-group-item">ibu</li>
                   <li class="list-group-item">Presentacion</li>
                   <li class="list-group-item border-bottom-0">Contenido</li>
                 </ul>
-                <ul class="list-group col-8 list-group-flush  d-none"> <!-- se encuentra desabilitado hasta la implementacion de campos en tabla -->
-                  <li class="list-group-item"><%= product.origen %></li>
-                  <li class="list-group-item"><%= product.categoria %></li>
-                  <li class="list-group-item"><%= product.marca %></li>
-                  <li class="list-group-item"><%= product.presentacion %></li>
+                <ul class="list-group col-8 list-group-flush "> <!-- se encuentra desabilitado hasta la implementacion de campos en tabla -->
+                  <li class="list-group-item"><%= bebida.marca %></li>
+                  <li class="list-group-item"><%= bebida.alcohol %></li>
+                  <li class="list-group-item"><%= bebida.ibu %></li>
+                  <li class="list-group-item">Porrón</li>
                   <li class="list-group-item">330 ml</li>
                 </ul>
             </div>

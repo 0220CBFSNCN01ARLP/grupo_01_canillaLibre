@@ -24,19 +24,18 @@
             <div class="col-6 align-items-center d-flex justify-content-center mb-4">
               <!--imagen-->
               <img src="/upload/<%= product.imagen %>" alt="product image" width="150" class="product-detail-img" value="Show Images">
-              <br />
-                            <!-- <small class="text-muted"
-                                ><i class="far fa-address-card"></i> id user:
-                                 usuario.Usuarios.id
-                            </small> -->
+              <small class="text-muted">
+                    id producto: <%= product.id %>
+            </small>   
             </div>
+            
             <div class="media-body col-6 border-left">
               <!--cantidad-->
-              <h5 class="font-weight-light">Cantidad : <strong><%= product.stock %></strong></h4> 
+              <h5 class="font-weight-light">Cantidad en Stock: <strong><%= product.stock %></strong></h4> 
               <!--precio-->
               <h5 class="font-weight-light"> Precio : <strong>$ <%= product.precioUnitario %></strong></h5>
               <!--descuento-->
-              <span class=" bg-success text-white rounded-pill p-1"><%= product.descuento %> <i class="fa fa-tag"></i></span>
+              <span class=" bg-success text-white rounded-pill pr-2 pl-2 pt-1 pb-1">Descuento <%= product.descuento %>% <i class="fa fa-tag"></i></span>
               <!--rating-->
               <div class="star text-left p-2">
                 <i class="fa fa-star"></i>
@@ -47,7 +46,16 @@
                 <a class="link-comments" href=""><%= product.comentarios %> </a>
               </div>
             </div>
-
+            <div class="row p-0 ml- m-auto justify-content-start">
+                <small class="text-muted">
+                    <div class="dropdown-divider"></div>
+                        <i class="far fa-address-card "></i> usuario vendedor: <%= product.usuario.email %></br>
+                        id: <%= product.usuario.id %></br>
+                        Nombre y Apellido: <%= product.usuario.nombre %> <%= product.usuario.apellido %>
+                        <div class="dropdown-divider"></div>
+                </small> 
+                            
+            </div>
             <!-- comprar / agregar al carrito -->
             <div class="col-12 d-flex justify-content-center mb-3">
               <button type="submit" class="btn btn-outline-warning mr-2">
@@ -58,9 +66,9 @@
               </button>
             </div>
            
-            <!--detalle de producto-->
+            <!--detalle de bebida-->
             <div class="row p-0 ml-3 mr-auto border-secondary p-4">
-                <h3 class="col-12 font-weight-light">Detalle del Producto</h3>
+                <h3 class="col-12 font-weight-light">Detalle de la Bebida</h3>
                 <ul class="list-group col-4 list-group-flush">
                   <li class="list-group-item">Marca</li>
                   <li class="list-group-item">Alcohol</li>
@@ -68,12 +76,38 @@
                   <li class="list-group-item">Presentacion</li>
                   <li class="list-group-item border-bottom-0">Contenido</li>
                 </ul>
-                <ul class="list-group col-8 list-group-flush "> <!-- se encuentra desabilitado hasta la implementacion de campos en tabla -->
-                  <li class="list-group-item"><%= bebida.marca %></li>
-                  <li class="list-group-item"><%= bebida.alcohol %></li>
-                  <li class="list-group-item"><%= bebida.ibu %></li>
-                  <li class="list-group-item">Porrón</li>
+                <ul class="list-group col-8 list-group-flush "> 
+                  <li class="list-group-item"><%= product.bebidas.marca %>a</li>
+                  <li class="list-group-item"><%= product.bebidas.alcohol %>a</li>
+                  <li class="list-group-item"><%= product.bebidas.ibu %>a</li>
+                  <li class="list-group-item">Porron</li>
                   <li class="list-group-item">330 ml</li>
+                </ul>   
+            </div>
+            
+            <!--detalle de insumo-->
+            <div class="row p-0 ml-3 mr-auto border-secondary p-4">
+                <h3 class="col-12 font-weight-light">Detalle del Insumo</h3>
+                <ul class="list-group col-4 list-group-flush">
+                  <li class="list-group-item">Tamaño</li>
+                  <li class="list-group-item border-bottom-0">Envase</li>
+                </ul>
+                <ul class="list-group col-8 list-group-flush "> 
+                  <li class="list-group-item"><%= product.insumos.id %>b</li>
+                  <li class="list-group-item"><%= product.insumos.productoId %>b</li>
+                </ul>
+            </div>
+
+            <!--detalle de curso-->
+            <div class="row p-0 ml-3 mr-auto border-secondary p-4">
+                <h3 class="col-12 font-weight-light">Detalle del Curso</h3>
+                <ul class="list-group col-4 list-group-flush">
+                  <li class="list-group-item">Disertante</li>
+                  <li class="list-group-item border-bottom-0">Medio</li>
+                </ul>
+                <ul class="list-group col-8 list-group-flush "> 
+                  <li class="list-group-item"><%= product.cursos.disertante %>c</li>
+                  <li class="list-group-item"><%= product.cursos.medio %>c</li>
                 </ul>
             </div>
 

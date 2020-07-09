@@ -34,17 +34,17 @@ module.exports = (sequelize, DataTypes) => {
 
 
     Productos.associate = function(models){
-        //un usuario - muchas bebidas
+        //un producto - muchas bebidas
         Productos.hasMany(models.Bebidas, {
             as: "bebidas",
             foreignKey: "productoId"
         }),
-        //un usuario - muchos insumos
+        //un producto - muchos insumos
         Productos.hasMany(models.Insumos, {
             as: "insumos",
             foreignKey: "productoId"
         }),
-        //un usuario - muchos cursos
+        //un producto - muchos cursos
         Productos.hasMany(models.Cursos, {
             as: "cursos",
             foreignKey: "productoId"

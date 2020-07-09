@@ -9,13 +9,7 @@ module.exports = (sequelize, DataTypes) => {
         },
         medioId: {
             type: DataTypes.INTEGER,
-        },
-        create_at: {
-            type: DataTypes.DATE
-        },
-        update_at: {
-            type: DataTypes.DATE
-        },
+        }
             
     },
     

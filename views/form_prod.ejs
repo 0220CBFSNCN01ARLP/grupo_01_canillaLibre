@@ -42,9 +42,9 @@
                         <label for="">Tipo de Producto</label> </br>
                         <select class="custom-select" name="productoId">
                             
-                                <option value=" <%= Bebidas.productoId %> ">Bebidas</option>
-                                <option value=" <%= Insumos.productoId %> ">Insumos</option> <!-- se encuentran desabilitadas hasta incluir la asosiacion de tablas -->
-                                <option value=" <%= Cursos.productoId %> ">Cursos</option> <!-- se encuentran desabilitadas hasta incluir la asosiacion de tablas -->
+                                <option value="1">Bebidas</option>
+                                <option value="2">Insumos</option> 
+                                <option value="3">Cursos</option> 
                                         
                         </select>
                     </div>
@@ -84,7 +84,7 @@
                 </div>
                 <div class="row">
                     <!-- origen -->
-                    <div class="form-group col-4" >
+                    <div class="form-group col-4">
                         <label for="sell_origin">Origen</label>
                         <select id="sell_origin" class="form-control" name="origen" disabled> <!-- se encuentra desabilitado hasta la implementacion de campos en tabla -->
                             <option selected>Seleccione...</option>
@@ -114,13 +114,20 @@
                     <!-- presentacion -->
                     <div class="form-group col-4">
                         <label for="sell_container">Presentación</label>
-                        <select id="sell_container" class="form-control" name="presentacion" disabled> <!-- se encuentra desabilitado hasta la implementacion de campos en tabla -->
-                            <option selected>Seleccione...</option>
-                            <option>Lata</option>
-                            <option>Porron</option>
-                            <option>Botella</option>
-                            <option>Barril</option>
-                            <option>Chopera</option>
+                        <select id="sell_container" class="form-control" name="presentacion" >
+                            
+                            <!-- <option value="lata">lata</option>
+                            <option value="porron">porron</option>
+                            <option value="botella">botella</option>
+                            <option value="barril">barril</option> -->
+
+                            <% for (let i= 0; i < presentacion.length; i++) { %> 
+                                <option value=" <%= presentacion[i].id %>  ">
+                                    <%= presentacion[i].nombre %> 
+                                </option>
+                            <% } %> 
+
+                                
                         </select>
                     </div>
                 </div>
@@ -136,7 +143,7 @@
                     <!-- medio -->
                     <div class="form-group col-4">
                         <label for="sell_category">Medio</label>
-                        <select id="sell_category" class="form-control" name="medio"> <!-- se encuentra desabilitado hasta la implementacion de campos en tabla -->
+                        <select id="sell_category" class="form-control" name="medioId"> <!-- se encuentra desabilitado hasta la implementacion de campos en tabla -->
                             <option selected>Seleccione...</option>
                             <option>Streaming</option>
                             <option>Presencial</option>

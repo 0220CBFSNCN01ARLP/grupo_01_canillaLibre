@@ -52,6 +52,18 @@
 
 /*-----------CATEGORIAS-----------*/
 
+/*-----------PRODUCTOS-----------*/
+.box-6 a {
+    text-decoration: none;
+    color: black;
+    font-size: 0.9em;
+}
+.box-6 h5 {
+    color: grey;
+    font-size: 1em;
+    font-family: LATO;
+}
+
 
 /*--------------VENDE--------------*/
 .border-3 {

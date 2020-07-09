@@ -51,9 +51,7 @@
 }
 
 /*-----------CATEGORIAS-----------*/
-.carosel-next {
-    font-size: 2em;
-}
+
 
 /*--------------VENDE--------------*/
 .border-3 {
@@ -90,6 +88,11 @@
 .venta_box p {
     font-weight: 400;
     text-transform: uppercase;
+}
+.border-5 {
+    border-style: solid black !important;
+
+    border-width:10px !important; 
 }
 .slogan_ventas {
     margin-top: -0.5em;

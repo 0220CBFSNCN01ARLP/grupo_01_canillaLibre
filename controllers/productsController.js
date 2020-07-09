@@ -37,7 +37,6 @@ const controller = {
     },
 
     // Read - Muestra detalle de un producto
-
     detailproduct: async (req, res) => {
             try {
                 const product = await Productos.findByPk(req.params.id);

@@ -9,38 +9,35 @@
    
 
     <body>
-      <!--header/javi -->
-      <%- include("partials/header") %>
-
+        <!--header/javi -->
+        <%- include("partials/header") %>
 
         <div class="categorias-title">
             <h2 class="title_categoria border-bottom">Todos los productos</h2>
-              </div>
-              <div class="container">
-                <div class="row">
+            <div class="container p-0 m-0 d-inline-flex">
+                <div class="row d-flex justify-content-between m-auto align-items-end">
+                    <!--render de producto-->
                     <% for( let products of productos ) { %>
-                      <div class="col-12 col-sm-6 col-lg-3">
-                        <section class="product-box">
-                          <a href="/products/<%=products.id%>">
-                            <figure class="product-box_image ">
-                              <img src="/upload/<%=products.imagen%>" width="150" alt="imagen de producto" />
-                              <article class="product-box_data">
-                                <h2><%=products.nombre%></h2>
-                                <span><%=products.stock +" x " + products.precioUnitario%></span>
-                                <p>Comentarios  <%=products.rating%></p>
-                              </article>
-                            </figure>
-                          </a>
-                          </section>
+                        <div class="box-6 card border-0 col-12 col-sm-6 col-lg-2 p-0 d-flex m-2 align-items-end" style="width: 18rem;">
+                            <a href="/products/<%=products.id%>">
+                            <div>  
+                                <img src="/upload/<%=products.imagen%>" class="card-img-top " alt="imagen">
+                            </div>    
+                            <div class="card-body ">
+                                <h5 class="card-title"><%=products.nombre%></h5>
+                                <h6><%=products.stock +" x " + products.precioUnitario%></h6>
+                                <p class="card-text">rating  <%=products.rating%></p>
+                            </div>
+                            </a>
                         </div>
-                      <% } %> 
-                      
+                    <% } %>
                 </div>
-              </div>
+            </div>
         </div>
+
+
+       
         <!--footer/fran -->
         <%- include("partials/footer") %>
-
-  
     </body>
 </html>  

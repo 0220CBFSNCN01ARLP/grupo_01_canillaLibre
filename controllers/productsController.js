@@ -65,7 +65,7 @@ const controller = {
                     });
                     return res.redirect("/products/" + product.id);//curso
                 break;
-                return res.send("falta informacion");//curso
+                
             }
                 console.log(product);
                 

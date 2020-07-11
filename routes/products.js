@@ -24,7 +24,6 @@ var upload = multer({ storage: storage });
 // ************ Controllers ************
 const controller = require("../controllers/productsController");
 
-
 //Todos los productos
 router.get("/", controller.allproducts);
 
@@ -38,7 +37,6 @@ router.get("/:id?", controller.detailproduct);
 //Editar producto
 router.get("/:id/edit",userMiddleware,controller.edit); /* GET */
 router.post("/:id/edit", userMiddleware,upload.single("imagen"),controller.update); /* PUT */
-
 
 //Elimar producto
 router.delete("/:id/delete", userMiddleware, controller.destroy); /* DELETE */

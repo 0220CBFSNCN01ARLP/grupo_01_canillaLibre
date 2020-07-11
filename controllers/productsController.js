@@ -20,7 +20,7 @@ const controller = {
     //Create - Carga Formulario de Producto 
     register: async (req, res) => {
             const presentacion = await Presentacion.findAll();
-            const medio = await Medio.findAll();
+            
         try {  
             let product = await Productos.create({
                 nombre: req.body.nombre,
@@ -65,10 +65,13 @@ const controller = {
                     });
                     return res.redirect("/products/" + product.id);//curso
                 break;
+                return res.send("falta informacion");//curso
             }
                 console.log(product);
+                
 
             } catch (error) {
+                
                 return res.send(error);
             }
     },     
@@ -95,7 +98,6 @@ const controller = {
                     ]
             });
             console.log (product);
-
 
             switch (product.tipoproducto){
                 case 1:

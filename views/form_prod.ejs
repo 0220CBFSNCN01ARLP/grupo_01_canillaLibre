@@ -20,8 +20,8 @@
         <div class="row">
 
 
-            <form class="col-xl-9 col-lg-9 col-md-9 col-sm-12 m-auto bg-white text-dark p-4 rounded animate__animated animate__zoomIn" action="/products/form_prod" method="POST" enctype="multipart/form-data" id="form" onsubmit="return validar()">
-
+            <form class="col-xl-9 col-lg-9 col-md-9 col-sm-12 m-auto bg-white text-dark p-4 rounded animate__animated animate__zoomIn" 
+            action="/products/form_prod" method="POST" enctype="multipart/form-data" id="form" onsubmit="return validar(event)">
                 <div class="register-title col-12">
                     <h2 class="title_categoria">
                         <i class="fas fa-hand-holding-usd text-black-50"></i></i> Vende por Canilla<strong>Libre</strong>.com
@@ -44,7 +44,7 @@
                 <!-- descripcion -->
                 <div class="form-group">
                     <label for="sell_description">Hace una breve despricion de lo que vas a vender</label>
-                    <textarea class="form-control" id="description" rows="3" placeholder="No te olvides datos importantes" name="descripcion" ></textarea>
+                    <textarea class="form-control" id="descripcion" rows="3" placeholder="No te olvides datos importantes" name="descripcion" ></textarea>
                 </div>
                 <div id="validacion_descripcion" class="text-danger"></div>
                 
@@ -162,6 +162,7 @@
                         </select>
                     
                 </div>
+
                 <!-- imagen1 -->
                 <div class="row mt-2 mb-4 justify-content-between">
                     <div class="form-group col-4">
@@ -172,9 +173,6 @@
                         </div>
                         <div id="validacion_imagen" class="text-danger"></div>
                     </div>
-                    
-
-                  
 
                     <!-- imagen2 -->
                     <div class="form-group col-4">
@@ -184,6 +182,7 @@
                             <label class="custom-file-label" for="sell_image_2">Seleccionar Archivo</label>
                         </div>
                     </div>
+
                     <!-- imagen3 -->
                     <div class="form-group col-4">
                         <p class="mb-1">Tercera imagen<em></em></p>
@@ -215,6 +214,7 @@
                         <input type="number" class="form-control"  placeholder="porcentaje" aria-describedby="sell_discount" name="descuento" id="descuento"/>
                     </div>
                 </div>
+                
                 <div class="dropdown-divider"></div>
                 
                 <!-- datos de contacto -->
@@ -257,7 +257,7 @@
 
                 <!-- boton enviar -->
                 <div class="col-12 d-flex justify-content-center mt-2">
-                    <button type="submit" class="btn btn-outline-warning mt-3 mb-3" onclick="validar()">
+                    <button type="submit" class="btn btn-outline-warning mt-3 mb-3">
                         Publicar
                     </button>
                 </div>
@@ -272,9 +272,7 @@
     <!--footer/fran -->
     <%- include("partials/footer") %>
 
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    
 
     <script src="/js/validacionCrearProducto.js"></script>
 

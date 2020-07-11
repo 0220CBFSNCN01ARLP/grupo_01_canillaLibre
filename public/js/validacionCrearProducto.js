@@ -16,6 +16,7 @@ function validar() {
         
          //validacion nombre
         val_nom.innerHTML = "";
+        
         if (nombre === "" && descripcion === "" && imagen === ""){
 
             val_nom.innerHTML = "Titulo, no puede estar vacio."
@@ -32,6 +33,7 @@ function validar() {
 
            //validacion descripcion
            val_descripcion.innerHTML = "";
+
             if (descripcion === ""){
 
             val_descripcion.innerHTML = "Descripción, no puede estar vacio.";
@@ -44,9 +46,10 @@ function validar() {
 
           //validacion imagen
           val_imagen.innerHTML = "";
+
           if (imagen === "") {  
             val_imagen.innerHTML = "Debe seleccionar una imagen";
-            
+
           } else if(!(/\.(jpg|jpeq|png|gif)$/i).test(imagen)){
 
             val_imagen.innerHTML = "El formato de imagen debe ser: jpg | jpeq | png | gif.";

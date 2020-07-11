@@ -8,6 +8,9 @@ module.exports = (sequelize, DataTypes) => {
             envio: {
                 type: DataTypes.TINYINT(1),
             },
+            origen: {
+                type: DataTypes.STRING,
+            }
         },
         {
             tableName: "insumos",

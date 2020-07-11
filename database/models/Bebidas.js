@@ -15,7 +15,7 @@ module.exports = (sequelize, DataTypes) => {
                 type: DataTypes.INTEGER(11),
             },
             alcohol: {
-                type: DataTypes.INTEGER(11),
+                type: DataTypes.DECIMAL(3,1),
             },
             presentacionId: {
                 type: DataTypes.INTEGER(11),
@@ -33,17 +33,13 @@ module.exports = (sequelize, DataTypes) => {
             {
                 as: "producto",
                 foreignKey: "productoId"
-            })
-        
-        Bebidas.associate = function(models) {
+            }),
         //una bebida- a muchas presentaciones
         Bebidas.belongsTo(models.Presentacion,
             {
                 as: "presentacion",
                 foreignKey: "presentacionId"
             })
-    }
-        
     }
 
     return Bebidas;

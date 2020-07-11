@@ -8,7 +8,7 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.STRING,
         },
         medioId: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.STRING,
         }
             
     },
@@ -20,11 +20,14 @@ module.exports = (sequelize, DataTypes) => {
 
     Cursos.associate = function (models) {
         Cursos.belongsTo(models.Productos, {
-            
-            as: "producto",
-            foreignKey: "productoId"
-            
-        })
+                as: "producto",
+                foreignKey: "productoId"
+            }),
+        //una bebida- a muchas presentaciones
+        Cursos.belongsTo(models.Medio, {
+                as: "medio",
+                foreignKey: "medioId"
+            })
     }
 
     return Cursos;

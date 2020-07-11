@@ -64,7 +64,7 @@ const controller = {
             where: { email: req.body.email },
         });
 
-        console.log("el usuario que trae el findOne es: " + user.email) ;
+        //console.log("el usuario que trae el findOne es: " + user.email) ;
 
         if ( user == undefined ){
             res.send( "Usuario no registrado")
@@ -75,7 +75,7 @@ const controller = {
                         delete user.password;   //borra el pass por seguridad
                         usuarioaLoguearse = user ;
                        
-                        console.log("pase el bcrypt");
+                        //console.log("pase el bcrypt");
                         //console.log(usuarioaLoguearse);
                    } else {
                        return res.render("login", {
@@ -89,7 +89,7 @@ const controller = {
                     }
 
                         req.session.usuarioLogueado = usuarioaLoguearse;
-                        console.log("esta es la session de: " + req.session.usuarioLogueado.email)
+                        //console.log("esta es la session de: " + req.session.usuarioLogueado.email)
                         return res.redirect("/");
                    
                     }
@@ -108,7 +108,7 @@ const controller = {
         
         let user = req.session.usuarioLogueado;
         return res.render("profile", { user });
-        console.log(user);
+        //console.log(user);
     },
 
     editProfile: async (req, res) => {

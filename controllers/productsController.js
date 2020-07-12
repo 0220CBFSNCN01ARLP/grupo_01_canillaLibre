@@ -20,7 +20,7 @@ const controller = {
     //Create - Carga Formulario de Producto 
     register: async (req, res) => {
             const presentacion = await Presentacion.findAll();
-            
+            const medio = await Medio.findAll();
         try {  
             let product = await Productos.create({
                 nombre: req.body.nombre,
@@ -39,7 +39,7 @@ const controller = {
             switch (req.body.productoId){
                 case "1": 
                     const presentacion = await Presentacion.findAll();
-                    let bebida = await Bebidas.create({
+                    await Bebidas.create({
                         productoId: product.id,
                         marca: req.body.marca,
                         envio: req.body.envio,
@@ -50,7 +50,7 @@ const controller = {
                     return res.redirect("/products/" + product.id);//bebida
                 break;
                 case "2":
-                    let insumo = await Insumos.create({
+                    await Insumos.create({
                         productoId: product.id,
                         envio: req.body.envio,
                         origen: req.body.origen
@@ -58,20 +58,20 @@ const controller = {
                     return res.redirect("/products/" + product.id);//insumo
                 break;
                 case "3":
-                    let curso = await Cursos.create({
+                    await Cursos.create({
                         productoId: product.id,
                         disertante: req.body.disertante,
                         medioId: req.body.medioId,
                     });
                     return res.redirect("/products/" + product.id);//curso
                 break;
-                
+                default:
+                return res.redirect("/products/" + product.id);//general
             }
                 console.log(product);
                 
 
             } catch (error) {
-                
                 return res.send(error);
             }
     },     
@@ -97,7 +97,7 @@ const controller = {
                     {association: "usuario"}                    
                     ]
             });
-            console.log (product);
+            console.log ("la vista del producto es: " + product);
 
             switch (product.tipoproducto){
                 case 1:
@@ -108,7 +108,7 @@ const controller = {
                         },
                         include: [{association: "presentacion"}]
                         })
-                    return res.render("detail_bebidas", {product, bebida});
+                    return res.render("detail_bebidas", {product, bebida, presentacion});
                 break;
                 case 2:
                     const insumo = await Insumos.findOne({
@@ -130,7 +130,6 @@ const controller = {
                 break;
                 default: 
                     console.log("no reconozco ninguna tabla");
-              
             } 
             
         } catch (error) {

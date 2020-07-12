@@ -34,8 +34,9 @@ router.get("/register", authController.showRegister);
 router.post("/register", upload.single("avatar"), authController.register);
 
 //Login //Read
-router.get("/login", authController.showLogin);
-router.post("/login", authController.login);
+router.get("/login", guestMiddleware, authController.showLogin);
+router.post("/login",authController.login);
+
 
 //Logout
 router.get("/logout", authController.logout);

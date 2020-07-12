@@ -15,7 +15,7 @@
 
 
             <form class="col-xl-9 col-lg-9 col-md-9 col-sm-12 m-auto bg-white text-dark p-4 rounded animate__animated animate__zoomIn" 
-            action="/products/form_prod" method="POST" enctype="multipart/form-data" id="form" onsubmit="return validar(event)">
+            action="/products/form_prod" method="POST" enctype="multipart/form-data" id="form" onsubmit="return validar()">
                 <div class="register-title col-12">
                     <h2 class="title_categoria">
                         <i class="fas fa-hand-holding-usd text-black-50"></i></i> Vende por Canilla<strong>Libre</strong>.com
@@ -48,7 +48,7 @@
                     <!-- tipo de Producto-->
                     <div class="form-group col-4 mb-4">
                         <label for="">Tipo de Producto</label> </br>
-                        <select class="custom-select" name="productoId" id="productoId" onchange="tipoProducto();">
+                        <select class="custom-select" name="productoId" id="productoId" onclick="campos()">
                                 <option selected>Seleccione...</option>
                                 <option value="1">Bebidas</option>
                                 <option value="2">Insumos</option> 
@@ -75,14 +75,14 @@
                             
                         </div>
                     </div>
-                    <div class="form-group col-4">
+                    <div class="form-group col-4" id="ibu" style="display:none;">
                         <p class="mb-1">Ibu</p>
                         <div class="custom-file">
-                            <input type="number" class="form-control" aria-describedby="sell_title" id="ibu" name="ibu" />  <!-- se encuentra desabilitado hasta la implementacion de campos en tabla -->
+                            <input type="number" class="form-control" aria-describedby="sell_title"  name="ibu" />  <!-- se encuentra desabilitado hasta la implementacion de campos en tabla -->
                             
                         </div>
                     </div>
-                    <div class="form-group col-4">
+                    <div class="form-group col-4" id="alcohol" style="display:none;">
                         <p class="mb-1">Alcohol %</p>
                         <div class="custom-file">
                             <input type="number" class="form-control"  aria-describedby="sell_title" id="alcohol" name="alcohol"/>
@@ -92,7 +92,7 @@
                 </div>
                 <div class="row">
                     <!-- origen -->
-                    <div class="form-group col-4">
+                    <div class="form-group col-4" id="origen" style="display:none;">
                         <label for="sell_origin">Origen</label>
                         <select  class="form-control" name="origen" id="origen"> 
                             <option value="nacional">Nacional</option>
@@ -119,7 +119,7 @@
                         </select>
                     </div>
                     <!-- presentacion -->
-                    <div class="form-group col-4">
+                    <div class="form-group col-4" id="presentacion" style="display:none;">
                         <label for="sell_container">Presentación</label>
                         <select class="form-control" name="presentacion" id="presentacion" >
                                 
@@ -137,13 +137,13 @@
 
                 <div id="cursos" class="row">
                     <!-- Disertante -->
-                    <div class="form-group col-8" >
+                    <div class="form-group col-8" id="disertante" style="display:none;">
                         <label for="disertante">Disertante</label>
-                        <input type="text" class="form-control"  placeholder="Introduce el nombre del disertante" aria-describedby="disertante" name="disertante" id="disertante" style="display:block"/>
+                        <input type="text" class="form-control"  placeholder="Introduce el nombre del disertante" aria-describedby="disertante" name="disertante" id="disertante" />
                     </div>
                     
                     <!-- medio -->
-                    <div class="form-group col-4">
+                    <div class="form-group col-4" id="medioId" style="display:none;">
                         <label for="sell_category">Medio</label>
                         <select  class="form-control" name="medioId" id="medioId">
                             

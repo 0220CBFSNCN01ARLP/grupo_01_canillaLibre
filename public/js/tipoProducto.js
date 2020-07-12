@@ -1,14 +1,36 @@
-function tipoProducto() {
+function campos() {
 
-    var productoId = document.getElementById("productoId");
+  var productoId = document.getElementById("productoId").value
 
-    var disertante = document.getElementById("disertante");
-    var medioId = document.getElementById("medioId");
+  if (productoId == "1") {
+    document.getElementById("ibu").style.display = "block";
+    document.getElementById("alcohol").style.display = "block";
+    document.getElementById("presentacion").style.display = "block";
+    document.getElementById("disertante").style.display = "none";
+    document.getElementById("medioId").style.display = "none";
+    document.getElementById("origen").style.display = "block";
 
+  } else if (productoId == "2") {
 
-    if(productoId.value == "1")
-    disertante.style.display = "none";
-  
+    document.getElementById("ibu").style.display = "none";
+    document.getElementById("alcohol").style.display = "none";
+    document.getElementById("presentacion").style.display = "none";
+    document.getElementById("disertante").style.display = "none";
+    document.getElementById("medioId").style.display = "none";
+    document.getElementById("origen").style.display = "block";
+
+  } else if (productoId == "3") {
+
+    document.getElementById("ibu").style.display = "none";
+    document.getElementById("alcohol").style.display = "none";
+    document.getElementById("presentacion").style.display = "none";
+    document.getElementById("disertante").style.display = "block";
+    document.getElementById("medioId").style.display = "block";
+    document.getElementById("origen").style.display = "none";
+
   }
+
+}
+
+
   
-  tipoProducto();

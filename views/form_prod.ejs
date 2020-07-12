@@ -1,13 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-  
-
     <%- include("partials/head", {title: "Vende por CanillaLibre"}) %>
-
-    
-       
     
 <body class="bg_color">
     
@@ -44,15 +38,17 @@
                 <!-- descripcion -->
                 <div class="form-group">
                     <label for="sell_description">Hace una breve despricion de lo que vas a vender</label>
-                    <textarea class="form-control" id="descripcion" rows="3" placeholder="No te olvides datos importantes" name="descripcion" ></textarea>
+                    <textarea class="form-control"  rows="3" placeholder="No te olvides datos importantes" name="descripcion" id="descripcion" ></textarea>
                 </div>
+
                 <div id="validacion_descripcion" class="text-danger"></div>
                 
                 <div class="row align-items-center">
+
                     <!-- tipo de Producto-->
                     <div class="form-group col-4 mb-4">
                         <label for="">Tipo de Producto</label> </br>
-                        <select class="custom-select" name="productoId">
+                        <select class="custom-select" name="productoId" id="productoId" onchange="tipoProducto();">
                                 <option selected>Seleccione...</option>
                                 <option value="1">Bebidas</option>
                                 <option value="2">Insumos</option> 
@@ -82,14 +78,14 @@
                     <div class="form-group col-4">
                         <p class="mb-1">Ibu</p>
                         <div class="custom-file">
-                            <input type="number" class="form-control" id="title_sell" aria-describedby="sell_title" id="" name="ibu" />  <!-- se encuentra desabilitado hasta la implementacion de campos en tabla -->
+                            <input type="number" class="form-control" aria-describedby="sell_title" id="ibu" name="ibu" />  <!-- se encuentra desabilitado hasta la implementacion de campos en tabla -->
                             
                         </div>
                     </div>
                     <div class="form-group col-4">
                         <p class="mb-1">Alcohol %</p>
                         <div class="custom-file">
-                            <input type="number" class="form-control" id="title_sell" aria-describedby="sell_title" id="" name="alcohol"/>
+                            <input type="number" class="form-control"  aria-describedby="sell_title" id="alcohol" name="alcohol"/>
                             
                         </div>
                     </div>
@@ -125,7 +121,7 @@
                     <!-- presentacion -->
                     <div class="form-group col-4">
                         <label for="sell_container">Presentación</label>
-                        <select id="sell_container" class="form-control" name="presentacion" >
+                        <select class="form-control" name="presentacion" id="presentacion" >
                                 
                             <option selected>Seleccione...</option>
                             
@@ -143,13 +139,13 @@
                     <!-- Disertante -->
                     <div class="form-group col-8" >
                         <label for="disertante">Disertante</label>
-                        <input type="text" class="form-control" id="disertante" placeholder="Introduce el nombre del disertante" aria-describedby="disertante" name="disertante" />
+                        <input type="text" class="form-control"  placeholder="Introduce el nombre del disertante" aria-describedby="disertante" name="disertante" id="disertante" style="display:block"/>
                     </div>
                     
                     <!-- medio -->
                     <div class="form-group col-4">
                         <label for="sell_category">Medio</label>
-                        <select id="sell_category" class="form-control" name="medioId" >
+                        <select  class="form-control" name="medioId" id="medioId">
                             
                             <option selected>Seleccione...</option>
                             
@@ -275,6 +271,7 @@
     
 
     <script src="/js/validacionCrearProducto.js"></script>
+    <script src="/js/tipoProducto.js"></script>
 
     
 </body>

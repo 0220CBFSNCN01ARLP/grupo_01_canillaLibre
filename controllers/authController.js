@@ -16,11 +16,24 @@ const controller = {
     //POST REGISTER
     register: async (req, res) => {
 
+        //agregado Diego para ver comprobar si el usuario existe
+
+        const userlog = await Usuarios.findOne({
+				where: { email: req.body.email },
+			});
+
+			console.log("el usuario que trae el findOne es: " + userlog);
+
         //validation
         // console.log(validationResult(req));
-        let errors = validationResult(req);
+        // let errors = validationResult(req);
+        if ( userlog !== null ){
+            res.send( "El usuario se encuentra registrado");
+            
+        } else {
+        
 
-        if (errors.isEmpty()) {
+        // if (errors.isEmpty()) {
 
             //registro de nuevo usuario
 
@@ -45,9 +58,10 @@ const controller = {
                 
                     res.render("profile", { user })
 
-        } else {
+        
+        // else {
 
-            return res.render("register", { errors: errors.errors });
+        //     return res.render("register", { errors: errors.errors });
 
         }
     },
@@ -60,13 +74,15 @@ const controller = {
     //POST LOGIN
     login: async (req, res) => {
         
+       
         const user = await Usuarios.findOne({
             where: { email: req.body.email },
         });
+        
+        
+        console.log("el usuario que trae el findOne es: " + user);
 
-        console.log("el usuario que trae el findOne es: " + user.email);
-
-        if ( user == undefined ){
+        if ( user == null ){
             res.send( "Usuario no registrado")
 
         } else {
@@ -90,10 +106,12 @@ const controller = {
                         return res.redirect("/");
                    
                     }
+                
  
+                
             
-            
-    },
+    
+} ,
 
     //LOGOUT
     logout: function (req, res) {

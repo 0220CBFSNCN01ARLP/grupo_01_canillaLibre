@@ -5,7 +5,6 @@
   <body class="bg_color">
     <!--header/javi -->
     <%- include("partials/headerGuest") %>
-
     <!--VALIDATION-->
     <% if (typeof errors != "undefined") { %>
     <p>ERROR</p>
@@ -17,6 +16,8 @@
         <% } %> 
       </ul>
     <% } %>
+	
+    
 
     <!--registro/diego-->
     <!-- Section es todo el contenedor -->
@@ -27,6 +28,7 @@
           action="/auth/register"
           method="POST"
           enctype="multipart/form-data"
+          onsubmit="return validarCrearUsuario()"
         >
           <div class="register-title col-12">
             <h2 class="title_categoria">
@@ -46,7 +48,9 @@
                 id="firstname"
                 aria-describedby="firstname"
               />
+              <div id="validacion_firstname" class="text-danger form-group col"></div>
             </div>
+            
 
             <div class="form-group col">
               <label for="lastname">Apellido</label>
@@ -57,15 +61,19 @@
                 id="lastname"
                 aria-describedby="lastname"
               />
+              <div id="validacion_lastname" class="text-danger form-group col"></div>
             </div>
+            
           </div>
+          
+          
 
           <!-- email -->
           <div class="form-group row">
             <div class="form-group col-8">
               <label for="email">Direccion Email</label>
               <input
-                type="email"
+                
                 class="form-control"
                 name="email"
                 id="email"
@@ -74,7 +82,10 @@
               <small id="email" class="form-text text-muted"
                 >Ingrese su correo: nombre@dominio.com</small
               >
+              <div id="validacion_email" class="text-danger"></div>
+              <div id="validacion_email_format" class="text-danger"></div>
             </div>
+
             <div class="form-group col-4">
               <label for="date">Fecha de nacimiento</label>
                 <input type="date" name="date" class="form-control"> 
@@ -94,8 +105,13 @@
               aria-describedby="pass"
             />
             <small id="passwordHelpBlock" class="form-text text-muted">
-              Debe tener entre 4 a 8 caracteres.
+              Debe contener al menos un número y una
+            letra mayúscula y minúscula, y al menos 8
+            o más caracteres
             </small>
+
+            <div id="validacion_password" class="text-danger"></div>
+            <div id="validacion_password_format" class="text-danger"></div>
             <!--si la queremos complicar: 
 
             <  input type="password" id="psw" name="psw" 
@@ -122,6 +138,8 @@
               id="pass2"
               aria-describedby="pass2"
             />
+            <div id="validacion_password2" class="text-danger"></div>
+            <div id="validacion_password2_esigual" class="text-danger"></div>
           </div>
 
           <!-- avatar -->
@@ -133,11 +151,13 @@
               name="avatar"
               id="avatar"
               lang="es"
-              required
+              
             />
             <label class="custom-file-label" for="avatar"
               >Seleccionar Archivo</label
             >
+            <div id="validacion_avatar" class="text-danger"></div>
+            <div id="validacion_avatar_format" class="text-danger"></div>
           </div>
 
           <!-- políticas -->
@@ -178,14 +198,9 @@
       </div>
 
       <!--script para filename del avatar-->
-      <script>
-        $("#avatar").on("change", function () {
-          //get the file name
-          var fileName = $(this).val();
-          //replace the "Choose a file" label
-          $(this).next(".custom-file-label").html(fileName);
-        });
-      </script>
+      
+      <script src= "/js/validacionCrearUsuario.js"></script>
+
 
     </section>
 

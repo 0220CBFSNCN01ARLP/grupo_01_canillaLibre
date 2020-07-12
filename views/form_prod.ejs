@@ -59,7 +59,7 @@
                     <!-- envios -->
                     <div class="col-3">
                         <div class="custom-control custom-checkbox mr-sm-2">
-                            <input type="checkbox" class="custom-control-input" id="sell_envios" name="envio"> <!-- se encuentra desabilitado hasta la implementacion de campos en tabla -->
+                            <input type="checkbox" class="custom-control-input" id="sell_envios" name="envio" required> <!-- se encuentra desabilitado hasta la implementacion de campos en tabla -->
                             <label class="custom-control-label" for="sell_envios">Puedo hacer envios!</label> 
                         </div>
                     </div>
@@ -67,25 +67,26 @@
 
                 <div class="dropdown-divider"></div>
 
+                <!-- marca -->
                 <div class="row mt-2 justify-content-between">
                     <div class="form-group col-4">
                         <p class="mb-1">Marca</p>
                         <div class="custom-file">
-                            <input type="text" class="form-control" id="title_sell" aria-describedby="sell_title" id="marca" name="marca" />  <!-- se encuentra desabilitado hasta la implementacion de campos en tabla -->
+                            <input type="text" class="form-control" id="title_sell" aria-describedby="sell_title" id="marca" name="marca" required/>  <!-- se encuentra desabilitado hasta la implementacion de campos en tabla -->
                             
                         </div>
                     </div>
                     <div class="form-group col-4" id="ibu" style="display:none;">
                         <p class="mb-1">Ibu</p>
                         <div class="custom-file">
-                            <input type="number" class="form-control" aria-describedby="sell_title"  name="ibu" />  <!-- se encuentra desabilitado hasta la implementacion de campos en tabla -->
+                            <input type="number" class="form-control" aria-describedby="sell_title"  name="ibu" required/>  <!-- se encuentra desabilitado hasta la implementacion de campos en tabla -->
                             
                         </div>
                     </div>
                     <div class="form-group col-4" id="alcohol" style="display:none;">
                         <p class="mb-1">Alcohol %</p>
                         <div class="custom-file">
-                            <input type="number" class="form-control"  aria-describedby="sell_title" id="alcohol" name="alcohol"/>
+                            <input type="number" class="form-control"  aria-describedby="sell_title" id="alcohol" name="alcohol" required/>
                             
                         </div>
                     </div>
@@ -102,7 +103,7 @@
                     
                     
                     <!-- categoria -->
-                    <div class="form-group col-4">
+                    <div class="form-group col-4" style="display:none;">
                         <label for="sell_category">Categoría</label>
                         <select id="sell_category" class="form-control" name="categoria" id="categoria" disabled> <!-- se encuentra desabilitado hasta la implementacion de campos en tabla -->
                             <option selected>Seleccione...</option>
@@ -120,7 +121,7 @@
                     </div>
                     <!-- presentacion -->
                     <div class="form-group col-4" id="presentacion" style="display:none;">
-                        <label for="sell_container">Presentación</label>
+                        <label for="sell_container" required>Presentación</label>
                         <select class="form-control" name="presentacion" id="presentacion" >
                                 
                             <option selected>Seleccione...</option>
@@ -160,8 +161,8 @@
                 </div>
 
                 <!-- imagen1 -->
-                <div class="row mt-2 mb-4 justify-content-between">
-                    <div class="form-group col-4">
+                <div class="row mt-2 mb-4 pl-3 justify-content-between">
+                    <div class="form-group col-12">
                         <p class="mb-1">Primera imagen</p>
                         <div class="custom-file">
                             <input type="file" class="custom-file-input"  lang="es"  name="imagen" id="imagen"/>
@@ -171,7 +172,7 @@
                     </div>
 
                     <!-- imagen2 -->
-                    <div class="form-group col-4">
+                    <div class="form-group col-4"  style="display:none;">
                         <p class="mb-1">Segunda Imagen<em></em></p>
                  <div class="custom-file">
                             <input type="file" class="custom-file-input" id="sell_image_2" lang="es" disabled/> <!-- se encuentra desabilitado hasta la implementacion de campos en tabla -->
@@ -180,7 +181,7 @@
                     </div>
 
                     <!-- imagen3 -->
-                    <div class="form-group col-4">
+                    <div class="form-group col-4"  style="display:none;">
                         <p class="mb-1">Tercera imagen<em></em></p>
                         <div class="custom-file">
                             <input type="file" class="custom-file-input" id="sell_image_3" lang="es" disabled/> <!-- se encuentra desabilitado hasta la implementacion de campos en tabla -->

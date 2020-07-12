@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include("partials/head", {title: "no no no!"}) %>
+    <body class="bg_color">
+        <%- include("partials/header") %>
+
+        <section class="container d-flex justify-content-center aling-items-center rounded animate__animated animate__bounceIn">
+            <div class="card mb-5 mt-5" style="width: 20rem;">
+                <img src="https://media1.tenor.com/images/138aed5d9c9056183cd874bc8dd31979/tenor.gif?itemid=9628120" class="card-img-top" alt="...">
+                <div class="card-body">
+                <h5 class="card-title">No tienes accesos</h5>
+                <p class="card-text">...no tenes nada que hacer acá, anda a registrarte!</p>
+                <div class="mt-5 mb-2">
+                <a href="/auth/register" class="btn btn-outline-warning mr-2"> <i class="far fa-user-circle"></i> Regitrate!</a>
+                <a href="/auth/login" class="btn btn-outline-secondary ml-2"> <i class="far fa-user-circle"></i> inicia Sesión!</a>
+                </div>
+            </div>
+        </section>
+        <!--footer-->
+        <%- include("partials/footer") %>
+    </body>
+</html>

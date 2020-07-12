@@ -66,38 +66,6 @@
               </button>
             </div>
            
-            <!--detalle de bebida-->
-            <div class="row p-0 ml-3 mr-auto border-secondary p-4">
-                <h3 class="col-12 font-weight-light">Detalle de la Bebida</h3>
-                <ul class="list-group col-4 list-group-flush">
-                  <li class="list-group-item">Marca</li>
-                  <li class="list-group-item">Alcohol</li>
-                  <li class="list-group-item">ibu</li>
-                  <li class="list-group-item">Presentacion</li>
-                  <li class="list-group-item border-bottom-0">Contenido</li>
-                </ul>
-                <ul class="list-group col-8 list-group-flush "> 
-                  <li class="list-group-item"><%= product.bebidas.marca %>a</li>
-                  <li class="list-group-item"><%= product.bebidas.alcohol %>a</li>
-                  <li class="list-group-item"><%= product.bebidas.ibu %>a</li>
-                  <li class="list-group-item">Porron</li>
-                  <li class="list-group-item">330 ml</li>
-                </ul>   
-            </div>
-            
-            <!--detalle de insumo-->
-            <div class="row p-0 ml-3 mr-auto border-secondary p-4">
-                <h3 class="col-12 font-weight-light">Detalle del Insumo</h3>
-                <ul class="list-group col-4 list-group-flush">
-                  <li class="list-group-item">Tamaño</li>
-                  <li class="list-group-item border-bottom-0">Envase</li>
-                </ul>
-                <ul class="list-group col-8 list-group-flush "> 
-                  <li class="list-group-item"><%= product.insumos.id %>b</li>
-                  <li class="list-group-item"><%= product.insumos.productoId %>b</li>
-                </ul>
-            </div>
-
             <!--detalle de curso-->
             <div class="row p-0 ml-3 mr-auto border-secondary p-4">
                 <h3 class="col-12 font-weight-light">Detalle del Curso</h3>
@@ -106,8 +74,8 @@
                   <li class="list-group-item border-bottom-0">Medio</li>
                 </ul>
                 <ul class="list-group col-8 list-group-flush "> 
-                  <li class="list-group-item"><%= product.cursos.disertante %>c</li>
-                  <li class="list-group-item"><%= product.cursos.medio %>c</li>
+                  <li class="list-group-item"><%= curso.disertante %></li>
+                  <li class="list-group-item"><%= curso.medio.nombre %></li>
                 </ul>
             </div>
 

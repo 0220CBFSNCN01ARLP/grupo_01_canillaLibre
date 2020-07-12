@@ -4,14 +4,13 @@ module.exports = (sequelize, DataTypes) => {
         {
             productoId: {
                 type: DataTypes.INTEGER(11)
-            }, 
-            descuento: {
-                type: DataTypes.INTEGER,
-            },
+            },             
             envio: {
                 type: DataTypes.TINYINT(1),
             },
-            
+            origen: {
+                type: DataTypes.STRING,
+            }
         },
         {
             tableName: "insumos",

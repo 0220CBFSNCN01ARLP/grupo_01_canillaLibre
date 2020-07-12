@@ -20,17 +20,15 @@
         <div class="row">
 
 
-            <form class="col-xl-9 col-lg-9 col-md-9 col-sm-12 m-auto bg-white text-dark p-4 rounded animate__animated animate__zoomIn" action="/products/form_prod" method="POST" enctype="multipart/form-data" id="form" onsubmit="return validar()">
+            <form class="col-xl-9 col-lg-9 col-md-9 col-sm-12 m-auto bg-white text-dark p-4 rounded animate__animated animate__zoomIn" 
+            action="/products/form_prod" method="POST" enctype="multipart/form-data" id="form" onsubmit="return validar(event)">
                 <div class="register-title col-12">
                     <h2 class="title_categoria">
                         <i class="fas fa-hand-holding-usd text-black-50"></i></i> Vende por Canilla<strong>Libre</strong>.com
                     </h2>
                 </div>
-
-                   
-
-
                 <div class="dropdown-divider"></div>
+
                 <!-- titulo de venta -->
                 <h4 class="mb-4 mt-4">¿Qué es lo que estas vendiendo?</h4>
                 <div class="row align-items-center">
@@ -41,59 +39,74 @@
                     <div id="validacion_nombre" class="text-danger"></div>
 
                     </div>
-
-    
-
+                    
+                </div>
+                <!-- descripcion -->
+                <div class="form-group">
+                    <label for="sell_description">Hace una breve despricion de lo que vas a vender</label>
+                    <textarea class="form-control" id="descripcion" rows="3" placeholder="No te olvides datos importantes" name="descripcion" ></textarea>
+                </div>
+                <div id="validacion_descripcion" class="text-danger"></div>
+                
+                <div class="row align-items-center">
+                    <!-- tipo de Producto-->
+                    <div class="form-group col-4 mb-4">
+                        <label for="">Tipo de Producto</label> </br>
+                        <select class="custom-select" name="productoId">
+                                <option selected>Seleccione...</option>
+                                <option value="1">Bebidas</option>
+                                <option value="2">Insumos</option> 
+                                <option value="3">Cursos</option> 
+                                        
+                        </select>
+                    </div>
                     <!-- envios -->
                     <div class="col-3">
                         <div class="custom-control custom-checkbox mr-sm-2">
-                            <input type="checkbox" class="custom-control-input" id="sell_envios" disabled> <!-- se encuentra desabilitado hasta la implementacion de campos en tabla -->
+                            <input type="checkbox" class="custom-control-input" id="sell_envios" name="envio"> <!-- se encuentra desabilitado hasta la implementacion de campos en tabla -->
                             <label class="custom-control-label" for="sell_envios">Puedo hacer envios!</label> 
                         </div>
                     </div>
                 </div>
-                <!-- descripcion -->
-                <div class="form-group">
-                    <label for="descripcion">Hace una breve despricion de lo que vas a vender</label>
-                    <textarea class="form-control" rows="3" placeholder="No te olvides datos importantes" name="descripcion" id="descripcion"></textarea>
 
-                    <div id="validacion_descripcion" class="text-danger"></div>
+                <div class="dropdown-divider"></div>
 
-                    
-                </div>
-                
-
-                <div class="row mt-2 mb-4 justify-content-between">
+                <div class="row mt-2 justify-content-between">
                     <div class="form-group col-4">
                         <p class="mb-1">Marca</p>
                         <div class="custom-file">
-                            <input type="text" class="form-control" id="title_sell" aria-describedby="sell_title"  name="marca" id="marca" disabled/>  <!-- se encuentra desabilitado hasta la implementacion de campos en tabla -->
+                            <input type="text" class="form-control" id="title_sell" aria-describedby="sell_title" id="marca" name="marca" />  <!-- se encuentra desabilitado hasta la implementacion de campos en tabla -->
+                            
+                        </div>
+                    </div>
+                    <div class="form-group col-4">
+                        <p class="mb-1">Ibu</p>
+                        <div class="custom-file">
+                            <input type="number" class="form-control" id="title_sell" aria-describedby="sell_title" id="" name="ibu" />  <!-- se encuentra desabilitado hasta la implementacion de campos en tabla -->
+                            
+                        </div>
+                    </div>
+                    <div class="form-group col-4">
+                        <p class="mb-1">Alcohol %</p>
+                        <div class="custom-file">
+                            <input type="number" class="form-control" id="title_sell" aria-describedby="sell_title" id="" name="alcohol"/>
+                            
                         </div>
                     </div>
                 </div>
                 <div class="row">
                     <!-- origen -->
-                    <div class="form-group col-3" >
+                    <div class="form-group col-4">
                         <label for="sell_origin">Origen</label>
-                        <select  class="form-control" name="origen" id="origen" disabled> <!-- se encuentra desabilitado hasta la implementacion de campos en tabla -->
-                            <option selected>Seleccione...</option>
-                            <option>Nacional</option>
-                            <option>Internacional</option>
+                        <select  class="form-control" name="origen" id="origen"> 
+                            <option value="nacional">Nacional</option>
+                            <option value="internacional">Internacional</option>
                         </select>
                     </div>
-                    <!-- tipo de Producto-->
-                    <div class="form-group col-3">
-                        <label for="">Tipo de Producto</label> </br>
-                        <select class="custom-select my-1 mr-sm-2" name="productoId" id="productoId">
-                            
-                                <option value=" <%= Bebidas.productoId %> ">Bebidas</option>
-                                <option value=" <%= Insumos.productoId %> " disabled>Insumos</option> <!-- se encuentran desabilitadas hasta incluir la asosiacion de tablas -->
-                                <option value=" <%= Cursos.productoId %> " disabled>Cursos</option> <!-- se encuentran desabilitadas hasta incluir la asosiacion de tablas -->
-                                         
-                        </select>
-                    </div>
+                    
+                    
                     <!-- categoria -->
-                    <div class="form-group col-3">
+                    <div class="form-group col-4">
                         <label for="sell_category">Categoría</label>
                         <select id="sell_category" class="form-control" name="categoria" id="categoria" disabled> <!-- se encuentra desabilitado hasta la implementacion de campos en tabla -->
                             <option selected>Seleccione...</option>
@@ -110,18 +123,46 @@
                         </select>
                     </div>
                     <!-- presentacion -->
-                    <div class="form-group col-3">
+                    <div class="form-group col-4">
                         <label for="sell_container">Presentación</label>
-                        <select id="sell_container" class="form-control" name="presentacion" id="presentacion" disabled> <!-- se encuentra desabilitado hasta la implementacion de campos en tabla -->
+                        <select id="sell_container" class="form-control" name="presentacion" >
+                                
                             <option selected>Seleccione...</option>
-                            <option>Lata</option>
-                            <option>Porron</option>
-                            <option>Botella</option>
-                            <option>Barril</option>
-                            <option>Chopera</option>
+                            
+                            <% for (let i= 0; i < presentacion.length; i++) { %> 
+                                <option value="<%= presentacion[i].id %>">
+                                    <%= presentacion[i].nombre %> - <%= presentacion[i].capacidad %>
+                                </option>
+                            <% } %> 
+                                
                         </select>
                     </div>
                 </div>
+
+                <div id="cursos" class="row">
+                    <!-- Disertante -->
+                    <div class="form-group col-8" >
+                        <label for="disertante">Disertante</label>
+                        <input type="text" class="form-control" id="disertante" placeholder="Introduce el nombre del disertante" aria-describedby="disertante" name="disertante" />
+                    </div>
+                    
+                    <!-- medio -->
+                    <div class="form-group col-4">
+                        <label for="sell_category">Medio</label>
+                        <select id="sell_category" class="form-control" name="medioId" >
+                            
+                            <option selected>Seleccione...</option>
+                            
+                            <% for (let i= 0; i < medio.length; i++) { %> 
+                                <option value="<%= medio[i].id %>">
+                                    <%= medio[i].nombre %> 
+                                </option>
+                            <% } %> 
+                                
+                        </select>
+                    
+                </div>
+
                 <!-- imagen1 -->
                 <div class="row mt-2 mb-4 justify-content-between">
                     <div class="form-group col-4">
@@ -132,9 +173,6 @@
                         </div>
                         <div id="validacion_imagen" class="text-danger"></div>
                     </div>
-                    
-
-                  
 
                     <!-- imagen2 -->
                     <div class="form-group col-4">
@@ -144,6 +182,7 @@
                             <label class="custom-file-label" for="sell_image_2">Seleccionar Archivo</label>
                         </div>
                     </div>
+
                     <!-- imagen3 -->
                     <div class="form-group col-4">
                         <p class="mb-1">Tercera imagen<em></em></p>
@@ -175,6 +214,7 @@
                         <input type="number" class="form-control"  placeholder="porcentaje" aria-describedby="sell_discount" name="descuento" id="descuento"/>
                     </div>
                 </div>
+                
                 <div class="dropdown-divider"></div>
                 
                 <!-- datos de contacto -->
@@ -217,7 +257,7 @@
 
                 <!-- boton enviar -->
                 <div class="col-12 d-flex justify-content-center mt-2">
-                    <button type="submit" class="btn btn-outline-warning mt-3 mb-3" onclick="validate()">
+                    <button type="submit" class="btn btn-outline-warning mt-3 mb-3">
                         Publicar
                     </button>
                 </div>
@@ -232,9 +272,7 @@
     <!--footer/fran -->
     <%- include("partials/footer") %>
 
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    
 
     <script src="/js/validacionCrearProducto.js"></script>
 

@@ -92,10 +92,9 @@
             </div>
           
           <!-- editar / borrar -->
-          <% if (user != null) { %> 
-          <%- include("partials/editButtons") %> 
-           <% } %>
-
+          <% if (user != null && user.email == product.usuario.email) { %> 
+            <%- include("partials/editButtons") %> 
+            <% } %>
           
                         <!--Buttom Alert-->
           </div>

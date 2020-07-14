@@ -98,9 +98,10 @@
                     </div>
                 
                 <!-- editar / borrar -->
-                <% if (user != null) { %> 
+                <% if (user != null && user.email == product.usuario.email) { %> 
                 <%- include("partials/editButtons") %> 
                 <% } %>
+                 
             </div>
 
           

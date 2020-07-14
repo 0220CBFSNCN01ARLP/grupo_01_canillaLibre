@@ -47,7 +47,7 @@
 
                     <!-- tipo de Producto-->
                     <div class="form-group col-4 mb-4">
-                        <label for="">Tipo de Producto</label> </br>
+                        <label for=""><i class="fas fa-layer-group"></i> Tipo de Producto</label> </br>
                         <select class="custom-select" name="productoId" id="productoId" onclick="campos()">
                                 <option selected>Seleccione...</option>
                                 <option value="1">Bebidas</option>
@@ -192,7 +192,7 @@
                 
                 <div class="dropdown-divider"></div>
 
-                <div class="row align-items-center justify-content-between bg-light m-1">
+                <div class="row align-items-center justify-content-between bg-light ml-3 mr-3 p-2">
                     <!-- precio -->
                     <div class="form-group col-3">
                         <label for="sell_price"><i class="fas fa-hand-holding-usd"></i> Precio Unidad</label>
@@ -206,7 +206,7 @@
                             name="stock" id="stock"/>
                     </div>
                     <!-- descuento -->
-                    <div class="form-group col-3 p-2">
+                    <div class="form-group col-3">
                         <label for="sell_discount"><i class="fas fa-percentage"></i> Descuento </label>
                         <input type="number" class="form-control"  placeholder="porcentaje" aria-describedby="sell_discount" name="descuento" id="descuento"/>
                     </div>
@@ -214,34 +214,7 @@
                 
                 <div class="dropdown-divider"></div>
                 
-                <!-- datos de contacto -->
-                <fieldset disabled> <!-- se encuentra desabilitado hasta la implementacion de campos en tabla -->
-                    <div class="col-12">
-                        <h5 class="mb-4 mt-4">Necesitamos datos para contactarte <em>- Opcional -</em></h5>
-                    </div>
-                    <div class="form-row  mb-2">
-                        <div class="col-4">
-                            <input type="text" class="form-control" placeholder="Nombre de Comercio">
-                        </div>
-                        <div class="col-4">
-                            <input type="number" class="form-control" placeholder="Telefono de Contacto">
-                        </div>
-                        <div class="col-4">
-                            <input type="text" class="form-control" placeholder="Código Postal">
-                        </div>
-                        
-                    </div>
-                    <div class="form-row justify-content-between mb-3">
-                        <div class="col-7">
-                            <input type="text" class="form-control" placeholder="Dirección">
-                        </div>
-                        <div class="col">
-                            <input type="text" class="form-control" placeholder="Ciudad">
-                        </div>
-                        <div class="col">
-                            <input type="text" class="form-control" placeholder="Provincia">
-                        </div>
-                    </div>
+                
                     <div class="dropdown-divider"></div>
                     <!-- políticas -->
                     <div class="col-12 d-flex justify-content-center mt-3">

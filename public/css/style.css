@@ -66,58 +66,19 @@
 
 
 /*--------------VENDE--------------*/
-.border-3 {
-    border-width: 5px !important;
+.beerContainer{
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+.beer {
+    right:0px;
 }
 
-.pepito {
-    background-color: var(--amarillo);
-    padding: 5%;
-}
-
-.venta_box {
-    width: 18em;
-    height: 18em;
-    color: black;
-    padding: 1em;
-    margin: 0px;
-    text-decoration: none;
-}
-.venta_box:hover {
-    color: var(--azul_oscuro);
-    text-decoration: none;
-}
-.venta_box h2 {
-    padding: 10px;
-    font-weight: 700;
-    text-transform: uppercase;
-    border: 2px solid black;
-}
-.venta_box h4 {
-    font-weight: 700;
-    text-transform: uppercase;
-}
-.venta_box p {
-    font-weight: 400;
-    text-transform: uppercase;
-}
-.border-5 {
-    border-style: solid black !important;
-
-    border-width:10px !important; 
-}
-.slogan_ventas {
-    margin-top: -0.5em;
-    margin-left: 12%;
-    font-family: "Dancing Script", cursive;
-    font-size: 3em;
-}
-
-.beer_ventas {
-    top: -17em;
-    right: 5%;
-    
-}
+.beer_cup {
+    z-index: 10;
+    width: 100%;
+}    
 
 /* Mas vendidos */
 .product-box {
@@ -227,79 +188,3 @@
     align-items: center;
 }
 
-/*---------- MediaQuery ----------*/
-
-@media (min-width: 320px) {
-    .categorias-title {
-        padding: 1em;
-    }
-    .venta_box h2 {
-        font-size: 1.5em;
-    }
-    .venta_box h4 {
-        font-weight: 700;
-        text-transform: uppercase;
-    }
-    .venta_box p {
-        font-weight: 400;
-        text-transform: uppercase;
-    }
-    .beer_ventas {
-        display: none;
-    }
-    .slogan_ventas {
-        font-size: 1.8em;
-        margin: auto;
-    }
-}
-
-@media (min-width: 375px) {
-    .beer_ventas {
-        display: none;
-    }
-    .slogan_ventas {
-        font-size: 2em;
-        margin: auto;
-    }
-}
-
-@media (min-width: 768px) {
-    .box-1 {
-        display: flex;
-    }
-
-    .box-2 {
-        display: none;
-    }
-
-    .beer_ventas {
-        width: 140% !important;
-        top: -15em;
-        display: flex;
-        right: 0px;
-    }
-    .slogan_ventas {
-        font-size: 2em;
-        margin-left: 10%;
-    }
-}
-
-@media (min-width: 1024px) {
-    .beer_ventas {
-        top: -15em;
-        display: flex;
-    }
-    .slogan_ventas {
-        font-size: 2.1em;
-    }
-}
-
-@media (min-width: 1440px) {
-    .beer_ventas {
-        top: -18em;
-        display: flex;
-    }
-    .slogan_ventas {
-        font-size: 3em;
-    }
-}

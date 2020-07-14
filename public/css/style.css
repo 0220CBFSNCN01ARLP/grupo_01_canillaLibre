@@ -74,13 +74,12 @@
 .beer {
     right:0px;
 }
-
 .beer_cup {
     z-index: 10;
     width: 100%;
 }    
 
-/* Mas vendidos */
+/*---------- Mas vendidos ----------*/
 .product-box {
     background-color: #ffffff;
     text-align: center;
@@ -188,3 +187,35 @@
     align-items: center;
 }
 
+/*---------- MediaQuery ----------*/
+
+@media (min-width: 320px) {
+    .categorias-title {
+        padding: 1em;
+    }
+
+}
+
+@media (min-width: 375px) {
+  
+}
+
+@media (min-width: 768px) {
+    .box-1 {
+        display: flex;
+    }
+
+    .box-2 {
+        display: none;
+    }
+
+ 
+}
+
+@media (min-width: 1024px) {
+
+}
+
+@media (min-width: 1440px) {
+   
+}

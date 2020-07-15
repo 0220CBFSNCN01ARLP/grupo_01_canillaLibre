@@ -1,26 +1,35 @@
 DROP DATABASE IF EXISTS canillalibre;
 CREATE DATABASE canillalibre ;
 USE canillalibre;
+
+-- canillalibre.compras definition
+
 CREATE TABLE `compras` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `fechaCompra` datetime DEFAULT NULL,
   `precioTotal` decimal(10,2) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
 -- canillalibre.medio definition
+
 CREATE TABLE `medio` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
 -- canillalibre.presentacion definition
+
 CREATE TABLE `presentacion` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(100) DEFAULT NULL,
   `capacidad` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
 -- canillalibre.usuarios definition
+
 CREATE TABLE `usuarios` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `comprasId` int(11) DEFAULT NULL,
@@ -36,7 +45,9 @@ CREATE TABLE `usuarios` (
   PRIMARY KEY (`id`),
   CONSTRAINT `usuarios_fk` FOREIGN KEY (`comprasId`) REFERENCES `compras` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
 -- canillalibre.producto definition
+
 CREATE TABLE `producto` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `usuarioId` int(11) DEFAULT NULL,
@@ -54,7 +65,9 @@ CREATE TABLE `producto` (
   KEY `FK` (`usuarioId`),
   CONSTRAINT `producto_fk` FOREIGN KEY (`usuarioId`) REFERENCES `usuarios` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
 -- canillalibre.bebidas definition
+
 CREATE TABLE `bebidas` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `productoId` int(11) DEFAULT NULL,
@@ -72,7 +85,9 @@ CREATE TABLE `bebidas` (
   CONSTRAINT `bebidas_fk` FOREIGN KEY (`productoId`) REFERENCES `producto` (`id`),
   CONSTRAINT `bebidas_fk_1` FOREIGN KEY (`presentacionId`) REFERENCES `presentacion` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
 -- canillalibre.comprasproductos definition
+
 CREATE TABLE `comprasproductos` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `comprasId` int(11) DEFAULT NULL,
@@ -85,7 +100,9 @@ CREATE TABLE `comprasproductos` (
   CONSTRAINT `comprasproductos_fk` FOREIGN KEY (`comprasId`) REFERENCES `compras` (`id`),
   CONSTRAINT `comprasproductos_fk_1` FOREIGN KEY (`productoId`) REFERENCES `producto` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
 -- canillalibre.cursos definition
+
 CREATE TABLE `cursos` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `productoId` int(11) DEFAULT NULL,
@@ -99,18 +116,24 @@ CREATE TABLE `cursos` (
   CONSTRAINT `cursos_fk` FOREIGN KEY (`productoId`) REFERENCES `producto` (`id`),
   CONSTRAINT `cursos_fk_1` FOREIGN KEY (`medioId`) REFERENCES `medio` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
 -- canillalibre.insumos definition
+
 CREATE TABLE `insumos` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `productoId` int(11) DEFAULT NULL,
-  `descuento` int(11) DEFAULT NULL,
   `envio` tinyint(1) NOT NULL,
   `create_at` timestamp NULL DEFAULT NULL,
   `update_at` timestamp NULL DEFAULT NULL,
+  `origen` varchar(100) DEFAULT NULL,
+  `marca` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `FK` (`productoId`),
   CONSTRAINT `insumos_fk` FOREIGN KEY (`productoId`) REFERENCES `producto` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4;
+
+-- canillalibre.direccion definition
+
 CREATE TABLE `direccion` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `usuarioId` int(11) DEFAULT NULL,

@@ -138,64 +138,186 @@ const controller = {
     },
 
     // Update - Formulario de Edición de Producto
+    register: async (req, res) => {
+            const presentacion = await Presentacion.findAll();
+            const medio = await Medio.findAll();
+        try {  
+            let product = await Productos.create({
+                nombre: req.body.nombre,
+                precioUnitario: req.body.precioUnitario,
+                descuento: req.body.descuento,
+                descripcion: req.body.descripcion,
+                imagen: req.file.filename,
+                stock: req.body.stock,
+                tipoproducto: req.body.productoId,
+                usuarioId: req.session.usuarioLogueado.id
+            })
+                console.log(req.body);
+                // en caso que sea 1 graba en bebidas
+                // en caso que sea 2 queda como insumo
+                // en caso que sea 3 graba en cursos
+            switch (req.body.productoId){
+                case "1": 
+                    const presentacion = await Presentacion.findAll();
+                    await Bebidas.create({
+                        productoId: product.id,
+                        marca: req.body.marca,
+                        envio: req.body.envio,
+                        ibu: req.body.ibu,
+                        alcohol: req.body.alcohol, //modificar el modelo a decimal
+                        presentacionId: req.body.presentacion
+                    });
+                    return res.redirect("/products/" + product.id);//bebida
+                break;
+                case "2":
+                    await Insumos.create({
+                        productoId: product.id,
+                        envio: req.body.envio,
+                        origen: req.body.origen,
+                        marca: req.body.marca
+                    });
+                    return res.redirect("/products/" + product.id);//insumo
+                break;
+                case "3":
+                    await Cursos.create({
+                        productoId: product.id,
+                        disertante: req.body.disertante,
+                        medioId: req.body.medioId,
+                    });
+                    return res.redirect("/products/" + product.id);//curso
+                break;
+                default:
+                return res.redirect("/products/" + product.id);//general
+            }
+                console.log(product);
+                
+
+            } catch (error) {
+                return res.send(error);
+            }
+    },     
     edit: async (req, res) => {
         try {
-            const product = await Productos.findByPk(req.params.id);
+            const presentacion = await Presentacion.findAll();
+            const medio = await Medio.findAll();
+            const product = await Productos.findByPk(req.params.id, {
+                include: [
+                    {association: "bebidas"},
+                    {association: "insumos"},
+                    {association: "cursos"},
+                    {association: "usuario"}                    
+                    ]
+            });
 
-            res.render("product-edit-form", { product });
-
+            switch (product.tipoproducto){
+                case 1:
+                    const presentacion = await Presentacion.findAll();
+                    const bebida = await Bebidas.findOne({
+                        where: {
+                            productoId: product.id
+                        },
+                        include: [{association: "presentacion"}]
+                        })
+                    return res.render("edit-bebidas", {product, bebida, presentacion});
+                break;
+                case 2:
+                    const insumo = await Insumos.findOne({
+                        where: {
+                            productoId: product.id
+                            }
+                    })
+                    return res.render("edit-insumos", {product, insumo});
+                break;
+                case 3:
+                    const medio = await Medio.findAll();
+                    const curso = await Cursos.findOne({
+                        where: {
+                            productoId: product.id
+                            },
+                            include: [
+                                    {association: "medio"}]
+                    })
+                    return res.render("edit-cursos", {product, curso, medio });
+                break;
+                default: 
+                    console.log("no reconozco ninguna tabla");
+            } 
+            // res.render("product-edit-form", { product, medio, presentacion });
         } catch (error) {
-            res.send(error);
+            return res.send(error);
         }
     },
 
     // Update - Carga Formulario de Edición de Producto
     update: async (req, res) => {
-        try {
-             let product = await Productos.update(
+        const presentacion = await Presentacion.findAll();
+        const medio = await Medio.findAll();
+        try {  
+            let product = await Productos.update(
                 {
-                    //nombre: req.body.nombre,
-                    //precioUnitario: req.body.precioUnitario,
-                    //descuento: req.body.descuento,
-                    //descripcion: req.body.descripcion,
-                    //imagen: req.file.filename,
-                    //stock: req.body.stock,
-                    //rating: req.body.rating,
-                    //tipoproducto: req.body.productoId
-                    ...req.body
-                },
-                {
-                    where: {
-                        id: req.params.id,
-                    },
+                    nombre: req.body.nombre,
+                    precioUnitario: req.body.precioUnitario,
+                    descuento: req.body.descuento,
+                    descripcion: req.body.descripcion,
+                    imagen: req.file.filename,
+                    stock: req.body.stock
+                },{  
+                where: {
+                    id: req.params.id}
                 });
+                console.log(req.body);
+                // en caso que sea 1 graba en bebidas
+                // en caso que sea 2 queda como insumo
+                // en caso que sea 3 graba en cursos
+            switch (product.tipoproducto){
+                case "1": 
+                    const presentacion = await Presentacion.findAll();
+                    await Bebidas.update({
+                        marca: req.body.marca,
+                        envio: req.body.envio,
+                        ibu: req.body.ibu,
+                        alcohol: req.body.alcohol, //modificar el modelo a decimal
+                        presentacionId: req.body.presentacion
+                    });
+                    return res.redirect("/products/" + req.params.id);//bebida
+                break;
+                case "2":
+                    await Insumos.update({
+                        envio: req.body.envio,
+                        origen: req.body.origen,
+                        marca: req.body.marca
+                    });
+                    return res.redirect("/products/" + req.params.id);//insumo
+                break;
+                case "3":
+                    await Cursos.update({
+                        disertante: req.body.disertante,
+                        medioId: req.body.medioId
+                    });
+                    return res.redirect("/products/" + req.params.id);//curso
+                break;
+                default:
+                return res.redirect("/products/");// Productos general
+            }
+                console.log(product);
+                
 
-            /*await req.files.forEach((imagen) => {
-            Productos.create({
-            path: imagen.filename
-        });
-    }); */
-
-        res.redirect("/products/");
-        } catch (error) {
-            res.send(error);
-        }
+            } catch (error) {
+                return res.send(error);
+            }
     },
 
     // Delete - Elimina Producto
 
     destroy: async (req, res) => {
-        try {
-            await Productos.destroy({
-                where: {
-                    id: req.params.id,
-                },
-            });
-            res.redirect("/products");
-        } catch (error) {
-            res.send(error);
-        }
-    },
-    };
+        
+        await Productos.destroy({
+            where: {
+                   id: req.params.id,
+            },
+        });
+            res.redirect("/products/");
+        },
+};
 
 module.exports = controller;

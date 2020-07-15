@@ -23,10 +23,7 @@
           <div class="media row d-flex align-items-center">
             <div class="col-6 align-items-center d-flex justify-content-center mb-4">
               <!--imagen-->
-              <img src="/upload/<%= product.imagen %>" alt="product image" width="150" class="product-detail-img" value="Show Images">
-              <small class="text-muted">
-                    id producto: <%= product.id %>
-            </small>   
+              <img src="/upload/<%= product.imagen %>" alt="product image" width="200" class="product-detail-img" value="Show Images">
             </div>
             
             <div class="media-body col-6 border-left">
@@ -37,25 +34,23 @@
               <!--descuento-->
               <span class=" bg-success text-white rounded-pill pr-2 pl-2 pt-1 pb-1">Descuento <%= product.descuento %>% <i class="fa fa-tag"></i></span>
               <!--rating-->
-              <div class="star text-left p-2">
+              <div class="star text-left p-2 d-none"> <!--desabilitado hasta que funcione como un rating-->
                 <i class="fa fa-star"></i>
                 <i classs="fa fa-star"></i>
                 <i class="fa fa-star"></i>
                 <i class="fa fa-star"></i>
                 <i class="fa fa-star"></i>
-                <a class="link-comments" href=""><%= product.comentarios %> </a>
+                <a class="link-comments" href=""><%= product.rating %> </a>
               </div>
             </div>
-            <div class="row p-0 ml- m-auto justify-content-start">
-                <small class="text-muted">
+            <div class="row p-0 ml- m-auto justify-content-center">
+                <small class="col-12 text-muted">
                     <div class="dropdown-divider"></div>
-                        <i class="far fa-address-card "></i> usuario vendedor: <%= product.usuario.email %></br>
-                        id: <%= product.usuario.id %></br>
-                        Nombre y Apellido: <%= product.usuario.nombre %> <%= product.usuario.apellido %>
-                        <div class="dropdown-divider"></div>
+                    <i class="far fa-address-card "></i> usuario vendedor id: <%= product.usuario.id %></br>
+                    <div class="dropdown-divider"></div>
                 </small> 
-                            
             </div>
+
             <!-- comprar / agregar al carrito -->
             <div class="col-12 d-flex justify-content-center mb-3">
               <button type="submit" class="btn btn-outline-warning mr-2">
@@ -70,34 +65,35 @@
             <div class="row p-0 ml-3 mr-auto border-secondary p-4">
                 <h3 class="col-12 font-weight-light">Detalle del Insumo</h3>
                 <ul class="list-group col-4 list-group-flush">
-                  <li class="list-group-item">Origen</li>
-                  <li class="list-group-item border-bottom-0">ProducId</li>
+                    <li class="list-group-item">Marca</li>
+                    <li class="list-group-item">Origen</li>
+                    <li class="list-group-item border-bottom-0">ProducId</li>
                 </ul>
                 <ul class="list-group col-8 list-group-flush "> 
-                  <li class="list-group-item"><%= insumo.origen %></li>
-                  <li class="list-group-item"><%= insumo.productoId %></li>
+                    <li class="list-group-item"><%= insumo.marca %></li>
+                    <li class="list-group-item"><%= insumo.origen %></li>
+                    <li class="list-group-item"><%= insumo.productoId %></li>
                 </ul>
             </div>
-
-            <!--descripción de producto-->
-            <div class="list-group p-0 m-auto border-secondary">
-              <div class="list-group-item">
-                <div class="d-flex w-100 justify-content-between">
-                  <h5 class="mb-1">Descripción del Producto</h5>
+            <div class="row pl-4 pr-4 pt-4 m-auto">
+                <!--descripción de producto-->
+                <div class="list-group p-0 m-auto border-secondary">
+                <div class="list-group-item">
+                    <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1">Descripción del Producto</h5>
+                    </div>
+                    <p class="mb-1"><%= product.descripcion %></p>
+                    <div class="dropdown-divider"></div>
+                    <small><i class="fas fa-info-circle"></i> Puede consultar al vendedor por más información</small>
                 </div>
-                <p class="mb-1"><%= product.descripcion %></p>
-                <div class="dropdown-divider"></div>
-                <small><i class="fas fa-info-circle"></i> Puede consultar al vendedor por más información</small>
-              </div>
+                </div>
+            
+                <!-- editar / borrar -->
+                <% if (user != null && user.email == product.usuario.email) { %> 
+                    <%- include("partials/editButtons") %> 
+                    <% } %>
+                <!--Buttom Alert-->
             </div>
-          
-          <!-- editar / borrar -->
-          <% if (user != null && user.email == product.usuario.email) { %> 
-            <%- include("partials/editButtons") %> 
-            <% } %>
-
-          
-                        <!--Buttom Alert-->
           </div>
         </div>
       </div>

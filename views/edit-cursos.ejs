@@ -14,7 +14,7 @@
 
 
             <form class="col-xl-9 col-lg-9 col-md-9 col-sm-12 m-auto bg-white text-dark p-4 rounded animate__animated animate__zoomIn" 
-            action="/products/<%= product.id %>/edit/" method="POST" enctype="multipart/form-data" id="form" onsubmit="return validar()">
+            action="/products/<%= product.id %>/edit/" method="POST" enctype="multipart/form-data" id="form" >
                 <div class="register-title col-12">
                     <h2 class="title_categoria">
                         <i class="fas fa-hand-holding-usd text-black-50"></i></i> Vende por Canilla<strong>Libre</strong>.com
@@ -22,11 +22,16 @@
                 </div>
                 <div class="dropdown-divider"></div>
 
-
                 <!-- titulo de venta -->
-                <h4 class="mb-4 mt-4">Estas editando el producto:</br>
-                    <%= product.nombre %></br>
-                    | id: <%= product.id %>  </h4>
+                <!-- titulo de venta -->
+                <div class="form-group mt-4 mb-4">
+                    <h5 class="text-secondary"><i class="far fa-edit"></i> Estas editando la publicación:</h5>
+                    <h5><%= product.nombre %></h5>
+                    <small class="text-warning">
+                        <p>producto - id: <%= product.id %></p>
+                    </small>
+                </div>
+              
                 <div class="row align-items-center">
                     <div class="form-group col-9">
                         <label for="sell_title">Título del Anuncio</label>
@@ -71,89 +76,18 @@
                         </div>
                     </div>
                 </div>
-
-                <div class="dropdown-divider"></div>
-
-                <!-- marca -->
-                <div class="row mt-2 justify-content-between">
-                    <div class="form-group col-4">
-                        <p class="mb-1">Marca</p>
-                        <div class="custom-file">
-                            <input type="text" class="form-control" id="title_sell" aria-describedby="sell_title" id="marca" name="marca"/>  <!-- se encuentra desabilitado hasta la implementacion de campos en tabla -->
-                            
-                        </div>
-                    </div>
-                    <div class="form-group col-4" id="ibu" style="display:none;">
-                        <p class="mb-1">Ibu</p>
-                        <div class="custom-file">
-                            <input type="number" class="form-control" aria-describedby="sell_title"  name="ibu"/>  <!-- se encuentra desabilitado hasta la implementacion de campos en tabla -->
-                            
-                        </div>
-                    </div>
-                    <div class="form-group col-4" id="alcohol" style="display:none;">
-                        <p class="mb-1">Alcohol %</p>
-                        <div class="custom-file">
-                            <input type="number" class="form-control"  aria-describedby="sell_title" id="alcohol" name="alcohol"/>
-                            
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <!-- origen -->
-                    <div class="form-group col-4" id="origen" style="display:none;">
-                        <label for="sell_origin">Origen</label>
-                        <select  class="form-control" name="origen" id="origen"> 
-                            <option value="nacional">Nacional</option>
-                            <option value="internacional">Internacional</option>
-                        </select>
-                    </div>
-                    
-                    
-                    <!-- categoria -->
-                    <div class="form-group col-4" style="display:none;">
-                        <label for="sell_category">Categoría</label>
-                        <select id="sell_category" class="form-control" name="categoria" id="categoria" disabled> <!-- se encuentra desabilitado hasta la implementacion de campos en tabla -->
-                            <option selected>Seleccione...</option>
-                            <option>Ale</option>
-                            <option>Ipa</option>
-                            <option>Lager</option>
-                            <option>Lambic</option>
-                            <option>Pilsen</option>
-                            <option>Porter</option>
-                            <option>Stout</option>
-                            <option>Trigo</option>
-                            <option>Sin Alcohol</option>
-                            <option>Especiales</option>
-                        </select>
-                    </div>
-                    <!-- presentacion -->
-                    <div class="form-group col-4" id="presentacion" style="display:none;">
-                        <label for="sell_container" required>Presentación</label>
-                        <select class="form-control" name="presentacion" id="presentacion" >
-                                
-                            <option selected>Seleccione...</option>
-                            
-                            <% for (let i= 0; i < presentacion.length; i++) { %> 
-                                <option value="<%= presentacion[i].id %>">
-                                    <%= presentacion[i].nombre %> - <%= presentacion[i].capacidad %>
-                                </option>
-                            <% } %> 
-                                
-                        </select>
-                    </div>
-                </div>
-
+                
                 <div id="cursos" class="row">
                     <!-- Disertante -->
-                    <div class="form-group col-8" id="disertante" style="display:none;">
+                    <div class="form-group col-8" id="disertante" >
                         <label for="disertante">Disertante</label>
-                        <input type="text" class="form-control"  placeholder="Introduce el nombre del disertante" aria-describedby="disertante" name="disertante" id="disertante" />
+                        <input type="text" class="form-control"  placeholder="<%= curso.disertante  %>" aria-describedby="disertante" name="disertante" id="disertante" />
                     </div>
                     
                     <!-- medio -->
-                    <div class="form-group col-4" id="medioId" style="display:none;">
+                    <div class="form-group col-4" id="medioId" >
                         <label for="sell_category">Medio</label>
-                        <select  class="form-control" name="medioId" id="medioId">
+                        <select  class="form-control" name="medioId" id="medioId" >
                             
                             <option selected>Seleccione...</option>
                             
@@ -203,19 +137,23 @@
                     <!-- precio -->
                     <div class="form-group col-3">
                         <label for="sell_price"><i class="fas fa-hand-holding-usd"></i> Precio Unidad</label>
-                        <input type="number" class="form-control" placeholder="precio"
-                            aria-describedby="sell_price" name="precioUnitario" id="precioUnitario" />
+                        <input type="number" 
+                            class="form-control" 
+                            aria-describedby="sell_price" 
+                            name="precioUnitario" 
+                            id="precioUnitario" 
+                            placeholder="<%= product.precioUnitario  %>" />
                     </div>
                     <!-- cantidad -->
                     <div class="form-group col-3">
-                        <label for="sell_quantity">Stock</label>
-                        <input type="number" class="form-control"  placeholder="cantidad" aria-describedby="sell_quantity"
-                            name="stock" id="stock"/>
+                        <label for="sell_quantity">Vacantes</label>
+                        <input type="number" class="form-control" aria-describedby="sell_quantity"
+                            name="stock" id="stock" placeholder="<%= product.stock  %>"/>
                     </div>
                     <!-- descuento -->
                     <div class="form-group col-3">
                         <label for="sell_discount"><i class="fas fa-percentage"></i> Descuento </label>
-                        <input type="number" class="form-control"  placeholder="porcentaje" aria-describedby="sell_discount" name="descuento" id="descuento"/>
+                        <input type="number" class="form-control" aria-describedby="sell_discount" name="descuento" id="descuento" placeholder="<%= product.descuento %>"/>
                     </div>
                 </div>
 
@@ -237,9 +175,5 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
-
-    <script src="/js/validacionModificarProducto.js"></script>
-    <script src="/js/tipoProducto.js"></script>
-
   </body>
 </html>

@@ -10,7 +10,11 @@ module.exports = (sequelize, DataTypes) => {
             },
             origen: {
                 type: DataTypes.STRING,
+            },
+            marca: {
+                type: DataTypes.STRING,
             }
+
         },
         {
             tableName: "insumos",

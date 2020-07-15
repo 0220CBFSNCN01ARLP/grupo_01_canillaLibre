@@ -15,18 +15,18 @@
         <div class="categorias-title">
             <h2 class="title_categoria border-bottom">Todos los productos</h2>
             <div class="container p-0 m-0 d-inline-flex">
-                <div class="row d-flex justify-content-between m-auto align-items-end">
+                <div class="row d-flex justify-content-around m-auto align-items-end">
                     <!--render de producto-->
                     <% for( let products of productos ) { %>
-                        <div class="box-6 card border-0 col-12 col-sm-6 col-lg-2 p-0 d-flex m-2 align-items-end" style="width: 18rem;">
+                        <div class="box-6 rounded col-12 col-sm-6 col-lg-2 d-flex align-items-end justify-content-center">
                             <a href="/products/<%=products.id%>">
-                            <div>  
-                                <img src="/upload/<%=products.imagen%>" class="card-img-top " alt="imagen">
+                            <div class="image m-auto">  
+                                <img src="/upload/<%=products.imagen%>" alt="imagen">
                             </div>    
-                            <div class="card-body ">
-                                <h5 class="card-title"><%=products.nombre%></h5>
-                                <h6><%=products.stock +" x " + products.precioUnitario%></h6>
-                                <p class="card-text">rating  <%=products.rating%></p>
+                            <div class="info row d-flex flex-wrap align-items-baseline justify-content-center mt-3">
+                                <h5 class="col-12"><%=products.nombre%></h5>
+                                <h6 class="col-12"><%=products.stock +" x " + products.precioUnitario%></h6>
+                                <p class="col-12">rating  <%=products.rating%></p>
                             </div>
                             </a>
                         </div>

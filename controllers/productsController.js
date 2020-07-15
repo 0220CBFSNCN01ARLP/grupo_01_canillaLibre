@@ -142,6 +142,7 @@ const controller = {
     edit: async (req, res) => {
         try {
             const product = await Productos.findByPk(req.params.id);
+        
 
             res.render("product-edit-form", { product });
 

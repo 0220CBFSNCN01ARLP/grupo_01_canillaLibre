@@ -12,9 +12,11 @@
   </head>
 
   <body class="bg_color">
+
     <!--header/javi -->
     <%- include("partials/header") %>
-     <form class="col-xl-9 col-lg-9 col-md-9 col-sm-12 mt-5 mb-5 mr-auto ml-auto bg-white text-dark p-4 rounded animate__animated animate__zoomIn" action="/products/<%= product.id %>/edit/" method="POST" enctype="multipart/form-data" id="form" onsubmit="return validar()">
+
+     <form class="col-xl-9 col-lg-9 col-md-9 col-sm-12 mt-5 mb-5 mr-auto ml-auto bg-white text-dark p-4     rounded animate__animated animate__zoomIn" action="/products/<%= product.id %>/edit/" method="POST" enctype="multipart/form-data" id="form" onsubmit="return validar(event)">
 
                 <div class="register-title col-12">
                     <h2 class="title_categoria">
@@ -23,150 +25,184 @@
                 </div>
                 <div class="dropdown-divider"></div>
 
+
                 <!-- titulo de venta -->
-                    <h4 class="mb-4 mt-4">Estas editando el producto <%= product.nombre %> | id: <%= product.id %>  </h4>
+                <h4 class="mb-4 mt-4">Estas editando el producto <%= product.nombre %> | id: <%= product.id %>  </h4>
                 <div class="row align-items-center">
                     <div class="form-group col-9">
-                        <label for="sell_title">Título del Anuncio</label>
-                        <input type="text" class="form-control" name="nombre" id="nombre" value="<%= product.nombre  %>" aria-describedby="sell_title"/> 
-
-                        <div id="validacion_nombre" class="text-danger"></div>
+                        <label for="nombre">Título del Anuncio</label>
+                        <input type="text" class="form-control"  placeholder="Introduce el nombre de tu producto" aria-describedby="sell_title" name="nombre" id="nombre" value="<%= product.nombre  %>"/>
+                        
+                    <div id="validacion_nombre" class="text-danger"></div>
 
                     </div>
-
-                     <!-- envios -->
-                    <div class="col-3">
-                        <div class="custom-control custom-checkbox mr-sm-2">
-                            <input type="checkbox" class="custom-control-input" id="sell_envios" disabled> <!-- se encuentra desabilitado hasta la implementacion de campos en tabla -->
-                            <label class="custom-control-label" for="sell_envios">Puedo hacer envios!</label>
-                        </div>
-                    </div>
+                    
                 </div>
 
                 <!-- descripcion -->
                 <div class="form-group">
                     <label for="sell_description">Hace una breve despricion de lo que vas a vender</label>
-                    <textarea class="form-control" id="sell_description" rows="3" placeholder="No te olvides datos importantes" name="descripcion" id="descripcion" ><%= product.descripcion %> </textarea>
+                    <textarea class="form-control"  rows="3" placeholder="No te olvides datos importantes" name="descripcion" id="descripcion" ><%= product.descripcion %></textarea>
+                </div>
 
-                    <div id="validacion_descripcion" class="text-danger"></div>
+                <div id="validacion_descripcion" class="text-danger"></div>
+                
+                <div class="row align-items-center">
 
                 </div>
-                <div class="row mt-2 mb-4 justify-content-between">
-                    <div class="form-group col-4">
-                        <p class="mb-1">Marca</p>
-                        <div class="custom-file">
-                            <input type="text" class="form-control" id="title_sell" aria-describedby="sell_title" id="marca" name="marca" value="<%= product.marca  %>" disabled/> <!-- se encuentra desabilitado hasta la implementacion de campos en tabla -->
-                            
-                        </div>
+
+                <!-- tipo de Producto-->
+                <div class="form-group col-4  mb-4" >
+                    <label for="">Tipo de Producto</label> </br>
+                    <select class="custom-select" name="productoId" id="productoId" onclick="campos()">
+                            <option selected value="<%= product.productoId %>">Seleccione...</option>
+                            <option value="1" >Bebidas</option>
+                            <option value="2">Insumos</option> 
+                            <option value="3">Cursos</option>    
+                    </select>
+                </div>
+
+                <!-- envios -->
+                <div class="col-3">
+                    <div class="custom-control custom-checkbox mr-sm-2">
+                        <input type="checkbox" class="custom-control-input" id="sell_envios" name="envio" > <!-- se encuentra desabilitado hasta la implementacion de campos en tabla -->
+                        <label class="custom-control-label" for="sell_envios">Puedo hacer envios!</label> 
                     </div>
                 </div>
-                <div class="row">
+            </div>
 
-                     <!-- origen -->
-                    <div class="form-group col-3">
-                        <label for="sell_origin">Origen</label>
-                        
-                        <select id="sell_origin" class="form-control" id="origen" name="origen" value="<%= product.origen  %>" disabled> <!-- se encuentra desabilitado hasta la implementacion de campos en tabla -->
-                            <option selected>Seleccione...</option>
-                            <option>Nacional</option>
-                            <option>Internacional</option>
-                        </select>
-                    </div>
+            <div class="dropdown-divider"></div>
+                
 
-                    <!-- tipo de Producto-->
-                    <div class="form-group col-3">
-                        <label for="">Tipo de Producto</label> </br>
-                        <select class="custom-select my-1 mr-sm-2" name="productoId">
-                            
-                                <option value=" <%= product.productoId %> ">Bebidas</option>
-                                
-                                                                         
-                        </select>
-                    </div>
-                   <!-- categoria -->
-                    <div class="form-group col-3">
-                        <label for="sell_category">Categoría</label>
-                        
-                        <select id="sell_category" class="form-control" id="categoria"name="categoria" value="<%= product.categoria  %>" disabled> <!-- se encuentra desabilitado hasta la implementacion de campos en tabla -->
-                            <option selected>Seleccione...</option>
-                            <option>Ale</option>
-                            <option>Ipa</option>
-                            <option>Lager</option>
-                            <option>Lambic</option>
-                            <option>Pilsen</option>
-                            <option>Porter</option>
-                            <option>Stout</option>
-                            <option>Trigo</option>
-                            <option>Sin Alcohol</option>
-                            <option>Especiales</option>
-                        </select>
+            <!-- marca -->
+            <div class="row mt-2 justify-content-between">
+                <div class="form-group col-4">
+                    <p class="mb-1">Marca</p>
+                    <div class="custom-file">
+                        <input type="text" class="form-control" id="title_sell" aria-describedby="sell_title" id="marca" name="marca" value="<%= product.marca  %>" />
                         
                     </div>
-                    <!-- presentacion -->
-                    <div class="form-group col-3">
-                        <label for="sell_container">Presentación</label>
-                        <select id="sell_container" class="form-control" id="presentacion" name="presentacion" value="<%= product.envase  %>" disabled> <!-- se encuentra desabilitado hasta la implementacion de campos en tabla -->
-                            <option selected>Seleccione...</option>
-                            <option>Lata</option>
-                            <option>Porron</option>
-                            <option>Botella</option>
-                            <option>Barril</option>
-                            <option>Chopera</option>
-                        </select>
-                     
-                    </div>
-                </div>    
-                 <!-- imagen1 -->
-                 <div class="row mt-2 mb-4 justify-content-between">
-                    <div class="form-group col-4">
-                        <p class="mb-1">Primera imagen</p>
-                        <div class="custom-file">
-                            <input type="file" class="custom-file-input"  lang="es"  name="imagen" id="imagen"/>
-                            <label class="custom-file-label" for="">Seleccionar Archivo</label>
-
-                            <div id="validacion_imagen" class="text-danger"></div>
-
-                        </div>
+                </div>
+                <!-- Ibu -->
+                <div class="form-group col-4" id="ibu" style="display:none;">
+                    <p class="mb-1">Ibu</p>
+                    <div class="custom-file">
+                        <input type="number" class="form-control" aria-describedby="sell_title"  name="ibu" /> 
+                        
                     </div>
                 </div>
-                <div class="row mt-2 mb-4 justify-content-between">
-                    <div class="form-group col-4">
-                        <p class="mb-1">Comentarios</p>
-                        <div class="custom-file">
-                            <input type="text" class="form-control" id="title_sell" aria-describedby="sell_title" value="<%= product.comentarios  %>" /> 
-                            
-                        </div>
+                 <!-- Alcohol -->
+                <div class="form-group col-4" id="alcohol" style="display:none;">
+                    <p class="mb-1">Alcohol %</p>
+                    <div class="custom-file">
+                        <input type="number" class="form-control"  aria-describedby="sell_title" id="alcohol" name="alcohol" />
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <!-- origen -->
+                <div class="form-group col-4" id="origen" style="display:none;">
+                    <label for="sell_origin">Origen</label>
+                    <select  class="form-control" name="origen" id="origen"> 
+                        <option value="nacional">Nacional</option>
+                        <option value="internacional">Internacional</option>
+                    </select>
+                </div>
+
+                <!-- categoria -->
+                <div class="form-group col-4" style="display:none;">
+                    <label for="sell_category">Categoría</label>
+                    <select id="sell_category" class="form-control" name="categoria" id="categoria" disabled> <!-- se encuentra desabilitado hasta la implementacion de campos en tabla -->
+                        <option selected>Seleccione...</option>
+                        <option>Ale</option>
+                        <option>Ipa</option>
+                        <option>Lager</option>
+                        <option>Lambic</option>
+                        <option>Pilsen</option>
+                        <option>Porter</option>
+                        <option>Stout</option>
+                        <option>Trigo</option>
+                        <option>Sin Alcohol</option>
+                        <option>Especiales</option>
+                    </select>
+                </div>
+
+               
+            
+                <!-- Disertante -->
+                <div id="cursos" class="row"></div>
+                <div class="form-group col-8" id="disertante" style="display:none;">
+                    <label for="disertante">Disertante</label>
+                    <input type="text" class="form-control"  placeholder="Introduce el nombre del disertante" aria-describedby="disertante" name="disertante" id="disertante" />
+                </div>
+                
+                
+
+            <!-- imagen1 -->
+            <div class="row mt-2 mb-4 pl-5 justify-content-between">
+                <div class="form-group col-12">
+                    <p class="mb-1">Primera imagen</p>
+                    <div class="custom-file">
+                        <input type="file" class="custom-file-input"  lang="es"  name="imagen" id="imagen"/>
+                        <label class="custom-file-label" for="">Seleccionar Archivo</label>
+                    </div>
+                    <div id="validacion_imagen" class="text-danger"></div>
+                </div>
+
+                <!-- imagen2 -->
+                <div class="form-group col-4"  style="display:none;">
+                    <p class="mb-1">Segunda Imagen<em></em></p>
+             <div class="custom-file">
+                        <input type="file" class="custom-file-input" id="sell_image_2" lang="es" disabled/> <!-- se encuentra desabilitado hasta la implementacion de campos en tabla -->
+                        <label class="custom-file-label" for="sell_image_2">Seleccionar Archivo</label>
                     </div>
                 </div>
 
-                <div class="dropdown-divider"></div>
-
-                <div class="row align-items-center justify-content-between bg-light m-1">
-                    <!-- precio -->
-                    <div class="form-group col-3">
-                        <label for="sell_price"><i class="fas fa-hand-holding-usd"></i> Precio</label>
-                        <input type="number" class="form-control" id=precio name="precioUnitario" placeholder="precio"
-                            aria-describedby="sell_price" value="<%= product.precioUnitario %>"/> 
-                    </div>
-                    <!-- cantidad -->
-                    <div class="form-group col-3">
-                        <label for="sell_quantity">Cantidad</label>
-                        <input type="number" class="form-control" id=cantidad name= "stock"placeholder="cantidad" aria-describedby="sell_quantity"
-                             name="<%= product.stock %>"/> 
-                    </div>
-                    <!-- descuento -->
-                    <div class="form-group col-3 p-2">
-                        <label for="sell_discount"><i class="fas fa-percentage"></i> Descuento </label>
-                        <input type="number" class="form-control" id=descuento name="descuento" placeholder="porcentaje"
-                            aria-describedby="sell_discount"  name="<%= product.descuento %>"/> 
+                <!-- imagen3 -->
+                <div class="form-group col-4"  style="display:none;">
+                    <p class="mb-1">Tercera imagen<em></em></p>
+                    <div class="custom-file">
+                        <input type="file" class="custom-file-input" id="sell_image_3" lang="es" disabled/> <!-- se encuentra desabilitado hasta la implementacion de campos en tabla -->
+                        <label class="custom-file-label" for="sell_image_3">Seleccionar Archivo</label>
                     </div>
                 </div>
-                 <!-- boton guardar -->
+            </div>
+            
+            <div class="dropdown-divider"></div>
+
+            <div class="row align-items-center justify-content-between bg-light m-1">
+
+                <!-- precio -->
+                <div class="form-group col-4">
+                    <label for="sell_price"><i class="fas fa-hand-holding-usd"></i> Precio Unidad</label>
+                    <input type="number" class="form-control" placeholder="precio"
+                        aria-describedby="sell_price" name="precioUnitario" id="precioUnitario" value="<%= product.precioUnitario %>" />
+                </div>
+                <!-- cantidad -->
+                <div class="form-group col-3">
+                    <label for="sell_quantity">Stock</label>
+                    <input type="number" class="form-control"  placeholder="cantidad" aria-describedby="sell_quantity" name="stock" id="stock" value="<%= product.stock %>"/>
+                </div>
+                <!-- descuento -->
+                <div class="form-group col-3 p-2">
+                    <label for="sell_discount"><i class="fas fa-percentage"></i> Descuento </label>
+                    <input type="number" class="form-control"  placeholder="porcentaje" aria-describedby="sell_discount" name="descuento" id="descuento"  value="<%= product.descuento %>"/>
+                </div>
+            </div>
+            
+            <div class="dropdown-divider"></div>
+                
+                    
+ 
+
+                 <!-- boton Guardar -->
                 <div class="col-12 d-flex justify-content-center mt-2">
-                    <button type="submit" class="btn btn-outline-warning mt-3 mb-3" >
+                    <button type="submit" class="btn btn-outline-warning mt-3 mb-3">
                         Guardar
                     </button>
                 </div>
+                <div class="dropdown-divider"></div>
 
     </form>
 
@@ -178,6 +214,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 
     <script src="/js/validacionModificarProducto.js"></script>
+    <script src="/js/tipoProducto.js"></script>
 
   </body>
 </html>

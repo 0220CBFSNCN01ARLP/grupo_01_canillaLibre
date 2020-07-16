@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const multer = require("multer");
 const path = require("path");
+const { check, validationResult, body } = require("express-validator");
 
 const guestMiddleware = require("../middlewares/guestMiddleware");
 const userMiddleware = require("../middlewares/userMiddlware");
@@ -29,7 +30,9 @@ router.get("/", controller.allproducts);
 
 //Creacion de producto
 router.get("/form_prod", userMiddleware, controller.showRegister);
-router.post("/form_prod", upload.single("imagen"), controller.register);
+router.post("/form_prod",[
+    check ("nombre").isEmpty().withMessage("El nombre debe tener al menos 5 caracteres")
+],upload.single("imagen"), controller.register);
 
 //Detalle del producto
 router.get("/:id?", controller.detailproduct);

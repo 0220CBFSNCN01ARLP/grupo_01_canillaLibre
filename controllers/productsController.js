@@ -1,5 +1,6 @@
 const fs = require("fs");
 const path = require("path");
+const { check, validationResult, body } = require("express-validator");
 
 const { Productos, Bebidas, Cursos, Insumos, Presentacion, Medio, Usuarios } = require("../database/models");
 
@@ -19,61 +20,66 @@ const controller = {
 
     //Create - Carga Formulario de Producto 
     register: async (req, res) => {
-            const presentacion = await Presentacion.findAll();
-            const medio = await Medio.findAll();
-        try {  
-            let product = await Productos.create({
-                nombre: req.body.nombre,
-                precioUnitario: req.body.precioUnitario,
-                descuento: req.body.descuento,
-                descripcion: req.body.descripcion,
-                imagen: req.file.filename,
-                stock: req.body.stock,
-                tipoproducto: req.body.productoId,
-                usuarioId: req.session.usuarioLogueado.id
-            })
-                console.log(req.body);
-                // en caso que sea 1 graba en bebidas
-                // en caso que sea 2 queda como insumo
-                // en caso que sea 3 graba en cursos
-            switch (req.body.productoId){
-                case "1": 
-                    const presentacion = await Presentacion.findAll();
-                    await Bebidas.create({
-                        productoId: product.id,
-                        marca: req.body.marca,
-                        envio: req.body.envio,
-                        ibu: req.body.ibu,
-                        alcohol: req.body.alcohol, //modificar el modelo a decimal
-                        presentacionId: req.body.presentacion
-                    });
-                    return res.redirect("/products/" + product.id);//bebida
-                break;
-                case "2":
-                    await Insumos.create({
-                        productoId: product.id,
-                        envio: req.body.envio,
-                        origen: req.body.origen
-                    });
-                    return res.redirect("/products/" + product.id);//insumo
-                break;
-                case "3":
-                    await Cursos.create({
-                        productoId: product.id,
-                        disertante: req.body.disertante,
-                        medioId: req.body.medioId,
-                    });
-                    return res.redirect("/products/" + product.id);//curso
-                break;
-                default:
-                return res.redirect("/products/" + product.id);//general
-            }
-                console.log(product);
-                
 
-            } catch (error) {
-                return res.send(error);
-            }
+        
+
+        
+					const presentacion = await Presentacion.findAll();
+					const medio = await Medio.findAll();
+					try {
+						let product = await Productos.create({
+							nombre: req.body.nombre,
+							precioUnitario: req.body.precioUnitario,
+							descuento: req.body.descuento,
+							descripcion: req.body.descripcion,
+							imagen: req.file.filename,
+							stock: req.body.stock,
+							tipoproducto: req.body.productoId,
+							usuarioId: req.session.usuarioLogueado.id,
+						});
+						console.log(req.body);
+						// en caso que sea 1 graba en bebidas
+						// en caso que sea 2 queda como insumo
+						// en caso que sea 3 graba en cursos
+						switch (req.body.productoId) {
+							case "1":
+								const presentacion = await Presentacion.findAll();
+								await Bebidas.create({
+									productoId: product.id,
+									marca: req.body.marca,
+									envio: req.body.envio,
+									ibu: req.body.ibu,
+									alcohol: req.body.alcohol, //modificar el modelo a decimal
+									presentacionId: req.body.presentacion,
+								});
+								return res.redirect("/products/" + product.id); //bebida
+								break;
+							case "2":
+								await Insumos.create({
+									productoId: product.id,
+									envio: req.body.envio,
+									origen: req.body.origen,
+								});
+								return res.redirect("/products/" + product.id); //insumo
+								break;
+							case "3":
+								await Cursos.create({
+									productoId: product.id,
+									disertante: req.body.disertante,
+									medioId: req.body.medioId,
+								});
+								return res.redirect("/products/" + product.id); //curso
+								break;
+							default:
+								return res.redirect("/products/" + product.id); //general
+						}
+						console.log(product);
+					} catch (error) {
+						return res.send(error);
+                    }
+                
+				
+        
     },     
 
     // Read - Muestra todos los Productos

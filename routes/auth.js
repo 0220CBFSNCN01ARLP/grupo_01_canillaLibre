@@ -31,11 +31,47 @@ const authController = require("../controllers/authController");
 
 //Registro - //Create
 router.get("/register", authController.showRegister);
-router.post("/register", upload.single("avatar"), authController.register);
+router.post(
+	"/register",
+	[
+		check("firsname")
+			.isLength({ min: 5 })
+			.withMessage("Este campo debe estar completo"),
+		check("lastname")
+			.isLength({ min: 5 })
+			.withMessage("Este campo debe estar completo"),
+		check("email").isLength().withMessage("Este campo debe estar completo"),
+		check("email").isEmail().withMessage("Debe ser un email valido"),
+		//implementar middleware q calcule la edad minima requerida
+		//check("age")
+		//    .isInt({ min: 18 })
+		//    .withMessage("Debe ser mayor de 18 años"),
+		check("pass").isLength({ min: 6 }).withMessage("Password Incorrecta"),
+		//check("pass2").equals(body.pass).withMessage("Debe repetir la contraseña"),
+	],
+	upload.single("avatar"),
+	authController.register
+);
 
 //Login //Read
 router.get("/login", guestMiddleware, authController.showLogin);
-router.post("/login",authController.login);
+router.post(
+    "/login",
+    check("email").isLength().withMessage("El campo no puede estar vacio"),
+	// body("email")
+	// 	.custom((value) => async (req, res) => {
+	// 		const users = await Usuarios.findOne({
+	// 			where: { email: req.body.email },
+	// 		});
+
+	// 		if (users.email == value) {
+	// 			return false;
+	// 		}
+	// 		return true;
+	// 	})
+	// 	.withMessage("Email no registrado"),
+	authController.login
+);
 
 
 //Logout

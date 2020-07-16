@@ -16,24 +16,27 @@ const controller = {
     //POST REGISTER
     register: async (req, res) => {
 
+       console.log(validationResult(req));
+	    let errors = validationResult(req);
+       
         //agregado Diego para ver comprobar si el usuario existe
-
+        if (errors.isEmpty()) {
+				
         const userlog = await Usuarios.findOne({
 				where: { email: req.body.email },
 			});
 
 			console.log("el usuario que trae el findOne es: " + userlog);
 
-        //validation
-        // console.log(validationResult(req));
-        // let errors = validationResult(req);
+        // validation
+        
         if ( userlog !== null ){
             res.send( "El usuario se encuentra registrado");
             
         } else {
         
 
-        // if (errors.isEmpty()) {
+        
 
             //registro de nuevo usuario
 
@@ -57,13 +60,13 @@ const controller = {
                 })
                 
                     return res.render("profile", { user })
-
-        
-        // else {
-
-        //     return res.render("register", { errors: errors.errors });
-
-        }
+            
+                
+         }
+         } else {
+             return res.render("register", { errors: errors.errors });
+         }
+    
     },
 
     //GET LOGIN
@@ -73,44 +76,49 @@ const controller = {
 
     //POST LOGIN
     login: async (req, res) => {
+
+        console.log(validationResult(req));
+		let errors = validationResult(req);
         
-       
-        const user = await Usuarios.findOne({
+        if (errors.isEmpty()) {
+        
+            const user = await Usuarios.findOne({
             where: { email: req.body.email },
-        });
+            });
         
         
-        console.log("el usuario que trae el findOne es: " + user);
+        // console.log("el usuario que trae el findOne es: " + user);
 
         //console.log("el usuario que trae el findOne es: " + user.email) ;
+					if (user == undefined) {
+						res.send("Usuario no registrado");
+					} else {
+						if (bcrypt.compareSync(req.body.pass, user.password)) {
+							delete user.password; //borra el pass por seguridad
+							usuarioaLoguearse = user;
 
-        if ( user == undefined ){
-            res.send( "Usuario no registrado")
+							//console.log("pase el bcrypt");
+							//console.log(usuarioaLoguearse);
+						} else {
+							return res.render("login", {
+								errors: [{ msg: "Credenciales Invalidas" }],
+							});
+						}
+						//console.log(req.body.recordarme)
+						if (req.body.recordarme) {
+							res.cookie("recordarme", usuarioaLoguearse.email, {
+								maxAge: 60000,
+							});
+						}
 
-        } else {
-                   if (bcrypt.compareSync(req.body.pass, user.password)) {
-                        
-                        delete user.password;   //borra el pass por seguridad
-                        usuarioaLoguearse = user ;
-                       
-                        //console.log("pase el bcrypt");
-                        //console.log(usuarioaLoguearse);
-                   } else {
-                       return res.render("login", {
-                           errors: [{ msg: "Credenciales Invalidas" }],
-                       });
-
-                   }
-                   //console.log(req.body.recordarme)
-                   if (req.body.recordarme){
-                        res.cookie ("recordarme", usuarioaLoguearse.email, { maxAge: 60000});
-                    }
-
-                        req.session.usuarioLogueado = usuarioaLoguearse;
-                        //console.log("esta es la session de: " + req.session.usuarioLogueado.email)
-                        return res.redirect("/");
-                   
-                    }
+						req.session.usuarioLogueado = usuarioaLoguearse;
+						//console.log("esta es la session de: " + req.session.usuarioLogueado.email)
+						return res.redirect("/");
+					}
+				} else {
+					//  return res.send(user)
+					return res.render("login", { errors: errors.errors });
+				}
                 
  
     },

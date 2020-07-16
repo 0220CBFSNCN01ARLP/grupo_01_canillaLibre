@@ -14,7 +14,7 @@
 
 
             <form class="col-xl-9 col-lg-9 col-md-9 col-sm-12 m-auto bg-white text-dark p-4 rounded animate__animated animate__zoomIn" 
-            action="/products/<%= product.id %>/edit/" method="POST" enctype="multipart/form-data" id="form">
+            action="/products/<%= product.id %>/edit/" method="POST" enctype="multipart/form-data" id="form" onsubmit="return validar()">
                 <div class="register-title col-12">
                     <h2 class="title_categoria">
                         <i class="fas fa-hand-holding-usd text-black-50"></i></i> Vende por Canilla<strong>Libre</strong>.com
@@ -114,9 +114,9 @@
                     
                     
                     <!-- categoria -->
-                    <div class="form-group col-4">
+                    <div class="form-group col-4" style="display:none;">
                         <label for="sell_category">Categoría</label>
-                        <select id="sell_category" class="form-control" name="categoria" id="categoria" disabled> <!-- se encuentra deshabilitado hasta la implementacion de campos en tabla -->
+                        <select id="sell_category" class="form-control" name="categoria" id="categoria" > <!-- se encuentra deshabilitado hasta la implementacion de campos en tabla -->
                             <option selected>Seleccione...</option>
                             <option>Ale</option>
                             <option>Ipa</option>
@@ -159,7 +159,7 @@
                     </div>
 
                     <!-- imagen2 -->
-                    <div class="form-group col-4">
+                    <div class="form-group col-4" style="display:none;">
                         <p class="mb-1">Segunda Imagen<em></em></p>
                         <div class="custom-file">
                             <input type="file" class="custom-file-input" id="sell_image_2" lang="es" disabled/> <!-- se encuentra deshabilitado hasta la implementacion de campos en tabla -->
@@ -168,7 +168,7 @@
                     </div>
 
                     <!-- imagen3 -->
-                    <div class="form-group col-4">
+                    <div class="form-group col-4" style="display:none;"> 
                         <p class="mb-1">Tercera imagen<em></em></p>
                         <div class="custom-file">
                             <input type="file" class="custom-file-input" id="sell_image_3" lang="es" disabled/> <!-- se encuentra deshabilitado hasta la implementacion de campos en tabla -->

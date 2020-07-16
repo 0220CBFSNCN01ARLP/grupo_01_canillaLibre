@@ -30,9 +30,15 @@ router.get("/", controller.allproducts);
 
 //Creacion de producto
 router.get("/form_prod", userMiddleware, controller.showRegister);
-router.post("/form_prod",[
-    check ("nombre").isEmpty().withMessage("El nombre debe tener al menos 5 caracteres")
-],upload.single("imagen"), controller.register);
+router.post("/form_prod", upload.single("imagen"),[
+    check ("nombre").isEmpty(),
+    check ("nombre").isLength({min: 5})
+    .withMessage("La publicación debe tener mas de 5 caracteres"),
+    check("descripcion").isLength({min: 20})
+    .withMessage("La descripcion debe tener más de 20 caracteres"),
+
+
+], controller.register);
 
 //Detalle del producto
 router.get("/:id?", controller.detailproduct);

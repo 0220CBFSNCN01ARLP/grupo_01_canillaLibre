@@ -33,14 +33,14 @@ const authController = require("../controllers/authController");
 router.get("/register", authController.showRegister);
 router.post(
 	"/register",
+	upload.single("avatar"),
 	[
-		check("firsname")
+		check("firstname")
 			.isLength({ min: 5 })
 			.withMessage("Este campo debe estar completo"),
 		check("lastname")
 			.isLength({ min: 5 })
 			.withMessage("Este campo debe estar completo"),
-		check("email").isLength().withMessage("Este campo debe estar completo"),
 		check("email").isEmail().withMessage("Debe ser un email valido"),
 		//implementar middleware q calcule la edad minima requerida
 		//check("age")
@@ -49,7 +49,7 @@ router.post(
 		check("pass").isLength({ min: 6 }).withMessage("Password Incorrecta"),
 		//check("pass2").equals(body.pass).withMessage("Debe repetir la contraseña"),
 	],
-	upload.single("avatar"),
+
 	authController.register
 );
 

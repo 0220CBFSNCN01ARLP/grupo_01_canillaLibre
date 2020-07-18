@@ -14,7 +14,7 @@
 
 
             <form class="col-xl-9 col-lg-9 col-md-9 col-sm-12 m-auto bg-white text-dark p-4 rounded animate__animated animate__zoomIn" 
-            action="/products/<%= product.id %>/edit/" method="POST" enctype="multipart/form-data" id="form" >
+            action="/products/<%= product.id %>/edit/" method="POST" enctype="multipart/form-data" id="form" onsubmit="return validar()">
                 <div class="register-title col-12">
                     <h2 class="title_categoria">
                         <i class="fas fa-hand-holding-usd text-black-50"></i></i> Vende por Canilla<strong>Libre</strong>.com
@@ -175,5 +175,8 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
+    <script src="/js/validacionModificarProducto.js"></script>
+    
   </body>
 </html>

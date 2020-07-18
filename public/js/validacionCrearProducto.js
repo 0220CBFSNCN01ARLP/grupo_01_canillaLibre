@@ -42,7 +42,7 @@ function validar() {
     val_imagen.innerHTML = "";
     if (imagen === "") {
         val_imagen.innerHTML = "Debe seleccionar una imagen";
-    } else if (!/\.(jpg|jpeq|png|gif)$/i.test(imagen)) {
+    } else if (!/\.(jpg|jpeg|png|gif)$/i.test(imagen)) {
         val_imagen.innerHTML =
             "El formato de imagen debe ser: jpg | jpeq | png | gif.";
         return false;

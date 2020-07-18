@@ -56,21 +56,27 @@ router.post(
 //Login //Read
 router.get("/login", guestMiddleware, authController.showLogin);
 router.post(
-    "/login",
-    check("email").isLength().withMessage("El campo no puede estar vacio"),
+	"/login",
+
+	check("email").isEmail().withMessage("Debe poner un email valido"),
+	check("pass").isLength({min:8}).withMessage("La password debe tener al menos 8 caracteres")
 	// body("email")
-	// 	.custom((value) => async (req, res) => {
-	// 		const users = await Usuarios.findOne({
-	// 			where: { email: req.body.email },
-	// 		});
+	// 	.custom((value) => async (req, res) =>  {
+
+	// 		const users = await Usuarios.find(
+	// 			 { email: req.body.email }
+
+	// 		);
 
 	// 		if (users.email == value) {
 	// 			return false;
 	// 		}
 	// 		return true;
-	// 	})
-	// 	.withMessage("Email no registrado"),
-	authController.login
+
+	// 	},
+	// 		)
+	// 		.withMessage("Email no registrado")]
+	,authController.login
 );
 
 

@@ -80,45 +80,44 @@ const controller = {
         console.log(validationResult(req));
 		let errors = validationResult(req);
         
-        if (errors.isEmpty()) {
-        
-            const user = await Usuarios.findOne({
-            where: { email: req.body.email },
-            });
-        
-        
-        // console.log("el usuario que trae el findOne es: " + user);
-
-        //console.log("el usuario que trae el findOne es: " + user.email) ;
-					if (user == undefined) {
-						res.send("Usuario no registrado");
-					} else {
-						if (bcrypt.compareSync(req.body.pass, user.password)) {
-							delete user.password; //borra el pass por seguridad
-							usuarioaLoguearse = user;
-
-							//console.log("pase el bcrypt");
-							//console.log(usuarioaLoguearse);
-						} else {
-							return res.render("login", {
-								errors: [{ msg: "Credenciales Invalidas" }],
-							});
-						}
-						//console.log(req.body.recordarme)
-						if (req.body.recordarme) {
-							res.cookie("recordarme", usuarioaLoguearse.email, {
-								maxAge: 60000,
-							});
-						}
-
-						req.session.usuarioLogueado = usuarioaLoguearse;
-						//console.log("esta es la session de: " + req.session.usuarioLogueado.email)
-						return res.redirect("/");
-					}
-				} else {
-					//  return res.send(user)
-					return res.render("login", { errors: errors.errors });
-				}
+        const user = await Usuarios.findOne({
+					where: { email: req.body.email },
+                });
+                
+                if (errors.isEmpty()) {
+                    
+                    // console.log("el usuario que trae el findOne es: " + user);
+                    
+                    //console.log("el usuario que trae el findOne es: " + user.email) ;
+                    if (user == undefined) {
+                        res.send("Usuario no registrado");
+                    } else {
+                        if (bcrypt.compareSync(req.body.pass, user.password)) {
+                            delete user.password; //borra el pass por seguridad
+                            usuarioaLoguearse = user;
+                            
+                            //console.log("pase el bcrypt");
+                            //console.log(usuarioaLoguearse);
+                        } else {
+                            return res.render("login", {
+                                errors: [{ msg: "Credenciales Invalidas" }],
+                            });
+                        }
+                        //console.log(req.body.recordarme)
+                        if (req.body.recordarme) {
+                            res.cookie("recordarme", usuarioaLoguearse.email, {
+                                maxAge: 60000,
+                            });
+                        }
+                        
+                        req.session.usuarioLogueado = usuarioaLoguearse;
+                        //console.log("esta es la session de: " + req.session.usuarioLogueado.email)
+                        return res.redirect("/");
+                    }
+                } else {
+                    //  return res.send(user)
+                    return res.render("login", { errors: errors.errors });
+                }
                 
  
     },

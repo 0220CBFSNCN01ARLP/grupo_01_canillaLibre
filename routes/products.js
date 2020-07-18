@@ -28,7 +28,9 @@ router.get("/", controller.allproducts);
 
 //Creacion de producto
 router.get("/form_prod", userMiddleware, controller.showRegister);
-router.post("/form_prod", upload.single("imagen"), controller.register);
+router.post("/form_prod", upload.single("imagen"), [
+
+], controller.register);
 
 //Detalle del producto
 router.get("/:id?", controller.detailproduct);

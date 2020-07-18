@@ -12,6 +12,7 @@ const productsRouter = require("./routes/products"); // Rutas /products
 const methodOverride = require("method-override"); // Para poder usar los métodos PUT y DELETE
 const vieweUsrLog = require("./middlewares/viewUsrLog");
 const recordarmeMiddleware = require ("./middlewares/recordarmeMiddleware");
+const apiProducts = require("./routes/api/products");
 
 var app = express();
 
@@ -36,6 +37,7 @@ app.use(methodOverride("_method"));
 app.use("/", indexRouter);
 app.use("/auth", authRouter);
 app.use("/products", productsRouter);
+app.use("/api", apiProducts);
 
 app.use(recordarmeMiddleware);
 

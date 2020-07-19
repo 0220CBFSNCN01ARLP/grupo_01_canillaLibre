@@ -11,10 +11,7 @@ var storage = multer.diskStorage({
     destination: path.resolve(__dirname, "../public/upload/"),
 
     filename: function (req, file, cb) {
-        cb(
-            null,
-            file.fieldname + "-" + Date.now() + path.extname(file.originalname)
-        );
+        cb(null, file.fieldname + "-" + Date.now() + path.extname(file.originalname));
     },
 });
 
@@ -28,9 +25,22 @@ router.get("/", controller.allproducts);
 
 //Creacion de producto
 router.get("/form_prod", userMiddleware, controller.showRegister);
-router.post("/form_prod", upload.single("imagen"), [
+router.post("/form_prod", upload.single("imagen"),
 
-], controller.register);
+[
+
+    check("nombre")
+    .not().isEmpty().withMessage("Titulo, no puede estar vacio.")
+    .isLength({ min: 5 }).withMessage("Título, debe tener 5 caracteres o más."),
+
+    check("descripcion")
+    .not().isEmpty().withMessage("Descripción, no puede estar vacio.")
+    .isLength({ min: 20 }).withMessage("Descripción, debe tener 20 caracteres o más."),
+
+    /* check("imagen")
+    .not().isEmpty().withMessage("Imagen, no puede estar vacio.") */
+    
+],  controller.register);
 
 //Detalle del producto
 router.get("/:id?", controller.detailproduct);

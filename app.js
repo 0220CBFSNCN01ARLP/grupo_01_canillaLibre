@@ -13,6 +13,7 @@ const methodOverride = require("method-override"); // Para poder usar los métod
 const vieweUsrLog = require("./middlewares/viewUsrLog");
 const recordarmeMiddleware = require ("./middlewares/recordarmeMiddleware");
 const apiProducts = require("./routes/api/products");
+const apiAuth = require("./routes/api/auth");
 
 var app = express();
 
@@ -38,6 +39,7 @@ app.use("/", indexRouter);
 app.use("/auth", authRouter);
 app.use("/products", productsRouter);
 app.use("/api", apiProducts);
+app.use("/api", apiAuth);
 
 app.use(recordarmeMiddleware);
 

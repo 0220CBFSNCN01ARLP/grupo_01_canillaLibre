@@ -3,7 +3,7 @@ const path = require("path");
 const bcrypt = require("bcrypt");
 const { check, validationResult, body } = require("express-validator");
 
-let { Usuarios } = require("../database/models");
+let { Usuarios, Productos, Insumos, Cursos, Bebidas } = require("../database/models");
 
 
 const controller = {
@@ -90,7 +90,7 @@ const controller = {
                     
                     //console.log("el usuario que trae el findOne es: " + user.email) ;
                     if (user == undefined) {
-                        res.send("Usuario no registrado");
+                        res.render("inexistent");
                     } else {
                         if (bcrypt.compareSync(req.body.pass, user.password)) {
                             delete user.password; //borra el pass por seguridad
@@ -164,18 +164,54 @@ const controller = {
             return res.redirect("/auth/profile/");
     },
 
+    // Delete - Elimina Usuario
     deleteProfile: async (req, res) => {
-        try {
-            await Usuarios.destroy({
-            where: {
-                id: req.params.id
+        let products = await Productos.findAll({
+            where: { usuarioId: req.params.id,
             }
+        },{
+            include: [
+                {association: "bebidas"},
+                {association: "insumos"},
+                {association: "cursos"},
+                {association: "usuario"}                    
+                ]
         });
-    } catch(err) { console.log(err); }
-        req.session.usuarioLogueado = null;
-        res.redirect("/");
-    }
-
+        console.log(`========== tipo de producto a borrar: ${products} ==========`);
+            for (product of products){
+                //bebida    
+                if(product.tipoproducto == 1){
+                    await Bebidas.destroy({
+                        where: {
+                            productoId: product.id}
+                        });
+                }
+                //insumo
+                if(product.tipoproducto == 2){
+                    await Insumos.destroy({
+                        where: {
+                            productoId: product.id}
+                        });
+                }
+                //curso   
+                if(product.tipoproducto == 3){
+                    await Cursos.destroy({
+                        where: {
+                            productoId: product.id}
+                        });
+                }
+                product.destroy()
+            }    
+        await Usuarios.destroy({
+            where: {
+                   id: req.params.id,
+            },
+        });
+            req.session.usuarioLogueado = null;
+            res.redirect("/");
+    },
+        
+    
 };
 
 module.exports = controller;

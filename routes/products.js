@@ -36,8 +36,8 @@ router.post("/form_prod", upload.single("imagen"), [
 router.get("/:id?", controller.detailproduct);
 
 //Editar producto
-router.get("/:id/edit",userMiddleware,controller.edit); /* GET */
-router.post("/:id/edit", userMiddleware,upload.single("imagen"),controller.update); /* PUT */
+router.get("/:id/edit", userMiddleware, controller.edit); /* GET */
+router.post("/:id/edit", userMiddleware, upload.single("imagen"), controller.update); /* PUT */
 
 //Elimar producto
 router.delete("/:id/delete", userMiddleware, controller.destroy); /* DELETE */

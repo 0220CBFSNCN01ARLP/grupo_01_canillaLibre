@@ -37,22 +37,26 @@ module.exports = (sequelize, DataTypes) => {
         //un producto - muchas bebidas
         Productos.hasMany(models.Bebidas, {
             as: "bebidas",
-            foreignKey: "productoId"
+            foreignKey: "productoId",
+            onDelete: 'cascade'
         }),
         //un producto - muchos insumos
         Productos.hasMany(models.Insumos, {
             as: "insumos",
-            foreignKey: "productoId"
+            foreignKey: "productoId",
+            onDelete: 'cascade'
         }),
         //un producto - muchos cursos
         Productos.hasMany(models.Cursos, {
             as: "cursos",
-            foreignKey: "productoId"
+            foreignKey: "productoId",
+            onDelete: 'cascade'
         }),
         //muchos productos - un usuario 
         Productos.belongsTo(models.Usuarios, {
             as: "usuario",
-            foreignKey: "usuarioId"
+            foreignKey: "usuarioId",
+            onDelete: 'cascade'
         })
     }
   

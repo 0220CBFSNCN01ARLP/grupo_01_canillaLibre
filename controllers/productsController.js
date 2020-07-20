@@ -39,7 +39,6 @@ const controller = {
                     tipoproducto: req.body.productoId,
                     usuarioId: req.session.usuarioLogueado.id
                 })
-                    console.log(req.body);
                     // en caso que sea 1 graba en bebidas
                     // en caso que sea 2 queda como insumo
                     // en caso que sea 3 graba en cursos
@@ -109,7 +108,7 @@ const controller = {
                     {association: "usuario"}                    
                     ]
             });
-            console.log ("la vista del producto es: " + product);
+            console.log (`la vista del producto es: ${product}`);
 
             switch (product.tipoproducto){
                 case 1:
@@ -202,68 +201,121 @@ const controller = {
     },
 
     // Update - Carga Formulario de Edición de Producto
-    update: async (req, res) => {
-        const presentacion = await Presentacion.findAll();
-        const medio = await Medio.findAll();
-        try {  
-            let product = await Productos.update(
+    update: async (req, res, next ) => {
+        
+        try{
+            await Productos.update(
                 {
-                    nombre: req.body.nombre,
-                    precioUnitario: req.body.precioUnitario,
-                    descuento: req.body.descuento,
-                    descripcion: req.body.descripcion,
-                    imagen: req.file.filename,
-                    stock: req.body.stock
+                nombre: req.body.nombre,
+                precioUnitario: req.body.precioUnitario,
+                descuento: req.body.descuento,
+                descripcion: req.body.descripcion,
+                stock: req.body.stock
+                        
                 },{  
-                where: {
-                    id: req.params.id}
+                    where: {
+                        id: req.params.id}
+                    });
+                // ver porque no actualiza la imagen    
+                if(req.body.filename){
+                    await Productos.update({
+                    imagen: req.file.filename,
+                },{
+                    where: {
+                        id: req.params.id}
+                    });
+                }
+
+                const product = await Productos.findByPk(req.params.id, {
+                    include: [
+                        {association: "bebidas"},
+                        {association: "insumos"},
+                        {association: "cursos"},
+                        {association: "usuario"}                    
+                        ]
                 });
-                console.log(req.body);
-                // en caso que sea 1 graba en bebidas
-                // en caso que sea 2 queda como insumo
-                // en caso que sea 3 graba en cursos
-            switch (product.tipoproducto){
-                case "1": 
-                    const presentacion = await Presentacion.findAll();
+                console.log(`========== tipo de producto a editar: ${product.tipoproducto} ==========`);
+                    
+                //bebida    
+                if(product.tipoproducto == 1){
                     await Bebidas.update({
                         marca: req.body.marca,
                         envio: req.body.envio,
                         ibu: req.body.ibu,
                         alcohol: req.body.alcohol, //modificar el modelo a decimal
                         presentacionId: req.body.presentacion
-                    });
-                    return res.redirect("/products/" + req.params.id);//bebida
-                break;
-                case "2":
+                    },{
+                        where: {
+                            productoId: product.id}
+                        });
+                    return res.redirect("/products/" + req.params.id);
+                }
+                //insumo
+                if(product.tipoproducto == 2){
                     await Insumos.update({
                         envio: req.body.envio,
                         origen: req.body.origen,
                         marca: req.body.marca
-                    });
-                    return res.redirect("/products/" + req.params.id);//insumo
-                break;
-                case "3":
+                    },{
+                        where: {
+                            productoId: product.id}
+                        });
+                    return res.redirect("/products/" + req.params.id);
+                } 
+                //curso   
+                if(product.tipoproducto == 3){
                     await Cursos.update({
                         disertante: req.body.disertante,
                         medioId: req.body.medioId
-                    });
-                    return res.redirect("/products/" + req.params.id);//curso
-                break;
-                default:
-                return res.redirect("/products/");// Productos general
-            }
-                console.log(product);
-                
-
-            } catch (error) {
-                return res.send(error);
-            }
+                    },{
+                        where: {
+                            productoId: product.id}
+                        });
+                    return res.redirect("/products/" + req.params.id);
+                }
+        } catch (err){
+            next(err);
+        }
     },
 
     // Delete - Elimina Producto
 
     destroy: async (req, res) => {
-        
+        const product = await Productos.findByPk(req.params.id, {
+            include: [
+                {association: "bebidas"},
+                {association: "insumos"},
+                {association: "cursos"},
+                {association: "usuario"}                    
+                ]
+        });
+        console.log(`========== tipo de producto a borrar: ${product.tipoproducto} ==========`);
+                    
+            //bebida    
+            if(product.tipoproducto == 1){
+                await Bebidas.destroy({
+                    where: {
+                        productoId: product.id}
+                    });
+               
+            }
+            //insumo
+            if(product.tipoproducto == 2){
+                await Insumos.destroy({
+                    where: {
+                        productoId: product.id}
+                    });
+                
+            }
+            //curso   
+            if(product.tipoproducto == 3){
+                await Cursos.destroy({
+                    where: {
+                        productoId: product.id}
+                    });
+               
+            }
+            
         await Productos.destroy({
             where: {
                    id: req.params.id,

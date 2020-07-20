@@ -27,12 +27,14 @@ module.exports = (sequelize, DataTypes) => {
         //un usuario - muchas compras
         Usuarios.hasMany(models.Compras), {
             as: "compras",
-            foreignKey: "comprasId"
+            foreignKey: "comprasId",
+            onDelete: 'cascade'
         }
         //un usuario - muchos productos
         Usuarios.hasMany(models.Productos), {
             as: "productos",
-            foreignKey: "usuarioId"
+            foreignKey: "usuarioId",
+            onDelete: 'cascade'
         }
     })
 

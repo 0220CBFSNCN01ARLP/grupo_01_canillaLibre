@@ -166,42 +166,46 @@ const controller = {
 
     // Delete - Elimina Usuario
     deleteProfile: async (req, res) => {
-        let products = await Productos.findAll({
-            where: { usuarioId: req.params.id,
-            }
-        },{
-            include: [
-                {association: "bebidas"},
-                {association: "insumos"},
-                {association: "cursos"},
-                {association: "usuario"}                    
-                ]
-        });
-        console.log(`========== tipo de producto a borrar: ${products} ==========`);
-            for (product of products){
-                //bebida    
-                if(product.tipoproducto == 1){
-                    await Bebidas.destroy({
-                        where: {
-                            productoId: product.id}
-                        });
+        try{
+            let products = await Productos.findAll({
+                where: { usuarioId: req.params.id,
                 }
-                //insumo
-                if(product.tipoproducto == 2){
-                    await Insumos.destroy({
-                        where: {
-                            productoId: product.id}
-                        });
+            },{
+                include: [
+                    {association: "bebidas"},
+                    {association: "insumos"},
+                    {association: "cursos"},
+                    {association: "usuario"}                    
+                    ]
+            });
+            console.log(`========== tipo de producto a borrar: ${products} ==========`);
+                for (product of products){
+                    //bebida    
+                    if(product.tipoproducto == 1){
+                        await Bebidas.destroy({
+                            where: {
+                                productoId: product.id}
+                            });
+                    }
+                    //insumo
+                    if(product.tipoproducto == 2){
+                        await Insumos.destroy({
+                            where: {
+                                productoId: product.id}
+                            });
+                    }
+                    //curso   
+                    if(product.tipoproducto == 3){
+                        await Cursos.destroy({
+                            where: {
+                                productoId: product.id}
+                            });
+                    }
+                    product.destroy()
                 }
-                //curso   
-                if(product.tipoproducto == 3){
-                    await Cursos.destroy({
-                        where: {
-                            productoId: product.id}
-                        });
-                }
-                product.destroy()
-            }    
+            }catch (err){
+                next(err);
+            }            
         await Usuarios.destroy({
             where: {
                    id: req.params.id,

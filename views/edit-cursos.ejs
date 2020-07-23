@@ -86,19 +86,25 @@
                     <!-- Disertante -->
                     <div class="form-group col-8" id="disertante" >
                         <label for="disertante">Disertante</label>
-                        <input type="text" class="form-control"  placeholder="<%= curso.disertante  %>" aria-describedby="disertante" name="disertante" id="disertante" />
+                        <input type="text" 
+                        class="form-control"  
+                        value="<%= curso.disertante %>"
+                        placeholder="<%= curso.disertante %>" 
+                        aria-describedby="disertante" 
+                        name="disertante" 
+                        id="disertante" />
                     </div>
                     
                     <!-- medio -->
                     <div class="form-group col-4" id="medioId" >
                         <label for="sell_category">Medio</label>
-                        <select  class="form-control" name="medioId" id="medioId" >
+                        <select  class="form-control" name="medioId" id="medioId">
                             
-                            <option selected>Seleccione...</option>
+                            <option selected value="<%=curso.medioId%>"><%= curso.medio.nombre %></option>
                             
-                            <% for (let i= 0; i < medio.length; i++) { %> 
-                                <option value="<%= medio[i].id %>">
-                                    <%= medio[i].nombre %> 
+                            <% for (let i= 0; i < medios.length; i++) { %> 
+                                <option value="<%= medios[i].id %>">
+                                    <%= medios[i].nombre %> 
                                 </option>
                             <% } %> 
                                 
@@ -147,7 +153,7 @@
                             aria-describedby="sell_price" 
                             name="precioUnitario" 
                             id="precioUnitario" 
-                            value="<%= product.precioUnitario  %>"
+                            value="<%= product.precioUnitario %>"
                             placeholder="<%= product.precioUnitario %>" />
                     </div>
                     <!-- cantidad -->

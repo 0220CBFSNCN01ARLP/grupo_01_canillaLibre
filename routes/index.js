@@ -1,14 +1,20 @@
 var express = require("express");
 var router = express.Router();
 
+// ************ Models Require ************
+const { Productos } = require("../database/models");
+
+// ************ Middlewares Require ************
 const userMilddlware = require("../middlewares/userMiddlware");
 
 // ************ Controller Require ************
 const controller = require("../controllers/productsController");
 
 /* GET home page. */
-router.get("/", function (req, res, next) {
-    res.render("index", { title: "Express" });
+router.get("/", async (req, res, next) => {
+    const products = await Productos.findAll()
+    console.log("el producto del index es: " + products)
+    res.render("index", {products});
 });
 
 /* Product_cart*/

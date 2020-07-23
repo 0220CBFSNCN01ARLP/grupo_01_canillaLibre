@@ -163,14 +163,14 @@ const controller = {
 
             switch (product.tipoproducto){
                 case 1:
-                    const presentacion = await Presentacion.findAll();
+                    const envase = await Presentacion.findAll();
                     const bebida = await Bebidas.findOne({
                         where: {
                             productoId: product.id
                         },
                         include: [{association: "presentacion"}]
                         })
-                    return res.render("edit-bebidas", {product, bebida, presentacion});
+                    return res.render("edit-bebidas", {product, bebida, envase});
                 break;
                 case 2:
                     const insumo = await Insumos.findOne({
@@ -181,7 +181,7 @@ const controller = {
                     return res.render("edit-insumos", {product, insumo});
                 break;
                 case 3:
-                    const medio = await Medio.findAll();
+                    const medios = await Medio.findAll();
                     const curso = await Cursos.findOne({
                         where: {
                             productoId: product.id
@@ -189,7 +189,7 @@ const controller = {
                             include: [
                                     {association: "medio"}]
                     })
-                    return res.render("edit-cursos", {product, curso, medio });
+                    return res.render("edit-cursos", {product, curso, medios });
                 break;
                 default: 
                     console.log("no reconozco ninguna tabla");
@@ -201,8 +201,7 @@ const controller = {
     },
 
     // Update - Carga Formulario de Edición de Producto
-    update: async (req, res, next ) => {
-        
+    update: async (req, res, next) => {
         try{
             await Productos.update(
                 {
@@ -216,8 +215,8 @@ const controller = {
                     where: {
                         id: req.params.id}
                     });
-                // ver porque no actualiza la imagen    
-                if(req.body.filename){
+                
+                if(req.file){
                     await Productos.update({
                     imagen: req.file.filename,
                 },{
@@ -235,7 +234,8 @@ const controller = {
                         ]
                 });
                 console.log(`========== tipo de producto a editar: ${product.tipoproducto} ==========`);
-                    
+                const medios = await Medio.findAll();
+                const envase = await Presentacion.findAll();
                 //bebida    
                 if(product.tipoproducto == 1){
                     await Bebidas.update({
@@ -262,7 +262,7 @@ const controller = {
                         });
                     return res.redirect("/products/" + req.params.id);
                 } 
-                //curso   
+                //curso  
                 if(product.tipoproducto == 3){
                     await Cursos.update({
                         disertante: req.body.disertante,
@@ -313,7 +313,6 @@ const controller = {
                     where: {
                         productoId: product.id}
                     });
-               
             }
             
         await Productos.destroy({

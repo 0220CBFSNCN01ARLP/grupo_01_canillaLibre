@@ -83,21 +83,28 @@
                     <div class="form-group col-4">
                         <p class="mb-1">Marca</p>
                         <div class="custom-file">
-                            <input type="text" class="form-control" id="title_sell" aria-describedby="sell_title" id="marca" name="marca" placeholder="<%= bebida.marca %>"/>  
+                            <input type="text" 
+                            class="form-control" 
+                            id="title_sell" 
+                            aria-describedby="sell_title" 
+                            id="marca" 
+                            name="marca" 
+                            placeholder="<%= bebida.marca %>" 
+                            value="<%=bebida.marca%>"/>  
                             
                         </div>
                     </div>
                     <div class="form-group col-4" id="ibu">
                         <p class="mb-1">Ibu</p>
                         <div class="custom-file">
-                            <input type="number" class="form-control" aria-describedby="sell_title"  name="ibu" placeholder="<%= bebida.ibu %>"/>  
+                            <input type="number" class="form-control" aria-describedby="sell_title"  name="ibu" placeholder="<%= bebida.ibu %>" value="<%= bebida.ibu %>"/>  
                             
                         </div>
                     </div>
                     <div class="form-group col-4" id="alcohol">
                         <p class="mb-1">Alcohol %</p>
                         <div class="custom-file">
-                            <input type="number" class="form-control"  aria-describedby="sell_title" id="alcohol" name="alcohol" placeholder="<%= bebida.alcohol %>"/>
+                            <input type="number" class="form-control"  aria-describedby="sell_title" id="alcohol" name="alcohol" placeholder="<%= bebida.alcohol %>" value="<%= bebida.alcohol %>"/>
                             
                         </div>
                     </div>
@@ -132,14 +139,14 @@
                     </div>
                     <!-- presentacion -->
                     <div class="form-group col-4" id="presentacion">
-                        <label for="sell_container" required>Presentación</label>
-                        <select class="form-control" name="presentacion" id="presentacion" >
+                        <label for="sell_container">Presentación</label>
+                        <select class="form-control" name="presentacion" id="presentacion">
                                 
-                            <option selected>Seleccione...</option>
+                            <option selected value="<%=bebida.presentacionId%>"><%=bebida.presentacion.nombre%></option>
                             
-                            <% for (let i= 0; i < presentacion.length; i++) { %> 
-                                <option value="<%= presentacion[i].id %>">
-                                    <%= presentacion[i].nombre %> - <%= presentacion[i].capacidad %>
+                            <% for (let i= 0; i < envase.length; i++) { %> 
+                                <option value="<%= envase[i].id %>">
+                                    <%= envase[i].nombre %> - <%= envase[i].capacidad %>
                                 </option>
                             <% } %> 
                                 
@@ -183,19 +190,35 @@
                     <!-- precio -->
                     <div class="form-group col-3">
                         <label for="sell_price"><i class="fas fa-hand-holding-usd"></i> Precio Unidad</label>
-                        <input type="number" class="form-control" placeholder="<%= product.precioUnitario %>"
-                            aria-describedby="sell_price" name="precioUnitario" id="precioUnitario" />
+                        <input type="number" 
+                        class="form-control" 
+                        value="<%= product.precioUnitario %>"
+                        placeholder="<%= product.precioUnitario %>"
+                        aria-describedby="sell_price" 
+                        name="precioUnitario" 
+                        id="precioUnitario" />
                     </div>
                     <!-- cantidad -->
                     <div class="form-group col-3">
                         <label for="sell_quantity">Stock</label>
-                        <input type="number" class="form-control"  placeholder="<%= product.stock %>" aria-describedby="sell_quantity"
-                            name="stock" id="stock"/>
+                        <input type="number" 
+                        class="form-control" 
+                        value="<%= product.stock %>" 
+                        placeholder="<%= product.stock %>" 
+                        aria-describedby="sell_quantity"
+                        name="stock" 
+                        id="stock"/>
                     </div>
                     <!-- descuento -->
                     <div class="form-group col-3">
                         <label for="sell_discount"><i class="fas fa-percentage"></i> Descuento </label>
-                        <input type="number" class="form-control"  placeholder="<%= product.descuento %>" aria-describedby="sell_discount" name="descuento" id="descuento"/>
+                        <input type="number" 
+                        class="form-control"  
+                        value="<%= product.descuento %>"
+                        placeholder="<%= product.descuento %>" 
+                        aria-describedby="sell_discount" 
+                        name="descuento" 
+                        id="descuento"/>
                     </div>
                 </div>
 

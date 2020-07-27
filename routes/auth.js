@@ -36,11 +36,11 @@ router.post(
 	upload.single("avatar"),
 	[
 		check("firstname")
-			.isLength({ min: 5 })
-			.withMessage("Este campo debe estar completo"),
+			.isLength({ min: 2 })
+			.withMessage("El campo nombre no puede tenes menos de 2 caracteres"),
 		check("lastname")
-			.isLength({ min: 5 })
-			.withMessage("Este campo debe estar completo"),
+			.isLength({ min: 2 })
+			.withMessage("El campo apellido no puede tenes menos de 2 caracteres"),
 		check("email").isEmail().withMessage("Debe ser un email valido"),
 		//implementar middleware q calcule la edad minima requerida
 		//check("age")

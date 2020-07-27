@@ -9,6 +9,7 @@ var session = require("express-session");
 var indexRouter = require("./routes/index");
 const authRouter = require("./routes/auth"); //rutas /auth /Registro
 const productsRouter = require("./routes/products"); // Rutas /products
+const carritoRouter = require("./routes/carrito"); // Rutas /products
 const methodOverride = require("method-override"); // Para poder usar los métodos PUT y DELETE
 const vieweUsrLog = require("./middlewares/viewUsrLog");
 const recordarmeMiddleware = require ("./middlewares/recordarmeMiddleware");
@@ -20,6 +21,9 @@ var app = express();
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
+app.locals.toThousand = (n) =>
+	n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+
 
 //uses/
 app.use(logger("dev"));
@@ -38,6 +42,7 @@ app.use(methodOverride("_method"));
 app.use("/", indexRouter);
 app.use("/auth", authRouter);
 app.use("/products", productsRouter);
+app.use("/carrito", carritoRouter);
 app.use("/api", apiProducts);
 app.use("/api", apiAuth);
 

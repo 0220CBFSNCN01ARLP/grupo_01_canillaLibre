@@ -29,9 +29,9 @@
             
                 <div class="col-6 border-left">
                     <!--cantidad-->
-                    <h5 class="font-weight-light">Cantidad en Stock: <strong><%= product.stock %></strong></h4> 
+                    <h5 id="cantidad" class="font-weight-light">Cantidad en Stock: <strong><%= product.stock %></strong></h4> 
                     <!--precio-->
-                    <h5 class="font-weight-light"> Precio : <strong>$ <%= product.precioUnitario %></strong></h5>
+                    <h5 id="precio" class="font-weight-light"> Precio : <strong>$ <%= product.precioUnitario %></strong></h5>
                     <!--descuento-->
                     <span class=" bg-success text-white rounded-pill pr-2 pl-2 pt-1 pb-1">Descuento <%= product.descuento %>% <i class="fa fa-tag"></i></span>
                     <!--rating-->
@@ -46,22 +46,27 @@
                 </div>
             </div>
             <div class="row d-flex justify-content-center">
-                <small class="text-muted">
-                    <div class="dropdown-divider"></div>
-                    <i class="far fa-address-card"></i> usuario vendedor id: <%= product.usuario.id %></br>
-                    <div class="dropdown-divider"></div>
-                </small> 
+              <small class="text-muted">
+                <div class="dropdown-divider"></div>
+                <i class="far fa-address-card"></i> usuario vendedor id: <%= product.usuario.id %></br>
+                <div class="dropdown-divider"></div>
+              </small> 
             </div>
-
+            
             <!-- comprar / agregar al carrito -->
+            
             <div class="col-12 d-flex justify-content-center mt-2 mb-3">
-              <button type="submit" class="btn btn-outline-warning mr-2">
+              <form action="/carrito/<%= product.id%>" method="POST">
+              <button id="btn-carrito" type="submit" class="btn btn-outline-warning mr-2">
                 <i class="fa fa-shopping-cart"></i> Agregar al Carrito
               </button>
               <button type="submit" class="btn btn-outline-warning ml-2">
                 Comprar
               </button>
+              </form>
             </div>
+            
+
            
             <!--detalle de bebida-->
             <div class="row p-0 m-auto border-secondary p-4">
@@ -112,6 +117,6 @@
     <!--footer-->
     <%- include("partials/footer") %>
 
-
+    
   </body>
 </html>

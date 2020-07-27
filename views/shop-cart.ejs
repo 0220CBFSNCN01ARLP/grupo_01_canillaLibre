@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include("partials/head", {title: "Registro"}) %>
+
+  <body class="bg_color">
+    <!--header/javi -->
+    <%- include("partials/header") %>
+
+    <!-- carrito/javi-->
+    
+    <section class="container bg-white mb-5 rounded-top">
+      <div class="row">
+        <!--Titulo-->
+        <article class="col-12 text-center mt-3">
+          <h2 class="title_categoria border-bottom">
+            <i class="fas fa-shopping-cart text-secondary"></i> - Carrito
+          </h2>
+        </article>
+        <div class="dropdown-divider"></div>
+        <% for( let i = 0; i < carrito.length; i++ ) { %>
+
+          
+
+        <!--Primer Producto en el carro-->
+        <article class="Product_cart col-12">
+          <div class="item-cart">
+            <!--imagen link a producto-->
+            <div
+              class="media align-items-center p-3 d-flex justify-content-between"
+            >
+              <a class="col-1 col-md-2 ml-2" href="#prduct_detail">
+                <img id="imagen_producto"
+                  src="/upload/<%= carrito[i].imagen %>"
+                  class="mr-3 w-100"
+                  alt="..."
+                />
+              </a>
+              <div class="col-5 media-body border-left pl-4">
+                <h5 class="mt-0"><%= carrito[i].nombre  %></h5>
+                <p><%= carrito[i].descripcion  %></p>
+                <h6 class="mt-0 text-info"><%= carrito[i].ibu %></h6>
+              </div>
+              <div
+                class="col-3 media-body d-flex justify-content-center align-items-stretch"
+              >
+                <!--cantidad // ver que significa todo ese choclo-->
+                <form
+                  class="cantidad_item rounded"
+                  action="cantidad_item"
+                  method="POST"
+                >
+                  <div class="def-number-input number-input safari_only">
+                    <button
+                      onclick="this.parentNode.querySelector('input[type=number]').stepDown()"
+                      class="minus"
+                    ></button>
+                    <input
+                      class="quantity"
+                      min="0"
+                      name="quantity"
+                      value="1"
+                      type="number"
+                    />
+                    <button
+                      onclick="this.parentNode.querySelector('input[type=number]').stepUp()"
+                      class="plus"
+                    ></button>
+                  </div>
+                </form>
+              </div>
+              <!--precio-->
+              <div class="col-1 media-body justify-content-end">
+                <div id="precio" class="price_item">
+                  <span class="price_uni_item">
+                    <span class="price_symbol">$</span
+                    ><span  class="price_tag_total">1000</span>
+                  </span>
+                </div>
+              </div>
+              <form action="/products/" method="POST">
+              <div class="col-1 media-body justify-content-end">
+                <button type="button" class="btn btn-warning">
+                    <span class="glyphicon glyphicon-remove"></span> <i class="far fa-trash-alt"></i>
+                </button>
+              </div>
+              </form>
+            </div>
+            <div class="dropdown-divider"></div>
+          </div>
+        </article>
+
+          <% } %>
+       
+        <article
+          class="price_total media col-12 col-sm-12 p-3 justify-content-center border-bottom"
+        >
+          <div class="col-11 col-lg-10 col-sm-4 text-right">
+            <p class="text-secondary">Total</p>
+            <h6 class="text-info">Descuento <strong>20%</strong></h6>
+            <h4 class="mt-0 text-warning">Total</h4>
+          </div>
+          <div class="col-1 col-lg-2 col-sm-4 text-left border-left">
+            <p class="text-secondary">
+                 $<%= toThousand(carrito.precioUnitario - (carrito.precioUnitario * (0/100))) %>
+            </p>
+            <h6 class="text-info"><strong>$ 623.20</strong></h6>
+            <h4 class="mt-0 text-warning">$ 2492.80</h4>
+          </div>
+        </article>
+        <article
+          class="comprar media bg-warning col-12 col-sm-12 p-3 ml-auto align-items-center rounded-bottom"
+        >
+          <div class="w-100 d-flex justify-content-center">
+            <!-- boton registrarse -->
+            <button type="submit" class="btn btn-light d-flex">Comprar</button>
+          </div>
+        </article>
+       
+      </div>
+    </section>
+
+    <!--footer/fran -->
+    <%- include("partials/footer") %>
+
+   
+  </body>
+</html>

@@ -55,13 +55,15 @@
 
                 <!-- comprar / agregar al carrito -->
                 <div class="col-12 d-flex justify-content-center mb-3">
-                <button type="submit" class="btn btn-outline-warning mr-2">
-                    <i class="fa fa-shopping-cart"></i> Agregar al Carrito
-                </button>
-                <button type="submit" class="btn btn-outline-warning ml-2">
-                    Comprar
-                </button>
-                </div>
+                     <form action="/carrito/<%= product.id%>" method="POST">
+                        <button type="submit" class="btn btn-outline-warning mr-2">
+                            <i class="fa fa-shopping-cart"></i> Agregar al Carrito
+                        </button>
+                        <button type="submit" class="btn btn-outline-warning ml-2">
+                            Comprar
+                        </button>
+                        </div>
+                </form>
                 
                 <!--detalle de insumo-->
                 <div class="row p-0 ml-3 mr-auto border-secondary p-4">

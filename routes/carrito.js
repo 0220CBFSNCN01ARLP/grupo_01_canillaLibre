@@ -16,6 +16,7 @@ router.get("/", carritoController.allshopcart);
 router.post("/:id", carritoController.addshopcart);
 
 //Elimar producto del carrito de compras
+router.delete("/:id/delete", carritoController.deletefromshopcart);
 // router.post("/carrito", carritoController.deletefromshopcart); /* DELETE */
 
 module.exports = router;

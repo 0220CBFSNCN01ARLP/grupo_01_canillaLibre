@@ -50,21 +50,12 @@
                   method="POST"
                 >
                   <div class="def-number-input number-input safari_only">
-                    <button
-                      onclick="this.parentNode.querySelector('input[type=number]').stepDown()"
-                      class="minus"
-                    ></button>
+                    
                     <input
-                      class="quantity"
-                      min="0"
-                      name="quantity"
-                      value="1"
-                      type="number"
+                      class="input" type="number" class="form-control" id="cantidad" value="3"
+                      
                     />
-                    <button
-                      onclick="this.parentNode.querySelector('input[type=number]').stepUp()"
-                      class="plus"
-                    ></button>
+                    
                   </div>
                 </form>
               </div>
@@ -73,17 +64,25 @@
                 <div id="precio" class="price_item">
                   <span class="price_uni_item">
                     <span class="price_symbol">$</span
-                    ><span  class="price_tag_total">1000</span>
+                    ><span  class="price_tag_total"><%= carrito[i].precioUnitario %></span>
                   </span>
                 </div>
               </div>
-              <form action="/products/" method="POST">
               <div class="col-1 media-body justify-content-end">
+                <div id="precio" class="price_item">
+                  <span class="price_uni_item">
+                    <span class="price_symbol">$</span
+                    ><span  name="totalitem" class="price_tag_total"><%= carrito[i].precioUnitario * (4)%></span>
+                  </span>
+                </div>
+              </div>
+              <div class="col-1 media-body justify-content-end">               
+                <form action="/carrito/<%= carrito[i].id %>/delete?_method=delete" method="POST">
                 <button type="button" class="btn btn-warning">
                     <span class="glyphicon glyphicon-remove"></span> <i class="far fa-trash-alt"></i>
                 </button>
               </div>
-              </form>
+              </form>              
             </div>
             <div class="dropdown-divider"></div>
           </div>

@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <%- include("partials/head", {title: "Detalle de Producto"}) %>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css" />
   </head>
 
   <body class="bg_color">
@@ -29,9 +30,9 @@
             
                 <div class="col-6 border-left">
                     <!--cantidad-->
-                    <h5 id="cantidad" class="font-weight-light">Cantidad en Stock: <strong><%= product.stock %></strong></h4> 
+                    <h5 class="font-weight-light">Cantidad en Stock: <strong><%= product.stock %></strong></h4> 
                     <!--precio-->
-                    <h5 id="precio" class="font-weight-light"> Precio : <strong>$ <%= product.precioUnitario %></strong></h5>
+                    <h5 class="font-weight-light"> Precio : <strong>$ <%= product.precioUnitario %></strong></h5>
                     <!--descuento-->
                     <span class=" bg-success text-white rounded-pill pr-2 pl-2 pt-1 pb-1">Descuento <%= product.descuento %>% <i class="fa fa-tag"></i></span>
                     <!--rating-->
@@ -46,26 +47,50 @@
                 </div>
             </div>
             <div class="row d-flex justify-content-center">
-              <small class="text-muted">
-                <div class="dropdown-divider"></div>
-                <i class="far fa-address-card"></i> usuario vendedor id: <%= product.usuario.id %></br>
-                <div class="dropdown-divider"></div>
-              </small> 
+                <small class="text-muted">
+                    <div class="dropdown-divider"></div>
+                    <i class="far fa-address-card"></i> usuario vendedor id: <%= product.usuario.id %></br>
+                    <div class="dropdown-divider"></div>
+                </small> 
+            </div>
+
+            <div class="modal animate__bounceIn" tabindex="-1" role="dialog" id="ventana-modal" >
+              <div class="modal-dialog modal-dialog-centered modal-xs">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title">Carrito de compras</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <p>El producto seleccionado, ha sido agregado al carrito</p>
+                  </div>
+                  <div class="modal-footer">
+                    <a href="/products">
+                      <button type="submit" class="btn btn-secondary" data-dismiss="modal"><i class="fas fa-beer"></i> Seguir comprando</button>
+                    </a>
+                    <a href="/carrito">
+                      <button type="submit" class="btn btn-primary"> <i class="fas fa-shopping-basket"></i> Ir a carrito</button>
+                    </a>
+                  </div>
+                </div>
+              </div>
             </div>
             
+
             <!-- comprar / agregar al carrito -->
-            
             <div class="col-12 d-flex justify-content-center mt-2 mb-3">
-              <form action="/carrito/<%= product.id%>" method="POST">
-              <button id="btn-carrito" type="submit" class="btn btn-outline-warning mr-2">
-                <i class="fa fa-shopping-cart"></i> Agregar al Carrito
-              </button>
+              <a href="#">
+                <button type="submit" class="btn btn-outline-warning mr-2" id="btnModal">
+                  <i class="fa fa-shopping-cart"></i> Agregar al Carrito
+                </button>
+              </a>
               <button type="submit" class="btn btn-outline-warning ml-2">
                 Comprar
               </button>
-              </form>
             </div>
-            
+
 
            
             <!--detalle de bebida-->
@@ -87,6 +112,7 @@
                 </ul>   
             </div>
             <div class="row pl-4 pr-4 pt-4 m-auto">
+
                     <!--descripción de producto-->
                     <div class="list-group col-12 p-0 m-auto border-secondary">
                     <div class="list-group-item">
@@ -117,6 +143,16 @@
     <!--footer-->
     <%- include("partials/footer") %>
 
-    
+
+    <script src="/js/btnAgregarCarrito.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+      integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
+
   </body>
 </html>

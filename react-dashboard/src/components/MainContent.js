@@ -2,6 +2,7 @@ import React from "react";
 import Avatar from "../assets/images/dummy-avatar.jpg"
 import Product from "../assets/images/asadoyquilmes.jpg"
 
+
 export default function MainContent() {
     return (
         <div id="content">
@@ -55,6 +56,7 @@ export default function MainContent() {
                                 className="img-profile rounded-circle"
                                 src={Avatar}
                                 width="60"
+                                alt="avatar-image"
                             />
                         </a>
                     </li>
@@ -93,7 +95,7 @@ export default function MainContent() {
                                 <div className="row no-gutters align-items-center">
                                     <div className="col mr-2">
                                         <div className="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                            Cantidad de Productos
+                                            Haberes en Productos
                                         </div>
                                         <div className="h5 mb-0 font-weight-bold text-gray-800">
                                             $546.456 {/* modificar dato con api */}
@@ -140,12 +142,12 @@ export default function MainContent() {
                                 <div className="text-center">
                                     <img
                                         className="img-fluid px-3 px-sm-4 mt-3 mb-4"
-                                        style={{ width: "25rem" }}
+                                        style={{ width: "30rem" }}
                                         src={Product}
-                                        alt="image dummy"
+                                        alt="product-image"
                                     />
                                 </div>
-                                <p>
+                                <p className="p-3 text-justify">
                                 Luego de lanzar de manera exclusiva la variedad roja en el Restaurant 
                                 del Parque Cervecero y en los Clásicos (bares propios de la marca), 
                                 Quilmes escuchó a sus consumidores que la aclamaban y sumó a su portfolio 
@@ -171,43 +173,25 @@ export default function MainContent() {
                                 <div className="row">
                                     <div className="col-lg-6 mb-4">
                                         <div className="card bg-warning text-white shadow">
-                                            <div className="card-body">
-                                                Categoría 01
+                                            <div className="card-body"><i class="fas fa-beer"></i>  Bebidas
                                             </div>
                                         </div>
                                     </div>
                                     <div className="col-lg-6 mb-4">
                                         <div className="card bg-warning text-white shadow">
-                                            <div className="card-body">
-                                                Categoría 02
+                                            <div className="card-body"><i class="fas fa-boxes"></i>  Insumos
                                             </div>
                                         </div>
                                     </div>
                                     <div className="col-lg-6 mb-4">
                                         <div className="card bg-warning text-white shadow">
-                                            <div className="card-body">
-                                                Categoría 03
+                                            <div className="card-body"><i class="fab fa-discourse"></i>  Cursos
                                             </div>
                                         </div>
                                     </div>
                                     <div className="col-lg-6 mb-4">
                                         <div className="card bg-warning text-white shadow">
-                                            <div className="card-body">
-                                                Categoría 04
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="col-lg-6 mb-4">
-                                        <div className="card bg-warning text-white shadow">
-                                            <div className="card-body">
-                                                Categoría 05
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="col-lg-6 mb-4">
-                                        <div className="card bg-warning text-white shadow">
-                                            <div className="card-body">
-                                                Categoría 06
+                                            <div className="card-body"><i class="fas fa-users"></i>  Vendedores
                                             </div>
                                         </div>
                                     </div>

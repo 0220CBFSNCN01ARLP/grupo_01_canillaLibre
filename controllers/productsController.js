@@ -23,9 +23,8 @@ const controller = {
         const presentacion = await Presentacion.findAll();
         const medio = await Medio.findAll();
         
-            console.log(validationResult(req));
-            let errors = validationResult(req);
-       
+        console.log(validationResult(req));
+        let errors = validationResult(req);        
         
         if (errors.isEmpty()) {
             try {  
@@ -150,8 +149,6 @@ const controller = {
 
     edit: async (req, res) => {
         try {
-            const presentacion = await Presentacion.findAll();
-            const medio = await Medio.findAll();
             const product = await Productos.findByPk(req.params.id, {
                 include: [
                     {association: "bebidas"},

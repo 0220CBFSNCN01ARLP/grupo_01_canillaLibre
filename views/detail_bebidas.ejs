@@ -59,7 +59,7 @@
           </small>
         </div>
 
-        <div class="modal animate__bounceIn" tabindex="-1" role="dialog" id="ventana-modal">
+      <div class="modal animate__bounceIn" tabindex="-1" role="dialog" id="ventana-modal">
           <div class="modal-dialog modal-dialog-centered modal-xs">
             <div class="modal-content">
               <div class="modal-header">
@@ -76,26 +76,26 @@
                   <button type="submit" class="btn btn-secondary" data-dismiss="modal"><i class="fas fa-beer"></i>
                     Seguir comprando</button>
                 </a>
-                <a href="/carrito">
-                  <button type="submit" class="btn btn-primary"> <i class="fas fa-shopping-basket"></i> Ir a
-                    carrito</button>
-                </a>
+                <form action="/carrito/<%= product.id%>" method="POST">
+                  <a href="/carrito">
+                    <button type="submit"  class="btn btn-primary"> <i class="fas fa-shopping-basket"></i> Ir a
+                      carrito</button>
+                  </a>
+                </form>
               </div>
             </div>
           </div>
-        </div>
-
-
+      </div>
+ 
         <!-- comprar / agregar al carrito -->
         <div class="col-12 d-flex justify-content-center mt-2 mb-3">
-          <a href="#">
+
             <button type="submit" class="btn btn-outline-warning mr-2" id="btnModal">
               <i class="fa fa-shopping-cart"></i> Agregar al Carrito
             </button>
-          </a>
-          <button type="submit" class="btn btn-outline-warning ml-2">
-            Comprar
-          </button>
+            <button type="submit" class="btn btn-outline-warning ml-2">
+              Comprar
+            </button>
         </div>
 
 

@@ -1,12 +1,13 @@
-var createError = require("http-errors");
-var express = require("express");
-var path = require("path");
-var cookieParser = require("cookie-parser");
-var logger = require("morgan");
-var session = require("express-session");
+const createError = require("http-errors");
+const express = require("express");
+const path = require("path");
+const cookieParser = require("cookie-parser");
+const logger = require("morgan");
+const session = require("express-session");
+const cors = require("cors");
 
 // routes
-var indexRouter = require("./routes/index");
+const indexRouter = require("./routes/index");
 const authRouter = require("./routes/auth"); //rutas /auth /Registro
 const productsRouter = require("./routes/products"); // Rutas /products
 const methodOverride = require("method-override"); // Para poder usar los métodos PUT y DELETE
@@ -15,7 +16,7 @@ const recordarmeMiddleware = require ("./middlewares/recordarmeMiddleware");
 const apiProducts = require("./routes/api/products");
 const apiAuth = require("./routes/api/auth");
 
-var app = express();
+const app = express();
 
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
@@ -28,6 +29,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(session({ secret: "SecretBeer" }));
 app.use(vieweUsrLog);
+app.use(cors("*"));
 
 
 

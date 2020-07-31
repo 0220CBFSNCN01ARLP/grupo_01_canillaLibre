@@ -12,6 +12,9 @@ router.get("/products", controller.allproducts);
 //Detalle de un producto
 router.get("/products/:id", controller.detailproduct);
 
+//ultimo producto
+router.get("/products", controller.lastproduct);
+
 //Borrar un producto
 router.delete("/products/:id", controller.destroyOne);
 

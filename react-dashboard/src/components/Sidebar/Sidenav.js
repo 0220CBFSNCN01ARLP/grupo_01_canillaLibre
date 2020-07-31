@@ -10,7 +10,10 @@ export default function Sidenav() {
             className="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion"
             id="accordionSidebar"
         >
-            <SidenavBrand />
+            <SidenavBrand 
+            label ="Administrador"
+            icon="fa-tools"
+            />
             <SidenavDivider />
             <SidenavLink
                 active

@@ -94,6 +94,13 @@ const controller = {
         }
     },
 
+    lastproduct: async (req, res) => {
+        const product = await Productos.findAll();
+        let ultimoProduct = product;
+        console.log("================================"+ultimoProduct)
+        res.send(ultimoProduct);
+    },
+
     destroyOne: async (req,res) => {
         const product = await Productos.findByPk(req.params.id, {
             include: [
@@ -138,7 +145,6 @@ const controller = {
         });
             res.send("El producto está eliminado!");
     },
-    
     
 }
 

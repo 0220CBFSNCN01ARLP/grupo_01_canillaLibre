@@ -1,156 +1,159 @@
 const fs = require("fs");
 
-const { Productos, Bebidas, Insumos, Cursos } = require("../../database/models");
+const {
+  Productos,
+  Bebidas,
+  Insumos,
+  Cursos,
+} = require("../../database/models");
 
 const controller = {
+  // Read - Muestra todos los Productos
 
-    // Read - Muestra todos los Productos
+  allproducts: async (req, res) => {
+    const productos = await Productos.findAll();
+    let bebidas = 0;
+    let insumos = 0;
+    let cursos = 0;
+    const plainProduct = productos.map((product) => {
+      if (product.tipoproducto === 1) {
+        bebidas++;
+        return {
+          id: product.id,
+          nombre: product.nombre,
+          descripcion: product.descripcion,
+          imagen: product.imagen,
+          stock: product.stock,
+          precio: product.precioUnitario,
+          descuento: product.descuento,
+          tipoproducto: "bebida",
+        };
+      }
+      if (product.tipoproducto === 2) {
+        insumos++;
+        return {
+          id: product.id,
+          nombre: product.nombre,
+          descripcion: product.descripcion,
+          imagen: product.imagen,
+          stock: product.stock,
+          precio: product.precioUnitario,
+          descuento: product.descuento,
+          tipoproducto: "insumo",
+        };
+      }
+      if (product.tipoproducto === 3) {
+        cursos++;
+        return {
+          id: product.id,
+          nombre: product.nombre,
+          descripcion: product.descripcion,
+          imagen: product.imagen,
+          stock: product.stock,
+          precio: product.precioUnitario,
+          descuento: product.descuento,
+          tipoproducto: "curso",
+        };
+      }
+    });
 
-    allproducts: async (req, res) => {
-        const productos = await Productos.findAll();
-        let bebidas = 0;
-        let insumos = 0;
-        let cursos = 0;
-        const plainProduct = productos.map((product) => {
-            
-            if(product.tipoproducto === 1){
-                bebidas++;
-                return {
-                    id: product.id,
-                    nombre: product.nombre,
-                    descripcion: product.descripcion,
-                    imagen: product.imagen,
-                    stock: product.stock,
-                    precio: product.precioUnitario,
-                    descuento: product.descuento,
-                    tipoproducto: "bebida"
-                };
-            }
-            if(product.tipoproducto === 2){
-                insumos++;
-                return {
-                    id: product.id,
-                    nombre: product.nombre,
-                    descripcion: product.descripcion,
-                    imagen: product.imagen,
-                    stock: product.stock,
-                    precio: product.precioUnitario,
-                    descuento: product.descuento,
-                    tipoproducto: "insumo"
-                };
-            }
-            if(product.tipoproducto === 3){
-                cursos++;
-                return {
-                    id: product.id,
-                    nombre: product.nombre,
-                    descripcion: product.descripcion,
-                    imagen: product.imagen,
-                    stock: product.stock,
-                    precio: product.precioUnitario,
-                    descuento: product.descuento,
-                    tipoproducto: "curso"
-                };
-            }
-            
-        });
+    res.send({
+      countProducts: plainProduct.length,
+      bebidas: bebidas,
+      insumos: insumos,
+      cursos: cursos,
+      products: plainProduct,
+    });
+  },
 
+  detailproduct: async (req, res) => {
+    try {
+      const product = await Productos.findByPk(req.params.id, {
+        include: [
+          { association: "bebidas" },
+          { association: "insumos" },
+          { association: "cursos" },
+          { association: "usuario" },
+        ],
+      });
 
-        
-        res.send({
-            countProducts: plainProduct.length,
-            bebidas:bebidas, 
-            insumos:insumos,
-            cursos: cursos, 
-            products: plainProduct});
-    },
+      if (!product) {
+        return res.status(404).json({ msg: "No se encontró el producto" });
+      }
 
-    detailproduct: async (req, res) => {
-        try {
-            const product = await Productos.findByPk(req.params.id, {
-                include: [
-                    {association: "bebidas"},
-                    {association: "insumos"},
-                    {association: "cursos"},
-                    {association: "usuario"}                    
-                    ]
-            });
-            
-            if(!product){
-                return res.status(404).json({msg: "No se encontró el producto"});
-            }
+      const dataProduct = product.get({ plain: true }); //convierte el objeto de productos en plain (sin atributos)
 
-            const dataProduct = product.get({plain: true}); //convierte el objeto de productos en plain (sin atributos)
+      delete dataProduct.usuario.password;
+      delete dataProduct.usuario.fecha_nacimiento;
 
-            delete dataProduct.usuario.password;
-            delete dataProduct.usuario.fecha_nacimiento;
+      console.log(dataProduct);
 
-            console.log(dataProduct)
+      return res.send(dataProduct);
+    } catch (error) {
+      return res.status(500).json({ error: true });
+    }
+  },
 
-            return res.send(dataProduct);
+  lastproduct: async (req, res) => {
+    const products = await Productos.findAll();
 
-        } catch (error) {
-            return res.status(500).json({error: true});
-        }
-    },
+    let ultimoProduct = products.pop();
+    console.log("================================" + ultimoProduct);
+    res.send(ultimoProduct);
+  },
 
-    lastproduct: async (req, res) => {
-        const product = await Productos.findAll();
-        let ultimoProduct = product;
-        console.log("================================"+ultimoProduct)
-        res.send(ultimoProduct);
-    },
+  destroyOne: async (req, res) => {
+    const product = await Productos.findByPk(
+      req.params.id,
+      {
+        include: [
+          { association: "bebidas" },
+          { association: "insumos" },
+          { association: "cursos" },
+          { association: "usuario" },
+        ],
+      },
+      {
+        where: {
+          id: req.params.id,
+        },
+      }
+    );
+    if (!product) {
+      return res.status(404).json({ msg: "No se encontró el producto" });
+    }
+    //bebida
+    if (product.tipoproducto == 1) {
+      await Bebidas.destroy({
+        where: {
+          productoId: product.id,
+        },
+      });
+    }
+    //insumo
+    if (product.tipoproducto == 2) {
+      await Insumos.destroy({
+        where: {
+          productoId: product.id,
+        },
+      });
+    }
+    //curso
+    if (product.tipoproducto == 3) {
+      await Cursos.destroy({
+        where: {
+          productoId: product.id,
+        },
+      });
+    }
 
-    destroyOne: async (req,res) => {
-        const product = await Productos.findByPk(req.params.id, {
-            include: [
-                {association: "bebidas"},
-                {association: "insumos"},
-                {association: "cursos"},
-                {association: "usuario"}                    
-                ]
-        },{
-            where: {
-            id: req.params.id,}
-        });
-        if(!product){
-            return res.status(404).json({msg: "No se encontró el producto"});
-        }
-            //bebida    
-            if(product.tipoproducto == 1){
-                await Bebidas.destroy({
-                    where: {
-                        productoId: product.id}
-                    });
-            }
-            //insumo
-            if(product.tipoproducto == 2){
-                await Insumos.destroy({
-                    where: {
-                        productoId: product.id}
-                    });
-            }
-            //curso   
-            if(product.tipoproducto == 3){
-                await Cursos.destroy({
-                    where: {
-                        productoId: product.id}
-                    });
-            }
-            
-        product.destroy({
-            where: {
-                   id: req.params.id,
-            },
-        });
-            res.send("El producto está eliminado!");
-    },
-    
-}
+    product.destroy({
+      where: {
+        id: req.params.id,
+      },
+    });
+    res.send("El producto está eliminado!");
+  },
+};
 
 module.exports = controller;
-
-
-
-
-

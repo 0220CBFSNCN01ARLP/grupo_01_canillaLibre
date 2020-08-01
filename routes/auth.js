@@ -86,6 +86,8 @@ router.get("/logout", authController.logout);
 //Profile //Read
 router.get("/profile", userMiddlware, authController.showProfile);
 
+//Profile //Publicaciones
+router.get("/myPublications", userMiddlware, authController.myPublications);
 
 //Profile //Update
 router.get("/editar/:id", authController.editProfile);

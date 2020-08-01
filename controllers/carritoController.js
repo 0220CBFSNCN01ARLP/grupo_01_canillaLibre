@@ -9,7 +9,10 @@ const {
     Presentacion,
     Medio,
     Usuarios,
+    Sequelize
 } = require("../database/models");
+
+const Op = Sequelize.Op; 
 
 const carritoController = {
     addshopcart: async (req, res) => {
@@ -25,22 +28,35 @@ const carritoController = {
         }
         if (usuarioLogueado.email != product.usuario.email) {
         
+            //req.session.carrito.push(product)
+            
             req.session.carrito.push({
                 id: product.id,
                 cantidad: 1
             });
         
+            //res.render("shop-cart", { carrito: req.session.carrito });    
         res.redirect("/carrito");
         // res.send(carrito) // modal que avise que se cargo producto xx al carrito
         } else {
         res.send("El usuario logueado no puede comprar sus propios productos");
         }
     },
-    allshopcart: (req, res) => {
+    allshopcart: async (req, res) => {
+        
         if(!req.session.carrito){
             req.session.carrito=[];
         }
-        res.render("shop-cart", { carrito: req.session.carrito });
+        let items = req.session.carrito.map((e)=>{
+            return e.id;
+        })
+
+        const carrito = await Productos.findAll({
+            where: {
+                id: {[Op.in]:items}
+            }
+        })
+        res.render("shop-cart", { carrito });
     },
   
     deletefromshopcart: async (req, res) => {

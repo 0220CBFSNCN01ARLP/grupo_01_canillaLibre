@@ -137,6 +137,21 @@ const controller = {
         //console.log(user);
     },
 
+    myPublications: async (req, res) => {
+               
+        //     let products = await Productos.findAll({
+        //         include: [
+        //             {association: "bebidas"},
+        //             {association: "insumos"},
+        //             {association: "cursos"},
+        //             {association: "usuario"}                    
+        //             ]
+        //     });
+                
+             
+        // return res.render("myPublications", {products});
+    },
+
     editProfile: async (req, res) => {
         const user = await Usuarios.findByPk(req.params.id);
         return res.render("profileEdit", { user });

@@ -39,20 +39,20 @@ const carritoController = {
   },
 
   deletefromshopcart: async (req, res) => {
-    const product = await Productos.findByPk(req.params.id, {
-      include: [{ association: "usuario" }],
-    });
-
+      
+    const product = await Productos.findByPk(req.params.id);
     let i = carrito[product.id];
-    console.log("el req params del carrito es: " + i);
-
-    if (i !== -1) {
-      carrito.splice(i, 1);
-    }
+        
+    console.log("=========================================================el req params del carrito es: " + i);
+    
+        if (i !== -1) {
+            carrito.splice(i, 1);
+        }
 
     console.log(carrito);
 
-    res.render("shop-cart2", { carrito: carrito });
+    res.render("shop-cart", { carrito: carrito });
+    //res.send(carrito)
   },
   // Compras de productos
 };

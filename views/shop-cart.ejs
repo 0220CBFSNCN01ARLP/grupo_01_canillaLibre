@@ -8,6 +8,7 @@
 
     <!-- carrito/javi-->
     
+    <!-- carrito/javi-->
     <section class="container bg-white mb-5 rounded-top">
         <div class="row">
             <!--Titulo-->
@@ -20,8 +21,8 @@
             <% for( let i = 0; i < carrito.length; i++ ) { %>
             
             <!--Primer Producto en el carro-->
-            <article class="Product_cart col-12">
-                <div class="item-cart">
+            <article class="cart-row Product_cart col-12">
+                <div class="cart-items item-cart">
                     <div class="media align-items-center p-3 d-flex justify-content-between">
                         <!--imagen - link a producto-->
                         <a class="col-2 col-md-2 ml-2" href="/products/<%= carrito[i].id %>">
@@ -38,36 +39,29 @@
                         </div>
                         <!--cantidad-->
                         <div class="col-1 d-flex justify-content-center">
-                            <form
-                            class="cantidad_item rounded"
-                            action="cantidad_item"
-                            method="POST"
-                            >
-                            <small id="email" class="form-text text-muted"
-                            >Cantidad
-                            </small>
+                            <form class="cantidad_item rounded" action="cantidad_item" method="POST">
+                            <small id="" class="form-text text-muted">Cantidad</small>
                             <div class="def-number-input number-input safari_only">
-                                <input type="number" class="form-control" style="width: 80px" id="cantidad" value="1"/>
+                                <input type="number" class="form-control" style="width: 80px" id="cantidad" value="1" min="1"/>
                             </div>
                             </form>
                         </div>
                     <!--precio-->
                     <div class="col-1 justify-content-end">
-                        <div id="precio" class="price_item">
-                        <div class="price_uni_item">
-                            <small class="form-text text-muted">Precio</small>
-                            <p class="price_tag_total p-2 rounded bg-transparent mb-0" style="width: 100px">
-                                $ <%= carrito[i].precioUnitario %>
-                            </p>
+                        <div class="price_item">
+                            <div class="price_uni_item">
+                                <small class="form-text text-muted">Precio</small>
+                                <p class="cart-price price_tag_total p-2 rounded bg-transparent mb-0" style="width: 100px" id="precio"> <%= carrito[i].precioUnitario %></p>
                             </div>
                         </div>
                     </div>
+                    
                     <!--descuento-->
                     <div class="col-1 justify-content-end">
                         <div id="precio" class="price_item">
                         <div class="price_uni_item">
                             <small class="form-text text-muted">Descuento</small>
-                            <p class="price_tag_total p-2 rounded bg-transparent mb-0" style="width: 100px">% <%= carrito[i].descuento %></p>
+                            <p class="price_tag_total p-2 rounded bg-transparent mb-0" style="width: 100px" id="descuento">% <%= carrito[i].descuento %></p>
                             </div>
                         </div>
                     </div>
@@ -76,7 +70,8 @@
                         <div id="precio" class="price_item">
                         <div class="price_uni_item">
                             <small class="form-text text-muted">Total</small>
-                            <p class="price_tag_total p-2 rounded bg-transparent mb-0" style="width: 100px">$ <%= carrito[i].precioUnitario -(carrito[i].precioUnitario * carrito[i].descuento /100) %></p>
+                            <p class="cart-total-price price_tag_total p-2 rounded bg-transparent mb-0" style="width: 100px" id="total" ></p>
+                            
                             </div>
                         </div>
                     </div>
@@ -93,9 +88,7 @@
                     <div class="dropdown-divider"></div>
                 </div>
             </article>
-
             <% } %>
-        
             <article
             class="price_total media col-12 col-sm-12 p-3 justify-content-center border-bottom"
             >
@@ -123,9 +116,19 @@
         
         </div>
     </section>
+    
 
     <!--footer/fran -->
     <%- include("partials/footer") %>
+
+    <script src="/js/storage.js"></script>
+    
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+      integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 
    
   </body>

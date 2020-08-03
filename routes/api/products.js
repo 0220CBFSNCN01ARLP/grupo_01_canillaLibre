@@ -8,6 +8,7 @@ const controller = require("../../controllers/api/productsController");
 
 //Todos los productos
 router.get("/products", controller.allproducts);
+
 //ultimo producto
 router.get("/products/lastproduct", controller.lastproduct);
 

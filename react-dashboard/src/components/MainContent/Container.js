@@ -89,7 +89,7 @@ class Container extends Component {
                         title="Haberes de Producto"
                         color="warning"
                         value="150"
-                        icon="fa-dollar"
+                        icon="fa-dollar-sign"
                     />
                     <InfoCard
                         title="Usuarios"
@@ -110,18 +110,22 @@ class Container extends Component {
                         <div className="row">
                             <ProductInfo
                                 title="Bebidas"
+                                icon="fa-beer"
                                 number={totalDeBebidas}
                             />
                             <ProductInfo
                                 title="Insumos"
+                                icon="fa-boxes"
                                 number={totalDeInsumos}
                             />
                             <ProductInfo
                                 title="Cursos"
+                                icon="fa-graduation-cap"
                                 number={totalDeCursos}
                             />
                             <ProductInfo
-                                title="Venderores"
+                                title="Vendedores"
+                                icon="fa-users"
                                 number={totalDeVendedores}
                             />
                         </div>

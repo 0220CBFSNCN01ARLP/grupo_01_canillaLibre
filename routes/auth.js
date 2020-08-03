@@ -36,11 +36,11 @@ router.post(
 	upload.single("avatar"),
 	[
 		check("firstname")
-			.isLength({ min: 5 })
-			.withMessage("Este campo debe estar completo"),
+			.isLength({ min: 2 })
+			.withMessage("El campo nombre no puede tenes menos de 2 caracteres"),
 		check("lastname")
-			.isLength({ min: 5 })
-			.withMessage("Este campo debe estar completo"),
+			.isLength({ min: 2 })
+			.withMessage("El campo apellido no puede tenes menos de 2 caracteres"),
 		check("email").isEmail().withMessage("Debe ser un email valido"),
 		//implementar middleware q calcule la edad minima requerida
 		//check("age")
@@ -86,6 +86,8 @@ router.get("/logout", authController.logout);
 //Profile //Read
 router.get("/profile", userMiddlware, authController.showProfile);
 
+//Profile //Publicaciones
+router.get("/myPublications", userMiddlware, authController.myPublications);
 
 //Profile //Update
 router.get("/editar/:id", authController.editProfile);

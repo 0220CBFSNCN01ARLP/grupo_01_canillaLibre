@@ -1,68 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <%- include("partials/head", {title: "Detalle de Producto"}) %>
-  </head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css" />
+</head>
 
-  <body class="bg_color">
+<body class="bg_color">
     <!--header-->
     <%- include("partials/header") %>
 
     <section class="container mt-5 mb-5">
         <div class="row d-flex justify-content-center">
-            <div class="col-xl-7 col-lg-7 col-md-9 col-sm-12 m-auto bg-white text-dark p-4 rounded animate__animated animate__zoomIn">
+            <div
+                class="col-xl-7 col-lg-7 col-md-9 col-sm-12 m-auto bg-white text-dark p-4 rounded animate__animated animate__zoomIn">
                 <!--titulo-->
                 <div class="register-title col-12">
                     <h2 class="title_categoria">
-                    <%= product.nombre %>
+                        <%= product.nombre %>
                     </h2>
                 </div>
                 <div class="dropdown-divider"></div>
                 <div class="media row d-flex align-items-center">
                     <div class="col-6 align-items-center d-flex justify-content-center mb-4">
-                    <!--imagen-->
-                        <img src="/upload/<%= product.imagen %>" alt="product image" width="200" class="product-detail-img" value="Show Images">
+                        <!--imagen-->
+                        <img src="/upload/<%= product.imagen %>" alt="product image" width="200"
+                            class="product-detail-img" value="Show Images">
                     </div>
-                    
+
                     <div class="media-body col-6 border-left">
                         <!--cantidad-->
-                        <h5 class="font-weight-light">Cantidad en Stock: <strong><%= product.stock %></strong></h4> 
-                        <!--precio-->
-                        <h5 class="font-weight-light"> Precio : <strong>$ <%= product.precioUnitario %></strong></h5>
-                        <!--descuento-->
-                        <span class=" bg-success text-white rounded-pill pr-2 pl-2 pt-1 pb-1">Descuento <%= product.descuento %>% <i class="fa fa-tag"></i></span>
-                        <!--rating-->
-                        <div class="star text-left p-2 d-none"> <!--desabilitado hasta que funcione como un rating-->
-                            <i class="fa fa-star"></i>
-                            <i classs="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <a class="link-comments" href=""><%= product.rating %> </a>
-                        </div>
+                        <h5 class="font-weight-light">Cantidad en Stock: <strong><%= product.stock %></strong></h4>
+                            <!--precio-->
+                            <h5 class="font-weight-light"> Precio : <strong>$ <%= product.precioUnitario %></strong>
+                            </h5>
+                            <!--descuento-->
+                            <span class=" bg-success text-white rounded-pill pr-2 pl-2 pt-1 pb-1">Descuento
+                                <%= product.descuento %>% <i class="fa fa-tag"></i></span>
+                            <!--rating-->
+                            <div class="star text-left p-2 d-none">
+                                <!--desabilitado hasta que funcione como un rating-->
+                                <i class="fa fa-star"></i>
+                                <i classs="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <a class="link-comments" href=""><%= product.rating %> </a>
+                            </div>
                     </div>
-                </div>    
+                </div>
                 <div class="row d-flex justify-content-center">
                     <small class="text-muted">
                         <div class="dropdown-divider"></div>
                         <i class="far fa-address-card "></i> usuario vendedor id: <%= product.usuario.id %></br>
                         <div class="dropdown-divider"></div>
-                    </small> 
+                    </small>
                 </div>
-    
 
-                <!-- comprar / agregar al carrito -->
-                <div class="col-12 d-flex justify-content-center mb-3">
-                <button type="submit" class="btn btn-outline-warning mr-2">
+            <div class="modal animate__bounceIn" tabindex="-1" role="dialog" id="ventana-modal">
+                <div class="modal-dialog modal-dialog-centered modal-xs">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Carrito de compras</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <p>El producto seleccionado, ha sido agregado al carrito</p>
+                        </div>
+                        <div class="modal-footer">
+                            <a href="/products">
+                                <button type="submit" class="btn btn-secondary" data-dismiss="modal"><i class="fas fa-beer"></i>
+                                    Seguir comprando</button>
+                            </a>
+                            <form action="/carrito/<%= product.id%>" method="POST">
+                                <a href="/carrito">
+                                    <button type="submit" class="btn btn-primary"> <i class="fas fa-shopping-basket"></i> Ir a
+                                        carrito</button>
+                                </a>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- comprar / agregar al carrito -->
+            <div class="col-12 d-flex justify-content-center mt-2 mb-3">
+            
+                <button type="submit" class="btn btn-outline-warning mr-2" id="btnModal">
                     <i class="fa fa-shopping-cart"></i> Agregar al Carrito
                 </button>
                 <button type="submit" class="btn btn-outline-warning ml-2">
                     Comprar
                 </button>
-                </div>
-                
+            </div>
+
+
+
+
                 <!--detalle de insumo-->
                 <div class="row p-0 ml-3 mr-auto border-secondary p-4">
                     <h3 class="col-12 font-weight-light">Detalle del Insumo</h3>
@@ -71,7 +109,7 @@
                         <li class="list-group-item">Origen</li>
                         <li class="list-group-item border-bottom-0">ProducId</li>
                     </ul>
-                    <ul class="list-group col-8 list-group-flush "> 
+                    <ul class="list-group col-8 list-group-flush ">
                         <li class="list-group-item"><%= insumo.marca %></li>
                         <li class="list-group-item"><%= insumo.origen %></li>
                         <li class="list-group-item"><%= insumo.productoId %></li>
@@ -80,20 +118,21 @@
                 <div class="row pl-4 pr-4 pt-4 m-auto">
                     <!--descripción de producto-->
                     <div class="list-group p-0 m-auto border-secondary">
-                    <div class="list-group-item">
-                        <div class="d-flex w-100 justify-content-between">
-                        <h5 class="mb-1">Descripción del Producto</h5>
+                        <div class="list-group-item">
+                            <div class="d-flex w-100 justify-content-between">
+                                <h5 class="mb-1">Descripción del Producto</h5>
+                            </div>
+                            <p class="mb-1"><%= product.descripcion %></p>
+                            <div class="dropdown-divider"></div>
+                            <small><i class="fas fa-info-circle"></i> Puede consultar al vendedor por más
+                                información</small>
                         </div>
-                        <p class="mb-1"><%= product.descripcion %></p>
-                        <div class="dropdown-divider"></div>
-                        <small><i class="fas fa-info-circle"></i> Puede consultar al vendedor por más información</small>
                     </div>
-                    </div>
-                
+
                     <!-- editar / borrar -->
-                    <% if (user != null && user.email == product.usuario.email) { %> 
-                        <%- include("partials/editButtons") %> 
-                        <% } %>
+                    <% if (user != null && user.email == product.usuario.email) { %>
+                    <%- include("partials/editButtons") %>
+                    <% } %>
                     <!--Buttom Alert-->
                 </div>
             </div>
@@ -102,6 +141,20 @@
     <!--footer-->
     <%- include("partials/footer") %>
 
+    <script src="/js/btnAgregarCarrito.js"></script>
 
-  </body>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+        crossorigin="anonymous"></script>
+
+
+
+</body>
+
 </html>

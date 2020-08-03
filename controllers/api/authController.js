@@ -26,7 +26,7 @@ const controller = {
             nombre: user.nombre,
             apellido: user.apellido,
             fecha_nac: user.fecha_nacimiento,
-            avatar: "/avatar/" + user.avatar,
+            avatar: user.avatar,
         };
         res.send(plainUser);
     },

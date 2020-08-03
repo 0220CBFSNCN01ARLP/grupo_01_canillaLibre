@@ -9,7 +9,4 @@ router.get("/profile", controller.showProfile);
 //usuarios por id
 router.get("/profile/:id", controller.showOneProfile);
 
-//sellers
-router.get("/seller", controller.sellers);
-
 module.exports = router;

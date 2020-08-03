@@ -11,6 +11,7 @@ import {
     getBebidas,
     getInsumos,
     getCursos,
+    getVendedores,
 } from "../../getDataFromServer";
 
 class Container extends Component {
@@ -21,6 +22,7 @@ class Container extends Component {
         getBebidas: [],
         getInsumos: [],
         getCursos: [],
+        getVendedores: [],
     };
 
     async updateState() {
@@ -43,6 +45,8 @@ class Container extends Component {
 
         const cursos = await getCursos();
         this.setState({ cursos });
+        const usuarios = await getVendedores();
+        this.setState({ usuarios });
     }
 
     stateInterval = null;
@@ -65,6 +69,7 @@ class Container extends Component {
         const totalDeBebidas = this.state.bebidas;
         const totalDeInsumos = this.state.insumos;
         const totalDeCursos = this.state.cursos;
+        const totalDeVendedores = this.state.usuarios;
 
         return (
             <div className="container-fluid">
@@ -114,6 +119,10 @@ class Container extends Component {
                             <ProductInfo
                                 title="Cursos"
                                 number={totalDeCursos}
+                            />
+                            <ProductInfo
+                                title="Venderores"
+                                number={totalDeVendedores}
                             />
                         </div>
                     </BigCard>

@@ -26,6 +26,13 @@ export async function getCursos() {
     return productsResult.cursos;
 }
 
+export async function getVendedores() {
+    const getResult = await fetch("http://localhost:3000/api/products");
+    const productsResult = await getResult.json();
+    console.log(productsResult.usuarios);
+
+    return productsResult.usuarios;
+}
 export async function getUsers() {
     const getResult = await fetch("http://localhost:3000/api/profile");
     const usersResult = await getResult.json();

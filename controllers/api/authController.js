@@ -30,22 +30,6 @@ const controller = {
         };
         res.send(plainUser);
     },
-
-    sellers: async (req, res) => {
-        const users = await Usuarios.findAll();
-        const plainUsers = users.map((user) => {
-            return {
-                id: user.id,
-                nombre: user.nombre,
-                apellido: user.apellido,
-                fecha_nac: user.fecha_nacimiento,
-                avatar: user.avatar,
-            };
-        });
-        console.log(user);
-
-        res.send({ count: plainUsers.length, users: plainUsers });
-    },
 };
 
 module.exports = controller;

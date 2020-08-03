@@ -15,6 +15,7 @@ const controller = {
         let bebidas = 0;
         let insumos = 0;
         let cursos = 0;
+
         const plainProduct = productos.map((product) => {
             if (product.tipoproducto === 1) {
                 bebidas++;
@@ -27,6 +28,7 @@ const controller = {
                     precio: product.precioUnitario,
                     descuento: product.descuento,
                     tipoproducto: "bebida",
+                    usuario: product.usuarioId,
                 };
             }
             if (product.tipoproducto === 2) {
@@ -40,6 +42,7 @@ const controller = {
                     precio: product.precioUnitario,
                     descuento: product.descuento,
                     tipoproducto: "insumo",
+                    usuario: product.usuarioId,
                 };
             }
             if (product.tipoproducto === 3) {
@@ -53,16 +56,27 @@ const controller = {
                     precio: product.precioUnitario,
                     descuento: product.descuento,
                     tipoproducto: "curso",
+                    usuario: product.usuarioId,
                 };
             }
         });
+        let usuariosPorTipoProd = [];
+        for (let user in plainProduct) {
+            usuariosPorTipoProd.push(plainProduct[user].usuario);
+        }
+
+        const usuariosTotalesPorTipoProd = usuariosPorTipoProd.filter(
+            (el, index) => usuariosPorTipoProd.indexOf(el) === index
+        );
 
         res.send({
             countProducts: plainProduct.length,
             bebidas: bebidas,
             insumos: insumos,
             cursos: cursos,
+            usuarios: usuariosTotalesPorTipoProd.length,
             products: plainProduct,
+            usuario: plainProduct.usuario,
         });
     },
 

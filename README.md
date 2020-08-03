@@ -1,4 +1,3 @@
-Hola
 # PROYECTO INTEGRADOR - Digital House
 
 ## Proyecto e-commerce
@@ -11,9 +10,22 @@ Franco Martin
 <br>Diego Ratti
 <br>Javier Solari Paz
 
-### Repositorio - github:
+-   ### Repositorio - github:
 
 https://github.com/zapiralos/grupo_01_canillaLibre.git
+
+-   ### Tablero de Trabajo en Trello
+
+https://trello.com/b/MmC3LzMI/grupo01canillalibre
+
+-   ### Documentación:
+    DER<br>
+    Script de Poblacion de Tablas<br>
+    Imagenes para crear publicaciones<br>
+
+https://trello.com/b/MmC3LzMI/grupo01canillalibre
+
+---
 
 ### Objetivo:
 
@@ -29,6 +41,8 @@ Plataforma de comercio electrónico para el rubro Cervecero.
 <br>- Podcast
 
 ### Audiencia:
+
+Todo publico mayor de 18 años.
 
 #### Vendedores:
 
@@ -56,15 +70,44 @@ https://reverb.com/ (intrumentos musicales-usa). Se eligio por funcionamiento. E
 
 https://www.mercadolibre.com.ar/ (varios - argentina) El sitio de subastas por excelencia en Argentina y Latinoamerica. Excelente interfaz grafica, y proceso de compra-venta-ditribucion online. Seguridad en transacciones
 
-https://www.globomatik.com/ (informatica-espana) Sitio de compra venta especializada en articulos de informatica. Se eligio por funcionamiento
-
-https://www.amazon.com/-/es/Equipo-Suministros-Servicio-Alimentos/b?ie=UTF8&node=6054382011 (amazon suminsitro alimentos -usa). E-commerce global, con variedad de secciones. En este caso se enfoco en articulos de alimentacion (para ver sobre todo catalogos, disposicion de imagenes, seguridad de compra)
-
 https://craftcentral.ie/ (eshop cerveza -irlanda). Eshop especifico de erveza en Irlanda. Se eligio por estetica del site y variedad de productos para venta.
 
-https://www.cervemur.es/tipos-de-cerveza (Web info cervezas) Aqui obtuvimos informacion acerca de las clases y estilos de cervezas artesanles e importadas que brindaremos en nuestra web.
+https://drizly.com/beer/c2 (Web info cervezas) Aqui obtuvimos informacion acerca de las clases y estilos de cervezas artesanles e importadas que brindaremos en nuestra web.
 
-Sprint 2
-Entregable N 2
+---
 
-https://trello.com/b/MmC3LzMI/grupo01canillalibre
+-   ## API´s - Productos:
+
+#### **GET:**
+
+#### Muestra la cantidad y todos los productos:
+
+/api/products/
+
+#### Muestra el detalle de cada producto y su relación con tablas y usuarios: que genera la publicación
+
+/api/products/:id
+
+#### Muestra el último producto cargado en la DataBase:
+
+/api/products/lastproduct
+
+#### **DELETE:**
+
+#### Borrar producto:
+
+/api/products/:id
+
+-   ## API´s - Usuarios:
+
+#### **GET:**
+
+#### Muestra la cantidad y todos los usuarios:
+
+/api/profile/
+
+#### Muestra el detalle de cada usuario
+
+/api/profile/:id
+
+---

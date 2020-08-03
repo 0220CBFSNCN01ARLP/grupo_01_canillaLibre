@@ -5,7 +5,6 @@ const {
     Bebidas,
     Insumos,
     Cursos,
-    Usuarios,
 } = require("../../database/models");
 
 const controller = {
@@ -101,8 +100,13 @@ const controller = {
         const products = await Productos.findAll();
 
         let ultimoProduct = products.pop();
-        console.log("================================" + ultimoProduct);
-        res.send(ultimoProduct);
+        let muestraUlitmoProduct = {
+            nombre: ultimoProduct.nombre,
+            descripcion: ultimoProduct.descripcion,
+            imagen: ultimoProduct.imagen,
+        };
+
+        res.send(muestraUlitmoProduct);
     },
 
     destroyOne: async (req, res) => {

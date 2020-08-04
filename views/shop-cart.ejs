@@ -22,7 +22,7 @@
             
             <!--Primer Producto en el carro-->
             <article class="prod Product_cart col-12" id="prod">
-                <div class="cart-items item-cart">
+                <div class="cart-items item-cart" id="prod2">
                     <div class="media align-items-center p-3 d-flex justify-content-between">
                         <!--imagen - link a producto-->
                         <a class="col-2 col-md-2 ml-2" href="/products/<%= carrito[i].id %>">
@@ -105,12 +105,13 @@
                 <h4 class="mt-0 text-warning">$ 2492.80</h4>
             </div>
             </article>
+
             <article
             class="comprar media bg-warning col-12 col-sm-12 p-3 ml-auto align-items-center rounded-bottom"
             >
             <div class="w-100 d-flex justify-content-center">
-                <!-- boton registrarse -->
-                <button type="submit" class="btn btn-light d-flex">Comprar</button>
+                <!-- boton comprar -->
+                <button type="submit" class="btn btn-light d-flex" id="submit">Comprar</button>
             </div>
             </article>
         

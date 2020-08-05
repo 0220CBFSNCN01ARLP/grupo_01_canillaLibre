@@ -13,21 +13,32 @@
 }
 
 /*-------------HEADER-------------*/
+.nav-header {
+    font-family: "Lato", sans-serif;
+}
+
 .navborder {
     border-bottom: 2px solid var(--azul_oscuro);
+    padding-left: 10%;
+    padding-right: 10%;
 }
 
 .navbar {
     padding-bottom: 0px !important;
-    padding: 0.5rem 0.5rem;
+    padding: 0px;
+}
+
+.navbar_inf {
+    padding-right: 10%;
 }
 
 .navbar-brand {
-    padding-bottom: 0px !important;
+    padding-bottom: 0px;
 }
 
 .nav-link {
     padding: 1rem 0.5rem;
+    margin-left: 0.5em;
 }
 
 .box-1 {
@@ -36,22 +47,39 @@
 }
 
 .box-2 {
-    padding: 1em;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    padding-left: 11%;
+    padding-right: 11%;
 }
 
 /*--------------MAIN--------------*/
+
 .categorias-title {
     text-align: center;
-    padding: 2em;
+    color: grey;
+    margin-left: 8%;
+    margin-right: 8%;
 }
 .title_categoria {
-    font-weight: 300;
-    padding-bottom: 0.5em;
-    border-bottom: var(--verde);
+    font-family: "Lato", sans-serif;
+    font-size: x-large;
+    font-weight: 400;
+    padding-bottom: 0.1em;
 }
 
-/*-----------CATEGORIAS-----------*/
-
+/*-----------Newsletter-----------*/
+.categorias-title .newsletter {
+    text-align: center;
+    color: White;
+    border-bottom: 1px solid white;
+}
+.title_categoria .newsletter {
+    font-family: "Lato", sans-serif;
+    font-size: x-large;
+    font-weight: 400;
+    padding-bottom: 0.1em;
+}
 /*-----------PRODUCTOS-----------*/
 
 .box-6 {
@@ -59,17 +87,16 @@
     border-radius: 5px;
     overflow: hidden;
     transition: 300ms;
-    margin: 20px 0;
-    
+    margin: 20px 1px;
 }
-.box-6:hover{
+.box-6:hover {
     box-shadow: 2px 2px 2px 3px rgba(192, 192, 192, 0.2);
     width: 110% !important;
 }
-.box-6:hover p{
+.box-6:hover p {
     height: 40px;
     margin-top: 15px;
-  }
+}
 .box-6 img {
     width: 140px;
 }
@@ -77,10 +104,10 @@
     display: block;
     text-decoration: none;
 }
-.box-6 .image{
+.box-6 .image {
     border-bottom: 1px solid var(--light-gray);
 }
-.box .info{
+.box .info {
     padding: 15px;
     position: relative;
     display: flex;
@@ -89,20 +116,21 @@
 }
 .box-6 h5 {
     color: gray;
+    font-family: "Lato", sans-serif;
     font-size: 1.5em;
-    font-weight: 300;
+    font-weight: 400;
     margin: 0;
 }
 .box-6 h6 {
     font-size: 1em;
-    font-family: 'Lato', sans-serif;
+    font-family: "Lato", sans-serif;
     font-weight: 900;
     color: var(--green);
     margin: 0 0 0 10px;
 }
 .box-6 p {
-    font-family: 'Lato', sans-serif;
-    font-weight: 400;
+    font-family: "Lato", sans-serif;
+    font-weight: 300;
     font-size: 1em;
     width: 100%;
     color: var(--gray);
@@ -112,22 +140,19 @@
     overflow: hidden;
 }
 
-
-
-
 /*--------------VENDE--------------*/
-.beerContainer{
+.beerContainer {
     width: 100%;
     height: 100%;
     position: relative;
 }
 .beer {
-    right:0px;
+    right: 0px;
 }
 .beer_cup {
     z-index: 10;
     width: 100%;
-}    
+}
 
 /*---------- Mas vendidos ----------*/
 .product-box {
@@ -166,8 +191,6 @@
     color: black;
     font-size: 0.8em;
 }
-
-/* Newsltetter */
 
 /* Footer */
 .box-f {
@@ -243,11 +266,9 @@
     .categorias-title {
         padding: 1em;
     }
-
 }
 
 @media (min-width: 375px) {
-  
 }
 
 @media (min-width: 768px) {
@@ -258,14 +279,10 @@
     .box-2 {
         display: none;
     }
-
- 
 }
 
 @media (min-width: 1024px) {
-
 }
 
 @media (min-width: 1440px) {
-   
 }

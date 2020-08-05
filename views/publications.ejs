@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <%- include("partials/head", {title: "Mis Publicaciones"}) %>
+    </head>
+
+    <body>
+        <!--header/javi -->
+        <%- include("partials/header") %>
+
+        <div class="categorias-title">
+            <h2 class="title_categoria border-bottom">Mis Publicaciones</h2>
+            <div class="container p-0 m-0 d-inline-flex">
+                <div
+                    class="row d-flex justify-content-around m-auto align-items-end"
+                >
+                    <!--render de producto-->
+                    <% for( let products of productos ) { %>
+                    <div class="box-6 rounded col-8 col-sm-6 col-lg-3">
+                        <a href="/products/<%=products.id%>">
+                            <div class="image m-auto">
+                                <img
+                                    src="/upload/<%=products.imagen%>"
+                                    alt="imagen"
+                                />
+                            </div>
+                            <div
+                                class="info row d-flex flex-wrap align-items-baseline justify-content-center mt-3"
+                            >
+                                <h5 class="col-12">
+                                    $ <%=products.precioUnitario%>
+                                </h5>
+                                <h6 class="col-12">
+                                    <i class="fas fa-tag"></i>
+                                    <%=products.descuento%>
+                                    <i class="fas fa-percentage"></i>OFF
+                                </h6>
+                                <p class="col-12"><%=products.nombre%></p>
+                            </div>
+                        </a>
+                    </div>
+                    <% } %>
+                </div>
+            </div>
+        </div>
+
+        <!--footer/fran -->
+        <%- include("partials/footer") %>
+    </body>
+</html>

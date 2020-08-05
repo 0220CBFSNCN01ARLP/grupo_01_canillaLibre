@@ -45,6 +45,7 @@ class Container extends Component {
 
         const cursos = await getCursos();
         this.setState({ cursos });
+
         const usuarios = await getVendedores();
         this.setState({ usuarios });
     }

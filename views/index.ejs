@@ -14,53 +14,53 @@
             <%- include("partials/body_ventas") %>
 
             <!--Section Product/Bebidas -->
-            <div class="categorias-title">
+            <div id="bebidas" class="categorias-title">
                 <h2 class="title_categoria border-bottom">Bebidas</h2>
                 <div class="container p-0 m-0 d-inline-flex">
-                    <div class="row d-flex justify-content-around m-auto align-items-end">
-                        <% for( let product of products ) { 
-                            if(product.tipoproducto == 1) {  %>
-                                <%- include("partials/body_products", {product}) %>
-                            <% } 
-                        } %>
+                    <div
+                        class="row d-flex justify-content-around m-auto align-items-end"
+                    >
+                        <% for( let product of products ) {
+                        if(product.tipoproducto == 1) { %> <%-
+                        include("partials/body_products", {product}) %> <% } }
+                        %>
                     </div>
                 </div>
             </div>
 
-            <!--Section Product/Bebidas -->
-            <div class="categorias-title">
+            <!--Section Product/Insumos -->
+            <div id="insumos" class="categorias-title">
                 <h2 class="title_categoria border-bottom">Insumos</h2>
                 <div class="container p-0 m-0 d-inline-flex">
-                    <div class="row d-flex justify-content-around m-auto align-items-end">
-                        <% for( let product of products ) { 
-                            if(product.tipoproducto == 2) {  %>
-                                <%- include("partials/body_products", {product}) %>
-                            <% } 
-                        } %>
+                    <div
+                        class="row d-flex justify-content-around m-auto align-items-end"
+                    >
+                        <% for( let product of products ) {
+                        if(product.tipoproducto == 2) { %> <%-
+                        include("partials/body_products", {product}) %> <% } }
+                        %>
                     </div>
                 </div>
             </div>
 
-            <!--Section Product/Bebidas -->
-            <div class="categorias-title">
+            <!--Section Product/Cursos -->
+            <div id="cursos" class="categorias-title">
                 <h2 class="title_categoria border-bottom">Cursos</h2>
                 <div class="container p-0 m-0 d-inline-flex">
-                    <div class="row d-flex justify-content-around m-auto align-items-end">
-                        <% for( let product of products ) { 
-                            if(product.tipoproducto == 3) {  %>
-                                <%- include("partials/body_products", {product}) %>
-                            <% } 
-                        } %>
+                    <div
+                        class="row d-flex justify-content-around m-auto align-items-end"
+                    >
+                        <% for( let product of products ) {
+                        if(product.tipoproducto == 3) { %> <%-
+                        include("partials/body_products", {product}) %> <% } }
+                        %>
                     </div>
                 </div>
             </div>
 
-            
-            
-            
             <!--Section Ofertas/diego -->
             <%- include("partials/body_ofertas") %>
-            
+
             <!--newsletter/franco -->
             <%- include("partials/body_newsletter") %>
         </main>

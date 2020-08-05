@@ -1,11 +1,5 @@
 const express = require("express");
 const router = express.Router();
-const multer = require("multer");
-const path = require("path");
-const { check, validationResult, body } = require("express-validator");
-
-const guestMiddleware = require("../middlewares/guestMiddleware");
-const userMiddleware = require("../middlewares/userMiddlware");
 
 // ************ Controllers ************
 const carritoController = require("../controllers/carritoController");

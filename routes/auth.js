@@ -3,8 +3,6 @@ const router = express.Router();
 const multer = require("multer");
 const path = require("path");
 const { check, validationResult, body } = require("express-validator");
-const fs = require("fs");
-const { Usuarios } = require("../database/models");
 
 //Este middleware sirve para cortar proceso Ej. Register si req.session.usuarioLogeado tiene valor
 const guestMiddleware = require("../middlewares/guestMiddleware");
@@ -28,57 +26,61 @@ var upload = multer({ storage: storage });
 
 const authController = require("../controllers/authController");
 
-
 //Registro - //Create
 router.get("/register", authController.showRegister);
 router.post(
-	"/register",
-	upload.single("avatar"),
-	[
-		check("firstname")
-			.isLength({ min: 2 })
-			.withMessage("El campo nombre no puede tenes menos de 2 caracteres"),
-		check("lastname")
-			.isLength({ min: 2 })
-			.withMessage("El campo apellido no puede tenes menos de 2 caracteres"),
-		check("email").isEmail().withMessage("Debe ser un email valido"),
-		//implementar middleware q calcule la edad minima requerida
-		//check("age")
-		//    .isInt({ min: 18 })
-		//    .withMessage("Debe ser mayor de 18 años"),
-		check("pass").isLength({ min: 6 }).withMessage("Password Incorrecta"),
-		//check("pass2").equals(body.pass).withMessage("Debe repetir la contraseña"),
-	],
+    "/register",
+    upload.single("avatar"),
+    [
+        check("firstname")
+            .isLength({ min: 2 })
+            .withMessage(
+                "El campo nombre no puede tenes menos de 2 caracteres"
+            ),
+        check("lastname")
+            .isLength({ min: 2 })
+            .withMessage(
+                "El campo apellido no puede tenes menos de 2 caracteres"
+            ),
+        check("email").isEmail().withMessage("Debe ser un email valido"),
+        //implementar middleware q calcule la edad minima requerida
+        //check("age")
+        //    .isInt({ min: 18 })
+        //    .withMessage("Debe ser mayor de 18 años"),
+        check("pass").isLength({ min: 6 }).withMessage("Password Incorrecta"),
+        //check("pass2").equals(body.pass).withMessage("Debe repetir la contraseña"),
+    ],
 
-	authController.register
+    authController.register
 );
 
 //Login //Read
 router.get("/login", guestMiddleware, authController.showLogin);
 router.post(
-	"/login",
+    "/login",
 
-	check("email").isEmail().withMessage("Debe poner un email valido"),
-	check("pass").isLength({min:8}).withMessage("La password debe tener al menos 8 caracteres")
-	// body("email")
-	// 	.custom((value) => async (req, res) =>  {
+    check("email").isEmail().withMessage("Debe poner un email valido"),
+    check("pass")
+        .isLength({ min: 8 })
+        .withMessage("La password debe tener al menos 8 caracteres"),
+    // body("email")
+    // 	.custom((value) => async (req, res) =>  {
 
-	// 		const users = await Usuarios.find(
-	// 			 { email: req.body.email }
+    // 		const users = await Usuarios.find(
+    // 			 { email: req.body.email }
 
-	// 		);
+    // 		);
 
-	// 		if (users.email == value) {
-	// 			return false;
-	// 		}
-	// 		return true;
+    // 		if (users.email == value) {
+    // 			return false;
+    // 		}
+    // 		return true;
 
-	// 	},
-	// 		)
-	// 		.withMessage("Email no registrado")]
-	,authController.login
+    // 	},
+    // 		)
+    // 		.withMessage("Email no registrado")]
+    authController.login
 );
-
 
 //Logout
 router.get("/logout", authController.logout);
@@ -86,20 +88,18 @@ router.get("/logout", authController.logout);
 //Profile //Read
 router.get("/profile", userMiddlware, authController.showProfile);
 
-//Profile //Publicaciones
-router.get("/myPublications", userMiddlware, authController.myPublications);
-
 //Profile //Update
 router.get("/editar/:id", authController.editProfile);
-router.post("/editar/:id", upload.single("avatar"), authController.updateProfile);
-
+router.post(
+    "/editar/:id",
+    upload.single("avatar"),
+    authController.updateProfile
+);
 
 //Profile //Delete
 router.post("/delete/:id", authController.deleteProfile);
 
-
-
-//Prueb para ver si estas logueado en la Session
+//Prueba para ver si estas logueado en la Session
 router.get("/check", function (req, res) {
     if (req.session.usuarioLogueado == undefined) {
         res.send("No estas logueado");

@@ -1,4 +1,4 @@
-const { Usuarios, Productos } = require("../../database/models");
+const { Usuarios } = require("../../database/models");
 
 const controller = {
     showProfile: async (req, res) => {

@@ -3,7 +3,6 @@ function userMiddleware(req, res, next) {
         next();
     } else {
         res.render("notPermission");
-        //res.send("Esta pagina es solo para usuarios Logueados");
     }
 }
 

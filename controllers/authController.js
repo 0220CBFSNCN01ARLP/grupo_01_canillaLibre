@@ -33,7 +33,7 @@ const controller = {
             // validation
 
             if (userlog !== null) {
-                res.send("El usuario se encuentra registrado");
+                res.render("emailExists");
             } else {
                 //registro de nuevo usuario
 

@@ -88,6 +88,7 @@
     overflow: hidden;
     transition: 300ms;
     margin: 30px 3px;
+    min-width: 170px;
 }
 .box-6:hover {
     box-shadow: 2px 2px 2px 3px rgba(192, 192, 192, 0.2);

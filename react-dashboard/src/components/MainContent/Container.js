@@ -87,13 +87,13 @@ class Container extends Component {
                         icon="fa-beer"
                     />
                     <InfoCard
-                        title="Haberes de Producto"
+                        title="Usuarios Vendedores"
                         color="warning"
-                        value="150"
-                        icon="fa-dollar-sign"
+                        value={totalDeVendedores}
+                        icon="fa-users"
                     />
                     <InfoCard
-                        title="Usuarios"
+                        title="Usuarios Registrados"
                         color="warning"
                         value={usersCounts}
                         icon="fa-user"
@@ -123,11 +123,6 @@ class Container extends Component {
                                 title="Cursos"
                                 icon="fa-graduation-cap"
                                 number={totalDeCursos}
-                            />
-                            <ProductInfo
-                                title="Vendedores"
-                                icon="fa-users"
-                                number={totalDeVendedores}
                             />
                         </div>
                     </BigCard>

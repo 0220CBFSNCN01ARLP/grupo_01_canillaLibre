@@ -22,8 +22,9 @@ https://trello.com/b/MmC3LzMI/grupo01canillalibre
     DER<br>
     Script de Poblacion de Tablas<br>
     Imagenes para crear publicaciones<br>
-
-https://trello.com/b/MmC3LzMI/grupo01canillalibre
+    Retroespectivas<br>
+    Weekly´s<br>
+    Wireframes
 
 ---
 

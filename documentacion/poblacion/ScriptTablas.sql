@@ -17,7 +17,7 @@ CREATE TABLE `medio` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
 
 -- canillalibre.presentacion definition
 
@@ -26,7 +26,7 @@ CREATE TABLE `presentacion` (
   `nombre` varchar(100) DEFAULT NULL,
   `capacidad` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=36 DEFAULT CHARSET=utf8mb4;
 
 -- canillalibre.usuarios definition
 
@@ -43,8 +43,9 @@ CREATE TABLE `usuarios` (
   `create_at` timestamp NULL DEFAULT NULL,
   `update_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
+  KEY `usuarios_fk` (`comprasId`),
   CONSTRAINT `usuarios_fk` FOREIGN KEY (`comprasId`) REFERENCES `compras` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4;
 
 -- canillalibre.producto definition
 
@@ -64,7 +65,7 @@ CREATE TABLE `producto` (
   PRIMARY KEY (`id`),
   KEY `FK` (`usuarioId`),
   CONSTRAINT `producto_fk` FOREIGN KEY (`usuarioId`) REFERENCES `usuarios` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=117 DEFAULT CHARSET=utf8mb4;
 
 -- canillalibre.bebidas definition
 
@@ -72,10 +73,9 @@ CREATE TABLE `bebidas` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `productoId` int(11) DEFAULT NULL,
   `Marca` varchar(100) NOT NULL,
-  `descuento` int(11) DEFAULT NULL,
   `envio` tinyint(1) DEFAULT NULL,
   `ibu` int(11) DEFAULT NULL,
-  `alcohol` int(11) DEFAULT NULL,
+  `alcohol` decimal(3,1) DEFAULT NULL,
   `presentacionId` int(11) DEFAULT NULL,
   `create_at` timestamp NULL DEFAULT NULL,
   `update_at` timestamp NULL DEFAULT NULL,
@@ -84,7 +84,7 @@ CREATE TABLE `bebidas` (
   KEY `bebidas_fk_1` (`presentacionId`),
   CONSTRAINT `bebidas_fk` FOREIGN KEY (`productoId`) REFERENCES `producto` (`id`),
   CONSTRAINT `bebidas_fk_1` FOREIGN KEY (`presentacionId`) REFERENCES `presentacion` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=53 DEFAULT CHARSET=utf8mb4;
 
 -- canillalibre.comprasproductos definition
 
@@ -115,7 +115,7 @@ CREATE TABLE `cursos` (
   KEY `cursos_fk_1` (`medioId`),
   CONSTRAINT `cursos_fk` FOREIGN KEY (`productoId`) REFERENCES `producto` (`id`),
   CONSTRAINT `cursos_fk_1` FOREIGN KEY (`medioId`) REFERENCES `medio` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8mb4;
 
 -- canillalibre.insumos definition
 
@@ -130,7 +130,7 @@ CREATE TABLE `insumos` (
   PRIMARY KEY (`id`),
   KEY `FK` (`productoId`),
   CONSTRAINT `insumos_fk` FOREIGN KEY (`productoId`) REFERENCES `producto` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4;
 
 -- canillalibre.direccion definition
 
@@ -145,5 +145,6 @@ CREATE TABLE `direccion` (
   `create_at` timestamp NULL DEFAULT NULL,
   `update_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
+  KEY `usuarioId` (`usuarioId`),
   CONSTRAINT `usuarioId` FOREIGN KEY (`usuarioId`) REFERENCES `usuarios` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;

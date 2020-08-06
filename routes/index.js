@@ -11,6 +11,11 @@ router.get("/", async (req, res, next) => {
     res.render("index", { products });
 });
 
+/* GET team */
+router.get("/nosotros", function (req, res){
+    res.render("team");
+})
+
 /* Product_cart*/
 router.get("/product_cart.ejs", function (req, res) {
     res.render("product_cart");

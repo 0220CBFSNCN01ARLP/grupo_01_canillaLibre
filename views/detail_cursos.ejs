@@ -60,7 +60,7 @@
                 </div>
 
                <!-- carrito y compras -->
-                    <% if (user != null && user.email !== product.usuario.email) { %>
+                    <% if (user == null ||  user.email !== product.usuario.email) { %>
                        <%- include("partials/shopButtons") %>
                      <% } %>
                 <!--detalle de curso-->

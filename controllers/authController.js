@@ -55,7 +55,7 @@ const controller = {
                     fecha_nacimiento: req.body.date,
                 });
 
-                return res.render("profile", { user });
+                return res.redirect("/profile");
             }
         } else {
             return res.render("register", { errors: errors.errors });

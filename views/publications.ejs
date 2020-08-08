@@ -11,14 +11,16 @@
         <%- include("partials/header") %>
 
         <div class="categorias-title">
-            <h2 class="title_categoria border-bottom">Mis Publicaciones</h2>
+            <h2 class="title_categoria border-bottom">
+                <i class="fas fa-store"></i> Mis Publicaciones
+            </h2>
             <div class="container p-0 m-0 d-inline-flex">
                 <div
                     class="row d-flex justify-content-around m-auto align-items-end"
                 >
                     <!--render de producto-->
                     <% for( let products of productos ) { %>
-                    <div class="box-6 rounded col-8 col-sm-6 col-lg-3">
+                    <div class="box-6 rounded col-8 col-sm-6 col-lg-2">
                         <a href="/products/<%=products.id%>">
                             <div class="image m-auto">
                                 <img

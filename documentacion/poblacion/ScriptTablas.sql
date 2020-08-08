@@ -122,7 +122,7 @@ CREATE TABLE `cursos` (
 CREATE TABLE `insumos` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `productoId` int(11) DEFAULT NULL,
-  `envio` tinyint(1) NOT NULL,
+  `envio` tinyint(1) DEFAULT NULL,
   `create_at` timestamp NULL DEFAULT NULL,
   `update_at` timestamp NULL DEFAULT NULL,
   `origen` varchar(100) DEFAULT NULL,
@@ -148,3 +148,5 @@ CREATE TABLE `direccion` (
   KEY `usuarioId` (`usuarioId`),
   CONSTRAINT `usuarioId` FOREIGN KEY (`usuarioId`) REFERENCES `usuarios` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+

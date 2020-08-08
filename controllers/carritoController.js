@@ -18,7 +18,7 @@ const carritoController = {
         const product = await Productos.findByPk(req.params.id, {
             include: [{ association: "usuario" }],
         });
-        console.log("los pprdocutos que levantan son " + product);
+
         if (!req.session.carrito) {
             req.session.carrito = [];
         }

@@ -12,18 +12,21 @@ router.get("/", async (req, res, next) => {
             [Op.or]: [{ tipoproducto: 1 }],
         },
         limit: 10,
+        order: [["id", "DESC"]],
     });
     const insumos = await Productos.findAll({
         where: {
             [Op.or]: [{ tipoproducto: 2 }],
         },
         limit: 10,
+        order: [["id", "DESC"]],
     });
     const cursos = await Productos.findAll({
         where: {
             [Op.or]: [{ tipoproducto: 3 }],
         },
         limit: 10,
+        order: [["id", "DESC"]],
     });
 
     res.render("index", { bebidas, insumos, cursos });

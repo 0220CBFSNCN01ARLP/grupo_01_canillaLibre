@@ -55,6 +55,8 @@ const controller = {
                     fecha_nacimiento: req.body.date,
                 });
 
+                req.session.usuarioLogueado = user;
+
                 return res.render("profile", { user });
             }
         } else {

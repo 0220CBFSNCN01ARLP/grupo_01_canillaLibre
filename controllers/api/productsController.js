@@ -76,7 +76,6 @@ const controller = {
             cursos: cursos,
             usuarios: usuariosTotalesPorTipoProd.length,
             products: plainProduct,
-            usuario: plainProduct.usuario,
         });
     },
 

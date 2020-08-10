@@ -1,3 +1,7 @@
+DROP DATABASE IF EXISTS `canillalibre`;
+CREATE DATABASE `canillalibre`;
+USE `canillalibre`;
+
 -- MariaDB dump 10.17  Distrib 10.4.11-MariaDB, for Win64 (AMD64)
 --
 -- Host: localhost    Database: canillaLibre

@@ -112,3 +112,6 @@ https://drizly.com/beer/c2 (Web info cervezas) Aqui obtuvimos informacion acerca
 /api/profile/:id
 
 ---
+
+![Home](https://user-images.githubusercontent.com/62221725/90283456-a4ab7b00-de46-11ea-90f0-4587630f8083.png)
+
